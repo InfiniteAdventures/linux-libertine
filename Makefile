@@ -6,7 +6,8 @@ TOPDIR:=$(shell pwd)
 TARGET=$(TOPDIR)/target
 TEXOUTPUT=$(TARGET)/tex
 # PDFLATEXPARAM=-interaction=nonstopmode
-PDFLATEXPARAM=-recorder
+# PDFLATEXPARAM=-recorder
+PDFLATEXPARAM=
 
 TEXFILES=$(wildcard *.tex)
 #PDFTESTFILES=$(patsubst %.tex, $(TEXOUTPUT)/%.pdf ,$(TESTFILES))

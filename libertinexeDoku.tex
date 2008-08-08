@@ -1,5 +1,17 @@
+%
+% $Id$
+%
 \documentclass{fontdoku}
 \usepackage[debug]{libertinexe}
+%
+\cfoot{\Huge\libertineLogo\hfill\pagemark\hfill\libertineLogo}
+%
+\def\TEXT{%
+Dies ist ein Text mit Zahlen 1234567890!\newline%
+öäüß ÖÄÜ\quad ff fi fl ffi ffl\quad Hamburg\quad Quelle\newline%
+Am 30.4.1987 saß ich im \glqq{}Caf\'e Hamburg\grqq{} und schlürfte Kaffee für 2,65\,\libertineEuro!
+}
+%
 
 \begin{document}
 \thispagestyle{empty}
@@ -7,33 +19,253 @@
 \begin{minipage}{\linewidth}%
    \centering%
    \libertine\fontsize{36pt}{40pt}\selectfont%
-   \textcolor{red}{\char9753}\quad%
+   \textcolor{red}{\libertineGlyph{uni2619}}\quad%
    \fontsize{36pt}{40pt}\selectfont Linux Libertine Open\par
    \hfill\fontsize{36pt}{40pt}\selectfont Fonts Project\quad%
-   \fontsize{36pt}{40pt}\selectfont\textcolor{red}{\char10087%
-   }\par
+   \fontsize{36pt}{40pt}\selectfont\textcolor{red}{\libertineGlyph{uni2767}}\par
 \end{minipage}
 
 \vfill
 \begin{center}
-   \fontsize{46pt}{46pt}\selectfont%
-   Dokumentation -- \XeLaTeX
+   \fontsize{46pt}{46pt}\selectfont Dokumentation
 \end{center}
 
 \vfill
 \begin{center}\fontsize{20pt}{18pt}\selectfont
-Font: Philipp H. Poll\par \LaTeX-Einbindung: Michael Niedermair
+Font: Philipp H. Poll\par \XeLaTeX-Einbindung: Michael Niedermair
 \end{center}
 
 \vfill
 \begin{center}
-%{\fontsize{6cm}{6cm}\selectfont\char"E00A}%
+{\fontsize{6cm}{6cm}\selectfont\libertineGlyph{uniE00A}}%
 \hfill\fontsize{20pt}{18pt}\selectfont\today
 \end{center}
 \newpage
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+% ----------------------------------------------------------------
+
+\section{Aufruf}
+
+Das \emph{libertinexe}-Paket wird mit dem \emph{usepackage}-Makro aufgerufen.
+
+\begin{lstlisting}
+\usepackage[<optionen>]{libertinexe}
+\end{lstlisting}
+
+Folgende Optionen sind dabei möglich:
+\begin{description}[\setlabelphantom{noamsmath}]
+\item [debug] Alle Aufrufparameter werden auf der Konsole ausgegeben.
+\item [noamsmath] Das Laden des \emph{amsmath}-Paket wird nicht durchgeführt.\\
+      Achtung: Alle Mathematik-Fonts müssen vor dem \emph{libertinexe}-Paket
+      geladen werden!
+\item [lucida] Es wird das Lucida-Font-Paket%
+      \footnote{\texttt{\textbackslash usepackage[expert]\{lucidabr\}}}
+      vor der Schrift \emph{libertine} geladen.
+\item [rawfeature] Es können direkt die \emph{rawfeature} vom \emph{fontspec}-Paket genutzt werden.
+      Ein '+' fügt ein feature hinzu, ein '-' entfernt dieses.
+\item [langauge] Es wird eine Sprache für den Font aktiviert.
+\item [script]   Es wird ein Skript (in Abhängigkeit zur Sprache) für den Font aktiviert.
+\end{description}
+
+\section{spezielle Makros}
+
+\begin{description}
+\item [\textbackslash libertine] XXX
+\item [\textbackslash libertineFeature] XXX
+\item [\textbackslash libertineGlyph] XXX
+\item [\textbackslash libertineEuro] XXX
+\item [\textbackslash libertineLogo] XXX
+\end{description}
+
+
+\section{Fonteinstellungen}
+
+\subsection{feature tags}
+
+Mit den \emph{feature}-Tags werden bestimmte eigenschaften des Fonts aktiviert.
+Die Aktivierung der Tags erfolgt mit dem Makro \emph{libertineFeature}\footnote{Alternativ kann auch der \emph{fontspec}-Befehl \texttt{\textbackslash addfontfeature} verwendet werden.}.
+Der \emph{libertine}-Font unterstützt folgende Tags:%
 
 
 
-test
+
+\minisec{smcp}
+
+Minuskeln\footnote{Kleinbuchstaben bzw. auch Gemeinen} -> Kapitälchen
+
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\libertineFeature{+smcp}\TEXT
+\end{lstsample}
+
+
+
+
+\minisec{c2sc}
+
+Versalien\footnote{Großbuchstaben bzw. auch Majuskel genannt} -> Kapitälchen
+
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\libertineFeature{+c2sc}\TEXT
+\end{lstsample}
+
+
+\newpage
+\minisec{liga}
+
+Standardligaturen\footnote{Standardmäßig eingeschaltet}, wie z.B. ff, fi, fl\dots
+
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\libertineFeature{+liga}\TEXT
+
+\libertineFeature{-liga}\TEXT
+\end{lstsample}
+
+
+
+\minisec{hlig}
+
+historische, heute nicht mehr verwendete Ligaturen: st und ct
+
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\libertineFeature{+hlig}\TEXT
+
+\libertineFeature{-hlig}\TEXT
+\end{lstsample}
+
+
+
+
+\minisec{dlig}
+
+nuetzliche aber nicht notwendige Ligaturen, wie z.B. Qu und tz
+
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\libertineFeature{+dlig}\TEXT
+
+\libertineFeature{-dlig}\TEXT
+\end{lstsample}
+
+
+
+
+
+\minisec{frac}
+
+Brueche: z.B. 1/2, wird durch ein Zeichen ersetzt
+
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\libertineFeature{+frac}\TEXT
+
+12 34
+\end{lstsample}
+
+
+
+
+
+\minisec{tnum} (Tabellenziffern)
+\minisec{pnum} (proportionale Reihe)
+\minisec{onum} (Mediävalziffern - Minuskelziffern)
+\minisec{zero} (automatische Ersetzung der normalen durch die gestrichene Null)
+\minisec{salt} (stilistischen Alternativen)
+\minisec{ss01} (deutsche Variante der Majuskelumlaute -> betonte Vokale)
+\minisec{ss02} (verwendet teilweise geschwungenere Varianten von Großbuchstaben, z.Z. von K und R)
+\minisec{ss03} (Eszetts in SS/ss verwandeln)
+\minisec{fina} (besondere Zeichen fuer's Wortende)
+\minisec{sinf} (Tiefgestellte)
+\minisec{sups} (Hochgestellte)
+\minisec{aalt} (alle Alternativen anzeigen)
+
+
+%
+% > > Ich habe jetzt folgendes:
+% > > % feature tags:
+% > > %
+% > > % smcp (Gemeine -> Kapitaelchen)
+% Da gibt es jetzt drei getrennte (führe ich hier nur auf, um dir zu zeigen, welche Auswirkungen die language-tags haben)
+% Der erste Eintrag gilt für alle Sprachen. Das sieht in der FontTabelle so aus:
+% DFLT{dflt} cyrl{dflt} grek{dflt} latn{AZE ,CRT ,DEU ,MOL ,ROM ,TRK ,dflt}
+% dflt steht für default. Hier werden die Sprachgruppen aufgeführt. Alles, Kyrrillisch, Griechisch und Lateinischer Schriftsatz. In den Klammern werden entweder alle (default) oder diejenigen Sprachen aufgeführt, für die es irgendwelche Sonderregeln gibt (ist egal wo im Font: Einmal Sondersprache, immer Sondersprache).
+% Der zweite Eintrag hat die Language Tags (bitte für die dt. Version eine treffende Übersetzung verwenden) AZE, CRT und TRK. Dieser Eintrag gilt daher nur für Türkisch (und davon abhängige Dialekte). Diese Sprachen verwenden das Dotlessi als Großbuchstaben zu i und das I als Großbuchstaben zu dotlessi. Deshalb muss bei Gemeine -> Kapitälchen auch i zu dotlessi.sc werden.
+% Der dritte Eintrag gilt für alle Sprachen außer die vorangegangenen:
+% DFLT{dflt} cyrl{dflt} grek{dflt} latn{DEU ,MOL ,ROM ,dflt}
+% i > i.sc
+%
+% > > % c2sc (Versalien -> Kapitaelchen)
+% für alle Sprachen
+%
+%
+% > > % liga (Standardligaturen, wie z.B. ff, fl, Qu...)
+% Zwei Tabellen,
+% 1) einmal für alle außer Türkisch (im Türkischen werde wegen der Unkenntlichkeit ob f_i oder f_dotlessi keine f_i-Ligaturen verwendet.
+%         DFLT{dflt} cyrl{dflt} grek{dflt} latn{DEU ,MOL ,ROM ,dflt}
+%         Ersetze fi-Ligaturen (fi, ffi, longs_i, longs_longs_i)
+% 2) für alle Sprachen
+%         Ersetze alle anderen Ligaturen
+%
+% > > % hlig (historische, heute nicht mehr verwendete Ligaturen: st und ct)
+% > > % dlig (nuetzliche aber nicht notwendige Ligaturen, wie z.Z. nur tz)
+% > > % frac (Brueche: z.B. 1/2, wird durch ein Zeichen ersetzt)
+% > > % tnum (Tabellenziffern)
+% > > % pnum (proportionale Ziffern)
+% sollten Standart in Texten sein, habe ich auch dem XeTex-Typ gesagt, wäre aber praktisch, wenn du das in deinem Paket auch nochmal definieren könntest. Nur bei den proportionalen Ziffern kann ich auch Kerning machen (z.B. 7,0)
+%
+% > > % onum (Mediävalziffern - Minuskelziffern)
+% > > % zero (automatische Ersetzung der normalen durch die gestrichene Null)
+% sollte Standart in URLs sein, habe ich auch dem XeTex-Typ gesagt, wäre aber praktisch, wenn du das in deinem Paket auch nochmal definieren könntest. (\URL{})
+%
+% > > % salt (stilistischen Alternativen)
+% Nur nachrichtlich interessant (genauso wie AALT)
+%
+% > > % ss01 (deutsche Majuskelumlaute -> Trema-Versale [betonte Vokale])
+% > > % ss02 (verwendet teilweise geschwungenere Varianten von Großbuchstaben,
+% > > z.Z. von K und R)
+% > > % ss03 (Eszetts in SS/ss verwandeln)
+%
+% > > % fina (besondere Zeichen fuer's Wortende)
+% z.Z. nur sigma = sigma1 (weil die Griechen das per Tastatur selber regeln wollen, gilt der Eintrag für alle außer Griechen)
+% DFLT{dflt} cyrl{dflt} latn{AZE ,CRT ,DEU ,MOL ,ROM ,TRK ,dflt}
+%
+% > > % sinf (Tiefgestellte)
+% > > % sups (Hochgestellte)
+%
+% > > % aalt (alle Alternativen anzeigen)
+% Nur nachrichtlich interessant (genauso wie SALT)
+%
+% Vergessen hast du:
+%
+% case (Versalformen) An die höheren Versale (keine Unterlänge!) angepasste Klammern, Bindestriche, etc.
+%         Muss eingeschaltet werden bei \upshape
+%
+% locl (lokale Varianten) Schaltet auf Vorzugsvarianten best. Sprachen um
+% z.Zt. Romänisch und Moldavisch
+%         latn{MOL ,ROM}
+%             Scedilla wird zu Scommaaccent
+%             selbiges für Gemeine und Kapitälchen
+%             Tcommaaccent nach uni021A
+%             tcommaaccent nach uni021B
+%             tcommaaccent.sc nach uni021B.sc
+%
+% > >
+% > > language tags:
+% wie beschrieben...
+% in der Summe: DFLT{dflt} cyrl{dflt} grek{dflt} latn{AZE ,CRT ,DEU ,MOL ,ROM ,TRK ,dflt}
+%
+% > >
+% > > script tags:
+% Keine Ahnung. Wahrscheinlich nur für ganz besonders komplizierte Sprachen? Oder Handschriften-Fonts mit mehreren Anknüpfungspunkten...?
+%
+% Hier zum Verwenden, die neue Libertine mit den beschriebenen Tabellen... (wegen der OTF bei XeTEx nicht vergessen �Linux Libertine O� einzugeben.
+
+
+
+
+
+\newpage
+\section{Source}
+
+\lstinputlisting{libertinexe.sty}
+
 
 \end{document}

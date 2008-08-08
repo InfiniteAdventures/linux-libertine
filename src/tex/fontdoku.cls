@@ -17,7 +17,7 @@
 % -----------------------------------------
 \listfiles
 %
-\LoadClass[10pt,a4paper]{scrreprt}
+\LoadClass[10pt,a4paper]{scrartcl}
 \ProcessOptions\relax
 % -----------------------------------------
 \setlength{\parindent}{0em}
@@ -33,10 +33,13 @@
 \geometry{verbose,a4paper,footskip=1cm,
           top=5mm,bottom=10mm,outer=20mm,inner=20mm,
           includeheadfoot}
-
+%
+\RequirePackage{scrpage2}
+\pagestyle{scrheadings}
 %
 \usepackage{xcolor,array}
 \usepackage[final,writefile]{listings}
+\usepackage{lstsample}
 %
 %\renewcommand{\ttdefault}{pcr}
 \lstloadlanguages{java,HTML,[AlLaTeX]TeX,make}
@@ -54,6 +57,5 @@
 %
 \renewcommand{\lstlistingname}{Beispiel}
 %
-\def\charGlyphname#1{\XeTeXglyph\XeTeXglyphindex "#1"}
 %----------------------------------------------------------
 \endinput

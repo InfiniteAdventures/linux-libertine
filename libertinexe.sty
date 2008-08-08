@@ -7,50 +7,29 @@
 %
 % $Id$
 %
+% 0.1a   Test der 'feature tags'
 % 0.1    erster Start
 %
 % -------------------------------------
-% feature tags:
-%
-% smcp (Gemeine -> Kapitaelchen)
-% c2sc (Versalien -> Kapitaelchen)
-% liga (Standardligaturen, wie z.B. ff, fi, fl...)
-% hlig (historische, heute nicht mehr verwendete Ligaturen: st und ct)
-% dlig (nuetzliche aber nicht notwendige Ligaturen, wie z.B. Qu und tz)
-% frac (Brueche: z.B. 1/2, wird durch ein Zeichen ersetzt)
-% tnum (Tabellenziffern)
-% pnum (proportionale Reihe)
-% onum (Medi‰valziffern - Minuskelziffern)
-% zero (automatische Ersetzung der normalen durch die gestrichene Null)
-% salt (stilistischen Alternativen)
-% ss01 (deutsche Variante der Majuskelumlaute -> betonte Vokale)
-% ss02 (verwendet teilweise geschwungenere Varianten von Groﬂbuchstaben, z.Z. von K und R)
-% ss03 (Eszetts in SS/ss verwandeln)
-% fina (besondere Zeichen fuer's Wortende)
-% sinf (Tiefgestellte)
-% sups (Hochgestellte)
-% aalt (alle Alternativen anzeigen)
-%
-% -------------------------------------
 \ProvidesPackage{libertinexe}[%
-   2008/08/08 v0.1
+   2008/08/08 v0.1a
    Font libertine - XeTeX (License GPL)
    Michael Niedermair]
 %
-\RequirePackage{ifxetex,keyval,calc,ifthen}
+\RequirePackage{ifxetex,keyval,calc,ifthen,xcolor,xspace}
 %
 \ifxetex
    \def\libertine@debug{false}%       debug
    \def\libertine@amsmath{true}%      use amsmath
    \def\libertine@lucida{false}%      use lucida font
-   \def\libertine@rawfeature{+onum;+liga}%      use otf features
+   \def\libertine@rawfeature{}%       use otf features
    \def\libertine@script{}%           otf scripts
    \def\libertine@language{}%         otf language
    %
    \define@key{libertine}{debug}[true]{\def\libertine@debug{#1}}
    \define@key{libertine}{noamsmath}[false]{\def\libertine@amsmath{#1}}
    \define@key{libertine}{lucida}[true]{\def\libertine@lucida{#1}}
-   \define@key{libertine}{rawfeature}[+onum;+hlig]{\def\libertine@rawfeature{#1}}
+   \define@key{libertine}{rawfeature}[]{\def\libertine@rawfeature{#1}}
    \define@key{libertine}{script}[]{\def\libertine@script{#1}}
    \define@key{libertine}{language}[]{\def\libertine@language{#1}}
    %
@@ -113,7 +92,12 @@
       ,Language=\libertine@language%
       ,Script=\libertine@script%
       ]{Linux Libertine O}
-
+   \newcommand*{\libertineFeature}[1]{\libertine\addfontfeature{RawFeature=#1}}
+   \newcommand*{\libertineGlyph}[1]{\XeTeXglyph\XeTeXglyphindex "#1" }
+   \newcommand*{\libertineEuro}{\libertineGlyph{Euro}\xspace}
+   \newcommand*{\libertineLogo}{\mbox{%
+      \libertineGlyph{uniE041}%
+      \textcolor[HTML]{00710A}{\libertineGlyph{uniE042}}}}
    % -------------------------------------------------------
 \else
     \PackageWarning{libertinexe}{*** libertinexe.sty works only with xetex! ***^^J}
