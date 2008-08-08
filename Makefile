@@ -8,11 +8,13 @@ TEXOUTPUT=$(TARGET)/tex
 # PDFLATEXPARAM=-interaction=nonstopmode
 PDFLATEXPARAM=-recorder
 
-TESTFILES=$(wildcard test*.tex)
+TEXFILES=$(wildcard *.tex)
 #PDFTESTFILES=$(patsubst %.tex, $(TEXOUTPUT)/%.pdf ,$(TESTFILES))
-PDFTESTFILES=$(patsubst %.tex, %.pdf ,$(TESTFILES))
+PDFTEXFILES=$(patsubst %.tex, %.pdf ,$(TEXFILES))
 
+SOURCE_TEX=src/tex
 SOURCE_SFD=src/sfd
+SOURCE_OTF=src/otf
 SOURCE_SCRIPT=src/scripts
 SOURCE_FFSCRIPT=$(SOURCE_SFD)/scripts
 
@@ -20,11 +22,13 @@ OUTPUT_SFD=$(TARGET)/sfd
 OUTPUT_TTF=$(TARGET)/ttf
 OUTPUT_OTF=$(TARGET)/otf
 
+TEXINPUTS:=.:$(SOURCE_TEX):$(TEXINPUTS)
+
 SFDFILES=$(wildcard $(OUTPUT_SFD)/*.sfd)
 TTFFILES=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_TTF)/%,  $(patsubst %.sfd, %.ttf ,$(SFDFILES)))
 OTFFILES=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_OTF)/%,  $(patsubst %.sfd, %.otf ,$(SFDFILES)))
 
-all: init $(PDFTESTFILES)
+all: init $(PDFTEXFILES)
 
 #$(TEXOUTPUT)/%.pdf : %.tex libertinexe.sty
 %.pdf : %.tex libertinexe.sty $(TEXOUTPUT)/LinLibertineAlias.tex
@@ -52,7 +56,8 @@ init:
 	@mkdir -p $(TARGET)/sfd
 	@mkdir -p $(TARGET)/ttf
 	@mkdir -p $(TARGET)/otf
-	#@sh $(SOURCE_SCRIPT)/fontName2LaTeX $(SOURCE_SFD) $(OUTPUT_SFD)
+	@sh $(SOURCE_SCRIPT)/fontName2LaTeX $(SOURCE_SFD) $(OUTPUT_SFD) sfd
+	@sh $(SOURCE_SCRIPT)/fontName2LaTeX $(SOURCE_OTF) $(OUTPUT_OTF) otf
 
 
 
@@ -60,6 +65,6 @@ cleantmp:
 	-rm -f *~ *.flc *.backup *.fls *.pdf
 
 clean: cleantmp
-	-rm -rf $(TEXOUTPUT)
+	-rm -rf $(TARGET)
 
 
