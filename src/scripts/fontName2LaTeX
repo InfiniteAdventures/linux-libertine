@@ -1,0 +1,22 @@
+#!/bin/sh
+# $Id: fontName2LaTeX,v 1.5 2007/06/15 13:55:16 mgn Exp $
+SRC=$1
+DEST=$2
+
+copyifolder() {
+
+   if [ ! -r $2  ] ; then
+      cp -v $1  $2
+   elif [ $1 -nt $2 ] ; then
+      cp -v $1  $2
+   fi
+
+}
+
+copyifolder $SRC/LinLibertine_Re-*.sfd    $DEST/fxlr.sfd
+copyifolder $SRC/LinLibertine_Bd-*.sfd    $DEST/fxlb.sfd
+copyifolder $SRC/LinLibertine_BI-*.sfd    $DEST/fxlbi.sfd
+copyifolder $SRC/LinLibertine_It-*.sfd    $DEST/fxlri.sfd
+copyifolder $SRC/LinLibertineC_Re-*.sfd   $DEST/fxlrc.sfd
+copyifolder $SRC/LinLibertineU_Re-*.sfd   $DEST/fxlru.sfd
+

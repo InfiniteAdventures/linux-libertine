@@ -1,0 +1,21 @@
+# convert the Libertine-Font to ttf font
+#
+# $1 sfd-file
+# $2 ttf-file
+#
+# $Id: sfdtottf.pe,v 1.8 2008/01/08 15:53:21 mgn Exp $
+#
+# Michael Niedermair m.g.n@gmx.de
+#
+Open($1,1)
+#
+SelectAll()
+UnlinkReference()
+AddExtrema()
+RemoveOverlap()
+ScaleToEm(2048)
+RoundToInt()
+#
+Generate($2)
+Close()
+Quit()
