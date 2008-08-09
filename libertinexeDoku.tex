@@ -45,6 +45,14 @@ Font: Philipp H. Poll\par \XeLaTeX-Einbindung: Michael Niedermair
 % ----------------------------------------------------------------
 % ----------------------------------------------------------------
 
+\section{Font}
+
+Es wird ausschließlich die OpenType-Version vom \emph{libertine}-Font verwendet.
+
+\subsection{Versionen}
+
+\lstinputlisting{version}
+
 \section{Aufruf}
 
 Das \emph{libertinexe}-Paket wird mit dem \emph{usepackage}-Makro aufgerufen.
@@ -79,6 +87,7 @@ Folgende Optionen sind dabei möglich:
 \end{description}
 
 
+\newpage
 \section{Fonteinstellungen}
 
 \subsection{feature tags}
@@ -110,7 +119,6 @@ Versalien\footnote{Großbuchstaben bzw. auch Majuskel genannt} -> Kapitälchen
 \end{lstsample}
 
 
-\newpage
 \minisec{liga}
 
 Standardligaturen\footnote{Standardmäßig eingeschaltet}, wie z.B. ff, fi, fl\dots
@@ -259,6 +267,16 @@ Brueche: z.B. 1/2, wird durch ein Zeichen ersetzt
 % Hier zum Verwenden, die neue Libertine mit den beschriebenen Tabellen... (wegen der OTF bei XeTEx nicht vergessen �Linux Libertine O� einzugeben.
 
 
+\newpage
+\section{Glyphen}
+
+\setlength{\columnseprule}{.5pt}
+\setlength{\columnsep}{1cm}
+\begin{multicols}{3}
+   \newcommand{\GYLPHNAME}[1]{#1\hfill{\Huge\libertineGlyph{#1}\strut}\newline}
+   \catcode`\_=12%
+   \InputIfFileExists{glyphname.tex}{}{}
+\end{multicols}
 
 
 
@@ -266,6 +284,5 @@ Brueche: z.B. 1/2, wird durch ein Zeichen ersetzt
 \section{Source}
 
 \lstinputlisting{libertinexe.sty}
-
 
 \end{document}

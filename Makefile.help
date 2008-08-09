@@ -1,0 +1,18 @@
+####################################################################
+#
+# $Id$
+#
+# Michael Niedermair m.g.n@gmx.de
+#
+
+
+--------------------------------------------
+   Makefile for the libertine font (XeTeX) 
+--------------------------------------------
+Parameter:
+
+all               Create the documentation and the test files.
+
+help              Show this help file.
+
+clean             Remove all generates files and directories.
