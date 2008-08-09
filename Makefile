@@ -30,7 +30,7 @@ SFDFILES=$(wildcard $(OUTPUT_SFD)/*.sfd)
 TTFFILES=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_TTF)/%,  $(patsubst %.sfd, %.ttf ,$(SFDFILES)))
 OTFFILES=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_OTF)/%,  $(patsubst %.sfd, %.otf ,$(SFDFILES)))
 
-all: init version $(PDFTEXFILES) $(OUTPUT_PFB)/fxlr.pfb
+all: init version $(OUTPUT_PFB)/fxlr.pfb $(PDFTEXFILES) 
 
 #$(OUTPUT_TEX)/%.pdf : %.tex libertinexe.sty
 %.pdf : %.tex libertinexe.sty $(OUTPUT_TEX)/LinLibertineAlias.tex
@@ -41,7 +41,7 @@ $(OUTPUT_TEX)/LinLibertineAlias.tex : $(SOURCE_SFD)/LinLibertine.nam
 
 $(OUTPUT_PFB)/fxlr.pfb : $(OUTPUT_OTF)/fxlr.otf
 	@fontforge -script $(SOURCE_FFSCRIPT)/sfdtopfb.pe $< $(OUTPUT_PFB)/$(notdir $@)
-	@grep "^C " $(OUTPUT_PFB)/fxlr.afm | sed -e 's/\(.*\) N \(.*\) ; \(.*\)/\2/g' | sed -e 's/\([:alnum]*\) .*/\1/g' | sort | sed -e 's/\(^.*\)/\\GYLPHNAME{\1}/g' > $(OUTPUT_TEX)/glyphname.tex 
+	@grep "^C " $(OUTPUT_PFB)/fxlr.afm | sed -e 's/\(.*\) N \(.*\) ; \(.*\)/\2/g' | sed -e 's/\([:alnum]*\) .*/\1/g' | sort | sed -e 's/\(^.*\)/\\GYLPHNAME{\1}/g' > $(OUTPUT_TEX)/fxlglyphname.tex 
 
 #ttf: init $(TTFFILES)
 
@@ -74,6 +74,9 @@ version:
 copysf: all
 	scp libertinexe.sty mgn@linuxlibertine.sf.net:~/linuxlibertine/htdocs/latex/
 	scp libertinexeDoku.pdf mgn@linuxlibertine.sf.net:~/linuxlibertine/htdocs/latex/
+
+copyfont:
+	@cp target/otf/fx*.otf ~/.fonts/
 
 help:
 	@grep -v "^#" Makefile.help
