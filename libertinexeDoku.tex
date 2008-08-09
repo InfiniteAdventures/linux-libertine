@@ -4,7 +4,10 @@
 \documentclass{fontdoku}
 \usepackage[debug,noamsmath,dejavusans]{libertinexe}
 %
-\cfoot{\Huge\libertineLogo\hfill\pagemark\hfill\libertineLogo}
+\lohead{\large\libertineGlyph{uniE00A}}
+\cfoot{}
+\rohead{\large\pagemark}
+\setheadsepline{.5pt}
 %
 \def\TEXT{%
 Dies ist ein Text mit Zahlen 1234567890!\newline%
@@ -27,7 +30,8 @@ Am 30.4.1987 saß ich im \glqq{}Caf\'e Hamburg\grqq{} und schlürfte Kaffee für
 
 \vfill
 \begin{center}
-   \fontsize{46pt}{46pt}\selectfont Dokumentation
+   \fontsize{26pt}{28pt}\selectfont Dokumentation für den Einsatz\\
+    von Linux Libertine mit \XeLaTeX
 \end{center}
 
 \vfill
@@ -37,29 +41,32 @@ Font: Philipp H. Poll\par \XeLaTeX-Einbindung: Michael Niedermair
 
 \vfill
 \begin{center}
-{\fontsize{6cm}{6cm}\selectfont\libertineGlyph{uniE00A}}%
+{\fontsize{6cm}{6cm}\selectfont\libertineLogo}%
 \hfill\fontsize{20pt}{18pt}\selectfont\today
 \end{center}
 \newpage
+\tableofcontents
 % ----------------------------------------------------------------
 % ----------------------------------------------------------------
 % ----------------------------------------------------------------
-
+\newpage
 \section{Font}
 
 Es wird ausschließlich die OpenType-Version vom \emph{libertine}-Font verwendet.
 
-\subsection{Versionen}
+\minisec{Versionen}
 
 \lstinputlisting{version}
 
-\section{Aufruf}
+\section{Aufruf und Angaben}
 
 Das \emph{libertinexe}-Paket wird mit dem \emph{usepackage}-Makro aufgerufen.
 
 \begin{lstlisting}
 \usepackage[<optionen>]{libertinexe}
 \end{lstlisting}
+
+\subsection{Optionen}
 
 Folgende Optionen sind dabei möglich:
 \begin{description}[\setlabelphantom{dejavusansmono}]
@@ -78,7 +85,7 @@ Folgende Optionen sind dabei möglich:
 \item [dejavusansmono] Verwendet den Font \emph{DejaVu Sans Mono}.
 \end{description}
 
-\section{spezielle Makros}
+\subsection{spezielle Makros}
 
 \begin{description}
 \item [\textbackslash libertine] XXX
@@ -90,7 +97,7 @@ Folgende Optionen sind dabei möglich:
 
 
 \newpage
-\section{Fonteinstellungen}
+\section{Auswahl von OpenType-Eigenschaften}
 
 \subsection{feature tags}
 
@@ -167,7 +174,7 @@ Brueche: z.B. 1/2, wird durch ein Zeichen ersetzt
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
 \libertineFeature{+frac}\TEXT
 
-12 34
+1/2 3/4
 \end{lstsample}
 
 
@@ -270,12 +277,23 @@ Brueche: z.B. 1/2, wird durch ein Zeichen ersetzt
 
 
 \newpage
-\section{Glyphen}
+\section{Anhang}
+\subsection{Linksammlung}
+
+\begin{itemize}
+   \item Linux Libertine \hfill\url{http://linuxlibertine.sf.net}
+   \item \XeTeX-Homepage \hfill\url{http://scripts.sil.org/xetex}
+   \item \XeTeX-Tutorium (englisch) \hfill\url{http://xml.web.cern.ch/XML/lgc2/xetexmain.pdf}
+   \item Tex-Live-Distribution \hfill\url{http://tug.org/texlive/}
+\end{itemize}
+
+\newpage
+\subsection{Glyphen}
 
 \setlength{\columnseprule}{.5pt}
 \setlength{\columnsep}{1cm}
 \begin{multicols}{3}
-   \newcommand{\GYLPHNAME}[1]{#1\hfill{\Huge\libertineGlyph{#1}\strut}\newline}
+   \newcommand{\GYLPHNAME}[1]{\makebox[3cm][l]{#1}\hfill{\Huge\fbox{\libertineGlyph{#1}\strut}}\hfill\mbox{}\newline}
    \catcode`\_=12%
    \InputIfFileExists{fxlglyphname.tex}{}{}
 \end{multicols}
@@ -283,7 +301,7 @@ Brueche: z.B. 1/2, wird durch ein Zeichen ersetzt
 
 
 \newpage
-\section{Source}
+\subsection{Source}
 
 \lstinputlisting{libertinexe.sty}
 

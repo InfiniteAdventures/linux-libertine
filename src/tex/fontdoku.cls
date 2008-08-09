@@ -27,6 +27,7 @@
 \usepackage{textcomp,multicol,xcolor,expdlist,framed,calc,ifthen,substr,array,tabularx}
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 \usepackage[ngerman]{babel}
+\RequirePackage[obeyspaces,spaces,hyphens]{url}
 %
 %
 \usepackage{geometry}
@@ -56,6 +57,8 @@
         numberstyle=\tiny} % numbers=none / left
 %
 \renewcommand{\lstlistingname}{Beispiel}
+%
+\usepackage{hyperref}
 %
 %----------------------------------------------------------
 \endinput
