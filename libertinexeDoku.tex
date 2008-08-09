@@ -54,10 +54,12 @@ Font: Philipp H. Poll\par \XeLaTeX-Einbindung: Michael Niedermair
 % ----------------------------------------------------------------
 \newpage
 \section{Font}
+\index{Opentype Font}\index{otf}\index{libertine}
 
 Es wird ausschließlich die OpenType-Version des \emph{libertine}-Fonts verwendet.
 
 \minisec{Versionen}
+\index{libertine!Version}
 
 \lstinputlisting{version}
 
@@ -139,7 +141,8 @@ Der \emph{libertine}-Font unterstützt folgende Tags:%
 
 
 
-\minisec{smcp}
+\subsubsection*{smcp -- Small Capitals}
+\index{feature!smcp}
 
 Minuskeln\footnote{Kleinbuchstaben bzw. auch Gemeinen} -> Kapitälchen
 
@@ -150,7 +153,8 @@ Minuskeln\footnote{Kleinbuchstaben bzw. auch Gemeinen} -> Kapitälchen
 
 
 
-\minisec{c2sc}
+\subsubsection*{c2sc -- Small Capitals From Capitals}
+\index{feature!c2sc}
 
 Versalien\footnote{Großbuchstaben bzw. auch Majuskel genannt} -> Kapitälchen
 
@@ -159,7 +163,8 @@ Versalien\footnote{Großbuchstaben bzw. auch Majuskel genannt} -> Kapitälchen
 \end{lstsample}
 
 
-\minisec{liga}
+\subsubsection*{liga -- Standard Ligatures}
+\index{feature!liga}
 
 Standardligaturen\footnote{Standardmäßig eingeschaltet}, wie z.B. ff, fi, fl\dots
 
@@ -171,7 +176,8 @@ Standardligaturen\footnote{Standardmäßig eingeschaltet}, wie z.B. ff, fi, fl\d
 
 
 
-\minisec{hlig}
+\subsubsection*{hlig -- Historical Ligatures}
+\index{feature!hlig}
 
 historische, heute nicht mehr verwendete Ligaturen: st und ct
 
@@ -184,7 +190,8 @@ historische, heute nicht mehr verwendete Ligaturen: st und ct
 
 
 
-\minisec{dlig}
+\subsubsection*{dlig -- Discretionary Ligatures}
+\index{feature!dlig}
 
 nützliche aber nicht notwendige Ligaturen, wie z.B. Qu und tz
 
@@ -198,7 +205,8 @@ nützliche aber nicht notwendige Ligaturen, wie z.B. Qu und tz
 
 
 
-\minisec{frac}
+\subsubsection*{frac -- Fractions}
+\index{feature!frac}
 
 Brüche: z.B. 1/2, wird durch ein Zeichen ersetzt
 
@@ -208,19 +216,20 @@ Brüche: z.B. 1/2, wird durch ein Zeichen ersetzt
 
 
 
-\minisec{tnum}
+\subsubsection*{tnum -- Tabular Figures}
+\index{feature!tnum}
 Tabellenziffern
 
-\minisec{pnum}
-
+\subsubsection*{pnum -- Proportional Figures}
+\index{feature!pnum}
 proportionale Reihe
 
-\minisec{onum}
-
+\subsubsection*{onum -- Oldstyle Figures}
+\index{feature!onum}
 Mediävalziffern - Minuskelziffern
 
-\minisec{zero}
-
+\subsubsection*{zero -- Slashed Zero}
+\index{feature!zero}
 automatische Ersetzung der normalen durch die gestrichene Null
 
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
@@ -234,42 +243,43 @@ automatische Ersetzung der normalen durch die gestrichene Null
 \end{lstsample}
 
 
-\minisec{salt} (stilistischen Alternativen)
+\subsubsection*{salt -- Stylistic Alternates} (stilistischen Alternativen)
+\index{feature!salt}
 
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
 \libertineFeature{+salt}\TEXT
 \end{lstsample}
 
-\minisec{ss01} (deutsche Variante der Majuskelumlaute -> betonte Vokale)
+\subsubsection*{ss01 -- Stylistic Set 1} \index{feature!ss01}(deutsche Variante der Majuskelumlaute -> betonte Vokale)
 
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
 \libertineFeature{+ss01}\TEXT
 \end{lstsample}
 
 
-\minisec{ss02} (verwendet teilweise geschwungenere Varianten von Großbuchstaben, z.Z. von K und R)
+\subsubsection*{ss02 -- Stylistic Set 2} \index{feature!ss02}(verwendet teilweise geschwungenere Varianten von Großbuchstaben, z.Z. von K und R)
 
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
 \libertineFeature{+ss02}\TEXT
 \end{lstsample}
 
 
-\minisec{ss03} (Eszetts in SS/ss verwandeln)
+\subsubsection*{ss03 -- Stylistic Set 3} \index{feature!ss03}(Eszetts in SS/ss verwandeln)
 
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
 \libertineFeature{+ss03}\TEXT
 \end{lstsample}
 
-\minisec{fina} (besondere Zeichen für's Wortende)
+\subsubsection*{fina -- Terminal Forms} \index{feature!fina}(besondere Zeichen für's Wortende)
 
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
 \libertineFeature{+fina}\TEXT
 \end{lstsample}
 
 
-\minisec{sinf} (Tiefgestellte)
-\minisec{sups} (Hochgestellte)
-\minisec{aalt} (alle Alternativen anzeigen)
+\subsubsection*{sinf -- Scientific Inferiors} \index{feature!sinf}(Tiefgestellte)
+\subsubsection*{sups -- Superscript} \index{feature!sups}(Hochgestellte)
+\subsubsection*{aalt -- Access All Alternates} \index{feature!aalt}(alle Alternativen anzeigen)
 
 
 %
@@ -376,10 +386,12 @@ automatische Ersetzung der normalen durch die gestrichene Null
 \end{multicols}
 
 
-
 \newpage
 \subsection{Source}
 
 \lstinputlisting{libertinexe.sty}
+
+\newpage
+\printindex
 
 \end{document}
