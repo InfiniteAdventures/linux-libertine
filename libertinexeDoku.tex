@@ -2,18 +2,21 @@
 % $Id$
 %
 \documentclass{fontdoku}
-\usepackage[debug,noamsmath,dejavusans]{libertinexe}
+\usepackage[debug,noamsmath,dejavusans,draft]{libertinexe}
 %
 \lohead{\large\libertineGlyph{uniE00A}}
 \cfoot{}
 \rohead{\large\pagemark}
 \setheadsepline{.5pt}
 %
+
+%
 \def\TEXT{%
 Dies ist ein Text mit Zahlen 1234567890!\newline%
 öäüß ÖÄÜ\quad ff fi fl ffi ffl\quad Hamburg\quad Quelle\newline%
 Am 30.4.1987 saß ich im \glqq{}Caf\'e Hamburg\grqq{} und schlürfte Kaffee für 2,65\,\libertineEuro!
 }
+\def\ZAHL{01234567890}
 %
 
 \begin{document}
@@ -52,7 +55,7 @@ Font: Philipp H. Poll\par \XeLaTeX-Einbindung: Michael Niedermair
 \newpage
 \section{Font}
 
-Es wird ausschließlich die OpenType-Version vom \emph{libertine}-Font verwendet.
+Es wird ausschließlich die OpenType-Version des \emph{libertine}-Fonts verwendet.
 
 \minisec{Versionen}
 
@@ -77,22 +80,50 @@ Folgende Optionen sind dabei möglich:
 \item [lucida] Es wird das Lucida-Font-Paket%
       \footnote{\texttt{\textbackslash usepackage[expert]\{lucidabr\}}}
       vor der Schrift \emph{libertine} geladen.
-\item [rawfeature] Es können direkt die \emph{rawfeature} vom \emph{fontspec}-Paket genutzt werden.
-      Ein '+' fügt ein feature hinzu, ein '-' entfernt dieses.
+\item [rawfeature] Es können direkt die \emph{rawfeature} des \emph{fontspec}-Pakets genutzt werden.
+      Ein '+' fügt ein Feature hinzu, ein '-' entfernt dieses.
 \item [langauge] Es wird eine Sprache für den Font aktiviert.
 \item [script]   Es wird ein Skript (in Abhängigkeit zur Sprache) für den Font aktiviert.
 \item [dejavusans] Verwendet den Font \emph{DejaVu Sans}.
 \item [dejavusansmono] Verwendet den Font \emph{DejaVu Sans Mono}.
+\item [draft] Es wird der \emph{drafttext} (z.\,B. Entwurf) als Hintergrundtext verwendet.
+\item [drafttext] Der Hintergrundtext.
 \end{description}
 
+\newpage
 \subsection{spezielle Makros}
 
-\begin{description}
-\item [\textbackslash libertine] XXX
-\item [\textbackslash libertineFeature] XXX
-\item [\textbackslash libertineGlyph] XXX
-\item [\textbackslash libertineEuro] XXX
-\item [\textbackslash libertineLogo] XXX
+\begin{description}[\setleftmargin{1em}\breaklabel]
+\item [\textbackslash libertine]
+      Schaltet auf den \emph{libertine}-Font um. Dabei werden die Paketoptionen verwendet.
+\begin{lstlisting}
+{\libertine Dies ist ein Text!}
+\end{lstlisting}
+
+\item [\textbackslash libertineFeature]
+      Aktiviert \emph{feature}-Tags. Siehe hierzu auch die Option \emph{rawfeature}.
+\begin{lstlisting}
+{\libertineFeature{+smcp}Dies ist ein Text!}
+\end{lstlisting}
+
+\item [\textbackslash libertineGlyph]
+      Ein Zeichen kann mit Hilfe des Gylphnamen (siehe Anhang) gesetzt werden. Ist der Glyphname
+      nicht vorhanden, so wird kein Zeichen gesetzt.
+\begin{lstlisting}
+\libertineGlyph{Tux}
+\end{lstlisting}
+
+\item [\textbackslash libertineEuro]
+      Es wird das \emph{libertine}-Euro-Zeichen gesetzt.
+\begin{lstlisting}
+\libertineEuro
+\end{lstlisting}
+
+\item [\textbackslash libertineLogo]
+      Es wird das \emph{libertine}-Logo gesetzt.
+\begin{lstlisting}
+\libertineLogo
+\end{lstlisting}
 \end{description}
 
 
@@ -101,7 +132,7 @@ Folgende Optionen sind dabei möglich:
 
 \subsection{feature tags}
 
-Mit den \emph{feature}-Tags werden bestimmte eigenschaften des Fonts aktiviert.
+Mit den \emph{feature}-Tags werden bestimmte Eigenschaften des Fonts aktiviert.
 Die Aktivierung der Tags erfolgt mit dem Makro \emph{libertineFeature}\footnote{Alternativ kann auch der \emph{fontspec}-Befehl \texttt{\textbackslash addfontfeature} verwendet werden.}.
 Der \emph{libertine}-Font unterstützt folgende Tags:%
 
@@ -155,7 +186,7 @@ historische, heute nicht mehr verwendete Ligaturen: st und ct
 
 \minisec{dlig}
 
-nuetzliche aber nicht notwendige Ligaturen, wie z.B. Qu und tz
+nützliche aber nicht notwendige Ligaturen, wie z.B. Qu und tz
 
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
 \libertineFeature{+dlig}\TEXT
@@ -169,27 +200,73 @@ nuetzliche aber nicht notwendige Ligaturen, wie z.B. Qu und tz
 
 \minisec{frac}
 
-Brueche: z.B. 1/2, wird durch ein Zeichen ersetzt
+Brüche: z.B. 1/2, wird durch ein Zeichen ersetzt
 
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
-\libertineFeature{+frac}\TEXT
-
-1/2 3/4
+\libertineFeature{+frac}1/2\quad 3/4
 \end{lstsample}
 
 
 
+\minisec{tnum}
+Tabellenziffern
+
+\minisec{pnum}
+
+proportionale Reihe
+
+\minisec{onum}
+
+Mediävalziffern - Minuskelziffern
+
+\minisec{zero}
+
+automatische Ersetzung der normalen durch die gestrichene Null
+
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\libertineFeature{+tnum}\ZAHL
+
+\libertineFeature{+pnum}\ZAHL
+
+\libertineFeature{+onum}\ZAHL
+
+\libertineFeature{+zero}\ZAHL
+\end{lstsample}
 
 
-\minisec{tnum} (Tabellenziffern)
-\minisec{pnum} (proportionale Reihe)
-\minisec{onum} (Mediävalziffern - Minuskelziffern)
-\minisec{zero} (automatische Ersetzung der normalen durch die gestrichene Null)
 \minisec{salt} (stilistischen Alternativen)
+
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\libertineFeature{+salt}\TEXT
+\end{lstsample}
+
 \minisec{ss01} (deutsche Variante der Majuskelumlaute -> betonte Vokale)
+
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\libertineFeature{+ss01}\TEXT
+\end{lstsample}
+
+
 \minisec{ss02} (verwendet teilweise geschwungenere Varianten von Großbuchstaben, z.Z. von K und R)
+
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\libertineFeature{+ss02}\TEXT
+\end{lstsample}
+
+
 \minisec{ss03} (Eszetts in SS/ss verwandeln)
-\minisec{fina} (besondere Zeichen fuer's Wortende)
+
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\libertineFeature{+ss03}\TEXT
+\end{lstsample}
+
+\minisec{fina} (besondere Zeichen für's Wortende)
+
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\libertineFeature{+fina}\TEXT
+\end{lstsample}
+
+
 \minisec{sinf} (Tiefgestellte)
 \minisec{sups} (Hochgestellte)
 \minisec{aalt} (alle Alternativen anzeigen)
