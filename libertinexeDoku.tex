@@ -2,7 +2,7 @@
 % $Id$
 %
 \documentclass{fontdoku}
-\usepackage[debug]{libertinexe}
+\usepackage[debug,noamsmath,dejavusans]{libertinexe}
 %
 \cfoot{\Huge\libertineLogo\hfill\pagemark\hfill\libertineLogo}
 %
@@ -62,7 +62,7 @@ Das \emph{libertinexe}-Paket wird mit dem \emph{usepackage}-Makro aufgerufen.
 \end{lstlisting}
 
 Folgende Optionen sind dabei möglich:
-\begin{description}[\setlabelphantom{noamsmath}]
+\begin{description}[\setlabelphantom{dejavusansmono}]
 \item [debug] Alle Aufrufparameter werden auf der Konsole ausgegeben.
 \item [noamsmath] Das Laden des \emph{amsmath}-Paket wird nicht durchgeführt.\\
       Achtung: Alle Mathematik-Fonts müssen vor dem \emph{libertinexe}-Paket
@@ -74,6 +74,8 @@ Folgende Optionen sind dabei möglich:
       Ein '+' fügt ein feature hinzu, ein '-' entfernt dieses.
 \item [langauge] Es wird eine Sprache für den Font aktiviert.
 \item [script]   Es wird ein Skript (in Abhängigkeit zur Sprache) für den Font aktiviert.
+\item [dejavusans] Verwendet den Font \emph{DejaVu Sans}.
+\item [dejavusansmono] Verwendet den Font \emph{DejaVu Sans Mono}.
 \end{description}
 
 \section{spezielle Makros}

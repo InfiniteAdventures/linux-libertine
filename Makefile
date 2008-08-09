@@ -71,12 +71,15 @@ version:
 	@touch $(OUTPUT_TEX)/version
 	@find $(SOURCE_OTF)/ -name '*.otf' -exec basename {} .otf >>$(OUTPUT_TEX)/version \;
 
+copysf: all
+	scp libertinexe.sty mgn@linuxlibertine.sf.net:~/linuxlibertine/htdocs/latex/
+	scp libertinexeDoku.pdf mgn@linuxlibertine.sf.net:~/linuxlibertine/htdocs/latex/
 
 help:
-	grep -v "^#" Makefile.help
+	@grep -v "^#" Makefile.help
 
 readme:
-	less Readme
+	@less Readme
 
 
 cleantmp:

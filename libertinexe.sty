@@ -7,25 +7,30 @@
 %
 % $Id$
 %
+% 0.1d   Parameter 'dejavusans' hinzugefügt.
+%        Parameter 'dejavusansmono' hinzugefügt.
+% 0.1c   Überprüft, o der Glyphname existiert.
 % 0.1b   Extrahieren alle Glyphen
 % 0.1a   Test der 'feature tags'
 % 0.1    erster Start
 %
 % -------------------------------------
 \ProvidesPackage{libertinexe}[%
-   2008/08/09 v0.1b
+   2008/08/09 v0.1c
    Font libertine - XeTeX (License GPL)
    Michael Niedermair]
 %
 \RequirePackage{ifxetex,keyval,calc,ifthen,xcolor,xspace}
 %
 \ifxetex
-   \def\libertine@debug{false}%       debug
-   \def\libertine@amsmath{true}%      use amsmath
-   \def\libertine@lucida{false}%      use lucida font
-   \def\libertine@rawfeature{}%       use otf features
-   \def\libertine@script{}%           otf scripts
-   \def\libertine@language{}%         otf language
+   \def\libertine@debug{false}%           debug
+   \def\libertine@amsmath{true}%          use amsmath
+   \def\libertine@lucida{false}%          use lucida font
+   \def\libertine@rawfeature{}%           use otf features
+   \def\libertine@script{}%               otf scripts
+   \def\libertine@language{}%             otf language
+   \def\libertine@dejavusans{false}%      use the font DejaVu Sans
+   \def\libertine@dejavusansmono{false}%  use the font DejaVu Sans Mono
    %
    \define@key{libertine}{debug}[true]{\def\libertine@debug{#1}}
    \define@key{libertine}{noamsmath}[false]{\def\libertine@amsmath{#1}}
@@ -33,6 +38,8 @@
    \define@key{libertine}{rawfeature}[]{\def\libertine@rawfeature{#1}}
    \define@key{libertine}{script}[]{\def\libertine@script{#1}}
    \define@key{libertine}{language}[]{\def\libertine@language{#1}}
+   \define@key{libertine}{dejavusans}[true]{\def\libertine@dejavusans{#1}}
+   \define@key{libertine}{dejavusansmono}[true]{\def\libertine@dejavusansmono{#1}}
    %
    \def\ProcessOptionsWithKV#1{%
       \let\@tempc\relax
@@ -63,12 +70,14 @@
    % debug
    \ifthenelse{\equal{\libertine@debug}{true}}{
      \typeout{------ libertine: DEBUG ---------------------------}
-     \typeout{debug          = \libertine@debug}
-     \typeout{amsmath        = \libertine@amsmath}
-     \typeout{lucida         = \libertine@lucida}
-     \typeout{rawfeature     = \libertine@rawfeature}
-     \typeout{script         = \libertine@script}
-     \typeout{language       = \libertine@language}
+     \typeout{debug             = \libertine@debug}
+     \typeout{amsmath           = \libertine@amsmath}
+     \typeout{lucida            = \libertine@lucida}
+     \typeout{rawfeature        = \libertine@rawfeature}
+     \typeout{script            = \libertine@script}
+     \typeout{language          = \libertine@language}
+     \typeout{Font DeJaVu Sans  = \libertine@dejavusans}
+     \typeout{Font DeJaVu SansMono  = \libertine@dejavusansmono}
      \typeout{---------- DEBUG ----------------------------------}
    }{}%
 
@@ -93,8 +102,24 @@
       ,Language=\libertine@language%
       ,Script=\libertine@script%
       ]{Linux Libertine O}
+
+   % dejavu sans
+   \ifthenelse{\equal{\libertine@dejavusans}{true}}{
+      \setsansfont[Mapping=tex-text]{DejaVu Sans}
+   }{}%
+   % dejavu sans mono
+   \ifthenelse{\equal{\libertine@dejavusansmono}{true}}{
+      \setmonofont[Mapping=tex-text]{DejaVu Sans Mono}
+   }{}%
+   %
+   % -----------------------------------------------------------------
+   %
    \newcommand*{\libertineFeature}[1]{\libertine\addfontfeature{RawFeature=#1}}
-   \newcommand*{\libertineGlyph}[1]{\XeTeXglyph\XeTeXglyphindex "#1" }
+   \newcommand*{\libertineGlyph}[1]{%
+      \ifnum\XeTeXglyphindex "#1" > 0%
+         \XeTeXglyph\XeTeXglyphindex "#1"
+      \fi
+      }
    \newcommand*{\libertineEuro}{\libertineGlyph{Euro}\xspace}
    \newcommand*{\libertineLogo}{\mbox{%
       \libertineGlyph{uniE041}%
