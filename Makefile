@@ -25,6 +25,7 @@ OUTPUT_OTF=$(TARGET)/otf
 OUTPUT_PFB=$(TARGET)/pfb
 
 TEXINPUTS:=.:$(SOURCE_TEX):$(TEXINPUTS)
+CLASSPATH:=$(TARGET)/classes:$(CLASSPATH)
 
 SFDFILES=$(wildcard $(OUTPUT_SFD)/*.sfd)
 TTFFILES=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_TTF)/%,  $(patsubst %.sfd, %.ttf ,$(SFDFILES)))
@@ -33,6 +34,9 @@ OTFFILES=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_OTF)/%,  $(patsubst %.sfd, %.otf ,
 all: init version $(OUTPUT_PFB)/fxlr.pfb $(PDFTEXFILES)
 
 #$(OUTPUT_TEX)/%.pdf : %.tex libertinexe.sty
+test%.pdf : test%.tex libertinexe.sty $(OUTPUT_TEX)/LinLibertineAlias.tex
+		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
+
 %.pdf : %.tex libertinexe.sty $(OUTPUT_TEX)/LinLibertineAlias.tex
 		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 		-test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$<).idx && makeindex -s $(SOURCE_TEX)/index.ist $(OUTPUT_TEX)/$(patsubst %.tex,%,$<) -o $(OUTPUT_TEX)/$(patsubst %.tex,%,$<).ind && xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
@@ -42,7 +46,9 @@ $(OUTPUT_TEX)/LinLibertineAlias.tex : $(SOURCE_SFD)/LinLibertine.nam
 
 $(OUTPUT_PFB)/fxlr.pfb : $(OUTPUT_OTF)/fxlr.otf
 	@fontforge -script $(SOURCE_FFSCRIPT)/sfdtopfb.pe $< $(OUTPUT_PFB)/$(notdir $@)
-	@grep "^C " $(OUTPUT_PFB)/fxlr.afm | sed -e 's/\(.*\) N \(.*\) ; \(.*\)/\2/g' | sed -e 's/\([:alnum]*\) .*/\1/g' | sort | sed -e 's/\(^.*\)/\\GYLPHNAME{\1}/g' > $(OUTPUT_TEX)/fxlglyphname.tex
+	@grep "^C " $(OUTPUT_PFB)/fxlr.afm | sed -e 's/\(.*\) N \(.*\) ; \(.*\)/\2/g' | sed -e 's/\([:alnum]*\) .*/\1/g' | sort > $(OUTPUT_TEX)/fxlglyphname.txt
+	@cat $(OUTPUT_TEX)/fxlglyphname.txt | sed -e 's/\(^.*\)/\\GYLPHNAME{\1}/g' > $(OUTPUT_TEX)/fxlglyphname.tex
+	java -cp $(CLASSPATH) GroupGlyphs $(OUTPUT_TEX)/fxlglyphname.txt $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_TEX)
 
 #ttf: init $(TTFFILES)
 

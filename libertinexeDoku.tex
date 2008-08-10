@@ -387,6 +387,15 @@ automatische Ersetzung der normalen durch die gestrichene Null
 
 
 \newpage
+\subsection{Gruppen}
+{\renewcommand{\arraystretch}{1.25}
+\newcommand{\GROUPHEAD}[1]{\subsubsection{#1}}
+\newcommand{\GROUPFOOT}{}
+\newcommand{\GROUPGLYPH}[2]{\mbox{}\libertineGlyph{#2}\strut}
+\InputIfFileExists{fxlgroupglyphs.tex}{}{}
+}
+
+\newpage
 \subsection{Source}
 
 \lstinputlisting{libertinexe.sty}
