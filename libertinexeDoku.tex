@@ -381,12 +381,13 @@ automatische Ersetzung der normalen durch die gestrichene Null
 \setlength{\columnseprule}{.5pt}
 \setlength{\columnsep}{1cm}
 \begin{multicols}{3}
-   \newcommand{\GYLPHNAME}[1]{\makebox[3cm][l]{#1}\hfill{\Huge\fbox{\libertineGlyph{#1}\strut}}\hfill\mbox{}\newline}
+   \newcommand{\GYLPHNAME}[1]{\sindex[glyph]{#1}%
+   \makebox[3cm][l]{\hypertarget{glyph.#1}{}\hyperlink{gglyph.#1}{#1}}\hfill%
+   {\Huge\fbox{\libertineGlyph{#1}\strut}}\hfill\mbox{}\newline}
    \catcode`\_=12%
    \InputIfFileExists{fxlglyphname.tex}{}{}
 \end{multicols}
 }
-
 
 
 \newpage
@@ -396,7 +397,9 @@ automatische Ersetzung der normalen durch die gestrichene Null
 \catcode`\_=12%
 \newcommand{\GROUPHEAD}[1]{\begin{multicols}{3}[\subsubsection{#1}]}
 \newcommand{\GROUPFOOT}{\end{multicols}}
-\newcommand{\GROUPGLYPH}[2]{\makebox[3cm][l]{#2 {\small(0x#1)}}\hfill{\Huge\libertineGlyph{#2}\strut}\hfill\mbox{}\newline}
+\newcommand{\GROUPGLYPH}[2]{\sindex[glyph]{#2}%
+   \makebox[3cm][l]{\hyperlink{glyph.#2}{#2}\hypertarget{gglyph.#2}{}{\small(0x#1)}}%
+   \hfill{\Huge\libertineGlyph{#2}\strut}\hfill\mbox{}\newline}
 \InputIfFileExists{fxlgroupglyphs.tex}{}{}
 }
 
@@ -406,6 +409,13 @@ automatische Ersetzung der normalen durch die gestrichene Null
 \lstinputlisting{libertinexe.sty}
 
 \newpage
-\printindex
+\newindex[Glyphenverzeichnis]{glyph}
+\newindex[Stichwortverzeichnis]{idx}
+%
+{\catcode`\_=12%
+\def\indexcolumn{4}%
+\printindex[glyph]
+}
+\printindex[idx]
 
 \end{document}

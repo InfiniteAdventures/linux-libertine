@@ -44,7 +44,7 @@ test%.pdf : test%.tex libertinexe.sty
 
 %.pdf : %.tex libertinexe.sty $(OUTPUT_TEX)/LinLibertineAlias.tex $(OUTPUT_TEX)/fxlglyphname.tex
 		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
-		-test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$<).idx && makeindex -s $(SOURCE_TEX)/index.ist $(OUTPUT_TEX)/$(patsubst %.tex,%,$<) -o $(OUTPUT_TEX)/$(patsubst %.tex,%,$<).ind && xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
+		-test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$<).idx && ./splitindex.pl $(OUTPUT_TEX)/$(patsubst %.tex,%,$<) -- -g -s $(SOURCE_TEX)/index.ist && xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<		
 
 $(OUTPUT_TEX)/LinLibertineAlias.tex : $(SOURCE_SFD)/LinLibertine.nam
 		sh $(SOURCE_SCRIPT)/nam2alias $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_TEX)/LinLibertineAlias.tex
