@@ -14,6 +14,7 @@ TEXFILES=$(wildcard *.tex)
 PDFTEXFILES=$(patsubst %.tex, %.pdf ,$(TEXFILES))
 
 SOURCE_TEX=src/tex
+SOURCE_JAVA=src/java
 SOURCE_SFD=src/sfd
 SOURCE_OTF=src/otf
 SOURCE_SCRIPT=src/scripts
@@ -23,6 +24,7 @@ OUTPUT_SFD=$(TARGET)/sfd
 OUTPUT_TTF=$(TARGET)/ttf
 OUTPUT_OTF=$(TARGET)/otf
 OUTPUT_PFB=$(TARGET)/pfb
+OUTPUT_JAVA=$(TARGET)/classes
 
 TEXINPUTS:=.:$(SOURCE_TEX):$(TEXINPUTS)
 CLASSPATH:=$(TARGET)/classes:$(CLASSPATH)
@@ -30,21 +32,27 @@ CLASSPATH:=$(TARGET)/classes:$(CLASSPATH)
 SFDFILES=$(wildcard $(OUTPUT_SFD)/*.sfd)
 TTFFILES=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_TTF)/%,  $(patsubst %.sfd, %.ttf ,$(SFDFILES)))
 OTFFILES=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_OTF)/%,  $(patsubst %.sfd, %.otf ,$(SFDFILES)))
+JAVAFILES=$(wildcard $(SOURCE_JAVA)/*.java)
+CLASSFILES=$(patsubst $(SOURCE_JAVA)/%, $(OUTPUT_JAVA)/%,  $(patsubst %.java, %.class ,$(JAVAFILES)))
 
-all: init version $(OUTPUT_PFB)/fxlr.pfb $(PDFTEXFILES)
+
+all: init version $(CLASSFILES) $(OUTPUT_TEX)/fxlglyphname.tex $(PDFTEXFILES)
 
 #$(OUTPUT_TEX)/%.pdf : %.tex libertinexe.sty
-test%.pdf : test%.tex libertinexe.sty $(OUTPUT_TEX)/LinLibertineAlias.tex
+test%.pdf : test%.tex libertinexe.sty 
 		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 
-%.pdf : %.tex libertinexe.sty $(OUTPUT_TEX)/LinLibertineAlias.tex
+%.pdf : %.tex libertinexe.sty $(OUTPUT_TEX)/LinLibertineAlias.tex $(OUTPUT_TEX)/fxlglyphname.tex
 		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 		-test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$<).idx && makeindex -s $(SOURCE_TEX)/index.ist $(OUTPUT_TEX)/$(patsubst %.tex,%,$<) -o $(OUTPUT_TEX)/$(patsubst %.tex,%,$<).ind && xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 
 $(OUTPUT_TEX)/LinLibertineAlias.tex : $(SOURCE_SFD)/LinLibertine.nam
 		sh $(SOURCE_SCRIPT)/nam2alias $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_TEX)/LinLibertineAlias.tex
 
-$(OUTPUT_PFB)/fxlr.pfb : $(OUTPUT_OTF)/fxlr.otf
+$(OUTPUT_JAVA)/%.class : $(SOURCE_JAVA)/%.java
+		javac -d $(OUTPUT_JAVA) $<
+
+$(OUTPUT_TEX)/fxlglyphname.tex : $(OUTPUT_OTF)/fxlr.otf $(CLASSFILES) $(SOURCE_SFD)/LinLibertine.nam
 	@fontforge -script $(SOURCE_FFSCRIPT)/sfdtopfb.pe $< $(OUTPUT_PFB)/$(notdir $@)
 	@grep "^C " $(OUTPUT_PFB)/fxlr.afm | sed -e 's/\(.*\) N \(.*\) ; \(.*\)/\2/g' | sed -e 's/\([:alnum]*\) .*/\1/g' | sort > $(OUTPUT_TEX)/fxlglyphname.txt
 	@cat $(OUTPUT_TEX)/fxlglyphname.txt | sed -e 's/\(^.*\)/\\GYLPHNAME{\1}/g' > $(OUTPUT_TEX)/fxlglyphname.tex
