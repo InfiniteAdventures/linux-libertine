@@ -1,3 +1,6 @@
+/*
+ * $ Id: $
+ */
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -96,19 +99,12 @@ public class GroupGlyphs {
         for (int group = 0; group < 256; group++) {
             if (!empty(group)) {
                 out.write("\\GROUPHEAD{" + int2hex(group * 256) + "}\n");
-                out.write("\\begin{tabularx}{\\linewidth}{|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|}\\hline\n");
-                for (int l = 0; l < 16; l++) {
-                    for (int c = 0; c < 16; c++) {
-                        int v = group * 256 + l * 16 + c;
+                for (int l = 0; l < 256; l++) {
+                    int v = group * 256 + l;
+                    if (!glyphArray[v].equals(".notdef")) {
                         out.write("   \\GROUPGLYPH{" + int2hex(v) + "}{" + glyphArray[v] + "}");
-                        if (c < 15) {
-                            out.write(" & ");
-                        }
-                        out.write("\n");
                     }
-                    out.write("   \\\\\\hline\n");
                 }
-                out.write("\\end{tabularx}\n");
                 out.write("\\GROUPFOOT{}\n");
             }
         }

@@ -377,6 +377,7 @@ automatische Ersetzung der normalen durch die gestrichene Null
 \newpage
 \subsection{Glyphen}
 
+{%
 \setlength{\columnseprule}{.5pt}
 \setlength{\columnsep}{1cm}
 \begin{multicols}{3}
@@ -384,14 +385,18 @@ automatische Ersetzung der normalen durch die gestrichene Null
    \catcode`\_=12%
    \InputIfFileExists{fxlglyphname.tex}{}{}
 \end{multicols}
+}
+
 
 
 \newpage
 \subsection{Gruppen}
-{\renewcommand{\arraystretch}{1.25}
-\newcommand{\GROUPHEAD}[1]{\subsubsection{#1}}
-\newcommand{\GROUPFOOT}{}
-\newcommand{\GROUPGLYPH}[2]{\mbox{}\libertineGlyph{#2}\strut}
+{\setlength{\columnseprule}{.5pt}
+\setlength{\columnsep}{1cm}
+\catcode`\_=12%
+\newcommand{\GROUPHEAD}[1]{\subsubsection{#1}\begin{multicols}{3}}
+\newcommand{\GROUPFOOT}{\end{multicols}}
+\newcommand{\GROUPGLYPH}[2]{\makebox[3cm][l]{#2 {\small(0x#1)}}\hfill{\Huge\libertineGlyph{#2}\strut}\hfill\mbox{}\newline}
 \InputIfFileExists{fxlgroupglyphs.tex}{}{}
 }
 
