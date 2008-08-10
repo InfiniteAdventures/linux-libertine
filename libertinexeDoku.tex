@@ -394,7 +394,7 @@ automatische Ersetzung der normalen durch die gestrichene Null
 {\setlength{\columnseprule}{.5pt}
 \setlength{\columnsep}{1cm}
 \catcode`\_=12%
-\newcommand{\GROUPHEAD}[1]{\subsubsection{#1}\begin{multicols}{3}}
+\newcommand{\GROUPHEAD}[1]{\begin{multicols}{3}[\subsubsection{#1}]}
 \newcommand{\GROUPFOOT}{\end{multicols}}
 \newcommand{\GROUPGLYPH}[2]{\makebox[3cm][l]{#2 {\small(0x#1)}}\hfill{\Huge\libertineGlyph{#2}\strut}\hfill\mbox{}\newline}
 \InputIfFileExists{fxlgroupglyphs.tex}{}{}
