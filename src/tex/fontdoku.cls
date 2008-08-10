@@ -61,11 +61,13 @@
 % sauberer Flattersatz
 \RequirePackage{ragged2e}
 %
-\RequirePackage{makeidx}
+%\RequirePackage{makeidx}
+\RequirePackage[makeindex]{splitidx}
 \newcommand*{\bb}[1]{\textbf{#1}}% index fett
 \def\see#1#2{{\reset@font\it\seename\/} #1}
 \def\dominator#1{\underline{#1}}
 \def\heading#1{{\reset@font\sffamily\Large#1}\hfil\nopagebreak}
+\def\indexcolumn{2}
 \renewenvironment{theindex}%
                {%
                 \columnseprule \z@
@@ -76,7 +78,7 @@
                 \RaggedRight
                 \libertine
                 % -------------------------------------
-                \begin{multicols}{2}[\subsection{\indexname}
+                \begin{multicols}{\indexcolumn}[\subsection{\indexname}
                    \@mkboth{\indexname}{\indexname}]%
                    \parindent\z@
                    \parskip\z@ \@plus .3\p@\relax
