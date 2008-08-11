@@ -53,9 +53,9 @@ $(OUTPUT_JAVA)/%.class : $(SOURCE_JAVA)/%.java
 		javac -d $(OUTPUT_JAVA) $<
 
 $(OUTPUT_TEX)/fxlglyphname.tex : $(OUTPUT_OTF)/fxlr.otf $(CLASSFILES) $(SOURCE_SFD)/LinLibertine.nam
-	@fontforge -script $(SOURCE_FFSCRIPT)/sfdtopfb.pe $< $(OUTPUT_PFB)/$(notdir $@)
-	@grep "^C " $(OUTPUT_PFB)/fxlr.afm | sed -e 's/\(.*\) N \(.*\) ; \(.*\)/\2/g' | sed -e 's/\([:alnum]*\) .*/\1/g' | sort > $(OUTPUT_TEX)/fxlglyphname.txt
-	@cat $(OUTPUT_TEX)/fxlglyphname.txt | sed -e 's/\(^.*\)/\\GYLPHNAME{\1}/g' > $(OUTPUT_TEX)/fxlglyphname.tex
+	fontforge -script $(SOURCE_FFSCRIPT)/sfdtopfb.pe $(OUTPUT_OTF)/fxlr.otf $(OUTPUT_PFB)/fxlr.pfb
+	grep "^C " $(OUTPUT_PFB)/fxlr.afm | sed -e 's/\(.*\) N \(.*\) ; \(.*\)/\2/g' | sed -e 's/\([:alnum]*\) .*/\1/g' | sort > $(OUTPUT_TEX)/fxlglyphname.txt
+	cat $(OUTPUT_TEX)/fxlglyphname.txt | sed -e 's/\(^.*\)/\\GYLPHNAME{\1}/g' > $(OUTPUT_TEX)/fxlglyphname.tex
 	java -cp $(CLASSPATH) GroupGlyphs $(OUTPUT_TEX)/fxlglyphname.txt $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_TEX)
 
 #ttf: init $(TTFFILES)
@@ -70,14 +70,14 @@ $(OUTPUT_TEX)/fxlglyphname.tex : $(OUTPUT_OTF)/fxlr.otf $(CLASSFILES) $(SOURCE_S
 #	@echo -e "\n" $<
 #	@nice fontforge -script $(SOURCE_FFSCRIPT)/sfdtootf.pe $< $(OUTPUT_OTF)/$(notdir $@)
 
-
-init:
+init:  
 	@mkdir -p $(TARGET)
 	@mkdir -p $(OUTPUT_TEX)
 	@mkdir -p $(OUTPUT_SFD)
 	@mkdir -p $(OUTPUT_TTF)
 	@mkdir -p $(OUTPUT_OTF)
 	@mkdir -p $(OUTPUT_PFB)
+	@mkdir -p $(OUTPUT_JAVA)
 	@sh $(SOURCE_SCRIPT)/fontName2LaTeX $(SOURCE_SFD) $(OUTPUT_SFD) sfd
 	@sh $(SOURCE_SCRIPT)/fontName2LaTeX $(SOURCE_OTF) $(OUTPUT_OTF) otf
 
@@ -91,7 +91,7 @@ copysf: all
 	scp libertinexeDoku.pdf mgn@linuxlibertine.sf.net:~/linuxlibertine/htdocs/latex/
 
 copyfont:
-	@cp target/otf/fx*.otf ~/.fonts/
+	@cp -v target/otf/fx*.otf ~/.fonts/
 
 help:
 	@grep -v "^#" Makefile.help
