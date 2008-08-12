@@ -53,6 +53,20 @@ Font: Philipp H. Poll\par \XeLaTeX-Einbindung: Michael Niedermair
 % ----------------------------------------------------------------
 % ----------------------------------------------------------------
 \newpage
+\section{Vorteile von XeTex}
+
+\begin{itemize}
+ \item Volle Unicode-Unterstützung. Im Quelltext können alle Unicode-Zeichen direkt eingefügt werden.
+ \item Einfache Verwendung von TrueType- bzw. OTF-Schriften
+ \item Volle OpenType-Unterstützung:
+   \begin{itemize}
+   \item Automatische Verwendung der standardmäßig aktivierten OpenType-Eigenschaften, z.B. Ligaturen wie ff, fi, ch, ck, fl,ffi, ffl,fb, fh, ...
+    \item Umschalten von Stylistic Sets, z.B. Medievalziffern, Proportionalziffern, ÄÖÜ als Tremabuchstaben, Ersetzen von ß durch ss
+    \item Echtes GPOS-Kerning
+   \end{itemize}
+
+\end{itemize}
+
 \section{Font}
 \index{Opentype Font}\index{otf}\index{libertine}
 
@@ -398,7 +412,7 @@ automatische Ersetzung der normalen durch die gestrichene Null
 \newcommand{\GROUPHEAD}[1]{\begin{multicols}{3}[\subsubsection{#1}]}
 \newcommand{\GROUPFOOT}{\end{multicols}}
 \newcommand{\GROUPGLYPH}[2]{\sindex[glyph]{#2}%
-   \makebox[3cm][l]{\hyperlink{glyph.#2}{#2}\hypertarget{gglyph.#2}{}{\small(0x#1)}}%
+   \makebox[3cm][l]{\hyperlink{glyph.#2}{#2}\hypertarget{gglyph.#2}{}{ \small(0x#1)}}%
    \hfill{\Huge\libertineGlyph{#2}\strut}\hfill\mbox{}\newline}
 \InputIfFileExists{fxlgroupglyphs.tex}{}{}
 }

@@ -10,7 +10,7 @@
 % -----------------------------------------
 \NeedsTeXFormat{LaTeX2e}[2003/12/01]
 \ProvidesClass{fontdoku}[%
-   2008/08/08 v1.4
+   2008/08/12 v1.4a
    Vorlage fontdoku (License GPL)
    Niedermair]
 %
@@ -94,7 +94,7 @@
 \renewcommand*\subsubitem  {\par\hangindent 3em \hspace*{2em}}
 \makeindex
 %
-\usepackage{hyperref}
+\usepackage[colorlinks, linkcolor=blue]{hyperref}
 %
 %----------------------------------------------------------
 \endinput
