@@ -4,7 +4,7 @@
 \documentclass{fontdoku}
 \usepackage[debug,noamsmath,dejavusans,draft]{libertinexe}
 %
-\lohead{\large\libertineGlyph{uniE00A}}
+\lohead{\large\Lglyph{uniE00A}}
 \cfoot{}
 \rohead{\large\pagemark}
 \setheadsepline{.5pt}
@@ -14,7 +14,7 @@
 \def\TEXT{%
 Dies ist ein Text mit Zahlen 1234567890!\newline%
 öäüß ÖÄÜ\quad ff fi fl ffi ffl\quad Hamburg\quad Quelle\newline%
-Am 30.4.1987 saß ich im \glqq{}Caf\'e Hamburg\grqq{} und schlürfte Kaffee für 2,65\,\libertineEuro!
+Am 30.4.1987 saß ich im \glqq{}Caf\'e Hamburg\grqq{} und schlürfte Kaffee für 2,65\,\Leuro!
 }
 \def\ZAHL{01234567890}
 %
@@ -25,10 +25,10 @@ Am 30.4.1987 saß ich im \glqq{}Caf\'e Hamburg\grqq{} und schlürfte Kaffee für
 \begin{minipage}{\linewidth}%
    \centering%
    \libertine\fontsize{36pt}{40pt}\selectfont%
-   \textcolor{red}{\libertineGlyph{uni2619}}\quad%
+   \textcolor{red}{\Lglyph{uni2619}}\quad%
    \fontsize{36pt}{40pt}\selectfont Linux Libertine Open\par
    \hfill\fontsize{36pt}{40pt}\selectfont Fonts Project\quad%
-   \fontsize{36pt}{40pt}\selectfont\textcolor{red}{\libertineGlyph{uni2767}}\par
+   \fontsize{36pt}{40pt}\selectfont\textcolor{red}{\Lglyph{uni2767}}\par
 \end{minipage}
 
 \vfill
@@ -44,7 +44,7 @@ Font: Philipp H. Poll\par \XeLaTeX-Einbindung: Michael Niedermair
 
 \vfill
 \begin{center}
-{\fontsize{6cm}{6cm}\selectfont\libertineLogo}%
+{\fontsize{6cm}{6cm}\selectfont\Llogo}%
 \hfill\fontsize{20pt}{18pt}\selectfont\today
 \end{center}
 \newpage
@@ -68,12 +68,12 @@ Font: Philipp H. Poll\par \XeLaTeX-Einbindung: Michael Niedermair
 \end{itemize}
 
 \section{Font}
-\index{Opentype Font}\index{otf}\index{libertine}
+\index{Opentype Font}\index{otf}\index{Libertine}
 
-Es wird ausschließlich die OpenType-Version des \emph{libertine}-Fonts verwendet.
+Es wird ausschließlich die OpenType-Version des \emph{Libertine}-Fonts verwendet.
 
 \minisec{Versionen}
-\index{libertine!Version}
+\index{Libertine!Version}
 
 \lstinputlisting{version}
 
@@ -95,7 +95,7 @@ Folgende Optionen sind dabei möglich:
       geladen werden!
 \item [lucida] Es wird das Lucida-Font-Paket%
       \footnote{\texttt{\textbackslash usepackage[expert]\{lucidabr\}}}
-      vor der Schrift \emph{libertine} geladen.
+      vor der Schrift \emph{Libertine} geladen.
 \item [rawfeature] Es können direkt die \emph{rawfeature} des \emph{fontspec}-Pakets genutzt werden.
       Ein '+' fügt ein Feature hinzu, ein '-' entfernt dieses.
 \item [langauge] Es wird eine Sprache für den Font aktiviert.
@@ -104,43 +104,139 @@ Folgende Optionen sind dabei möglich:
 \item [dejavusansmono] Verwendet den Font \emph{DejaVu Sans Mono}.
 \item [draft] Es wird der \emph{drafttext} (z.\,B. Entwurf) als Hintergrundtext verwendet.
 \item [drafttext] Der Hintergrundtext.
+\item [noquotes] Verhindert das Definieren der Anführungszeichen (\texttt{glqq} und \texttt{qrqq}).
 \end{description}
 
 \newpage
 \subsection{spezielle Makros}
 
 \begin{description}[\setleftmargin{1em}\breaklabel]
-\item [\textbackslash libertine]
-      Schaltet auf den \emph{libertine}-Font um. Dabei werden die Paketoptionen verwendet.
+\item [\textbackslash libertine]\index{Befehle!libertine}%
+      Schaltet auf den \emph{Libertine}-Font um. Dabei werden die Paketoptionen verwendet.
 \begin{lstlisting}
 {\libertine Dies ist ein Text!}
 \end{lstlisting}
 
-\item [\textbackslash libertineFeature]
+\item [\textbackslash OTF]\index{Befehle!OTF}%
       Aktiviert \emph{feature}-Tags. Siehe hierzu auch die Option \emph{rawfeature}.
 \begin{lstlisting}
-{\libertineFeature{+smcp}Dies ist ein Text!}
+{\OTF{+smcp}Dies ist ein Text!}
 \end{lstlisting}
 
-\item [\textbackslash libertineGlyph]
+\item [\textbackslash Lglyph]\index{Befehle!Lglyph}%
       Ein Zeichen kann mit Hilfe des Gylphnamen (siehe Anhang) gesetzt werden. Ist der Glyphname
-      nicht vorhanden, so wird kein Zeichen gesetzt.
+      nicht vorhanden, so wird kein Zeichen gesetzt. Dabei wird auf den libertine Font umgeschaltet. Verwendet man die *-Variante, so wird keine expliziete Fontumschaltung durchgeführt.
 \begin{lstlisting}
-\libertineGlyph{Tux}
+\Lglyph{Tux}
 \end{lstlisting}
 
-\item [\textbackslash libertineEuro]
-      Es wird das \emph{libertine}-Euro-Zeichen gesetzt.
+\item [\textbackslash Leuro]\index{Befehle!Leuro}%
+      Es wird das \emph{Libertine}-Euro-Zeichen gesetzt.
 \begin{lstlisting}
-\libertineEuro
+\Leuro
 \end{lstlisting}
 
-\item [\textbackslash libertineLogo]
-      Es wird das \emph{libertine}-Logo gesetzt.
+\item [\textbackslash Llogo]\index{Befehle!Llogo}%
+      Es wird das \emph{Libertine}-Logo gesetzt.
 \begin{lstlisting}
-\libertineLogo
+\Llogo
 \end{lstlisting}
 \end{description}
+
+\newpage
+\subsection{Font-Umschaltung}
+
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\libertine\TEXT
+\end{lstsample}
+
+\subsubsection*{textbf -- bfseries}
+\index{Befehle!textbf}\index{Befehle!bfseries}
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\bfseries\TEXT
+\end{lstsample}
+
+\subsubsection*{textit -- itshape}
+\index{Befehle!textit}\index{Befehle!itshape}
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\itshape\TEXT
+\end{lstsample}
+
+\subsubsection*{textbf/textit -- bfseries/itshape}
+\index{Befehle!textbf}\index{Befehle!textit}\index{Befehle!bfseries}\index{Befehle!}itshape
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\bfseries\itshape\TEXT
+\end{lstsample}
+
+\subsubsection*{textsc -- scshape}
+\index{Befehle!textsc}\index{Befehle!scshape}
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\scshape\TEXT
+\end{lstsample}
+
+\subsubsection*{textsc/textbf -- scshape/bfseries}
+\index{Befehle!textsc}\index{Befehle!textbf}\index{Befehle!scshape}\index{Befehle!bfseries}
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\bfseries\scshape\TEXT
+\end{lstsample}
+
+\subsubsection*{textsi -- sishape}
+\index{Befehle!textsi}\index{Befehle!sishape}
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\sishape\TEXT
+\end{lstsample}
+
+\subsubsection*{textsi/textbf -- sishape/bfseries}
+\index{Befehle!textsi}\index{Befehle!textbf}\index{Befehle!sishape}\index{Befehle!bfseries}
+Nicht definiert!
+
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\bfseries\sishape\TEXT
+\end{lstsample}
+
+
+\subsubsection*{textup -- upshape}
+\index{Befehle!textup}\index{Befehle!upshape}
+Nicht definiert!
+
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\upshape\TEXT
+\end{lstsample}
+
+\subsubsection*{textsl -- slshape}
+\index{Befehle!textsl}\index{Befehle!slshape}
+Nicht definiert!
+
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\slshape\TEXT
+\end{lstsample}
+
+\subsubsection*{numprp, numtab, numold, numzero, numfrac}
+\index{Befehle!numprp}\index{Befehle!numtab}\index{Befehle!numold}%
+\index{Befehle!numzero}\index{Befehle!numfrac}
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+{\numprp\ZAHL}
+
+{\numtab\ZAHL}
+
+{\numold\ZAHL}
+
+{\numzero\ZAHL}
+
+{\numfrac 1/2 1/3 2/3 1/4 3/4 1/5 2/5 3/5 4/5 1/6 5/6 1/8 3/8 5/8 7/8}
+\end{lstsample}
+
+
+\subsubsection*{textsubscript/testsuperscript}
+\index{Befehle!textsubscript}\index{Befehle!textsuperscript}
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+123\textsubscript{456}
+
+123\textsuperscript{456}
+\end{lstsample}
+
+
+
 
 
 \newpage
@@ -149,8 +245,8 @@ Folgende Optionen sind dabei möglich:
 \subsection{feature tags}
 
 Mit den \emph{feature}-Tags werden bestimmte Eigenschaften des Fonts aktiviert.
-Die Aktivierung der Tags erfolgt mit dem Makro \emph{libertineFeature}\footnote{Alternativ kann auch der \emph{fontspec}-Befehl \texttt{\textbackslash addfontfeature} verwendet werden.}.
-Der \emph{libertine}-Font unterstützt folgende Tags:%
+Die Aktivierung der Tags erfolgt mit dem Makro \emph{OTF}\footnote{Alternativ kann auch der \emph{fontspec}-Befehl \texttt{\textbackslash addfontfeature} verwendet werden.}.
+Der \emph{Libertine}-Font unterstützt folgende Tags:%
 
 
 
@@ -161,7 +257,7 @@ Der \emph{libertine}-Font unterstützt folgende Tags:%
 Minuskeln\footnote{Kleinbuchstaben bzw. auch Gemeinen} -> Kapitälchen
 
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
-\libertineFeature{+smcp}\TEXT
+\OTF{+smcp}\TEXT
 \end{lstsample}
 
 
@@ -173,7 +269,7 @@ Minuskeln\footnote{Kleinbuchstaben bzw. auch Gemeinen} -> Kapitälchen
 Versalien\footnote{Großbuchstaben bzw. auch Majuskel genannt} -> Kapitälchen
 
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
-\libertineFeature{+c2sc}\TEXT
+\OTF{+c2sc}\TEXT
 \end{lstsample}
 
 
@@ -183,9 +279,9 @@ Versalien\footnote{Großbuchstaben bzw. auch Majuskel genannt} -> Kapitälchen
 Standardligaturen\footnote{Standardmäßig eingeschaltet}, wie z.B. ff, fi, fl\dots
 
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
-\libertineFeature{+liga}\TEXT
+\OTF{+liga}\TEXT
 
-\libertineFeature{-liga}\TEXT
+\OTF{-liga}\TEXT
 \end{lstsample}
 
 
@@ -196,9 +292,9 @@ Standardligaturen\footnote{Standardmäßig eingeschaltet}, wie z.B. ff, fi, fl\d
 historische, heute nicht mehr verwendete Ligaturen: st und ct
 
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
-\libertineFeature{+hlig}\TEXT
+\OTF{+hlig}\TEXT
 
-\libertineFeature{-hlig}\TEXT
+\OTF{-hlig}\TEXT
 \end{lstsample}
 
 
@@ -210,9 +306,9 @@ historische, heute nicht mehr verwendete Ligaturen: st und ct
 nützliche aber nicht notwendige Ligaturen, wie z.B. Qu und tz
 
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
-\libertineFeature{+dlig}\TEXT
+\OTF{+dlig}\TEXT
 
-\libertineFeature{-dlig}\TEXT
+\OTF{-dlig}\TEXT
 \end{lstsample}
 
 
@@ -225,7 +321,7 @@ nützliche aber nicht notwendige Ligaturen, wie z.B. Qu und tz
 Brüche: z.B. 1/2, wird durch ein Zeichen ersetzt
 
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
-\libertineFeature{+frac}1/2\quad 3/4
+\OTF{+frac}1/2\quad 3/4
 \end{lstsample}
 
 
@@ -247,13 +343,13 @@ Mediävalziffern - Minuskelziffern
 automatische Ersetzung der normalen durch die gestrichene Null
 
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
-\libertineFeature{+tnum}\ZAHL
+\OTF{+tnum}\ZAHL
 
-\libertineFeature{+pnum}\ZAHL
+\OTF{+pnum}\ZAHL
 
-\libertineFeature{+onum}\ZAHL
+\OTF{+onum}\ZAHL
 
-\libertineFeature{+zero}\ZAHL
+\OTF{+zero}\ZAHL
 \end{lstsample}
 
 
@@ -261,33 +357,33 @@ automatische Ersetzung der normalen durch die gestrichene Null
 \index{feature!salt}
 
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
-\libertineFeature{+salt}\TEXT
+\OTF{+salt}\TEXT
 \end{lstsample}
 
 \subsubsection*{ss01 -- Stylistic Set 1} \index{feature!ss01}(deutsche Variante der Majuskelumlaute -> betonte Vokale)
 
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
-\libertineFeature{+ss01}\TEXT
+\OTF{+ss01}\TEXT
 \end{lstsample}
 
 
 \subsubsection*{ss02 -- Stylistic Set 2} \index{feature!ss02}(verwendet teilweise geschwungenere Varianten von Großbuchstaben, z.Z. von K und R)
 
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
-\libertineFeature{+ss02}\TEXT
+\OTF{+ss02}\TEXT
 \end{lstsample}
 
 
 \subsubsection*{ss03 -- Stylistic Set 3} \index{feature!ss03}(Eszetts in SS/ss verwandeln)
 
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
-\libertineFeature{+ss03}\TEXT
+\OTF{+ss03}\TEXT
 \end{lstsample}
 
 \subsubsection*{fina -- Terminal Forms} \index{feature!fina}(besondere Zeichen für's Wortende)
 
 \begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
-\libertineFeature{+fina}\TEXT
+\OTF{+fina}\TEXT
 \end{lstsample}
 
 
@@ -386,6 +482,10 @@ automatische Ersetzung der normalen durch die gestrichene Null
    \item \XeTeX-Homepage \hfill\url{http://scripts.sil.org/xetex}
    \item \XeTeX-Tutorium (englisch) \hfill\url{http://xml.web.cern.ch/XML/lgc2/xetexmain.pdf}
    \item Tex-Live-Distribution \hfill\url{http://tug.org/texlive/}
+   \item NEO \hfill\url{http://www.neo-layout.org}
+   \item AnyEdit \hfill\url{http://anyedit.sourceforge.net/}
+   \item GuCharmap \hfill\url{http://live.gnome.org/Gucharmap}
+   \item fontspec \hfill\url{http://downloads.miek.nl/2008/fontspec.pdf}
 \end{itemize}
 
 \newpage
@@ -397,7 +497,7 @@ automatische Ersetzung der normalen durch die gestrichene Null
 \begin{multicols}{3}
    \newcommand{\GYLPHNAME}[1]{\sindex[glyph]{#1}%
    \makebox[3cm][l]{\hypertarget{glyph.#1}{}\hyperlink{gglyph.#1}{#1}}\hfill%
-   {\Huge\fbox{\libertineGlyph{#1}\strut}}\hfill\mbox{}\newline}
+   {\Huge\fbox{\Lglyph{#1}\strut}}\hfill\mbox{}\newline}
    \catcode`\_=12%
    \InputIfFileExists{fxlglyphname.tex}{}{}
 \end{multicols}
@@ -413,7 +513,7 @@ automatische Ersetzung der normalen durch die gestrichene Null
 \newcommand{\GROUPFOOT}{\end{multicols}}
 \newcommand{\GROUPGLYPH}[2]{\sindex[glyph]{#2}%
    \makebox[3cm][l]{\hyperlink{glyph.#2}{#2}\hypertarget{gglyph.#2}{}{ \small(0x#1)}}%
-   \hfill{\Huge\libertineGlyph{#2}\strut}\hfill\mbox{}\newline}
+   \hfill{\Huge\Lglyph{#2}\strut}\hfill\mbox{}\newline}
 \InputIfFileExists{fxlgroupglyphs.tex}{}{}
 }
 
@@ -431,5 +531,13 @@ automatische Ersetzung der normalen durch die gestrichene Null
 \printindex[glyph]
 }
 \printindex[idx]
+
+\newpage
+\subsection{FAQ}
+
+\begin{itemize}
+   \item XXX
+\end{itemize}
+
 
 \end{document}

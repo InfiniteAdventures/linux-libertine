@@ -10,7 +10,7 @@
 % -----------------------------------------
 \NeedsTeXFormat{LaTeX2e}[2003/12/01]
 \ProvidesClass{fontdoku}[%
-   2008/08/12 v1.4a
+   2008/08/13 v1.4b
    Vorlage fontdoku (License GPL)
    Niedermair]
 %

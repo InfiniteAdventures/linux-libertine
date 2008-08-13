@@ -1,5 +1,5 @@
 %
-% Paket fuer den Font "libertine" (XeTeX)
+% Paket fuer den Font "Libertine" (XeTeX)
 %
 % (c) Michael Niedermair
 %
@@ -7,6 +7,9 @@
 %
 % $Id$
 %
+% 0.1g   Umbenennung der Makros
+%        neue Makros erstellt
+%        Numbers und HyphenChar deaktiviert.
 % 0.1f   Als Standard Numbers und HyphenChar gesetzt.
 % 0.1e   Parameter 'draft'/'final' hinzugefuegt.
 %        Parameter 'drafttext' hizugefuegt.
@@ -19,7 +22,7 @@
 %
 % -------------------------------------
 \ProvidesPackage{libertinexe}[%
-   2008/08/12 v0.1f
+   2008/08/13 v0.1g
    Font libertine - XeTeX (License GPL)
    Michael Niedermair]
 %
@@ -36,6 +39,7 @@
    \def\libertine@dejavusansmono{false}%  use the font DejaVu Sans Mono
    \def\libertine@draft{false}%           draft
    \def\libertine@drafttext{Entwurf}%     draft text
+   \def\libertine@quotes{true}%           quotes
    %
    \define@key{libertine}{debug}[true]{\def\libertine@debug{#1}}
    \define@key{libertine}{noamsmath}[false]{\def\libertine@amsmath{#1}}
@@ -48,6 +52,7 @@
    \define@key{libertine}{draft}[true]{\def\libertine@draft{true}}
    \define@key{libertine}{final}[true]{\def\libertine@draft{false}}
    \define@key{libertine}{drafttext}[Entwurf]{\def\libertine@drafttext{#1}}
+   \define@key{libertine}{noquotes}[true]{\def\libertine@quotes{false}}
    %
    \def\ProcessOptionsWithKV#1{%
       \let\@tempc\relax
@@ -88,6 +93,7 @@
      \typeout{Font DeJaVu SansMono  = \libertine@dejavusansmono}
      \typeout{draft             = \libertine@draft}
      \typeout{drafttext         = \libertine@drafttext}
+     \typeout{quotes            = \libertine@quotes}
      \typeout{---------- DEBUG ----------------------------------}
    }{}%
 
@@ -100,21 +106,19 @@
       \RequirePackage[expert]{lucidabr}
    }{}%
 
-   \RequirePackage{xunicode}
-   \RequirePackage{fontspec}
    \RequirePackage{xltxtra}
    \setromanfont[Mapping=tex-text%
       ,RawFeature=\libertine@rawfeature%
       ,Language=\libertine@language%
       ,Script=\libertine@script%
-      ,Numbers=Proportional%
-      ,HyphenChar=%
+      %,Numbers=Proportional%
+      %,HyphenChar=%
       ]{Linux Libertine O}
    \newfontfamily\libertine[RawFeature=\libertine@rawfeature%
       ,Language=\libertine@language%
       ,Script=\libertine@script%
-      ,Numbers=Proportional%
-      ,HyphenChar=%
+      %,Numbers=Proportional%
+      %,HyphenChar=%
       ]{Linux Libertine O}
 
    % dejavu sans
@@ -136,18 +140,32 @@
             \rotatebox[origin=c]{-50}{\textcolor{lightgray}{\libertine@drafttext}}
       }}}%
    }{}%
+   % quotes
+   \ifthenelse{\equal{\libertine@quotes}{true}}{
+      \ProvideTextCommand{\glqq}{EU1}{%
+         \textormath{\quotedblbase}{\mbox{\quotedblbase}}}
+      \ProvideTextCommand{\grqq}{EU1}{%
+         \textormath{\textquotedblleft}{\mbox{\textquotedblleft}}}
+   }{}%
    % -----------------------------------------------------------------
    %
-   \newcommand*{\libertineFeature}[1]{\libertine\addfontfeature{RawFeature=#1}}
-   \newcommand*{\libertineGlyph}[1]{%
-      \ifnum\XeTeXglyphindex "#1" > 0%
-         \XeTeXglyph\XeTeXglyphindex "#1"
+   \DeclareRobustCommand*\OTF[1]{\libertine\addfontfeature{RawFeature=#1}}
+   \DeclareRobustCommand*\Lglyph{\@ifstar{}{\libertine}\Lglyphx}
+   \DeclareRobustCommand*\Lglyphx[1]{%
+      \@tempcnta=\XeTeXglyphindex "#1"\relax%
+      \ifnum\@tempcnta>0%
+         \XeTeXglyph\@tempcnta%
       \fi
-      }
-   \newcommand*{\libertineEuro}{\libertineGlyph{Euro}\xspace}
-   \newcommand*{\libertineLogo}{\mbox{%
-      \libertineGlyph{uniE041}%
-      \textcolor[HTML]{00710A}{\libertineGlyph{uniE042}}}}
+   }
+   \DeclareRobustCommand*\Leuro{\libertine\Lglyph{Euro}\xspace}
+   \DeclareRobustCommand*\Llogo{\mbox{%
+      \Lglyph{uniE041}%
+      \textcolor[HTML]{00710A}{\Lglyph{uniE042}}}}
+   \DeclareRobustCommand*\numprp{\OTF{-tnum;+pnum}}
+   \DeclareRobustCommand*\numtab{\OTF{-pnum;+tnum}}
+   \DeclareRobustCommand*\numold{\OTF{+onum}}
+   \DeclareRobustCommand*\numzero{\OTF{+zero}}
+   \DeclareRobustCommand*\numfrac{\OTF{+frac}}
    % -------------------------------------------------------
 \else
     \PackageWarning{libertinexe}{*** libertinexe.sty works only with xetex! ***^^J}
