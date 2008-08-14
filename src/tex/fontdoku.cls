@@ -94,7 +94,7 @@
 \renewcommand*\subsubitem  {\par\hangindent 3em \hspace*{2em}}
 \makeindex
 %
-\usepackage[colorlinks, linkcolor=blue]{hyperref}
+\usepackage[colorlinks,linkcolor=blue]{hyperref}
 %
 %----------------------------------------------------------
 \endinput

@@ -13,7 +13,7 @@
 %
 \def\TEXT{%
 Dies ist ein Text mit Zahlen 1234567890!\newline%
-öäüß ÖÄÜ\quad ff fi fl ffi ffl\quad Hamburg\quad Quelle\newline%
+öäüß ÖÄÜ\Lglyph{Germandbls}\quad ff fi fl ffi ffl\quad Hamburg\quad Quelle\newline%
 Am 30.4.1987 saß ich im \glqq{}Caf\'e Hamburg\grqq{} und schlürfte Kaffee für 2,65\,\Leuro!
 }
 \def\ZAHL{01234567890}
@@ -77,6 +77,11 @@ Es wird ausschließlich die OpenType-Version des \emph{Libertine}-Fonts verwende
 
 \lstinputlisting{version}
 
+
+\minisec{Installation}
+
+Die Fontdateien werden über das Betriebssystem geladen. Dies bedeutet, dass die OTF-Dateien mit Hilfe der Betriebssystemfunktion installaiert werden.
+
 \section{Aufruf und Angaben}
 
 Das \emph{xelibertine}-Paket wird mit dem \emph{usepackage}-Makro aufgerufen.
@@ -98,7 +103,7 @@ Folgende Optionen sind dabei möglich:
       vor der Schrift \emph{Libertine} geladen.
 \item [rawfeature] Es können direkt die \emph{rawfeature} des \emph{fontspec}-Pakets genutzt werden.
       Ein '+' fügt ein Feature hinzu, ein '-' entfernt dieses.
-\item [langauge] Es wird eine Sprache für den Font aktiviert.
+\item [language] Es wird eine Sprache für den Font aktiviert.
 \item [script]   Es wird ein Skript (in Abhängigkeit zur Sprache) für den Font aktiviert.
 \item [dejavusans] Verwendet den Font \emph{DejaVu Sans}.
 \item [dejavusansmono] Verwendet den Font \emph{DejaVu Sans Mono}.
@@ -532,6 +537,21 @@ automatische Ersetzung der normalen durch die gestrichene Null
 }
 \printindex[idx]
 
+% --------------------------------------------
+\newpage
+\subsection{Textbeispiele}
+
+\subsubsection{Die Judenbuche}
+{\color{purple}
+\input{judenbuche.tex}
+}
+\newpage
+\subsubsection{Der Froschkönig}
+{\color{purple}
+\input{froschkoenig.tex}
+}
+
+% --------------------------------------------
 \newpage
 \subsection{FAQ}
 
