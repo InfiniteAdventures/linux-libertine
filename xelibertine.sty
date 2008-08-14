@@ -7,6 +7,7 @@
 %
 % $Id$
 %
+% 0.1h   Umbenennung des Paketes
 % 0.1g   Umbenennung der Makros
 %        neue Makros erstellt
 %        Numbers und HyphenChar deaktiviert.
@@ -21,9 +22,9 @@
 % 0.1    erster Start
 %
 % -------------------------------------
-\ProvidesPackage{libertinexe}[%
-   2008/08/13 v0.1g
-   Font libertine - XeTeX (License GPL)
+\ProvidesPackage{xelibertine}[%
+   2008/08/14 v0.1h
+   XeTeX - Font libertine - BETA (License GPL)
    Michael Niedermair]
 %
 \RequirePackage{ifxetex,keyval,calc,ifthen,xcolor,xspace}
@@ -168,7 +169,7 @@
    \DeclareRobustCommand*\numfrac{\OTF{+frac}}
    % -------------------------------------------------------
 \else
-    \PackageWarning{libertinexe}{*** libertinexe.sty works only with xetex! ***^^J}
+    \PackageWarning{xelibertine}{*** xelibertine.sty works only with xetex! ***^^J}
 \fi
 %
 \endinput

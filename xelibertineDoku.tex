@@ -2,7 +2,7 @@
 % $Id$
 %
 \documentclass{fontdoku}
-\usepackage[debug,noamsmath,dejavusans,draft]{libertinexe}
+\usepackage[debug,noamsmath,dejavusans,draft]{xelibertine}
 %
 \lohead{\large\Lglyph{uniE00A}}
 \cfoot{}
@@ -79,10 +79,10 @@ Es wird ausschließlich die OpenType-Version des \emph{Libertine}-Fonts verwende
 
 \section{Aufruf und Angaben}
 
-Das \emph{libertinexe}-Paket wird mit dem \emph{usepackage}-Makro aufgerufen.
+Das \emph{xelibertine}-Paket wird mit dem \emph{usepackage}-Makro aufgerufen.
 
 \begin{lstlisting}
-\usepackage[<optionen>]{libertinexe}
+\usepackage[<optionen>]{xelibertine}
 \end{lstlisting}
 
 \subsection{Optionen}
@@ -91,7 +91,7 @@ Folgende Optionen sind dabei möglich:
 \begin{description}[\setlabelphantom{dejavusansmono}]
 \item [debug] Alle Aufrufparameter werden auf der Konsole ausgegeben.
 \item [noamsmath] Das Laden des \emph{amsmath}-Paket wird nicht durchgeführt.\\
-      Achtung: Alle Mathematik-Fonts müssen vor dem \emph{libertinexe}-Paket
+      Achtung: Alle Mathematik-Fonts müssen vor dem \emph{xelibertine}-Paket
       geladen werden!
 \item [lucida] Es wird das Lucida-Font-Paket%
       \footnote{\texttt{\textbackslash usepackage[expert]\{lucidabr\}}}
@@ -520,7 +520,7 @@ automatische Ersetzung der normalen durch die gestrichene Null
 \newpage
 \subsection{Source}
 
-\lstinputlisting{libertinexe.sty}
+\lstinputlisting{xelibertine.sty}
 
 \newpage
 \newindex[Glyphenverzeichnis]{glyph}
