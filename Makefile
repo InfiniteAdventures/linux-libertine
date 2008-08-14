@@ -38,11 +38,11 @@ CLASSFILES=$(patsubst $(SOURCE_JAVA)/%, $(OUTPUT_JAVA)/%,  $(patsubst %.java, %.
 
 all: init version $(CLASSFILES) $(OUTPUT_TEX)/fxlglyphname.tex $(PDFTEXFILES)
 
-#$(OUTPUT_TEX)/%.pdf : %.tex libertinexe.sty
-test%.pdf : test%.tex libertinexe.sty 
+#$(OUTPUT_TEX)/%.pdf : %.tex xelibertine.sty
+test%.pdf : test%.tex xelibertine.sty 
 		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 
-%.pdf : %.tex libertinexe.sty $(OUTPUT_TEX)/LinLibertineAlias.tex $(OUTPUT_TEX)/fxlglyphname.tex
+%.pdf : %.tex xelibertine.sty $(OUTPUT_TEX)/LinLibertineAlias.tex $(OUTPUT_TEX)/fxlglyphname.tex
 		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 		-test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$<).idx && ./splitindex.pl $(OUTPUT_TEX)/$(patsubst %.tex,%,$<) -- -g -s $(SOURCE_TEX)/index.ist && xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<		
 
@@ -87,8 +87,8 @@ version:
 	@find $(SOURCE_OTF)/ -name '*.otf' -exec basename {} .otf >>$(OUTPUT_TEX)/version \;
 
 copysf: all
-	scp libertinexe.sty mgn@linuxlibertine.sf.net:~/linuxlibertine/htdocs/latex/
-	scp libertinexeDoku.pdf mgn@linuxlibertine.sf.net:~/linuxlibertine/htdocs/latex/
+	scp xelibertine.sty mgn@linuxlibertine.sf.net:~/linuxlibertine/htdocs/latex/
+	scp xelibertineDoku.pdf mgn@linuxlibertine.sf.net:~/linuxlibertine/htdocs/latex/
 
 copyfont:
 	@cp -v target/otf/fx*.otf ~/.fonts/
