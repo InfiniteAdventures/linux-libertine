@@ -1,0 +1,23 @@
+% $Id$
+%
+\documentclass{article}
+
+\usepackage{xltxtra}
+\setromanfont[Mapping=tex-text%
+   ,Numbers=Proportional%
+   ]{Linux Libertine O}
+
+\def\ZAHL{01234567890}
+
+\begin{document}
+
+{\addfontfeature{RawFeature=+pnum}\ZAHL}
+
+{\addfontfeature{RawFeature=-pnum;+tnum}\ZAHL}
+
+{\addfontfeature{RawFeature=+onum}\ZAHL}
+
+{\addfontfeature{RawFeature=+tnum;+onum}\ZAHL}
+
+
+\end{document}
