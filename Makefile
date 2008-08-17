@@ -86,7 +86,7 @@ version:
 
 copysf: all
 	scp xelibertine.sty mgn@linuxlibertine.sf.net:~/linuxlibertine/htdocs/latex/
-	scp xelibertineDoku.pdf mgn@linuxlibertine.sf.net:~/linuxlibertine/htdocs/latex/
+	scp $(OUTPUT_TEX)/xelibertineDoku.pdf mgn@linuxlibertine.sf.net:~/linuxlibertine/htdocs/latex/
 
 copyfont:
 	@cp -v target/otf/fx*.otf ~/.fonts/
