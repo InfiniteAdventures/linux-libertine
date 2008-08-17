@@ -10,8 +10,7 @@ OUTPUT_TEX=$(TARGET)/tex
 PDFLATEXPARAM=
 
 TEXFILES=$(wildcard *.tex)
-#PDFTESTFILES=$(patsubst %.tex, $(OUTPUT_TEX)/%.pdf ,$(TESTFILES))
-PDFTEXFILES=$(patsubst %.tex, %.pdf ,$(TEXFILES))
+PDFTEXFILES=$(patsubst %.tex, $(OUTPUT_TEX)/%.pdf ,$(TEXFILES))
 
 SOURCE_TEX=src/tex
 SOURCE_JAVA=src/java
@@ -38,11 +37,10 @@ CLASSFILES=$(patsubst $(SOURCE_JAVA)/%, $(OUTPUT_JAVA)/%,  $(patsubst %.java, %.
 
 all: init version $(CLASSFILES) $(OUTPUT_TEX)/fxlglyphname.tex $(PDFTEXFILES)
 
-#$(OUTPUT_TEX)/%.pdf : %.tex xelibertine.sty
-test%.pdf : test%.tex xelibertine.sty 
+$(OUTPUT_TEX)/test%.pdf : test%.tex xelibertine.sty 
 		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 
-%.pdf : %.tex xelibertine.sty $(OUTPUT_TEX)/LinLibertineAlias.tex $(OUTPUT_TEX)/fxlglyphname.tex
+$(OUTPUT_TEX)/%.pdf : %.tex xelibertine.sty $(OUTPUT_TEX)/LinLibertineAlias.tex $(OUTPUT_TEX)/fxlglyphname.tex
 		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 		-test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$<).idx && ./splitindex.pl $(OUTPUT_TEX)/$(patsubst %.tex,%,$<) -- -g -s $(SOURCE_TEX)/index.ist && xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<		
 
@@ -103,7 +101,7 @@ readme:
 cleantmp:
 	-find . -name '*~' -type f -exec rm -f {} \;
 	-find . -name '*.backup' -type f -exec rm -f {} \;
-	-rm -f *.flc *.fls *.pdf
+	-rm -f *.flc *.fls
 
 clean: cleantmp
 	-rm -rf $(TARGET)
