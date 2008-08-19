@@ -12,9 +12,9 @@
 
 %
 \def\TEXT{%
-Dies ist ein Text mit Zahlen 1234567890!\newline%
-öäüß ÖÄÜ\Lglyph{Germandbls}\quad ff fi fl ffi ffl\quad Hamburg\quad Quelle\newline%
-Am 30.4.1987 saß ich im \glqq{}Caf\'e Hamburg\grqq{} und schlürfte Kaffee für 2,65\,\Leuro!
+\glqq{}Große Hamburger Straße mit Quelle\grqq{}\newline
+12.345.678,90\,€!?\newline
+äöüßéà ÄÖÜ\Lglyph{Germandbls}\quad fi \& ff \& ffl \& ffi
 }
 \def\ZAHL{01234567890}
 %
@@ -77,6 +77,10 @@ Es wird ausschließlich die OpenType-Version des \emph{Libertine}-Fonts verwende
 
 \lstinputlisting{version}
 
+\begin{description}[\setlabelphantom{xelibertine}]
+\item[\XeTeX] Version: \the\XeTeXversion\XeTeXrevision
+\item[xelibertine] Version: \libertineVersionDate\space-\space\libertineVersion
+\end{description}
 
 \minisec{Installation}
 
@@ -93,7 +97,7 @@ Das \emph{xelibertine}-Paket wird mit dem \emph{usepackage}-Makro aufgerufen.
 \subsection{Optionen}
 
 Folgende Optionen sind dabei möglich:
-\begin{description}[\setlabelphantom{dejavusansmono}]
+\begin{description}[\setlabelphantom{dejavusansmono}\compact]
 \item [debug] Alle Aufrufparameter werden auf der Konsole ausgegeben.
 \item [noamsmath] Das Laden des \emph{amsmath}-Paket wird nicht durchgeführt.\\
       Achtung: Alle Mathematik-Fonts müssen vor dem \emph{xelibertine}-Paket
@@ -102,14 +106,14 @@ Folgende Optionen sind dabei möglich:
       \footnote{\texttt{\textbackslash usepackage[expert]\{lucidabr\}}}
       vor der Schrift \emph{Libertine} geladen.
 \item [rawfeature] Es können direkt die \emph{rawfeature} des \emph{fontspec}-Pakets genutzt werden.
-      Ein '+' fügt ein Feature hinzu, ein '-' entfernt dieses.
+      Ein '+' fügt ein Feature hinzu, ein '-' entfernt dieses. Wird beim Aufruf kein Parameter angegeben, so werden die Grundfeature des Fonts nach der Adobe-Anleitung verwendet.
 \item [language] Es wird eine Sprache für den Font aktiviert.
 \item [script]   Es wird ein Skript (in Abhängigkeit zur Sprache) für den Font aktiviert.
 \item [dejavusans] Verwendet den Font \emph{DejaVu Sans}.
 \item [dejavusansmono] Verwendet den Font \emph{DejaVu Sans Mono}.
 \item [draft] Es wird der \emph{drafttext} (z.\,B. Entwurf) als Hintergrundtext verwendet.
 \item [drafttext] Der Hintergrundtext.
-\item [noquotes] Verhindert das Definieren der Anführungszeichen (\texttt{glqq} und \texttt{qrqq}).
+\item [noquotes] Verhindert das Definieren der Anführungszeichen (\texttt{glqq} und \texttt{grqq}).
 \end{description}
 
 \newpage

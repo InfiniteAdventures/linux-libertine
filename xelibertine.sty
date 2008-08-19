@@ -7,6 +7,7 @@
 %
 % $Id$
 %
+% 0.1i   Version auf Makro umgestellt.
 % 0.1h   Umbenennung des Paketes
 % 0.1g   Umbenennung der Makros
 %        neue Makros erstellt
@@ -22,9 +23,12 @@
 % 0.1    erster Start
 %
 % -------------------------------------
+\def\libertineVersion{0.1i}
+\def\libertineVersionDate{2008/08/19}
+%
 \ProvidesPackage{xelibertine}[%
-   2008/08/14 v0.1h
-   XeTeX - Font libertine - BETA (License GPL)
+   \libertineVersionDate\space-\space\libertineVersion\space-XeTeX:
+   Font libertine - BETA (License GPL)
    Michael Niedermair]
 %
 \RequirePackage{ifxetex,keyval,calc,ifthen,xcolor,xspace}
@@ -112,15 +116,11 @@
       ,RawFeature=\libertine@rawfeature%
       ,Language=\libertine@language%
       ,Script=\libertine@script%
-      %,Numbers=Proportional%
-      %,HyphenChar=%
       ,HyphenChar="E130%
       ]{Linux Libertine O}
    \newfontfamily\libertine[RawFeature=\libertine@rawfeature%
       ,Language=\libertine@language%
       ,Script=\libertine@script%
-      %,Numbers=Proportional%
-      %,HyphenChar=%
       ,HyphenChar="E130%
       ]{Linux Libertine O}
 
