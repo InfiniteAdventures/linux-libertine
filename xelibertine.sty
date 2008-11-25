@@ -7,6 +7,7 @@
 %
 % $Id$
 %
+% 0.2     Erste Schritte mit LinBiolinumO
 % 0.1beta Erste BETA-Version.
 % 0.1i    Version auf Makro umgestellt.
 % 0.1h    Umbenennung des Paketes
@@ -24,8 +25,8 @@
 % 0.1     erster Start
 %
 % -------------------------------------
-\def\libertineVersion{0.1beta}
-\def\libertineVersionDate{2008/08/20}
+\def\libertineVersion{0.2}
+\def\libertineVersionDate{2008/11/25}
 %
 \ProvidesPackage{xelibertine}[%
    \libertineVersionDate\space-\space\libertineVersion\space-XeTeX:
@@ -41,6 +42,7 @@
    \def\libertine@rawfeature{}%           use otf features
    \def\libertine@script{}%               otf scripts
    \def\libertine@language{}%             otf language
+   \def\libertine@biolinum{false}%        use the font LinBiolinum
    \def\libertine@dejavusans{false}%      use the font DejaVu Sans
    \def\libertine@dejavusansmono{false}%  use the font DejaVu Sans Mono
    \def\libertine@draft{false}%           draft
@@ -53,6 +55,7 @@
    \define@key{libertine}{rawfeature}[]{\def\libertine@rawfeature{#1}}
    \define@key{libertine}{script}[]{\def\libertine@script{#1}}
    \define@key{libertine}{language}[]{\def\libertine@language{#1}}
+   \define@key{libertine}{biolinum}[true]{\def\libertine@biolinum{#1}}
    \define@key{libertine}{dejavusans}[true]{\def\libertine@dejavusans{#1}}
    \define@key{libertine}{dejavusansmono}[true]{\def\libertine@dejavusansmono{#1}}
    \define@key{libertine}{draft}[true]{\def\libertine@draft{true}}
@@ -95,6 +98,7 @@
      \typeout{rawfeature        = \libertine@rawfeature}
      \typeout{script            = \libertine@script}
      \typeout{language          = \libertine@language}
+     \typeout{Font LinBiolinum  = \libertine@biolinum}
      \typeout{Font DeJaVu Sans  = \libertine@dejavusans}
      \typeout{Font DeJaVu SansMono  = \libertine@dejavusansmono}
      \typeout{draft             = \libertine@draft}
@@ -124,7 +128,12 @@
       ,Script=\libertine@script%
       ,HyphenChar="E130%
       ]{Linux Libertine O}
+   \newfontfamily\biolinum{LinBiolinumO}
 
+   % biolinum
+   \ifthenelse{\equal{\libertine@biolinum}{true}}{
+      \setsansfont[Mapping=tex-text]{LinBiolinumO}
+   }{}%
    % dejavu sans
    \ifthenelse{\equal{\libertine@dejavusans}{true}}{
       \setsansfont[Mapping=tex-text]{DejaVu Sans}
@@ -155,7 +164,14 @@
    %
    \DeclareRobustCommand*\OTF[1]{\libertine\addfontfeature{RawFeature=#1}}
    \DeclareRobustCommand*\Lglyph{\@ifstar{}{\libertine}\Lglyphx}
+   \DeclareRobustCommand*\Bglyph{\@ifstar{}{\biolinum}\Bglyphx}
    \DeclareRobustCommand*\Lglyphx[1]{%
+      \@tempcnta=\XeTeXglyphindex "#1"\relax%
+      \ifnum\@tempcnta>0%
+         \XeTeXglyph\@tempcnta%
+      \fi
+   }
+   \DeclareRobustCommand*\Bglyphx[1]{%
       \@tempcnta=\XeTeXglyphindex "#1"\relax%
       \ifnum\@tempcnta>0%
          \XeTeXglyph\@tempcnta%

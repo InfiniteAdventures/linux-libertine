@@ -6,11 +6,13 @@ EXT=$3
 
 copyifolder() {
 
+    if [ -f $1 ] ; then
        if [ ! -r $2  ] ; then
           cp -v $1  $2
        elif [ $1 -nt $2 ] ; then
           cp -v $1  $2
        fi
+    fi
 }
 
 copyifolder $SRC/LinLibertine_Re-*.$EXT    $DEST/fxlr.$EXT
@@ -18,5 +20,7 @@ copyifolder $SRC/LinLibertine_Bd-*.$EXT    $DEST/fxlb.$EXT
 copyifolder $SRC/LinLibertine_BI-*.$EXT    $DEST/fxlbi.$EXT
 copyifolder $SRC/LinLibertine_It-*.$EXT    $DEST/fxlri.$EXT
 copyifolder $SRC/LinLibertineC_Re-*.$EXT   $DEST/fxlrc.$EXT
+copyifolder $SRC/Biolinum_Re-*.$EXT        $DEST/fxbr.$EXT
+
 #copyifolder $SRC/LinLibertineU_Re-*.$EXT   $DEST/fxlru.$EXT
 

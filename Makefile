@@ -35,7 +35,7 @@ JAVAFILES=$(wildcard $(SOURCE_JAVA)/*.java)
 CLASSFILES=$(patsubst $(SOURCE_JAVA)/%, $(OUTPUT_JAVA)/%,  $(patsubst %.java, %.class ,$(JAVAFILES)))
 
 
-all: init version $(CLASSFILES) $(OUTPUT_TEX)/fxlglyphname.tex $(PDFTEXFILES)
+all: init version $(CLASSFILES) $(OUTPUT_TEX)/fxlglyphname.tex $(OUTPUT_TEX)/fxbglyphname.tex $(PDFTEXFILES)
 
 $(OUTPUT_TEX)/test%.pdf : test%.tex xelibertine.sty 
 		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
@@ -54,7 +54,14 @@ $(OUTPUT_TEX)/fxlglyphname.tex : $(OUTPUT_OTF)/fxlr.otf $(CLASSFILES) $(SOURCE_S
 	fontforge -script $(SOURCE_FFSCRIPT)/sfdtopfb.pe $(OUTPUT_OTF)/fxlr.otf $(OUTPUT_PFB)/fxlr.pfb
 	grep "^C " $(OUTPUT_PFB)/fxlr.afm | sed -e 's/\(.*\) N \(.*\) ; \(.*\)/\2/g' | sed -e 's/\([:alnum]*\) .*/\1/g' | sort > $(OUTPUT_TEX)/fxlglyphname.txt
 	cat $(OUTPUT_TEX)/fxlglyphname.txt | sed -e 's/\(^.*\)/\\GYLPHNAME{\1}/g' > $(OUTPUT_TEX)/fxlglyphname.tex
-	java -cp $(CLASSPATH) GroupGlyphs $(OUTPUT_TEX)/fxlglyphname.txt $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_TEX)
+	java -cp $(CLASSPATH) GroupGlyphs $(OUTPUT_TEX)/fxlglyphname.txt $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_TEX)/fxlgroupglyphs.tex
+
+$(OUTPUT_TEX)/fxbglyphname.tex : $(OUTPUT_OTF)/fxbr.otf $(CLASSFILES) $(SOURCE_SFD)/LinBiolinum.nam
+	fontforge -script $(SOURCE_FFSCRIPT)/sfdtopfb.pe $(OUTPUT_OTF)/fxbr.otf $(OUTPUT_PFB)/fxbr.pfb
+	grep "^C " $(OUTPUT_PFB)/fxbr.afm | sed -e 's/\(.*\) N \(.*\) ; \(.*\)/\2/g' | sed -e 's/\([:alnum]*\) .*/\1/g' | sort > $(OUTPUT_TEX)/fxbglyphname.txt
+	cat $(OUTPUT_TEX)/fxbglyphname.txt | sed -e 's/\(^.*\)/\\GYLPHNAME{\1}/g' > $(OUTPUT_TEX)/fxbglyphname.tex
+	java -cp $(CLASSPATH) GroupGlyphs $(OUTPUT_TEX)/fxbglyphname.txt $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_TEX)/fxbgroupglyphs.tex
+
 
 #ttf: init $(TTFFILES)
 
@@ -83,6 +90,8 @@ version:
 	@rm -f $(OUTPUT_TEX)/version
 	@touch $(OUTPUT_TEX)/version
 	@find $(SOURCE_OTF)/ -name '*.otf' -exec basename {} .otf >>$(OUTPUT_TEX)/version \;
+	@cat $(OUTPUT_TEX)/version | sort >$(OUTPUT_TEX)/versiontmp
+	@mv $(OUTPUT_TEX)/versiontmp $(OUTPUT_TEX)/version
 
 copysf: all
 	scp xelibertine.sty mgn@linuxlibertine.sf.net:~/linuxlibertine/htdocs/latex/

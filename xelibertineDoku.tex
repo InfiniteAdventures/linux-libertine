@@ -2,7 +2,7 @@
 % $Id$
 %
 \documentclass{fontdoku}
-\usepackage[debug,noamsmath,dejavusans,draft]{xelibertine}
+\usepackage[debug,noamsmath,biolinum,draft,drafttext={beta}]{xelibertine}
 %
 \lohead{\large\Lglyph{uniE00A}}
 \cfoot{}
@@ -60,7 +60,7 @@ Font: Philipp H. Poll\par \XeLaTeX-Einbindung: Michael Niedermair
  \item Volle OpenType-Unterstützung:
    \begin{itemize}
    \item Automatische Verwendung der standardmäßig aktivierten OpenType-Eigenschaften, z.B. Ligaturen wie ff, fi, ch, ck, fl,ffi, ffl,fb, fh, ...
-    \item Umschalten von Stylistic Sets, z.B. Medievalziffern, Proportionalziffern, ÄÖÜ als Tremabuchstaben, Ersetzen von ß durch ss
+    \item Umschalten von Stylistic Sets, z.\,B. Medievalziffern, Proportionalziffern, ÄÖÜ als Tremabuchstaben, Ersetzen von ß durch ss
     \item Echtes GPOS-Kerning
    \end{itemize}
 
@@ -109,6 +109,8 @@ Folgende Optionen sind dabei möglich:
       Ein '+' fügt ein Feature hinzu, ein '-' entfernt dieses. Wird beim Aufruf kein Parameter angegeben, so werden die Grundfeature des Fonts nach der Adobe-Anleitung verwendet.
 \item [language] Es wird eine Sprache für den Font aktiviert.
 \item [script]   Es wird ein Skript (in Abhängigkeit zur Sprache) für den Font aktiviert.
+\item [biolinum] Verwendet den Font \emph{LinBiolinum} für die serifenlose Schrift
+                 (EXPERTIMENTAL).
 \item [dejavusans] Verwendet den Font \emph{DejaVu Sans}.
 \item [dejavusansmono] Verwendet den Font \emph{DejaVu Sans Mono}.
 \item [draft] Es wird der \emph{drafttext} (z.\,B. Entwurf) als Hintergrundtext verwendet.
@@ -150,6 +152,29 @@ Folgende Optionen sind dabei möglich:
 \begin{lstlisting}
 \Llogo
 \end{lstlisting}
+
+\item [\textbackslash numprp]\index{Befehle!numprp}%
+      Es wird auf die proportionalen Reihe umgeschaltet.
+
+\item [\textbackslash numtab]\index{Befehle!numtab}%
+      Es wird auf die Tabellen-Zahlen umgeschaltet.
+
+\item [\textbackslash numold]\index{Befehle!numold}%
+      Es wird auf die Medi"avalziffern - Minuskelziffern umgeschaltet.
+
+\item [\textbackslash numzero]\index{Befehle!numzero}%
+      Es wird auf das automatische Ersetzung der normalen Null durch die gestrichene Null umgeschaltet.
+
+\item [\textbackslash numfrac]\index{Befehle!numfrac}%
+      Es werden Br"uche, z.\,B. 1/2, durch ein Zeichen ersetzt.
+
+\item [\textbackslash biolinum]\index{Befehle!biolinum}%
+      Schaltet auf den \emph{LinBiolinum}-Font um.
+\begin{lstlisting}
+{\biolinum Dies ist ein Text!}
+\end{lstlisting}
+
+
 \end{description}
 
 \newpage
@@ -245,6 +270,13 @@ Nicht definiert!
 \end{lstsample}
 
 
+\subsubsection*{biolinum}
+\index{Befehle!biolinum}
+\begin{lstsample}[hpos=l,lstsize=0.4,codesize=0.4,toprule,bottomrule]
+\biolinum\TEXT
+
+\ZAHL
+\end{lstsample}
 
 
 
@@ -501,13 +533,13 @@ automatische Ersetzung der normalen durch die gestrichene Null
 \end{itemize}
 
 \newpage
-\subsection{Glyphen}
+\subsection{Glyphen Libertine}
 
 {%
 \setlength{\columnseprule}{.5pt}
 \setlength{\columnsep}{1cm}
 \begin{multicols}{3}
-   \newcommand{\GYLPHNAME}[1]{\sindex[glyph]{#1}%
+   \newcommand{\GYLPHNAME}[1]{\sindex[Lglyph]{#1}%
    \makebox[3cm][l]{\hypertarget{glyph.#1}{}\hyperlink{gglyph.#1}{#1}}\hfill%
    {\Huge\fbox{\Lglyph{#1}\strut}}\hfill\mbox{}\newline}
    \catcode`\_=12%
@@ -517,17 +549,52 @@ automatische Ersetzung der normalen durch die gestrichene Null
 
 
 \newpage
-\subsection{Gruppen}
+\subsection{Gruppen Libertine}
 {\setlength{\columnseprule}{.5pt}
 \setlength{\columnsep}{1cm}
 \catcode`\_=12%
 \newcommand{\GROUPHEAD}[1]{\begin{multicols}{3}[\subsubsection{#1}]}
 \newcommand{\GROUPFOOT}{\end{multicols}}
-\newcommand{\GROUPGLYPH}[2]{\sindex[glyph]{#2}%
+\newcommand{\GROUPGLYPH}[2]{\sindex[Lglyph]{#2}%
    \makebox[3cm][l]{\hyperlink{glyph.#2}{#2}\hypertarget{gglyph.#2}{}{ \small(0x#1)}}%
    \hfill{\Huge\Lglyph{#2}\strut}\hfill\mbox{}\newline}
 \InputIfFileExists{fxlgroupglyphs.tex}{}{}
 }
+
+
+
+
+
+\newpage
+\subsection{Glyphen Biolinum}
+
+{%
+\setlength{\columnseprule}{.5pt}
+\setlength{\columnsep}{1cm}
+\begin{multicols}{3}
+   \newcommand{\GYLPHNAME}[1]{\sindex[Bglyph]{#1}%
+   \makebox[3cm][l]{\hypertarget{bglyph.#1}{}\hyperlink{bgglyph.#1}{#1}}\hfill%
+   {\Huge\fbox{\Bglyph{#1}\strut}}\hfill\mbox{}\newline}
+   \catcode`\_=12%
+   \InputIfFileExists{fxbglyphname.tex}{}{}
+\end{multicols}
+}
+
+
+\newpage
+\subsection{Gruppen Biolinum}
+{\setlength{\columnseprule}{.5pt}
+\setlength{\columnsep}{1cm}
+\catcode`\_=12%
+\newcommand{\GROUPHEAD}[1]{\begin{multicols}{3}[\subsubsection{#1}]}
+\newcommand{\GROUPFOOT}{\end{multicols}}
+\newcommand{\GROUPGLYPH}[2]{\sindex[Bglyph]{#2}%
+   \makebox[3cm][l]{\hyperlink{bglyph.#2}{#2}\hypertarget{bgglyph.#2}{}{ \small(0x#1)}}%
+   \hfill{\Huge\Bglyph{#2}\strut}\hfill\mbox{}\newline}
+\InputIfFileExists{fxbgroupglyphs.tex}{}{}
+}
+
+
 
 \newpage
 \subsection{Source}
@@ -535,12 +602,14 @@ automatische Ersetzung der normalen durch die gestrichene Null
 \lstinputlisting{xelibertine.sty}
 
 \newpage
-\newindex[Glyphenverzeichnis]{glyph}
+\newindex[Glyphenverzeichnis Libertine]{Lglyph}
+\newindex[Glyphenverzeichnis Biolinum]{Bglyph}
 \newindex[Stichwortverzeichnis]{idx}
 %
 {\catcode`\_=12%
 \def\indexcolumn{4}%
-\printindex[glyph]
+\printindex[Lglyph]
+\printindex[Bglyph]
 }
 \printindex[idx]
 

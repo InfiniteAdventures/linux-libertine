@@ -30,9 +30,7 @@ public class GroupGlyphs {
 
         int group = block * 256;
         for (int i = group; i < group + 256; i++) {
-            if (!glyphArray[i].equals(".notdef")) {
-                return false;
-            }
+            if (!glyphArray[i].equals(".notdef")) { return false; }
         }
         return true;
     }
@@ -58,7 +56,8 @@ public class GroupGlyphs {
     public static void main(String[] args) throws IOException {
 
         if (args.length != 3) {
-            System.err.println("java GroupGlyphs <fxlgylphname.txt> <LinLibertine.nam> <outDir>");
+            System.err
+                    .println("java GroupGlyphs <fxlgylphname.txt> <LinLibertine.nam> <outDir/fxlgroupglyphs.tex>");
             System.exit(1);
         }
 
@@ -90,12 +89,17 @@ public class GroupGlyphs {
                     hex = nam.get(name);
                 }
                 // System.out.println(hex + " - " + name);
-                glyphArray[Integer.parseInt(hex, 16)] = name;
+                try {
+                    glyphArray[Integer.parseInt(hex, 16)] = name;
+                } catch (NumberFormatException e) {
+                    // ignore
+                    System.out.println(hex + " - " + name);
+                }
             }
         }
         glyIn.close();
 
-        BufferedWriter out = new BufferedWriter(new FileWriter(args[2] + "/fxlgroupglyphs.tex"), 0xffff);
+        BufferedWriter out = new BufferedWriter(new FileWriter(args[2]), 0xffff);
         for (int group = 0; group < 256; group++) {
             if (!empty(group)) {
                 out.write("\\GROUPHEAD{" + int2hex(group * 256) + "}\n");
