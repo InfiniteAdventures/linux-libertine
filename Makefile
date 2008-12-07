@@ -94,8 +94,8 @@ version:
 	@mv $(OUTPUT_TEX)/versiontmp $(OUTPUT_TEX)/version
 
 copysf: all
-	scp xelibertine.sty mgn@linuxlibertine.sf.net:~/linuxlibertine/htdocs/latex/
-	scp $(OUTPUT_TEX)/xelibertineDoku.pdf mgn@linuxlibertine.sf.net:~/linuxlibertine/htdocs/latex/
+	scp xelibertine.sty mgn@web.sourceforge.net:~/linuxlibertine/htdocs/latex/
+	scp $(OUTPUT_TEX)/xelibertineDoku.pdf mgn@web.sourceforge.net:~/linuxlibertine/htdocs/latex/
 
 copyfont:
 	@cp -v target/otf/fx*.otf ~/.fonts/
