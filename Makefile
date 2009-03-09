@@ -97,6 +97,11 @@ copysf: all
 	scp xelibertine.sty mgn,linuxlibertine@web.sourceforge.net:htdocs/latex/
 	scp $(OUTPUT_TEX)/xelibertineDoku.pdf mgn,linuxlibertine@web.sourceforge.net:htdocs/latex/
 
+createCTAN:
+	zip /tmp/xelibertine_CTAN.zip  xelibertine.sty 
+	cd target/tex; zip /tmp/xelibertine_CTAN.zip  xelibertineDoku.pdf
+
+
 copyfont:
 	@cp -v target/otf/fx*.otf ~/.fonts/
 
