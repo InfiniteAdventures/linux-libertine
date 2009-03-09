@@ -7,6 +7,7 @@
 %
 % $Id$
 %
+% 0.2a    Biolinum: Name umgestellt
 % 0.2     Erste Schritte mit LinBiolinumO
 % 0.1beta Erste BETA-Version.
 % 0.1i    Version auf Makro umgestellt.
@@ -128,11 +129,11 @@
       ,Script=\libertine@script%
       ,HyphenChar="E130%
       ]{Linux Libertine O}
-   \newfontfamily\biolinum{LinBiolinumO}
 
    % biolinum
    \ifthenelse{\equal{\libertine@biolinum}{true}}{
-      \setsansfont[Mapping=tex-text]{LinBiolinumO}
+      \setsansfont[Mapping=tex-text]{Linux Biolinum O}
+      \newfontfamily\biolinum{Linux Biolinum O}
    }{}%
    % dejavu sans
    \ifthenelse{\equal{\libertine@dejavusans}{true}}{
