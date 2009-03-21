@@ -21,6 +21,7 @@ copyifolder $SRC/LinLibertine_BI-*.$EXT    $DEST/fxlbi.$EXT
 copyifolder $SRC/LinLibertine_It-*.$EXT    $DEST/fxlri.$EXT
 copyifolder $SRC/LinLibertineC_Re-*.$EXT   $DEST/fxlrc.$EXT
 copyifolder $SRC/Biolinum_Re-*.$EXT        $DEST/fxbr.$EXT
+copyifolder $SRC/Biolinum_Bd-*.$EXT        $DEST/fxbb.$EXT
 
 #copyifolder $SRC/LinLibertineU_Re-*.$EXT   $DEST/fxlru.$EXT
 

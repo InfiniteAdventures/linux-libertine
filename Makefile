@@ -16,6 +16,7 @@ SOURCE_TEX=src/tex
 SOURCE_JAVA=src/java
 SOURCE_SFD=src/sfd
 SOURCE_OTF=src/otf
+SOURCE_TTF=src/ttf
 SOURCE_SCRIPT=src/scripts
 SOURCE_FFSCRIPT=$(SOURCE_SFD)/scripts
 
@@ -62,19 +63,6 @@ $(OUTPUT_TEX)/fxbglyphname.tex : $(OUTPUT_OTF)/fxbr.otf $(CLASSFILES) $(SOURCE_S
 	cat $(OUTPUT_TEX)/fxbglyphname.txt | sed -e 's/\(^.*\)/\\GYLPHNAME{\1}/g' > $(OUTPUT_TEX)/fxbglyphname.tex
 	java -cp $(CLASSPATH) GroupGlyphs $(OUTPUT_TEX)/fxbglyphname.txt $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_TEX)/fxbgroupglyphs.tex
 
-
-#ttf: init $(TTFFILES)
-
-#otf: init $(OTFFILES)
-
-#$(OUTPUT_TTF)/%.ttf : $(OUTPUT_SFD)/%.sfd
-#	@echo -e "\n" $<
-#	@nice fontforge -script $(SOURCE_FFSCRIPT)/sfdtottf.pe $< $(OUTPUT_TTF)/$(notdir $@)
-
-#$(OUTPUT_OTF)/%.otf : $(OUTPUT_SFD)/%.sfd
-#	@echo -e "\n" $<
-#	@nice fontforge -script $(SOURCE_FFSCRIPT)/sfdtootf.pe $< $(OUTPUT_OTF)/$(notdir $@)
-
 init:  
 	@mkdir -p $(TARGET)
 	@mkdir -p $(OUTPUT_TEX)
@@ -85,6 +73,7 @@ init:
 	@mkdir -p $(OUTPUT_JAVA)
 	@sh $(SOURCE_SCRIPT)/fontName2LaTeX $(SOURCE_SFD) $(OUTPUT_SFD) sfd
 	@sh $(SOURCE_SCRIPT)/fontName2LaTeX $(SOURCE_OTF) $(OUTPUT_OTF) otf
+	@sh $(SOURCE_SCRIPT)/fontName2LaTeX $(SOURCE_TTF) $(OUTPUT_TTF) ttf
 
 version:
 	@rm -f $(OUTPUT_TEX)/version
@@ -103,7 +92,9 @@ createCTAN:
 
 
 copyfont:
-	@cp -v target/otf/fx*.otf ~/.fonts/
+	@rm -rf ~/.fonts/LinLibertine* ~/.fonts/Biolinum* ~/.fonts/fx*
+	@cp -v $(OUTPUT_OTF)/fx*.otf ~/.fonts/
+	@cp -v $(OUTPUT_TTF)/fx*.ttf ~/.fonts/
 
 help:
 	@grep -v "^#" Makefile.help
