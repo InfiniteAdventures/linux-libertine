@@ -1,0 +1,29 @@
+% $Id$
+%
+\documentclass{article}
+
+\usepackage[ngerman]{babel}
+\usepackage[debug]{xelibertine}
+
+
+\pagestyle{empty}
+\def\TEXT{%
+\glqq{}Große Hamburger Straße mit Quelle\grqq{}\newline
+12.345.678,90\,€!?\newline
+äöüßéà ÄÖÜ\Lglyph{Germandbls}\quad fi \& ff \& ffl \& ffi
+}
+\def\ZAHL{01234567890}
+
+\begin{document}
+
+{\Huge\Lglyph{Germandbls}}
+
+{
+\sffamily\TEXT
+
+\sffamily\ZAHL
+}
+
+
+
+\end{document}
