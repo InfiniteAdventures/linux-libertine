@@ -9,10 +9,9 @@ OUTPUT_TEX=$(TARGET)/tex
 # PDFLATEXPARAM=-recorder
 PDFLATEXPARAM=
 
-TEXFILES=$(wildcard *.tex)
-PDFTEXFILES=$(patsubst %.tex, $(OUTPUT_TEX)/%.pdf ,$(TEXFILES))
 
 SOURCE_TEX=src/tex
+SOURCE_XELATEX=src/xelatex
 SOURCE_JAVA=src/java
 SOURCE_SFD=src/sfd
 SOURCE_OTF=src/otf
@@ -26,7 +25,10 @@ OUTPUT_OTF=$(TARGET)/otf
 OUTPUT_PFB=$(TARGET)/pfb
 OUTPUT_JAVA=$(TARGET)/classes
 
-TEXINPUTS:=.:$(SOURCE_TEX):$(TEXINPUTS)
+TEXFILES=$(wildcard *.tex) $(wildcard $(SOURCE_XELATEX)/*.tex)
+PDFTEXFILES=$(patsubst %.tex, $(OUTPUT_TEX)/%.pdf ,$(notdir $(TEXFILES)))
+
+TEXINPUTS:=.:$(SOURCE_TEX):$(SOURCE_XELATEX):$(TEXINPUTS)
 CLASSPATH:=$(TARGET)/classes:$(CLASSPATH)
 
 SFDFILES=$(wildcard $(OUTPUT_SFD)/*.sfd)
@@ -38,7 +40,7 @@ CLASSFILES=$(patsubst $(SOURCE_JAVA)/%, $(OUTPUT_JAVA)/%,  $(patsubst %.java, %.
 
 all: init version $(CLASSFILES) $(OUTPUT_TEX)/fxlglyphname.tex $(OUTPUT_TEX)/fxbglyphname.tex $(PDFTEXFILES)
 
-$(OUTPUT_TEX)/test%.pdf : test%.tex xelibertine.sty 
+$(OUTPUT_TEX)/test%.pdf : $(SOURCE_XELATEX)/test%.tex xelibertine.sty 
 		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 
 $(OUTPUT_TEX)/%.pdf : %.tex xelibertine.sty $(OUTPUT_TEX)/LinLibertineAlias.tex $(OUTPUT_TEX)/fxlglyphname.tex
