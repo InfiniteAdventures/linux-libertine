@@ -17,8 +17,7 @@ TL2008:=/usr/local/texlive/2008
 SOURCE_TEX=src/tex
 SOURCE_XELATEX=src/test/xelatex
 SOURCE_FONTINST=src/fontinst
-SOURCE_LATEX_DOKU=src/doku/latex
-SOURCE_XELATEX_DOKU=src/doku/xelatex
+SOURCE_DOKU=src/doku
 SOURCE_JAVA=src/java
 SOURCE_SFD=src/sfd
 SOURCE_OTF=src/otf
@@ -58,15 +57,15 @@ XCREATEFILES=$(patsubst $(SOURCE_FONTINST)/%, $(OUTPUT_TEX)/%,  $(patsubst %.tex
 JAVAFILES=$(wildcard $(SOURCE_JAVA)/*.java)
 CLASSFILES=$(patsubst $(SOURCE_JAVA)/%, $(OUTPUT_JAVA)/%,  $(patsubst %.java, %.class ,$(JAVAFILES)))
 
-TEXINPUTS:=.:$(OUTPUT_TEX):$(SOURCE_FONTINST):$(SOURCE_TEX):$(SOURCE_XELATEX):$(OUTPUT_ENC):$(OUTPUT_PFB):$(SOURCE_TEX)/babel:$(SOURCE_LATEX_DOKU):$(TEXINPUTS)
+TEXINPUTS:=.:$(OUTPUT_TEX):$(SOURCE_FONTINST):$(SOURCE_TEX):$(SOURCE_XELATEX):$(OUTPUT_ENC):$(OUTPUT_PFB):$(SOURCE_TEX)/babel:$(SOURCE_DOKU):$(TEXINPUTS)
 CLASSPATH:=$(TARGET)/classes:lib/fontwareone.jar:$(CLASSPATH)
 
 
 all: init version $(CLASSFILES) $(OUTPUT_TEX)/fxlglyphname.tex $(OUTPUT_TEX)/fxbglyphname.tex $(PDFTEXFILES)
 
-pfb: init $(PFBFILES) $(OUTPUT_ENC)/xl-00.enc $(OUTPUT_ENC)/xb-00.enc
+pfb: init $(PFBFILES) $(OUTPUT_ENC)/xl-00.enc $(OUTPUT_ENC)/xb-00.enc $(OUTPUT_TEX)/fxl.inc $(OUTPUT_TEX)/fxb.inc
 
-tfm: pfb $(ETXFILES) $(MTXFILES) $(XCREATEFILES) createpl catmap $(OUTPUT_TEX)/fxl.inc $(OUTPUT_TEX)/fxb.inc
+tfm: pfb $(ETXFILES) $(MTXFILES) $(XCREATEFILES) createpl catmap 
 
 $(OUTPUT_TEX)/fxl.inc : $(OUTPUT_PFB)/fxlr.afm
 	@echo "### creating fxl.inc file..."
@@ -166,7 +165,7 @@ $(OUTPUT_TEX)/test%.pdf : $(SOURCE_XELATEX)/test%.tex xelibertine.sty
 	@echo "### createing test file: " $< 
 	@xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 
-$(OUTPUT_TEX)/%.pdf : %.tex xelibertine.sty $(OUTPUT_TEX)/LinLibertineAlias.tex $(OUTPUT_TEX)/fxlglyphname.tex
+$(OUTPUT_TEX)/%.pdf : $(SOURCE_DOKU)/xelibertine%.tex xelibertine.sty $(OUTPUT_TEX)/LinLibertineAlias.tex $(OUTPUT_TEX)/fxlglyphname.tex
 		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 		-test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$<).idx && bin/splitindex.pl $(OUTPUT_TEX)/$(patsubst %.tex,%,$<) -- -g -s $(SOURCE_TEX)/index.ist && xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<		
 
@@ -213,13 +212,7 @@ dokuinit: init version $(OUTPUT_TEX)/fxl.inc  $(OUTPUT_TEX)/fxb.inc
 doku: dokuinit doku1 doku2 doku3
 
 doku1: dokuinit
-	pdflatex -output-directory=$(OUTPUT_TEX) $(SOURCE_LATEX_DOKU)/libertinedoku.tex
-
-doku2: dokuinit
-	pdflatex -output-directory=$(OUTPUT_TEX) $(SOURCE_LATEX_DOKU)/libertineglyphlist.tex
-
-doku3: dokuinit
-	pdflatex -output-directory=$(OUTPUT_TEX) $(SOURCE_LATEX_DOKU)/libertinetabellenuebersicht.tex
+	pdflatex -output-directory=$(OUTPUT_TEX) $(SOURCE_DOKU)/libertinedoku.tex
 
 inittarget:
 	@echo "### creating target..."
@@ -307,7 +300,7 @@ createdist: version
 	@cp $(OUTPUT_TTF)/*.ttf $(OUTPUT_DIST)/texmf/fonts/ttf/public/$(FONT)
 	@cp $(OUTPUT_OTF)/*.otf $(OUTPUT_DIST)/texmf/fonts/otf/public/$(FONT)
 	@cp $(OUTPUT_TEX)/libertine.map $(OUTPUT_DIST)/texmf/fonts/map/dvips/$(FONT)
-	@cp $(SOURCE_TEX)/libertine.sty $(OUTPUT_DIST)/texmf/tex/latex/$(FONT)/
+	@cp libertine.sty $(OUTPUT_DIST)/texmf/tex/latex/$(FONT)/
 	@cp $(OUTPUT_TEX)/*.fd $(OUTPUT_DIST)/texmf/tex/latex/$(FONT)/
 	@cp $(OUTPUT_TEX)/fx*.inc $(OUTPUT_DIST)/texmf/tex/latex/$(FONT)/
 	#@cp $(SOURCE_TEX)/babel/*.tex $(OUTPUT_DIST)/texmf/tex/latex/$(FONT)/babel
@@ -316,17 +309,12 @@ createdist: version
 	#@cp $(SOURCE_TEX)/babel/README $(OUTPUT_DIST)/texmf/tex/latex/$(FONT)/babel
 	@cp $(OUTPUT_ENC)/*.enc $(OUTPUT_DIST)/texmf/fonts/enc/dvips/$(FONT)
 	@rm -f $(OUTPUT_DIST)/texmf/fonts/enc/dvips/$(FONT)/8r.enc
-	@cp $(OUTPUT_TEX)/libertinedoku.pdf $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
-	@cp $(OUTPUT_TEX)/libertinetabellenuebersicht.pdf $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
-	@cp $(OUTPUT_TEX)/libertineglyphlist.pdf $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
+	-@cp $(OUTPUT_TEX)/libertinedoku.pdf $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
 	@cp $(OUTPUT_TEX)/version $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
-	#@cp GPL.txt $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
-	#@cp LICENCE.txt $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
-	#@cp OFL.txt $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
-	#@cp Bugs $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
-	#@cp ChangeLog.txt $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
-	#@cp Readme $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
-	#@cp Readme $(OUTPUT_DIST)/README
+	@cp GPL.txt $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
+	@cp LICENCE.txt $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
+	@cp OFL.txt $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
+	@cp Readme $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
 	@echo "p +libertine.map" > $(OUTPUT_DIST)/texmf/dvips/$(FONT)/config.$(FONT)
 	@rm -f $(OUTPUT)/$(FONT)_latex*.zip
 	@find $(OUTPUT_DIST) -type d -exec chmod 775 {} \;

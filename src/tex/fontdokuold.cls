@@ -144,7 +144,6 @@
   \fi
 }
 
-
 \newcommand{\printFontTab}[1]{%
 \begingroup
   %\myfdentry{T1}{fxl}{m}{n}
@@ -232,6 +231,34 @@
 }
 %
 
+% -----------------------------------------------
+% {T1}{0e2}{m}{n}
+\def\PrintNumFontShape#1#2#3#4{%
+  \begingroup
+    \@tempswafalse
+    % Testweise Font anfordern, dabei aber keinen Fehler provozieren.
+    \def\FONT@INVALID{}%
+    \def\@latex@error##1##2{\xdef\FONT@INVALID{XXX}}%
+    \usefont{#1}{#2}{#3}{#4}\selectfont%
+    \ifx\FONT@INVALID\@empty
+      \def\x{\endgroup\@tempswafalse}%
+    \else
+      \def\x{\endgroup\@tempswatrue}%
+    \fi
+  \x
+  % Existiert der das Geforderte �berhaupt?
+  \if@tempswa
+    % \normalfont\hrulefill~not exist~\hrulefill
+  \else
+     #1-#2-#3-#4\hfill%
+    {%
+    \usefont{#1}{#2}{#3}{#4}\selectfont%
+    \FontNumber
+    }\\
+  \fi
+}
+%
+
 
 % ------------------------------------------
 \newcommand{\LT}[1]{\texttt{#1}}
@@ -305,6 +332,8 @@ Als es die ersten Hügel des Kursivgebirges erklommen hatte, warf es einen letzt
 8.0 8.1 8.2 8.3 8.4 8.5 8.6 8.7 8.8 8.9\hfill 9.0 9.1 9.2 9.3 9.4 9.5 9.6 9.7 9.8 9.9
 \end{framed}
 }
+
+\newcommand{\FontNumber}{01234567890}
 
 \newcommand{\FontDemoBeispiel}[4]{%
 {\usefont{#1}{#2}{#3}{#4}\selectfont Die ist ein Text mit Zahlen 1234567890!\quad öäüß ÖÄÜ\quad ff fi fl ffi ffl\quad Hamburg}%

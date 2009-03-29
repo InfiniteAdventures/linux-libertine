@@ -3,6 +3,7 @@ target/enc/xl-8x.enc
 target/enc/xl-t1.enc
 target/enc/xl-ts1.enc
 target/enc/xl-infsup.enc
+target/enc/xl-circle.enc
 target/enc/xl-00.enc
 target/enc/xl-01.enc
 target/enc/xl-02.enc
