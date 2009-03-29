@@ -1,0 +1,32 @@
+% TeX fontinst
+%
+% Michael Niedermair m.g.n@gmx.de
+%
+% $Id$
+%
+\input fontinst.sty
+\recordtransforms{driver.recs}
+
+\def\installopt#1#2#3#4#5#6{%
+  \message{^^J    #1-#2     ^^J}%
+  \installrawfont{#1-#2}{#1-#2}{#2}     {#3}{#4}{#5}{#6}{<-> \string\fxl@@scale}%
+}
+% -------------------------------------------------------------------
+
+\installfonts
+
+     \installopt{fxlr}{xl-infsup}  {U}{fxlinfsup}{m}{n}
+     \installopt{fxlri}{xl-infsup} {U}{fxlinfsup}{m}{it}
+     \installopt{fxlb}{xl-infsup}  {U}{fxlinfsup}{b}{n}
+     \installopt{fxlbi}{xl-infsup} {U}{fxlinfsup}{b}{it}
+
+% ---------------------------------------------------
+\endinstallfonts
+\endrecordtransforms
+\input finstmsc.sty
+\resetstr{PSfontsuffix}{.pfb}
+\input xldriver.inc
+\adddriver{mydvips}{libertine_infsup.map}
+\input driver.recs
+\donedrivers
+\bye

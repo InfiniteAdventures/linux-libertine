@@ -1,0 +1,11 @@
+#!/bin/sh -e
+if [ \( "$1" = "upgrade" -o "$1" = "remove" \) ]
+then
+		mktexlsr
+		update-texmf
+		update-updmap
+		update-language
+		updmap-sys
+		fmtutil-sys --all
+fi
+

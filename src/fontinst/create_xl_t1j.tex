@@ -1,0 +1,55 @@
+% TeX fontinst
+%
+% Michael Niedermair m.g.n@gmx.de
+%
+% $Id$
+%
+% fxl  -> normal
+% fxlo -> old ss
+% fxlj -> oldstyle
+% fxlf -> fitted
+\input fontinst.sty
+\recordtransforms{driver.recs}
+
+\def\installopt#1#2#3#4#5#6#7#8#9{%
+  \message{^^J    #1-#3     ^^J}%
+  \installfont{#1-#3}{#2-8r,#2-xl-8x,#2-xl-t1,#4}{#5}  {#6}{#7}{#8}{#9}{<-> \string\fxl@@scale}%
+}
+% -------------------------------------------------------------------
+
+\installfonts
+
+% regular
+\installopt{fxlr}{fxlr}{t1os}{libertine}{t1os}          {T1}{fxlj}{m}{n}
+
+% regular italic
+\installopt{fxlri}{fxlri}{t1os}{libertine}{t1os}         {T1}{fxlj}{m}{it}
+
+% bold
+\installopt{fxlb}{fxlb}{t1os}{libertine}{t1os}         {T1}{fxlj}{b}{n}
+
+% bold italic
+\installopt{fxlbi}{fxlbi}{t1os}{libertine}{t1os}         {T1}{fxlj}{b}{it}
+
+% small caps regular
+\installopt{fxlrc}{fxlr}{t1os}{libertine option sc}{t1scos}         {T1}{fxlj}{m}{sc}
+
+% % small caps bold
+\installopt{fxlbc}{fxlb}{t1os}{libertine option sc}{t1scos}         {T1}{fxlj}{b}{sc}
+
+% small caps italic
+\installopt{fxlric}{fxlri}{t1os}{libertine option sc}{t1scos}         {T1}{fxlj}{m}{ic}
+
+% small caps bold italic
+\installopt{fxlbic}{fxlbi}{t1os}{libertine option sc}{t1scos}         {T1}{fxlj}{b}{ic}
+
+% ---------------------------------------------------
+\endinstallfonts
+\endrecordtransforms
+\input finstmsc.sty
+\resetstr{PSfontsuffix}{.pfb}
+\input xldriver.inc
+\adddriver{mydvips}{libertine_t1j.map}
+\input driver.recs
+\donedrivers
+\bye

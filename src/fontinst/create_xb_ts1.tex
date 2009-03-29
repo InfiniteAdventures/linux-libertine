@@ -1,0 +1,55 @@
+% TeX fontinst
+%
+% Michael Niedermair m.g.n@gmx.de
+%
+% $Id$
+%
+% fxl  -> normal
+% fxlj -> oldstyle
+% fxlf  -> fitted
+\input fontinst.sty
+\recordtransforms{driver.recs}
+
+\def\installopt#1#2#3#4#5#6#7#8#9{%
+  \message{^^J    #1-#3     ^^J}%
+  \installfont{#1-#3}{#2-8r,#2-xb-8x,#2-xb-ts1,#2-xb-t1,#4}{#5}  {#6}{#7}{#8}{#9}{<-> \string\fxl@@scale}%
+}
+% -------------------------------------------------------------------
+
+\installfonts
+
+% regular
+\installopt{fxbr}{fxbr}{ts1}{biolinumtextcomp}{ts1}        {TS1}{fxb}{m}{n}
+\installopt{fxbr}{fxbr}{ts1os}{biolinumtextcomp}{ts1}      {TS1}{fxbj}{m}{n}
+\installopt{fxbr}{fxbr}{ts1fitted}{biolinumtextcomp}{ts1}  {TS1}{fxbf}{m}{n}
+\installopt{fxbr}{fxbr}{ts1o}{biolinumtextcomp}{ts1}       {TS1}{fxbo}{m}{n}
+
+% bold
+\installopt{fxbb}{fxbb}{ts1}{biolinumtextcomp}{ts1}        {TS1}{fxb}{b}{n}
+\installopt{fxbb}{fxbb}{ts1os}{biolinumtextcomp}{ts1}      {TS1}{fxbj}{b}{n}
+\installopt{fxbb}{fxbb}{ts1fitted}{biolinumtextcomp}{ts1}  {TS1}{fxbf}{b}{n}
+\installopt{fxbb}{fxbb}{ts1o}{biolinumtextcomp}{ts1}       {TS1}{fxbo}{b}{n}
+
+% % small caps regular
+% \installopt{fxbrc}{fxbr}{ts1}{biolinumtextcomp}{ts1}        {TS1}{fxb}{m}{sc}
+% \installopt{fxbrc}{fxbr}{ts1os}{biolinumtextcomp}{ts1}      {TS1}{fxbj}{m}{sc}
+% \installopt{fxbrc}{fxbr}{ts1fitted}{biolinumtextcomp}{ts1}  {TS1}{fxbf}{m}{sc}
+% \installopt{fxbrc}{fxbr}{ts1o}{biolinumtextcomp}{ts1}       {TS1}{fxbo}{m}{sc}
+%
+% % % small caps bold
+% \installopt{fxbbc}{fxbb}{ts1}{biolinumtextcomp}{ts1}        {TS1}{fxb}{b}{sc}
+% \installopt{fxbbc}{fxbb}{ts1os}{biolinumtextcomp}{ts1}      {TS1}{fxbj}{b}{sc}
+% \installopt{fxbbc}{fxbb}{ts1fitted}{biolinumtextcomp}{ts1}  {TS1}{fxbf}{b}{sc}
+% \installopt{fxbbc}{fxbb}{ts1o}{biolinumtextcomp}{ts1}       {TS1}{fxbo}{b}{sc}
+
+
+% ---------------------------------------------------
+\endinstallfonts
+\endrecordtransforms
+\input finstmsc.sty
+\resetstr{PSfontsuffix}{.pfb}
+\input xbdriver.inc
+\adddriver{mydvips}{biolinum_ts1.map}
+\input driver.recs
+\donedrivers
+\bye

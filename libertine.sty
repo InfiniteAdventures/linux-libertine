@@ -1,0 +1,209 @@
+% LaTeX-Package for libertine
+%
+% $Id$
+%
+% Michael Niedermair m.g.n@gmx.de
+%
+\ProvidesPackage{libertine}%
+	[2009/03/27 v4.4.1 beta (Nm)]
+\RequirePackage{keyval,calc,ifthen,xcolor}
+
+\def\fxl@scale{1}%        scale factor
+\def\fxl@default{nf}%     nf, osf, ss
+\def\fxl@debug{false}%    debug
+\def\fxl@test{false}%      test
+
+\define@key{fxl}{scaled}[1]{\def\fxl@scale{#1}}
+\define@key{fxl}{default}[nf]{\def\fxl@default{#1}}
+\define@key{fxl}{debug}[true]{\def\fxl@debug{#1}}
+\define@key{fxl}{test}[true]{\def\fxl@test{#1}}
+\define@key{fxl}{osf}[true]{\def\fxl@default{osf}}
+\define@key{fxl}{ss}[true]{\def\fxl@default{ss}}
+\define@key{fxl}{nf}[true]{\def\fxl@default{nf}}
+\def\ProcessOptionsWithKV#1{%
+  \let\@tempc\relax
+  \let\fxl@tempa\@empty
+  \@for\CurrentOption:=\@classoptionslist\do{%
+    \@ifundefined{KV@#1@\CurrentOption}%
+    {}%
+    {%
+      \edef\fxl@tempa{\fxl@tempa,\CurrentOption,}%
+      \@expandtwoargs\@removeelement\CurrentOption
+        \@unusedoptionlist\@unusedoptionlist
+    }%
+  }%
+  \edef\fxl@tempa{%
+    \noexpand\setkeys{#1}{%
+      \fxl@tempa\@ptionlist{\@currname.\@currext}%
+    }%
+  }%
+  \fxl@tempa
+  \let\CurrentOption\@empty
+}
+\ProcessOptionsWithKV{fxl}
+\AtEndOfPackage{%
+  \let\@unprocessedoptions\relax
+}
+% ------------------------------------------------
+
+% default
+\ifthenelse{\equal{\fxl@default}{nf}}{\renewcommand\rmdefault{fxl}}{}
+\ifthenelse{\equal{\fxl@default}{osf}}{\renewcommand\rmdefault{fxlj}}{}
+\ifthenelse{\equal{\fxl@default}{ss}}{\renewcommand\rmdefault{fxlo}}{}
+
+% debug
+\ifthenelse{\equal{\fxl@debug}{true}}{
+  \typeout{------ libertine: DEBUG ---------------------------}
+  \typeout{scaled          = \fxl@scale}
+  \typeout{default         = \fxl@default}
+  \typeout{---------- DEBUG ----------------------------------}
+}{}%
+% ------------------------------------------------------
+\newcommand{\FontLibertine}{\fontfamily{fxl}\fontencoding{T1}\selectfont}
+\newcommand{\FontLibertineOF}{\fontfamily{fxlj}\fontencoding{T1}\selectfont}
+\newcommand{\FontLibertineFF}{\fontfamily{fxlf}\fontencoding{T1}\selectfont}
+\newcommand{\fxlSI}[1]{{\usefont{T1}{fxl}{m}{si}\selectfont #1}}
+\newcommand{\fxlBSI}[1]{{\usefont{T1}{fxl}{b}{si}\selectfont #1}}
+
+% circle
+% \newcommand{\FontLibertineCircle}{%
+%    \fontfamily{fxlc}\fontencoding{U}\fontseries{m}\fontshape{n}\selectfont}
+% \newcommand{\fxlcsymbol}[1]{{\FontLibertineCircle\char#1}}
+% \newcommand{\fxlcnumber}[1]{\fxlcsymbol{\arabic{#1}}}
+% \newenvironment{xlenumerate}[1][1]{%
+%    \ifnum \@enumdepth >3 \@toodeep\else
+%       \advance\@enumdepth \@ne
+%       \edef\@enumctr{enum\romannumeral\the\@enumdepth}%
+%       \expandafter\def\csname p@enum\romannumeral\the\@enumdepth\endcsname{}%
+%       \expandafter\def\csname labelenum\romannumeral\the\@enumdepth\endcsname{%
+%       \csname theenum\romannumeral\the\@enumdepth\endcsname}%
+%       \expandafter\def\csname theenum\romannumeral\the\@enumdepth\endcsname{%
+%          \fxlcnumber{enum\romannumeral\the\@enumdepth}}%
+%       \list{\csname label\@enumctr\endcsname}{%
+%         \@nmbrlisttrue
+%         \def\@listctr{\@enumctr}%
+%         \setcounter{\@enumctr}{#1}%
+%         \addtocounter{\@enumctr}{-1}%
+%         \def\makelabel##1{\hss\llap{##1}}}
+%    \fi
+% }{\endlist}
+
+% ---------------------------------------------------------
+\newcommand*\DeclareTextGlyphX[5]{%
+	% \DeclareTextGlyphX{fxl}{U}{fxla7}{uniA7F1}{241}
+	% #1=basefont #2=encoding #3=fontfamily #4=glyphname, #5=position
+   \@namedef{#1@#4}{\fontfamily{#3}\fontencoding{#2}\selectfont\char#5}}
+\newcommand*\useTextGlyph[2]{%
+  {\@nameuse{#1@#2}}}
+\newcommand*\ifGylphExists[2]{%
+  \begingroup
+    \setbox0=\hbox{\@nameuse{#1@#2}}%
+    %\typeout{\string\wd0=\the\wd0}%
+    \edef\x{\endgroup
+      \ifdim\wd0>\z@
+        \noexpand\@firstoftwo
+      \else
+        \noexpand\@secondoftwo
+      \fi}%
+  \x
+}
+\input{fxl.inc}
+\input{fxb.inc}
+%
+% ------------------------------------------------
+% Br�che
+
+\newcommand*\xl@frac@font{%
+  \fontfamily{fxlinfsup}\fontencoding{U}\selectfont%
+}
+
+\newcommand*\xl@numerator@offs{48}
+\newcommand*\xl@denominator@offs{148}
+
+\newcommand*\xl@split@corr[2]{%
+  \expandafter\@tfor\expandafter\@tempa\expandafter
+    :\expandafter=#1\do{%
+    \@tempcnta=\@tempa \advance\@tempcnta #2\relax
+    \symbol{\@tempcnta}%
+  }%
+}
+
+\newcommand*\@xlfrac[2]{%
+  \mbox{%
+    \begingroup
+      \xl@frac@font
+      \xl@split@corr{#1}{\xl@numerator@offs}%
+    \endgroup
+    /%
+    \begingroup
+      \xl@frac@font
+      \xl@split@corr{#2}{\xl@denominator@offs}%
+    \endgroup}%
+}
+
+\newcommand*\@xlfracs[2]{%
+  \ensuremath{%
+    \frac{\mbox{\xl@frac@font\xl@split@corr{#1}{\xl@numerator@offs}}}%
+         {\mbox{\xl@frac@font\xl@split@corr{#2}{\xl@denominator@offs}}}}%
+}
+
+\newcommand*\xlfrac{%
+  \@ifstar\@xlfracs\@xlfrac
+}
+% ------------------------------------------------
+\newcommand*\xllogo{%
+	\mbox{%
+	\useTextGlyph{fxl}{uniE041}%
+	\textcolor{green}{\useTextGlyph{fxl}{uniE042}}%
+	}}
+% ------------------------------------------------
+%
+% test
+\ifthenelse{\equal{\fxl@test}{true}}{
+  % works only with:
+  % \usepackage[polutonikogreek,german]{babel}
+  % \usepackage[utf8x]{inputenc}
+  % \usepackage[test]{libertine}
+  %
+  \typeout{---------- TEST ----------------------------------}
+  \uc@dclc{976}{default}{\useTextGlyph{fxl}{uni03D0}}%
+  \uc@dclc{977}{default}{\useTextGlyph{fxl}{theta1}}%
+  \uc@dclc{981}{default}{\useTextGlyph{fxl}{phi1}}%
+  \uc@dclc{982}{default}{\useTextGlyph{fxl}{omega1}}%
+  \uc@dclc{984}{default}{\useTextGlyph{fxl}{uni03D8}}%
+  \uc@dclc{985}{default}{\useTextGlyph{fxl}{uni03D9}}%
+  \uc@dclc{986}{default}{\useTextGlyph{fxl}{uni03DA}}%
+  \uc@dclc{990}{default}{\useTextGlyph{fxl}{uni03DE}}%
+  \uc@dclc{992}{default}{\useTextGlyph{fxl}{uni03E0}}%
+  \uc@dclc{1008}{default}{\useTextGlyph{fxl}{uni03F0}}%
+  \uc@dclc{1009}{default}{\useTextGlyph{fxl}{uni03F1}}%
+  \uc@dclc{1010}{default}{\useTextGlyph{fxl}{uni03F2}}%
+  \uc@dclc{1013}{default}{\useTextGlyph{fxl}{uni03F5}}%
+  \uc@dclc{1017}{default}{\useTextGlyph{fxl}{uni03F9}}%
+  \uc@dclc{1021}{default}{\useTextGlyph{fxl}{uni03FD}}%
+  \uc@dclc{1022}{default}{\useTextGlyph{fxl}{uni03FE}}%
+  \uc@dclc{8034}{default}{\useTextGlyph{fxl}{uni1F62}}%
+  \uc@dclc{8164}{default}{\useTextGlyph{fxl}{uni1FE4}}%
+  \uc@dclc{8165}{default}{\useTextGlyph{fxl}{uni1FE5}}%
+  %
+  \def\stigma{\useTextGlyph{fxl}{uni03DB}}
+  \def\Stigma{\useTextGlyph{fxl}{uni03DA}}
+  \def\qoppa{\useTextGlyph{fxl}{uni03DF}}
+  \def\Qoppa{\useTextGlyph{fxl}{uni03DE}}
+  \def\varqoppa{\useTextGlyph{fxl}{uni03D9}}
+  \def\Varqoppa{\useTextGlyph{fxl}{uni03D8}}
+  \def\sampi{\useTextGlyph{fxl}{uni03E1}}
+  \def\Sampi{\useTextGlyph{fxl}{uni03E0}}
+  \def\varbeta{\useTextGlyph{fxl}{uni03D0}}
+  \def\varepsilon{\useTextGlyph{fxl}{uni03F5}}
+  \def\vartheta{\useTextGlyph{fxl}{theta1}}
+  \def\varkappa{\useTextGlyph{fxl}{uni03F0}}
+  \def\varpi{\useTextGlyph{fxl}{omega1}}
+  \def\varrho{\useTextGlyph{fxl}{uni03F1}}
+  \def\varphi{\useTextGlyph{fxl}{phi1}}
+  \def\antisigma{\useTextGlyph{fxl}{uni03FD}}
+  \def\dsigma{\useTextGlyph{fxl}{uni03FE}}
+  \def\dantisigma{\useTextGlyph{fxl}{uni03FF}}
+}{}%
+%
+\endinput

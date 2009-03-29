@@ -1,0 +1,56 @@
+\def\make_mydvips{
+   \downloads_list={}
+   \let\postscript_code\empty_command
+   \let\download\append_download
+   \ifx \reencode_etx\empty_command \else
+      \if_undefined{pse-\reencode_etx}\then
+         \etxtoenc{\reencode_etx}{\reencode_etx}
+      \fi
+      \expandafter\expandafter \expandafter\second_of_two
+         \csname pse-\reencode_etx\endcsname
+      \edef\postscript_code{\postscript_code\space
+         \expandafter\expandafter \expandafter\first_of_two
+            \csname pse-\reencode_etx\endcsname
+         \space ReEncodeFont
+      }
+   \fi
+   \ifdim \xscale_factor=\p@ \else
+      \edef\postscript_code{\postscript_code
+         \space\expandafter\lose_measure\the\xscale_factor
+         \space ExtendFont
+      }
+   \fi
+   \ifdim \slant_factor=\z@ \else
+      \edef\postscript_code{\postscript_code
+         \space\expandafter\lose_measure\the\slant_factor
+         \space SlantFont
+      }
+   \fi
+   \ifx \PS_font_name\unknown_str \get_PS_font_name \fi
+   \ifx \PS_font_name\clueless_str
+      \includewarning\warn_undecided_data
+      \_a_true
+   \else
+      \if_undefined{psf-\PS_font_name}\then
+         \_a_true
+      \else
+         \csname psf-\PS_font_name \endcsname
+         \_a_false
+   \fi\fi
+   \if_a_
+      \ifx \PS_font_file\unknown_str \get_PS_font_file \fi
+      \append_download{\PS_font_file}
+      \ifx \PS_font_file\clueless_str
+         \includewarning\warn_undecided_data
+      \fi
+   \fi
+   \def\download##1{~<##1}
+   \pout_line\output_mydvips{
+      \TeX_font_name\space\PS_font_name
+      \expandafter\empty_command %\the\downloads_list
+      \ifx \postscript_code\empty_command \else
+         \space"\postscript_code\space"
+      \fi
+      \expandafter\empty_command \the\downloads_list
+   }
+}

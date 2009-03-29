@@ -1,0 +1,10 @@
+%%
+%% This is file `xllgienc.def'.
+%%
+\ProvidesFile{xllgienc.def}%
+           [2008/08/07 v0.1 (Nm)]
+\DeclareFontEncoding{LGI}{}{}
+\DeclareFontSubstitution{LGI}{fxl}{m}{n}
+\endinput
+%%
+%% End of file `xllgienc.def'.

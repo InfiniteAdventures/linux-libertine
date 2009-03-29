@@ -1,0 +1,56 @@
+% LaTeX test file for the libertine font.
+%
+% $Id$
+%
+% Michael Niedermair m.g.n@gmx.de
+%
+\listfiles
+\documentclass{fontdokuold}
+
+\usepackage{palatino}
+\usepackage{libertine}
+
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{minipage}{\linewidth}\fontsize{36pt}{40pt}\fontseries{m}\fontshape{n}\FontLibertine
+   \textcolor{red}{\useTextGlyph{fxl}{uni2619}}\quad%
+   \fontsize{36pt}{40pt}\fontseries{b}\fontshape{n}\FontLibertine%
+    Linux Libertine Open\par
+   \hfill\fontsize{36pt}{40pt}\fontseries{b}\fontshape{n}\FontLibertine%
+   Fonts Project\quad%
+   \fontsize{36pt}{40pt}\fontseries{m}\fontshape{n}\FontLibertine%
+   \textcolor{red}{\useTextGlyph{fxl}{uni2767}}\par
+   \centering%
+\end{minipage}
+
+\vfill
+\begin{center}
+   \fontsize{46pt}{46pt}\fontseries{b}\fontshape{n}\FontLibertine%
+   Fonttabellen
+\end{center}
+
+\vfill
+\begin{center}\fontsize{20pt}{18pt}\FontLibertine
+Font: Philipp H. Poll\par \LaTeX-Einbindung: Michael Niedermair
+\end{center}
+
+\vfill
+\begin{center}
+{\fontsize{6cm}{6cm}\fontseries{m}\fontshape{n}\FontLibertine%
+\useTextGlyph{fxl}{uniE00A}}%
+\hfill\fontsize{20pt}{18pt}\FontLibertine\today
+\end{center}
+\newpage
+
+\newcommand{\printFDFont}[1]{\InputIfFileExists{#1.inc}{}{}}
+\let\myfdentry=\PrintTableFontShape%
+%\myfdentry{T1}{fxlf}{m}{n}
+
+\input{loadFD}
+
+
+\end{document}
+
+\endinput

@@ -1,0 +1,170 @@
+% LaTeX test file for the libertine font.
+%
+% FontDoku
+%
+% $Id$
+%
+% Michael Niedermair m.g.n@gmx.de
+%
+\chapter{\LaTeX-Installation}
+
+\section{Linux-te\TeX{} (debian/ubuntu)}
+
+\begin{enumerate}
+\item Erstellen Sie im \textit{tmp}-Verzeichnis ein Unterverzeichnis mit dem Namen \emph{libertine}.
+\begin{lstlisting}
+mkdir -p /tmp/libertine
+\end{lstlisting}
+\item Entpacken Sie das Font-Paket in das \textit{tmp/libertine}-Verzeichnis.\footnote{Alle Aktionen müssen als User \textit{root} ausgeführt werden!}
+\begin{lstlisting}
+cd /tmp/libertine
+unzip libertine_latex_2008_01_08.zip
+\end{lstlisting}
+
+\item Kopieren Sie den kompletten Inhalt in Ihren lokalen \textit{texmf}-Baum.\\
+Das Verzeichnis des lokalen texmf-Baums können Sie über den Aufruf von \textit{kpsewhich} ermitteln.
+\begin{lstlisting}
+kpsewhich -expand-var='$TEXMFLOCAL'
+   -> /usr/local/share/texmf
+cp -Rv * /usr/local/share/texmf/
+\end{lstlisting}
+\item Aktualisieren Sie den \textit{texmf}-Baum.
+
+\begin{lstlisting}
+mktexlsr
+\end{lstlisting}
+
+\item Erzeugen Sie einen Eintrag für die map-Datei im \textit{updmap}-Verzeichnis und aktualisieren Sie die map-Dateien.
+
+\begin{lstlisting}
+echo "Map libertine.map" >/etc/texmf/updmap.d/99libertine.cfg
+update-texmf
+update-updmap
+updmap-sys
+\end{lstlisting}
+
+\item Wenn Sie alle Schnitte des Fonts nutzen, kann es sein, dass die Speichervariablen von \TeX{} angepasst werden müssen. Bei der Entwicklung haben wir folgende Werte verwendet. Danach müssen die Formate mit \textit{fmtutil-sys} neu erstellt werden.
+
+\begin{lstlisting}
+echo "main_memory=5000000" >/etc/texmf/texmf.d/00libertine.cnf
+echo "font_mem_size=2000000" >>/etc/texmf/texmf.d/00libertine.cnf
+echo "pdf_mem_size=524288" >>/etc/texmf/texmf.d/00libertine.cnf
+echo "save_size=10000" >>/etc/texmf/texmf.d/00libertine.cnf
+update-texmf
+fmtutil-sys --all
+\end{lstlisting}
+
+\end{enumerate}
+
+
+
+
+\newpage
+\section{Aufruf}
+
+Für das Einbinden steht das Paket \textit{libertine.sty} zur Verfügung.
+
+\begin{lstlisting}
+\usepackage{libertine}
+\end{lstlisting}
+
+Es definiert für \textit{rmdefault} die Schrift \textit{fxl} (normale Ziffern).
+
+\minisec{Optionen}
+
+\begin{description}[\setlabelphantom{scaled}]
+\item [osf] Es werden anstelle der normalen Ziffern Medivalziffern bzw. Minuskelziffern verwendet.
+\begin{lstlisting}
+\usepackage[osf]{libertine}
+\end{lstlisting}
+
+\item [scaled] Der Font wird entsprechend skaliert.
+\begin{lstlisting}
+\usepackage[scaled=0.95]{libertine}
+\end{lstlisting}
+
+\item [ss] Es wird \textsc{ss} anstelle von \textsc{ß} verwendet.
+\begin{lstlisting}
+\usepackage[ss]{libertine}
+\end{lstlisting}
+
+\end{description}
+
+Ansonsten können Sie jeden Teilbereich über z.\,B.
+\begin{lstlisting}
+\usefont{T1}{fxl}{m}{n}\selectfont
+\end{lstlisting}
+auswählen. Siehe hierzu auch die Fonttabellen.
+
+
+\section{Verwendung von Glpyhennamen}
+
+Mit dem Befehl \verb|\useTextGlyph{<fontname>}{<glyphname>}| kann jedes Glpyh im Font
+verwendet werden.
+
+
+\verb|{\Huge\useTextGlyph{fxl}{uni211A}}| = {\Huge\useTextGlyph{fxl}{uni211A}} \par
+\verb|{\Huge\useTextGlyph{fxl}{uni263A}}| = {\Huge\useTextGlyph{fxl}{uni263A}} \par
+\verb|{\Huge\useTextGlyph{fxl}{Tux}}| = {\Huge\useTextGlyph{fxl}{Tux}} \par
+
+
+\section{Source}
+
+Die Routinen, um die \TeX-Metriken zu erzeugen und die Dokumentation (in \LaTeX) etc. findet man unter der fontforge CVS-Verwaltung (siehe hierzu \url{http://linuxlibertine.cvs.sourceforge.net/linuxlibertine/}).
+
+\section{Liste aller Glyphen}
+
+Eine Liste aller Glyphen findet sich unter\\
+\url{http://linuxlibertine.sourceforge.net/latex/libertineglyphlist.pdf}.
+
+\section{Fonttabellen}
+
+Eine Übersicht der Fonttabllen findet sich unter\\
+\url{http://linuxlibertine.sourceforge.net/latex/libertinetabellenuebersicht.pdf}.
+
+\section{Änderungen}
+
+\begin{description}[\setleftmargin{3cm}\breaklabel\setlabelstyle{\usefont{T1}{fxl}{b}{n}\selectfont}]
+\item [08. Januar 2008]
+\begin{itemize}
+\item Verwendung der SFD-Dateien 2.7.x.
+\item Anpassung der Versionsnummer an die Font-Versionsnummer.
+\item Verzeichnisebene 'texmf' aus Paket entfernt.
+\item LGI (expertimental).
+\item Zahlen für Brüche (\verb|\xlfrax|) (expertimental).
+\item Parameter \emph{ss} hinzugefügt (SS anstelle des versalen ß).
+\item Aufteilung der Dokumentation in mehrere Bereiche.
+\item Hinzufügen des LGR-Encodings für griechisch (expertimental).
+\item Fehler mit Aufrufparameter 'osf' beseitigt.
+\end{itemize}
+\item [11. Juni 2007]
+\begin{itemize}
+\item Umstellung der Basis-mtx-Erstellung von \emph{fontsinst} auf \emph{ExTeX-Afm2Mtx}
+\item Parameter \emph{debug} hinzugefügt.
+\item Parameter \emph{scaled} hinzugefügt.
+\item Parameter \emph{osf} hinzugefügt.
+\item Alle Glpyhen lassen sich jetzt über den Glpyhnamen auswählen.
+\item Hinzufügen des versalen ß.
+\item Verzeichnisstruktur auf \texttt{texmf/fonts/afm/public/libertine} etc. angepasst.
+\item Verzeichnis \texttt{texmf/doc/fonts/libertine} angelegt.
+\end{itemize}
+\item[1. Mai 2007]
+\begin{itemize}
+\item Erste Alpha-Version.
+\end{itemize}
+\end{description}
+
+\section{Danke}
+
+Ein besonderer Dank für die Unterstützung geht u.\,a. an folgende Personen:
+
+\begin{multicols}{2}
+Berry, Karl\\
+Burnus, Tobias\\
+Dirr, Ulrich\\
+Hellström, Lars\\
+Niepraschk, Rolf\\
+Thiel, Rainer\\
+\end{multicols}
+
+\endinput

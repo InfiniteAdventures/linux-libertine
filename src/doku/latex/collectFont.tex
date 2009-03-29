@@ -1,0 +1,37 @@
+\documentclass{article}
+
+\usepackage{calc,ifthen,substr}
+\usepackage[T1,TS1]{fontenc}
+\usepackage[debug]{libertine}
+
+\makeatletter
+\newcommand*{\Write}{\immediate\write\myfile}
+\newwrite\myfile
+\newcommand{\printFDFont}[1]{%
+\begingroup
+  \let\SAVDeclareFontShape=\DeclareFontShape
+  \let\DeclareFontShape=\MyDeclareFontShape
+  \immediate\openout\myfile=#1.inc
+  \InputIfFileExists{#1.fd}{}{}
+  \immediate\closeout\myfile
+\endgroup
+}
+
+\def\MyDeclareFontShape#1#2#3#4#5#6{%
+  \SAVDeclareFontShape{#1}{#2}{#3}{#4}{#5}{#6}
+  \typeout{\string\DeclareFontShape=#1/#2/#3/#4}%
+  \IfSubStringInString{ssub}{#5}{}{%
+    \Write{\string\myfdentry\string{#1\string}\string{#2\string}\string{#3\string}\string{#4\string}}}
+}
+\makeatother
+
+\input{lgrenc.def}
+\input{xllgienc.def}
+
+\begin{document}
+
+\input{loadFD.tex}
+%\printFont{t1fxl.fd}
+
+
+\end{document}

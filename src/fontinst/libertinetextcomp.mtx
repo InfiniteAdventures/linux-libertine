@@ -1,0 +1,76 @@
+\relax
+
+\metrics
+
+% make an alias
+\setcommand\alias#1#2{
+   \unsetglyph{#1}
+   \ifisglyph{#2}\then
+      \setglyph{#1}
+   	     \glyph{#2}{1000}
+      \endsetglyph
+   \fi
+}
+
+% -----------------------
+
+\alias{zerooldstyle}{zero.oldstyle}
+\alias{oneoldstyle}{one.oldstyle}
+\alias{twooldstyle}{two.oldstyle}
+\alias{threeoldstyle}{three.oldstyle}
+\alias{fouroldstyle}{four.oldstyle}
+\alias{fiveoldstyle}{five.oldstyle}
+\alias{sixoldstyle}{six.oldstyle}
+\alias{sevenoldstyle}{seven.oldstyle}
+\alias{eightoldstyle}{eight.oldstyle}
+\alias{nineoldstyle}{nine.oldstyle}
+
+\alias{twosuperior}{two.superior}
+\alias{threesuperior}{three.superior}
+\alias{onesuperior}{one.superior}
+\alias{Omegainv}{uni2127}
+\alias{numero}{afii61352}
+
+%
+% : missing glyph `tieaccentlowercase'.
+% : missing glyph `tieaccentcapital'.
+% : missing glyph `newtieaccentlowercase'.
+% : missing glyph `newtieaccentcapital'.
+% : missing glyph `blank'.
+% : missing glyph `hyphendbl'.
+% : missing glyph `angbracketleft'.
+% : missing glyph `angbracketright'.
+% : missing glyph `bigcircle'.
+% : missing glyph `born'.
+% : missing glyph `divorced'.
+% : missing glyph `died'.
+% : missing glyph `leaf'.
+% : missing glyph `married'.
+% : missing glyph `hyphendblchar'.
+% : missing glyph `dollaroldstyle'.
+% : missing glyph `centoldstyle'.
+% : missing glyph `colonmonetary'.
+% : missing glyph `won'.
+% : missing glyph `naira'.
+% : missing glyph `guarani'.
+% : missing glyph `peso'.
+% : missing glyph `recipe'.
+% : missing glyph `pertenthousand'.
+% : missing glyph `pilcrow'.
+% : missing glyph `baht'.
+% : missing glyph `discount'.
+% : missing glyph `openbullet'.
+% : missing glyph `servicemark'.
+% : missing glyph `quillbracketleft'.
+% : missing glyph `quillbracketright'.
+% : missing glyph `copyleft'.
+% : missing glyph `circledP'.
+% : missing glyph `referencemark'.
+
+
+% -------------------------------------
+
+
+\inputmtx{textcomp}
+
+\endmetrics

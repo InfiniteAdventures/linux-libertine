@@ -48,7 +48,7 @@
         basicstyle=\ttfamily\footnotesize,
         backgroundcolor=\color{lightgray},
         captionpos=b,
-        usekeywordsintag=true,
+        %usekeywordsintag=true,
         breaklines=true,
         breakindent=0pt,
         moredelim=[is][\bfseries]{«}{»},

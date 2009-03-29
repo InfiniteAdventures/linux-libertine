@@ -1,0 +1,290 @@
+\relax
+
+\metrics
+
+\setint{capspacing}{0}
+
+% make an alias
+\setcommand\alias#1#2{
+   \ifisglyph{#2}\then
+      \unsetglyph{#1}
+      \setglyph{#1}
+   	     \glyph{#2}{1000}
+      \endsetglyph
+   \fi
+}
+% ----------------------------------------------
+% set unicode alias
+\inputmtx{LinBiolinumName}
+
+
+% -----------------------------------------------
+\setcommand\doSC{
+   \unsetglyph{ff}
+   \unsetglyph{fi}
+   \unsetglyph{fl}
+   \unsetglyph{ffi}
+   \unsetglyph{ffl}
+   \unsetglyph{ij}
+   \unsetglyph{ss}
+   \unsetglyph{FF}
+   \unsetglyph{FI}
+   \unsetglyph{FL}
+   \unsetglyph{FFI}
+   \unsetglyph{FFL}
+   \unsetglyph{IJ}
+   \unsetglyph{SS}
+   
+   \ifisglyph{f.sc}\then
+   \setglyph{ff}
+      \glyph{f.sc}{1000}
+      \movert{\add{\kerning{f.sc}{f.sc}}
+         {\int{capspacing}}}
+      \glyph{f.sc}{1000}
+   \endsetglyph
+   \fi
+
+   \ifisglyph{f.sc}\then
+   \setglyph{fi}
+      \glyph{f.sc}{1000}
+      \movert{\add{\kerning{f.sc}{i.sc}}
+         {\int{capspacing}}}
+      \glyph{i.sc}{1000}
+   \endsetglyph
+   \fi
+
+   \ifisglyph{f.sc}\then
+   \setglyph{fl}
+      \glyph{f.sc}{1000}
+      \movert{\add{\kerning{f.sc}{l.sc}}
+         {\int{capspacing}}}
+      \glyph{l.sc}{1000}
+   \endsetglyph
+   \fi
+
+   \ifisglyph{i.sc}\then
+   \setglyph{ffi}
+      \glyph{ff}{1000}
+      \movert{\add{\kerning{ff}{i.sc}}
+         {\int{capspacing}}}
+      \glyph{i.sc}{1000}
+   \endsetglyph
+	\fi
+
+   \ifisglyph{l.sc}\then
+   \setglyph{ffl}
+      \glyph{ff}{1000}
+      \movert{\add{\kerning{ff}{l.sc}}
+         {\int{capspacing}}}
+      \glyph{l.sc}{1000}
+   \endsetglyph
+	\fi
+
+   \ifisglyph{i.sc}\then
+   \setglyph{ij}
+      \glyph{i.sc}{1000}
+      \movert{\add{\kerning{i.sc}{j.sc}}{\int{capspacing}}}
+      \glyph{j.sc}{1000}
+   \endsetglyph
+	\fi
+
+ %  \ifisglyph{s.sc}\then
+ %  \setglyph{ss}
+ %     \glyph{s.sc}{1000}
+ %     \movert{\add{\kerning{s.sc}{s.sc}}{\int{capspacing}}}
+ %     \glyph{s.sc}{1000}
+ %  \endsetglyph
+ %	\fi
+
+   % ---------------------------------------------------
+   
+   \ifisglyph{f.sc}\then
+   \setglyph{FF}
+      \glyph{f.sc}{1000}
+      \movert{\add{\kerning{f.sc}{f.sc}}
+         {\int{capspacing}}}
+      \glyph{f.sc}{1000}
+   \endsetglyph
+   \fi
+
+   \ifisglyph{f.sc}\then
+   \setglyph{FI}
+      \glyph{f.sc}{1000}
+      \movert{\add{\kerning{f.sc}{i.sc}}
+         {\int{capspacing}}}
+      \glyph{i.sc}{1000}
+   \endsetglyph
+   \fi
+
+   \ifisglyph{f.sc}\then
+   \setglyph{FL}
+      \glyph{f.sc}{1000}
+      \movert{\add{\kerning{f.sc}{l.sc}}
+         {\int{capspacing}}}
+      \glyph{l.sc}{1000}
+   \endsetglyph
+   \fi
+
+   \ifisglyph{i.sc}\then
+   \setglyph{FFI}
+      \glyph{ff}{1000}
+      \movert{\add{\kerning{ff}{i.sc}}
+         {\int{capspacing}}}
+      \glyph{i.sc}{1000}
+   \endsetglyph
+	\fi
+
+   \ifisglyph{l.sc}\then
+   \setglyph{FFL}
+      \glyph{ff}{1000}
+      \movert{\add{\kerning{ff}{l.sc}}
+         {\int{capspacing}}}
+      \glyph{l.sc}{1000}
+   \endsetglyph
+	\fi
+
+   \ifisglyph{I}\then
+   \setglyph{IJ}
+      \glyph{I}{1000}
+      \movert{\add{\kerning{I}{J}}{\int{capspacing}}}
+      \glyph{J}{1000}
+   \endsetglyph
+	\fi
+
+%   \ifisglyph{S}\then
+%   \setglyph{SS}
+%      \glyph{S}{1000}
+%      \movert{\add{\kerning{S}{S}}{\int{capspacing}}}
+%      \glyph{S}{1000}
+%   \endsetglyph
+%	\fi
+	
+	% ----------------
+	\alias{hyphen}{hyphen.sc}
+	\alias{agrave}{agrave.sc}
+	\alias{aacute}{aacute.sc}
+	\alias{acircumflex}{acircumflex.sc}
+	\alias{atilde}{atilde.sc}
+	\alias{adieresis}{adieresis.sc}
+	\alias{aring}{aring.sc}
+	\alias{ae}{ae.sc}
+	\alias{ccedilla}{ccedilla.sc}
+	\alias{egrave}{egrave.sc}
+	\alias{eacute}{eacute.sc}
+	\alias{ecircumflex}{ecircumflex.sc}
+	\alias{edieresis}{edieresis.sc}
+	\alias{igrave}{igrave.sc}
+	\alias{iacute}{iacute.sc}
+	\alias{icircumflex}{icircumflex.sc}
+	\alias{idieresis}{idieresis.sc}
+	\alias{eth}{eth.sc}
+	\alias{ntilde}{ntilde.sc}
+	\alias{ograve}{ograve.sc}
+	\alias{oacute}{oacute.sc}
+	\alias{ocircumflex}{ocircumflex.sc}
+	\alias{otilde}{otilde.sc}
+	\alias{odieresis}{odieresis.sc}
+	\alias{oe}{oe.sc}
+	\alias{oslash}{oslash.sc}
+	\alias{ugrave}{ugrave.sc}
+	\alias{uacute}{uacute.sc}
+	\alias{ucircumflex}{ucircumflex.sc}
+	\alias{udieresis}{udieresis.sc}
+	\alias{yacute}{yacute.sc}
+	\alias{thorn}{thorn.sc}
+	\alias{ydieresis}{ydieresis.sc}
+	\alias{ij}{ij.sc}
+	\alias{germandbls}{germandbls.sc}
+	\alias{dcroat}{dcroat.sc}
+	\alias{abreve}{abreve.sc}
+	\alias{aogonek}{aogonek.sc}
+	\alias{cacute}{cacute.sc}
+	\alias{ccaron}{ccaron.sc}
+	\alias{dcaron}{dcaron.sc}
+	\alias{eogonek}{eogonek.sc}
+	\alias{ecaron}{ecaron.sc}
+	\alias{gbreve}{gbreve.sc}
+	\alias{lacute}{lacute.sc}
+	\alias{lslash}{lslash.sc}
+	\alias{nacute}{nacute.sc}
+	\alias{ncaron}{ncaron.sc}
+	\alias{eng}{eng.sc}
+	\alias{ohungarumlaut}{ohungarumlaut.sc}
+	\alias{racute}{racute.sc}
+	\alias{rcaron}{rcaron.sc}
+	\alias{sacute}{sacute.sc}
+	\alias{scedilla}{scedilla.sc}
+	\alias{scaron}{scaron.sc}
+	\alias{tcommaaccent}{tcommaaccent.sc}
+	\alias{tbar}{tbar.sc}
+	\alias{uring}{uring.sc}
+	\alias{uhungarumlaut}{uhungarumlaut.sc}
+	\alias{zacute}{zacute.sc}
+	\alias{zdotaccent}{zdotaccent.sc}
+	\alias{zcaron}{zcaron.sc}
+	\alias{lcaron}{lcaron.sc}
+	\alias{tcaron}{tcaron.sc}
+	\alias{parenleft}{parenleft.sc}
+	\alias{parenright}{parenright.sc}
+	\alias{bracketleft}{bracketleft.sc}
+	\alias{bracketright}{bracketright.sc}
+	\alias{braceleft}{braceleft.sc}
+	\alias{braceright}{braceright.sc}
+	\alias{exclamdown}{exclamdown.sc}
+	\alias{questiondown}{questiondown.sc}
+	\alias{guillemotleft}{guillemotleft.sc}
+	\alias{guillemotright}{guillemotright.sc}
+	\alias{guilsinglleft}{guilsinglleft.sc}
+	\alias{guilsinglright}{guilsinglright.sc}
+	\alias{tcommaaccent}{tcommaaccent.sc}
+	\alias{dotlessj}{j.sc}
+	\alias{dotlessi}{i.sc}
+	\alias{tcedilla}{tcommaaccent.sc}
+
+    \alias{SS}{Germandbls}
+}
+
+\setcommand\doSS{
+   \unsetglyph{SS}
+   \alias{SS}{Germandbls.alt}
+}
+% -----------------------------------------------
+% ligaturen
+
+\alias{ff}{f_f}
+\alias{fi}{f_i}
+\alias{fl}{f_l}
+\alias{ffi}{f_f_i}
+\alias{ffl}{f_f_l}
+\alias{st}{s_t}
+
+\alias{tcedilla}{tcommaaccent}
+\alias{SS}{Germandbls}
+
+
+
+% -----------------------------------------------
+\ifoption{sc}\then 
+	\doSC	
+\fi
+\ifoption{ss}\then 
+	\doSS
+ \fi
+\ifoption{sssc}\then 
+	\doSC
+	\doSS
+   \unsetglyph{germandbls}
+   \alias{germandbls}{germandbls.scalt}
+   \unsetglyph{germandbls.sc}
+   \alias{germandbls}{germandbls.scalt}
+\fi
+%
+% -------------------------------------
+\alias{dbar}{dcroat}
+
+% -------------------------------------
+
+
+\inputmtx{newlatin}
+
+\endmetrics

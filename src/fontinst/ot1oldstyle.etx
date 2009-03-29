@@ -1,0 +1,17 @@
+\relax
+
+% This file is used to install an \texttt{OT1}-encoded font with hanging
+% (oldstyle) digits.
+
+\encoding
+
+\setcommand\lc#1#2{#2}
+\setcommand\uc#1#2{#1}
+\setcommand\lclig#1#2{#2}
+\setcommand\uclig#1#2{#1}
+\setcommand\digit#1{#1.oldstyle}
+% \setcommand\currency{dollar}
+
+\inputetx{ot1}
+
+\endencoding

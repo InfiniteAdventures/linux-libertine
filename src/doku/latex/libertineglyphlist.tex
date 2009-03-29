@@ -1,0 +1,77 @@
+% LaTeX test file for the libertine font.
+%
+% $Id$
+%
+% Michael Niedermair m.g.n@gmx.de
+%
+\listfiles
+\documentclass{fontdokuold}
+
+\usepackage{palatino}
+\usepackage[debug]{libertine}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{minipage}{\linewidth}\fontsize{36pt}{40pt}\fontseries{m}\fontshape{n}\FontLibertine
+   \textcolor{red}{\useTextGlyph{fxl}{uni2619}}\quad%
+   \fontsize{36pt}{40pt}\fontseries{b}\fontshape{n}\FontLibertine%
+    Linux Libertine Open\par
+   \hfill\fontsize{36pt}{40pt}\fontseries{b}\fontshape{n}\FontLibertine%
+   Fonts Project\quad%
+   \fontsize{36pt}{40pt}\fontseries{m}\fontshape{n}\FontLibertine%
+   \textcolor{red}{\useTextGlyph{fxl}{uni2767}}\par
+   \centering%
+\end{minipage}
+
+\vfill
+\begin{center}
+   \fontsize{46pt}{46pt}\fontseries{b}\fontshape{n}\FontLibertine%
+   Liste aller Glyphen
+\end{center}
+
+\vfill
+\begin{center}\fontsize{20pt}{18pt}\FontLibertine
+Font: Philipp H. Poll\par \LaTeX-Einbindung: Michael Niedermair
+\end{center}
+
+\vfill
+\begin{center}
+{\fontsize{6cm}{6cm}\fontseries{m}\fontshape{n}\FontLibertine%
+\useTextGlyph{fxl}{uniE00A}}%
+\hfill\fontsize{20pt}{18pt}\FontLibertine\today
+\end{center}
+\newpage
+
+% ----------------------------------------------
+\chapter{Glyphliste}
+
+% \glyphTabEntry{fxl}{A}
+\newcommand{\glyphTabEntry}[2]{%
+\ifGylphExists{#1}{#2}{%
+{\large\texttt{#2}\hfill\Huge\strut\useTextGlyph{#1}{#2}\par}}{}
+}
+
+\section{Libertine}
+\setlength{\columnsep}{1cm}
+\begin{multicols}{2}
+{\catcode`\_=12
+\input{xlglyphlist.tex}
+}
+\end{multicols}
+
+\newpage
+\section{Biolinum}
+\setlength{\columnsep}{1cm}
+\begin{multicols}{2}
+{\catcode`\_=12
+\input{xbglyphlist.tex}
+}
+\end{multicols}
+
+
+% ----------------------------------------------
+
+\end{document}
+
+\endinput

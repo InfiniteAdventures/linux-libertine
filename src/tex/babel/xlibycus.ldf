@@ -1,0 +1,69 @@
+%%
+%% This is file `xlibycus.ldf'.
+%%
+%% The original source file were ibicus.ldf from ibycus-babel.dtx.
+%% 
+\ProvidesLanguage{xlibycus}
+           [2008/08/07 v0.1 (Nm)]
+\ifx\eTeXversion\@undefined
+  \PackageError{xlibycus-babel}{%
+    The TeX engine used by LaTeX \MessageBreak
+    does not provide the the eTeX extensions.\MessageBreak
+    This may cause wrong hyphenation\MessageBreak
+    in mixed Latin/Greek paragraphs}
+    {Proceed, with fingers crossed...}
+\fi
+\LdfInit{xlibycus}{captionsxlibycus}
+\ifx\undefined\l@xlibycus
+  \@nopatterns{xlIbycus}
+  \adddialect\l@xlibycus0\fi
+\InputIfFileExists{xllgienc.def}{%
+  \message{Loading the definitions for the Greek font encoding LGI}}{%
+  \errhelp{I can't find the xllgienc.def file for the Greek fonts}%
+  \errmessage{Since I do not know what the LGI encoding means^^J
+    I can't typeset Greek.^^J
+    I stop here, while you get a suitable lgienc.def file}\@@end
+ }
+\providecommand{\xlibycusdefault}{fxl}
+\DeclareRobustCommand{\ibygr}[1]{\foreignlanguage{xlibycus}{#1}}
+\newenvironment{xlibycus}%
+  {\begin{otherlanguage}{xlibycus}}{\end{otherlanguage}}%
+\newcommand*{\setgreekfontscale}[1]{%
+  \def\xlibycus@scale{#1}}
+\@onlypreamble\setgreekfontscale
+\newcommand{\braceleft}{%
+  {\fontencoding{LGI}\fontfamily{\xlibycusdefault}\selectfont\char'333}}
+\newcommand{\braceright}{%
+  {\fontencoding{LGI}\fontfamily{\xlibycusdefault}\selectfont\char'337}}
+\newcommand{\bracketleftbt}{%
+  {\fontencoding{LGI}\fontfamily{\xlibycusdefault}\selectfont\char'363}}
+\newcommand{\bracketrightbt}{%
+  {\fontencoding{LGI}\fontfamily{\xlibycusdefault}\selectfont\char'367}}
+\newcommand{\sdagger}{%
+  {\fontencoding{LGI}\fontfamily{\xlibycusdefault}\selectfont\char'375}}
+\newcommand{\dbldagger}{%
+  {\fontencoding{LGI}\fontfamily{\xlibycusdefault}\selectfont\char'376}}
+\providehyphenmins{xlibycus}{\@ne\tw@}
+\def\captionsxlibycus{}
+\def\datexlibycus{}
+\expandafter\let\expandafter\iby@latintext\csname latintext \endcsname
+\@namedef{latintext }{\fontfamily{\familydefault}\iby@latintext}
+\DeclareRobustCommand{\xlibycustext}{%
+  \fontencoding{LGI}\fontfamily{\xlibycusdefault}\selectfont}
+\DeclareRobustCommand{\textxlibycus}[1]{\leavevmode{\xlibycustext #1}}
+\addto\extrasxlibycus{\xlibycustext}
+\addto\extrasxlibycus{%
+  \babel@savevariable{\lccode`\(}\lccode`\(=`\(%
+  \babel@savevariable{\lccode`\)}\lccode`\)=`\)%
+  \babel@savevariable{\lccode`\=}\lccode`\==`\=%
+  \babel@savevariable{\lccode`\|}\lccode`\|=`\|%
+  \babel@savevariable{\lccode`\`}\lccode`\`=`\`%
+  \babel@savevariable{\lccode`\'}\lccode`\'=`\'%
+  \babel@savevariable{\lccode`\+}\lccode`\+=`\+}
+\DeclareRobustCommand{\noxlibycustext}{%
+  \fontencoding{\latinencoding}\fontfamily{\familydefault}\selectfont}
+\addto\noextrasxlibycus{\noxlibycustext}
+\ldf@finish{xlibycus}
+\endinput
+%%
+%% End of file `xlibycus.ldf'.

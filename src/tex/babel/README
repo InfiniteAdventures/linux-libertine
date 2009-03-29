@@ -1,0 +1,39 @@
+============================================================
+                 The xl-Ibycus-Babel interface
+============================================================
+
+Overview
+--------
+This file are copied from the Ibycus-Bael projekt and 
+modified for the libertine font.
+
+
+Installing the hyphenation patterns
+-----------------------------------
+The file ibyhyph.tex provides the hyphenation patterns for
+the Greek language with the particular encoding of the
+Ibycus fonts.  
+
+Store the file in a directory where LaTeX will find it.  To
+make LaTeX actually use it, edit the configuration file for
+the hyphenation patterns.  Most likely, the file has the
+name "language.dat" in your TeX system.  Add the following
+line to this file:
+
+xlibycus         ibyhyph
+
+Thus, you establish a relation between the language name
+"ibycus" and the file name "ibyhyph.tex".  Update the
+filename database (if applicable) and create a new LaTeX
+format file, which will use the additional hyphenation
+patterns.  If you do not know how to do this, check the
+documentation of your TeX distribution, or consult the FAQ
+at http://www.tex.ac.uk/cgi-bin/texfaq2html?label=formatstymy
+
+ibyhyph.tex was generated from a set of Greek hyphenation
+patterns for LGR encoding, using the Perl script ibyhyph.pl
+and adding further patches affecting the processing of the
+"lunate sigma".  The script ibyhph.pl is part of the
+distribution for reference puposes only; it is not needed by
+the TeX system.
+
