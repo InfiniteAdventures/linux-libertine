@@ -281,9 +281,9 @@ createdist: version
 	@mkdir -p $(OUTPUT_DIST)/texmf/fonts/map/dvips/$(FONT)
 	@mkdir -p $(OUTPUT_DIST)/texmf/fonts/enc/dvips/$(FONT)
 	@mkdir -p $(OUTPUT_DIST)/texmf/fonts/afm/public/$(FONT)
-	@@mkdir -p $(OUTPUT_DIST)/texmf/fonts/tfm/public/$(FONT)
+	@mkdir -p $(OUTPUT_DIST)/texmf/fonts/tfm/public/$(FONT)
 	@mkdir -p $(OUTPUT_DIST)/texmf/fonts/type1/public/$(FONT)
-	@@mkdir -p $(OUTPUT_DIST)/texmf/fonts/ttf/public/$(FONT)
+	@mkdir -p $(OUTPUT_DIST)/texmf/fonts/ttf/public/$(FONT)
 	@mkdir -p $(OUTPUT_DIST)/texmf/fonts/otf/public/$(FONT)
 	@mkdir -p $(OUTPUT_DIST)/texmf/fonts/vf/public/$(FONT)
 	@mkdir -p $(OUTPUT_DIST)/texmf/dvips/$(FONT)
@@ -315,10 +315,10 @@ createdist: version
 	@cp OFL.txt $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
 	@cp Readme $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
 	@echo "p +libertine.map" > $(OUTPUT_DIST)/texmf/dvips/$(FONT)/config.$(FONT)
-	@rm -f $(OUTPUT)/$(FONT)_latex*.zip
+	@rm -f $(TARGET)/$(FONT)_*.zip
 	@find $(OUTPUT_DIST) -type d -exec chmod 775 {} \;
 	@find $(OUTPUT_DIST) -type f -exec chmod 664 {} \;
-	@cd $(OUTPUT_DIST)/texmf; zip -r ../../$(FONT)_latex_`date +%Y_%m_%d`.zip *
+	@cd $(OUTPUT_DIST)/texmf; zip -r ../../$(FONT)_`date +%Y_%m_%d_%H_%M`.zip *
 
 installtl2008: createdist
 	@echo "### copy to $(TL2008)"
