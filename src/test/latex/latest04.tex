@@ -1,0 +1,36 @@
+% UTF-8
+%
+% $Id$
+%
+\listfiles
+\documentclass[a4paper,10pt, ngerman]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[ngerman]{babel}
+\setlength{\parindent}{0pt}
+
+\usepackage[debug,ss]{libertine}
+
+\pagestyle{empty}
+\begin{document}
+
+\section{Überschrift}
+
+Es irrt der "`Mensch"'. Es irrt der Mensch. 01234567890
+
+{\sffamily
+Es irrt der "`Mensch"'. Es irrt der Mensch. 01234567890}
+
+Es irrt der "`Mensch"'. Es irrt der Mensch. 01234567890
+
+\bigskip
+Spaß\quad\textsc{Spaß}
+
+\bigskip
+{\sffamily Spaß\quad\textsc{Spaß}}
+
+\bigskip
+\textbf{\rmfamily\Large Überschrift}
+
+\end{document}
+\endinput
