@@ -177,7 +177,7 @@ $(OUTPUT_TEX)/xelibertine%.pdf : $(SOURCE_DOKU)/xelibertine%.tex xelibertine.sty
 
 $(OUTPUT_TEX)/libertine%.pdf : $(SOURCE_DOKU)/libertine%.tex libertine.sty
 		pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
-		-test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)).idx && bin/splitindex.pl $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)) -- -g -s $(SOURCE_TEX)/index.ist && pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<		
+		# -test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)).idx && bin/splitindex.pl $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)) -- -g -s $(SOURCE_TEX)/index.ist && pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<		
 
 $(OUTPUT_TEX)/LinLibertineAlias.tex : $(SOURCE_SFD)/LinLibertine.nam
 	@echo "### creating alias file..."
