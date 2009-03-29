@@ -16,6 +16,7 @@ TL2008:=/usr/local/texlive/2008
 
 SOURCE_TEX=src/tex
 SOURCE_XELATEX=src/test/xelatex
+SOURCE_LATEX=src/test/latex
 SOURCE_FONTINST=src/fontinst
 SOURCE_DOKU=src/doku
 SOURCE_JAVA=src/java
@@ -35,7 +36,7 @@ OUTPUT_ENC=$(TARGET)/enc
 OUTPUT_JAVA=$(TARGET)/classes
 OUTPUT_DIST=$(TARGET)/dist
 
-TEXFILES=$(wildcard *.tex) $(wildcard $(SOURCE_XELATEX)/*.tex)
+TEXFILES=$(wildcard *.tex) $(wildcard $(SOURCE_XELATEX)/*.tex) $(wildcard $(SOURCE_LATEX)/*.tex)
 PDFTEXFILES=$(patsubst %.tex, $(OUTPUT_TEX)/%.pdf ,$(notdir $(TEXFILES)))
 
 
@@ -61,9 +62,9 @@ TEXINPUTS:=.:$(OUTPUT_TEX):$(SOURCE_FONTINST):$(SOURCE_TEX):$(SOURCE_XELATEX):$(
 CLASSPATH:=$(TARGET)/classes:lib/fontwareone.jar:$(CLASSPATH)
 
 
-all: init version $(CLASSFILES) $(OUTPUT_TEX)/fxlglyphname.tex $(OUTPUT_TEX)/fxbglyphname.tex $(PDFTEXFILES)
+all: init version $(CLASSFILES)  $(PDFTEXFILES)
 
-pfb: init $(PFBFILES) $(OUTPUT_ENC)/xl-00.enc $(OUTPUT_ENC)/xb-00.enc $(OUTPUT_TEX)/fxl.inc $(OUTPUT_TEX)/fxb.inc
+pfb: init $(PFBFILES) $(OUTPUT_ENC)/xl-00.enc $(OUTPUT_ENC)/xb-00.enc $(OUTPUT_TEX)/fxl.inc $(OUTPUT_TEX)/fxb.inc $(OUTPUT_TEX)/fxlglyphname.tex $(OUTPUT_TEX)/fxbglyphname.tex
 
 tfm: pfb $(ETXFILES) $(MTXFILES) $(XCREATEFILES) createpl catmap 
 
@@ -165,6 +166,10 @@ $(OUTPUT_TEX)/test%.pdf : $(SOURCE_XELATEX)/test%.tex xelibertine.sty
 	@echo "### createing test file: " $< 
 	@xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 
+$(OUTPUT_TEX)/latest%.pdf : $(SOURCE_LATEX)/latest%.tex libertine.sty
+	@echo "### createing test file: " $< 
+	@pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
+
 $(OUTPUT_TEX)/%.pdf : $(SOURCE_DOKU)/xelibertine%.tex xelibertine.sty $(OUTPUT_TEX)/LinLibertineAlias.tex $(OUTPUT_TEX)/fxlglyphname.tex
 		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 		-test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$<).idx && bin/splitindex.pl $(OUTPUT_TEX)/$(patsubst %.tex,%,$<) -- -g -s $(SOURCE_TEX)/index.ist && xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<		
@@ -177,17 +182,15 @@ $(OUTPUT_JAVA)/%.class : $(SOURCE_JAVA)/%.java
 	@echo "### compiling java file " $<;
 	@javac -cp $(CLASSPATH) -d $(OUTPUT_JAVA) $<
 
-$(OUTPUT_TEX)/fxlglyphname.tex :  pfb $(SOURCE_SFD)/LinLibertine.nam
-	# fontforge -script $(SOURCE_FFSCRIPT)/sfdtopfb.pe $(OUTPUT_OTF)/fxlr.otf $(OUTPUT_PFB)/fxlr.pfb
-	grep "^C " $(OUTPUT_PFB)/fxlr.afm | sed -e 's/\(.*\) N \(.*\) ; \(.*\)/\2/g' | sed -e 's/\([:alnum]*\) .*/\1/g' | sort > $(OUTPUT_TEX)/fxlglyphname.txt
-	cat $(OUTPUT_TEX)/fxlglyphname.txt | sed -e 's/\(^.*\)/\\GYLPHNAME{\1}/g' > $(OUTPUT_TEX)/fxlglyphname.tex
-	java -cp $(CLASSPATH) GroupGlyphs $(OUTPUT_TEX)/fxlglyphname.txt $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_TEX)/fxlgroupglyphs.tex
+$(OUTPUT_TEX)/fxlglyphname.tex : $(SOURCE_SFD)/LinLibertine.nam
+	@grep "^C " $(OUTPUT_PFB)/fxlr.afm | sed -e 's/\(.*\) N \(.*\) ; \(.*\)/\2/g' | sed -e 's/\([:alnum]*\) .*/\1/g' | sort > $(OUTPUT_TEX)/fxlglyphname.txt
+	@cat $(OUTPUT_TEX)/fxlglyphname.txt | sed -e 's/\(^.*\)/\\GYLPHNAME{\1}/g' > $(OUTPUT_TEX)/fxlglyphname.tex
+	@java -cp $(CLASSPATH) GroupGlyphs $(OUTPUT_TEX)/fxlglyphname.txt $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_TEX)/fxlgroupglyphs.tex
 
-$(OUTPUT_TEX)/fxbglyphname.tex : pfb $(SOURCE_SFD)/LinBiolinum.nam
-	# fontforge -script $(SOURCE_FFSCRIPT)/sfdtopfb.pe $(OUTPUT_OTF)/fxbr.otf $(OUTPUT_PFB)/fxbr.pfb
-	grep "^C " $(OUTPUT_PFB)/fxbr.afm | sed -e 's/\(.*\) N \(.*\) ; \(.*\)/\2/g' | sed -e 's/\([:alnum]*\) .*/\1/g' | sort > $(OUTPUT_TEX)/fxbglyphname.txt
-	cat $(OUTPUT_TEX)/fxbglyphname.txt | sed -e 's/\(^.*\)/\\GYLPHNAME{\1}/g' > $(OUTPUT_TEX)/fxbglyphname.tex
-	java -cp $(CLASSPATH) GroupGlyphs $(OUTPUT_TEX)/fxbglyphname.txt $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_TEX)/fxbgroupglyphs.tex
+$(OUTPUT_TEX)/fxbglyphname.tex : $(SOURCE_SFD)/LinBiolinum.nam
+	@grep "^C " $(OUTPUT_PFB)/fxbr.afm | sed -e 's/\(.*\) N \(.*\) ; \(.*\)/\2/g' | sed -e 's/\([:alnum]*\) .*/\1/g' | sort > $(OUTPUT_TEX)/fxbglyphname.txt
+	@cat $(OUTPUT_TEX)/fxbglyphname.txt | sed -e 's/\(^.*\)/\\GYLPHNAME{\1}/g' > $(OUTPUT_TEX)/fxbglyphname.tex
+	@java -cp $(CLASSPATH) GroupGlyphs $(OUTPUT_TEX)/fxbglyphname.txt $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_TEX)/fxbgroupglyphs.tex
 
 createpl:
 	@echo "### create pl files..."
