@@ -8,9 +8,9 @@ copyifolder() {
 
     if [ -f $1 ] ; then
        if [ ! -r $2  ] ; then
-          cp -v $1  $2
+          cp $1  $2
        elif [ $1 -nt $2 ] ; then
-          cp -v $1  $2
+          cp $1  $2
        fi
     fi
 }
