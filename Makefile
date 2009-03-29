@@ -3,6 +3,7 @@
 #
 TOPDIR:=$(shell pwd)
 FONT=libertine
+XEFONT=xelibertine
 
 TARGET=$(TOPDIR)/target
 OUTPUT_TEX=$(TARGET)/tex
@@ -36,7 +37,7 @@ OUTPUT_ENC=$(TARGET)/enc
 OUTPUT_JAVA=$(TARGET)/classes
 OUTPUT_DIST=$(TARGET)/dist
 
-TEXFILES=$(wildcard *.tex) $(wildcard $(SOURCE_XELATEX)/*.tex) $(wildcard $(SOURCE_LATEX)/*.tex)
+TEXFILES=$(wildcard *.tex) $(wildcard $(SOURCE_XELATEX)/*.tex) $(wildcard $(SOURCE_LATEX)/*.tex) $(SOURCE_DOKU)/libertinedoku.tex $(SOURCE_DOKU)/xelibertineDoku.tex
 PDFTEXFILES=$(patsubst %.tex, $(OUTPUT_TEX)/%.pdf ,$(notdir $(TEXFILES)))
 
 
@@ -62,11 +63,11 @@ TEXINPUTS:=.:$(OUTPUT_TEX):$(SOURCE_FONTINST):$(SOURCE_TEX):$(SOURCE_XELATEX):$(
 CLASSPATH:=$(TARGET)/classes:lib/fontwareone.jar:$(CLASSPATH)
 
 
-all: init version $(CLASSFILES)  $(PDFTEXFILES)
+all: init version $(CLASSFILES)  $(PDFTEXFILES) doku
 
 pfb: init $(PFBFILES) $(OUTPUT_ENC)/xl-00.enc $(OUTPUT_ENC)/xb-00.enc $(OUTPUT_TEX)/fxl.inc $(OUTPUT_TEX)/fxb.inc $(OUTPUT_TEX)/fxlglyphname.tex $(OUTPUT_TEX)/fxbglyphname.tex
 
-tfm: pfb $(ETXFILES) $(MTXFILES) $(XCREATEFILES) createpl catmap 
+tfm: pfb $(ETXFILES) $(MTXFILES) $(XCREATEFILES) createpl catmap dokuinit 
 
 $(OUTPUT_TEX)/fxl.inc : $(OUTPUT_PFB)/fxlr.afm
 	@echo "### creating fxl.inc file..."
@@ -170,9 +171,13 @@ $(OUTPUT_TEX)/latest%.pdf : $(SOURCE_LATEX)/latest%.tex libertine.sty
 	@echo "### createing test file: " $< 
 	@pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 
-$(OUTPUT_TEX)/%.pdf : $(SOURCE_DOKU)/xelibertine%.tex xelibertine.sty $(OUTPUT_TEX)/LinLibertineAlias.tex $(OUTPUT_TEX)/fxlglyphname.tex
+$(OUTPUT_TEX)/xelibertine%.pdf : $(SOURCE_DOKU)/xelibertine%.tex xelibertine.sty
 		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
-		-test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$<).idx && bin/splitindex.pl $(OUTPUT_TEX)/$(patsubst %.tex,%,$<) -- -g -s $(SOURCE_TEX)/index.ist && xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<		
+		-test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)).idx && bin/splitindex.pl $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)) -- -g -s $(SOURCE_TEX)/index.ist && xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<		
+
+$(OUTPUT_TEX)/libertine%.pdf : $(SOURCE_DOKU)/libertine%.tex libertine.sty
+		pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
+		-test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)).idx && bin/splitindex.pl $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)) -- -g -s $(SOURCE_TEX)/index.ist && pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<		
 
 $(OUTPUT_TEX)/LinLibertineAlias.tex : $(SOURCE_SFD)/LinLibertine.nam
 	@echo "### creating alias file..."
@@ -206,16 +211,11 @@ catmap:
 	@cat $(OUTPUT_TEX)/biolinum_*.map >>$(OUTPUT_TEX)/tmp.map
 	@cat $(OUTPUT_TEX)/tmp.map | sort | uniq > $(OUTPUT_TEX)/libertine.map
 
-dokuinit: init version $(OUTPUT_TEX)/fxl.inc  $(OUTPUT_TEX)/fxb.inc
+dokuinit:
 	-@sed -e "s/.*{\(.*\)}{\(.*\)}{\(.*\)}{\(.*\)}/\3/g" $(OUTPUT_TEX)/fxl.inc | sort > $(OUTPUT_TEX)/xlglyphlist.txt
 	-@sed -e "s/\(.*\)/\\\\glyphTabEntry{fxl}{\1}/g" $(OUTPUT_TEX)/xlglyphlist.txt  > $(OUTPUT_TEX)/xlglyphlist.tex
 	-@sed -e "s/.*{\(.*\)}{\(.*\)}{\(.*\)}{\(.*\)}/\3/g" $(OUTPUT_TEX)/fxb.inc | sort > $(OUTPUT_TEX)/xbglyphlist.txt
 	-@sed -e "s/\(.*\)/\\\\glyphTabEntry{fxb}{\1}/g" $(OUTPUT_TEX)/xbglyphlist.txt  > $(OUTPUT_TEX)/xbglyphlist.tex
-
-doku: dokuinit doku1 doku2 doku3
-
-doku1: dokuinit
-	pdflatex -output-directory=$(OUTPUT_TEX) $(SOURCE_DOKU)/libertinedoku.tex
 
 inittarget:
 	@echo "### creating target..."
@@ -251,12 +251,6 @@ copysf: all
 	scp xelibertine.sty mgn,linuxlibertine@web.sourceforge.net:htdocs/latex/
 	scp $(OUTPUT_TEX)/xelibertineDoku.pdf mgn,linuxlibertine@web.sourceforge.net:htdocs/latex/
 
-createCTAN:
-	@echo "### creating zip file for CTAN ...";
-	zip /tmp/xelibertine_CTAN.zip  xelibertine.sty 
-	cd target/tex; zip /tmp/xelibertine_CTAN.zip  xelibertineDoku.pdf
-
-
 copyfont:
 	@echo "### copy font to ~/.fonts ...";
 	@rm -rf ~/.fonts/LinLibertine* ~/.fonts/Biolinum* ~/.fonts/fx*
@@ -268,7 +262,6 @@ help:
 
 readme:
 	@less Readme
-
 
 cleantmp:
 	@echo "### removing tmp files ...";
@@ -295,6 +288,7 @@ createdist: version
 	@mkdir -p $(OUTPUT_DIST)/texmf/fonts/vf/public/$(FONT)
 	@mkdir -p $(OUTPUT_DIST)/texmf/dvips/$(FONT)
 	@mkdir -p $(OUTPUT_DIST)/texmf/tex/latex/$(FONT)
+	@mkdir -p $(OUTPUT_DIST)/texmf/tex/xelatex/$(XEFONT)
 	# @mkdir -p $(OUTPUT_DIST)/texmf/tex/latex/$(FONT)/babel
 	@cp $(OUTPUT_PFB)/*.afm $(OUTPUT_DIST)/texmf/fonts/afm/public/$(FONT)
 	@cp $(OUTPUT_TEX)/*.tfm $(OUTPUT_DIST)/texmf/fonts/tfm/public/$(FONT)
@@ -304,6 +298,7 @@ createdist: version
 	@cp $(OUTPUT_OTF)/*.otf $(OUTPUT_DIST)/texmf/fonts/otf/public/$(FONT)
 	@cp $(OUTPUT_TEX)/libertine.map $(OUTPUT_DIST)/texmf/fonts/map/dvips/$(FONT)
 	@cp libertine.sty $(OUTPUT_DIST)/texmf/tex/latex/$(FONT)/
+	@cp xelibertine.sty $(OUTPUT_DIST)/texmf/tex/xelatex/$(XEFONT)/
 	@cp $(OUTPUT_TEX)/*.fd $(OUTPUT_DIST)/texmf/tex/latex/$(FONT)/
 	@cp $(OUTPUT_TEX)/fx*.inc $(OUTPUT_DIST)/texmf/tex/latex/$(FONT)/
 	#@cp $(SOURCE_TEX)/babel/*.tex $(OUTPUT_DIST)/texmf/tex/latex/$(FONT)/babel
@@ -313,6 +308,7 @@ createdist: version
 	@cp $(OUTPUT_ENC)/*.enc $(OUTPUT_DIST)/texmf/fonts/enc/dvips/$(FONT)
 	@rm -f $(OUTPUT_DIST)/texmf/fonts/enc/dvips/$(FONT)/8r.enc
 	-@cp $(OUTPUT_TEX)/libertinedoku.pdf $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
+	-@cp $(OUTPUT_TEX)/xelibertineDoku.pdf $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
 	@cp $(OUTPUT_TEX)/version $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
 	@cp GPL.txt $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
 	@cp LICENCE.txt $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
@@ -328,6 +324,7 @@ installtl2008: createdist
 	@echo "### copy to $(TL2008)"
 	@rm -rf $(TL2008)/doc/fonts/libertine/*
 	@rm -rf $(TL2008)/tex/latex/libertine/*
+	@rm -rf $(TL2008)/tex/xelatex/xelibertine/*
 	@rm -rf $(TL2008)/dvips/libertine/*
 	@rm -rf $(TL2008)/fonts/vf/public/libertine/*
 	@rm -rf $(TL2008)/fonts/afm/public/libertine/*
