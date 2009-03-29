@@ -52,21 +52,34 @@
 % ------------------------------------------------
 
 % default
-\ifthenelse{\equal{\fxl@default}{nf}}{\renewcommand\rmdefault{fxl}}{}
-\ifthenelse{\equal{\fxl@default}{osf}}{\renewcommand\rmdefault{fxlj}}{}
-\ifthenelse{\equal{\fxl@default}{ss}}{\renewcommand\rmdefault{fxlo}}{}
+\ifthenelse{\equal{\fxl@default}{nf}}{%
+   \renewcommand\rmdefault{fxl}%
+   \renewcommand\sfdefault{fxb}%
+}{}
+\ifthenelse{\equal{\fxl@default}{osf}}{%
+   \renewcommand\rndefault{fxlj}%
+   \renewcommand\sfdefault{fxbj}%
+}{}
+\ifthenelse{\equal{\fxl@default}{ss}}{%
+   \renewcommand\rmdefault{fxlo}%
+   \renewcommand\sfdefault{fxbo}%
+}{}
 
 % debug
 \ifthenelse{\equal{\fxl@debug}{true}}{
   \typeout{------ libertine: DEBUG ---------------------------}
   \typeout{scaled          = \fxl@scale}
   \typeout{default         = \fxl@default}
+  \typeout{test            = \fxl@test}
   \typeout{---------- DEBUG ----------------------------------}
 }{}%
 % ------------------------------------------------------
 \newcommand{\FontLibertine}{\fontfamily{fxl}\fontencoding{T1}\selectfont}
 \newcommand{\FontLibertineOF}{\fontfamily{fxlj}\fontencoding{T1}\selectfont}
 \newcommand{\FontLibertineFF}{\fontfamily{fxlf}\fontencoding{T1}\selectfont}
+\newcommand{\FontBiolinum}{\fontfamily{fxl}\fontencoding{T1}\selectfont}
+\newcommand{\FontBiolinumOF}{\fontfamily{fxlj}\fontencoding{T1}\selectfont}
+\newcommand{\FontBiolinumFF}{\fontfamily{fxlf}\fontencoding{T1}\selectfont}
 \newcommand{\fxlSI}[1]{{\usefont{T1}{fxl}{m}{si}\selectfont #1}}
 \newcommand{\fxlBSI}[1]{{\usefont{T1}{fxl}{b}{si}\selectfont #1}}
 
@@ -116,99 +129,23 @@
 \input{fxb.inc}
 %
 % ------------------------------------------------
-% Br�che
 
-\newcommand*\xl@frac@font{%
-  \fontfamily{fxlinfsup}\fontencoding{U}\selectfont%
-}
-
-\newcommand*\xl@numerator@offs{48}
-\newcommand*\xl@denominator@offs{148}
-
-\newcommand*\xl@split@corr[2]{%
-  \expandafter\@tfor\expandafter\@tempa\expandafter
-    :\expandafter=#1\do{%
-    \@tempcnta=\@tempa \advance\@tempcnta #2\relax
-    \symbol{\@tempcnta}%
-  }%
-}
-
-\newcommand*\@xlfrac[2]{%
-  \mbox{%
-    \begingroup
-      \xl@frac@font
-      \xl@split@corr{#1}{\xl@numerator@offs}%
-    \endgroup
-    /%
-    \begingroup
-      \xl@frac@font
-      \xl@split@corr{#2}{\xl@denominator@offs}%
-    \endgroup}%
-}
-
-\newcommand*\@xlfracs[2]{%
-  \ensuremath{%
-    \frac{\mbox{\xl@frac@font\xl@split@corr{#1}{\xl@numerator@offs}}}%
-         {\mbox{\xl@frac@font\xl@split@corr{#2}{\xl@denominator@offs}}}}%
-}
-
-\newcommand*\xlfrac{%
-  \@ifstar\@xlfracs\@xlfrac
-}
 % ------------------------------------------------
 \newcommand*\xllogo{%
 	\mbox{%
 	\useTextGlyph{fxl}{uniE041}%
 	\textcolor{green}{\useTextGlyph{fxl}{uniE042}}%
 	}}
+\newcommand*\xblogo{%
+   \mbox{%
+   \useTextGlyph{fxb}{uniE041}%
+   \textcolor{green}{\useTextGlyph{fxb}{uniE042}}%
+   }}
 % ------------------------------------------------
 %
 % test
 \ifthenelse{\equal{\fxl@test}{true}}{
-  % works only with:
-  % \usepackage[polutonikogreek,german]{babel}
-  % \usepackage[utf8x]{inputenc}
-  % \usepackage[test]{libertine}
-  %
-  \typeout{---------- TEST ----------------------------------}
-  \uc@dclc{976}{default}{\useTextGlyph{fxl}{uni03D0}}%
-  \uc@dclc{977}{default}{\useTextGlyph{fxl}{theta1}}%
-  \uc@dclc{981}{default}{\useTextGlyph{fxl}{phi1}}%
-  \uc@dclc{982}{default}{\useTextGlyph{fxl}{omega1}}%
-  \uc@dclc{984}{default}{\useTextGlyph{fxl}{uni03D8}}%
-  \uc@dclc{985}{default}{\useTextGlyph{fxl}{uni03D9}}%
-  \uc@dclc{986}{default}{\useTextGlyph{fxl}{uni03DA}}%
-  \uc@dclc{990}{default}{\useTextGlyph{fxl}{uni03DE}}%
-  \uc@dclc{992}{default}{\useTextGlyph{fxl}{uni03E0}}%
-  \uc@dclc{1008}{default}{\useTextGlyph{fxl}{uni03F0}}%
-  \uc@dclc{1009}{default}{\useTextGlyph{fxl}{uni03F1}}%
-  \uc@dclc{1010}{default}{\useTextGlyph{fxl}{uni03F2}}%
-  \uc@dclc{1013}{default}{\useTextGlyph{fxl}{uni03F5}}%
-  \uc@dclc{1017}{default}{\useTextGlyph{fxl}{uni03F9}}%
-  \uc@dclc{1021}{default}{\useTextGlyph{fxl}{uni03FD}}%
-  \uc@dclc{1022}{default}{\useTextGlyph{fxl}{uni03FE}}%
-  \uc@dclc{8034}{default}{\useTextGlyph{fxl}{uni1F62}}%
-  \uc@dclc{8164}{default}{\useTextGlyph{fxl}{uni1FE4}}%
-  \uc@dclc{8165}{default}{\useTextGlyph{fxl}{uni1FE5}}%
-  %
-  \def\stigma{\useTextGlyph{fxl}{uni03DB}}
-  \def\Stigma{\useTextGlyph{fxl}{uni03DA}}
-  \def\qoppa{\useTextGlyph{fxl}{uni03DF}}
-  \def\Qoppa{\useTextGlyph{fxl}{uni03DE}}
-  \def\varqoppa{\useTextGlyph{fxl}{uni03D9}}
-  \def\Varqoppa{\useTextGlyph{fxl}{uni03D8}}
-  \def\sampi{\useTextGlyph{fxl}{uni03E1}}
-  \def\Sampi{\useTextGlyph{fxl}{uni03E0}}
-  \def\varbeta{\useTextGlyph{fxl}{uni03D0}}
-  \def\varepsilon{\useTextGlyph{fxl}{uni03F5}}
-  \def\vartheta{\useTextGlyph{fxl}{theta1}}
-  \def\varkappa{\useTextGlyph{fxl}{uni03F0}}
-  \def\varpi{\useTextGlyph{fxl}{omega1}}
-  \def\varrho{\useTextGlyph{fxl}{uni03F1}}
-  \def\varphi{\useTextGlyph{fxl}{phi1}}
-  \def\antisigma{\useTextGlyph{fxl}{uni03FD}}
-  \def\dsigma{\useTextGlyph{fxl}{uni03FE}}
-  \def\dantisigma{\useTextGlyph{fxl}{uni03FF}}
+   % ...
 }{}%
 %
 \endinput
