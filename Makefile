@@ -14,6 +14,7 @@ PDFLATEXPARAM=
 TEXMF_MAIN:=$(shell kpsewhich -expand-var='$$TEXMFLOCAL')
 MYTEXMF_LOCAL=/usr/local/share/texmf
 TL2008:=/usr/local/texlive/2008
+TLX:=/usr/local/share/texmf-x
 
 SOURCE_TEX=src/tex
 SOURCE_XELATEX=src/test/xelatex
@@ -174,8 +175,10 @@ $(OUTPUT_TEX)/latest%.pdf : $(SOURCE_LATEX)/latest%.tex libertine.sty
 $(OUTPUT_TEX)/xelibertine%.pdf : $(SOURCE_DOKU)/xelibertine%.tex xelibertine.sty
 		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 		-test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)).idx && bin/splitindex.pl $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)) -- -g -s $(SOURCE_TEX)/index.ist && xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<		
+		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 
 $(OUTPUT_TEX)/libertine%.pdf : $(SOURCE_DOKU)/libertine%.tex libertine.sty
+		pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 		pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 		# -test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)).idx && bin/splitindex.pl $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)) -- -g -s $(SOURCE_TEX)/index.ist && pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<		
 
@@ -335,5 +338,21 @@ installtl2008: createdist
 	@cp -R $(OUTPUT_DIST)/texmf/* $(TL2008)/texmf-dist
 	@mktexlsr
 	@updmap-sys --enable Map /usr/local/texlive/2008/texmf-dist/fonts/map/dvips/libertine/libertine.map
+
+installtlX: createdist
+	@echo "### copy to $(TLX)"
+	@rm -rf $(TLX)/doc/fonts/libertine/*
+	@rm -rf $(TLX)/tex/latex/libertine/*
+	@rm -rf $(TLX)/tex/xelatex/xelibertine/*
+	@rm -rf $(TLX)/dvips/libertine/*
+	@rm -rf $(TLX)/fonts/vf/public/libertine/*
+	@rm -rf $(TLX)/fonts/afm/public/libertine/*
+	@rm -rf $(TLX)/fonts/enc/public/libertine/*
+	@rm -rf $(TLX)/fonts/tfm/public/libertine/*
+	@rm -rf $(TLX)/fonts/type1/public/libertine/*
+	@rm -rf $(TLX)/fonts/map/dvips/libertine/*
+	@cp -R $(OUTPUT_DIST)/texmf/* $(TLX)/
+	# @mktexlsr
+	#@updmap-sys --enable Map /usr/local/texlive/2008/texmf-dist/fonts/map/dvips/libertine/libertine.map
 	
 	
