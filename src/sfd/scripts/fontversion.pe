@@ -1,0 +1,12 @@
+# print the Font-Version
+#
+# $1 font-file
+#
+# $Id: sfdtopfb.pe,v 1.8 2008/01/08 15:53:21 mgn Exp $
+#
+# Michael Niedermair m.g.n@gmx.de
+#
+Open($1,1)
+Print($fullname  , " (" , $fontversion , ")  PS=" , $fontname , "  Family=" , $familyname )
+Close()
+Quit()

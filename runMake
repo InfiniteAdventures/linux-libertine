@@ -1,3 +1,10 @@
 #!/bin/bash
 echo "### running make ..."
-make init && make pfb && make tfm && make copyfont && make installtlX && make installtl2008 && make
+make init && \
+   make otf && \
+   make ttf && \
+   make pfb && \
+   make tfm && \
+   make copyfont && \
+   make installtl2008 && \
+   make

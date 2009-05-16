@@ -23,8 +23,6 @@ SOURCE_FONTINST=src/fontinst
 SOURCE_DOKU=src/doku
 SOURCE_JAVA=src/java
 SOURCE_SFD=src/sfd
-SOURCE_OTF=src/otf
-SOURCE_TTF=src/ttf
 SOURCE_ENC=src/enc
 SOURCE_SCRIPT=src/scripts
 SOURCE_FFSCRIPT=$(SOURCE_SFD)/scripts
@@ -64,9 +62,13 @@ TEXINPUTS:=.:$(OUTPUT_TEX):$(SOURCE_FONTINST):$(SOURCE_TEX):$(SOURCE_XELATEX):$(
 CLASSPATH:=$(TARGET)/classes:lib/fontwareone.jar:$(CLASSPATH)
 
 
-all: init version $(CLASSFILES)  $(PDFTEXFILES) doku
+all: init version $(CLASSFILES) $(PDFTEXFILES) doku
 
 pfb: init $(PFBFILES) $(OUTPUT_ENC)/xl-00.enc $(OUTPUT_ENC)/xb-00.enc $(OUTPUT_TEX)/fxl.inc $(OUTPUT_TEX)/fxb.inc $(OUTPUT_TEX)/fxlglyphname.tex $(OUTPUT_TEX)/fxbglyphname.tex
+
+otf: init $(OTFFILES) 
+
+ttf: init $(TTFFILES) 
 
 tfm: pfb $(ETXFILES) $(MTXFILES) $(XCREATEFILES) createpl catmap dokuinit 
 
@@ -164,6 +166,14 @@ $(OUTPUT_PFB)/%.pfb : $(OUTPUT_SFD)/%.sfd
 	@echo "### creating pfb font..." $@ ;
 	@nice fontforge -script $(SOURCE_FFSCRIPT)/sfdtopfb.pe $< $(OUTPUT_PFB)/$(notdir $@) ;
 
+$(OUTPUT_OTF)/%.otf : $(OUTPUT_SFD)/%.sfd
+	@echo "### creating otf font..." $@ ;
+	@nice fontforge -script $(SOURCE_FFSCRIPT)/sfdtootf.pe $< $(OUTPUT_OTF)/$(notdir $@) ;
+
+$(OUTPUT_TTF)/%.ttf : $(OUTPUT_SFD)/%.sfd
+	@echo "### creating ttf font..." $@ ;
+	@nice fontforge -script $(SOURCE_FFSCRIPT)/sfdtottf.pe $< $(OUTPUT_TTF)/$(notdir $@) ;
+
 $(OUTPUT_TEX)/test%.pdf : $(SOURCE_XELATEX)/test%.tex xelibertine.sty
 	@echo "### createing test file: " $< 
 	@xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
@@ -235,19 +245,19 @@ init: inittarget $(CLASSFILES)
 	@echo "### copy enc and font files..."  
 	@cp -u $(SOURCE_ENC)/*.enc $(OUTPUT_ENC)/
 	@sh $(SOURCE_SCRIPT)/fontName2LaTeX $(SOURCE_SFD) $(OUTPUT_SFD) sfd
-	@sh $(SOURCE_SCRIPT)/fontName2LaTeX $(SOURCE_OTF) $(OUTPUT_OTF) otf
-	@sh $(SOURCE_SCRIPT)/fontName2LaTeX $(SOURCE_TTF) $(OUTPUT_TTF) ttf
 	@sed 's/0x\(.*\) \(.*\)/\\alias{uni\1}{\2}/g' $(SOURCE_SFD)/LinLibertine.nam > $(OUTPUT_TEX)/LinLibertineName.mtx
 	@sed 's/0x\(.*\) \(.*\)/\\alias{uni\1}{\2}/g' $(SOURCE_SFD)/LinBiolinum.nam > $(OUTPUT_TEX)/LinBiolinumName.mtx
 	
 
 version:
 	@echo "### creating version file ...";
-	@rm -f $(OUTPUT_TEX)/version
-	@touch $(OUTPUT_TEX)/version
-	@find $(SOURCE_OTF)/ -name '*.otf' -exec basename {} .otf >>$(OUTPUT_TEX)/version \;
-	@cat $(OUTPUT_TEX)/version | sort >$(OUTPUT_TEX)/versiontmp
-	@mv $(OUTPUT_TEX)/versiontmp $(OUTPUT_TEX)/version
+	@rm -f $(OUTPUT_TEX)/version*
+	@touch $(OUTPUT_TEX)/version.tmp
+	@find $(OUTPUT_SFD)/ -name '*.sfd' -exec fontforge -script $(SOURCE_FFSCRIPT)/sfdversion.pe {} >>$(OUTPUT_TEX)/version.tmp 2>/dev/null \;
+	@cat $(OUTPUT_TEX)/version.tmp | sort >$(OUTPUT_TEX)/version
+	@touch $(OUTPUT_TEX)/versionotf.tmp
+	@find $(OUTPUT_OTF)/ -name '*.otf' -exec fontforge -script $(SOURCE_FFSCRIPT)/fontversion.pe {} >>$(OUTPUT_TEX)/versionotf.tmp 2>/dev/null \;
+	@cat $(OUTPUT_TEX)/versionotf.tmp | sort >$(OUTPUT_TEX)/versionotf
 
 copysf: all
 	@echo "### copy to sf ...";
@@ -339,20 +349,5 @@ installtl2008: createdist
 	@mktexlsr
 	@updmap-sys --enable Map /usr/local/texlive/2008/texmf-dist/fonts/map/dvips/libertine/libertine.map
 
-installtlX: createdist
-	@echo "### copy to $(TLX)"
-	@rm -rf $(TLX)/doc/fonts/libertine/*
-	@rm -rf $(TLX)/tex/latex/libertine/*
-	@rm -rf $(TLX)/tex/xelatex/xelibertine/*
-	@rm -rf $(TLX)/dvips/libertine/*
-	@rm -rf $(TLX)/fonts/vf/public/libertine/*
-	@rm -rf $(TLX)/fonts/afm/public/libertine/*
-	@rm -rf $(TLX)/fonts/enc/public/libertine/*
-	@rm -rf $(TLX)/fonts/tfm/public/libertine/*
-	@rm -rf $(TLX)/fonts/type1/public/libertine/*
-	@rm -rf $(TLX)/fonts/map/dvips/libertine/*
-	@cp -R $(OUTPUT_DIST)/texmf/* $(TLX)/
-	# @mktexlsr
-	#@updmap-sys --enable Map /usr/local/texlive/2008/texmf-dist/fonts/map/dvips/libertine/libertine.map
 	
 	

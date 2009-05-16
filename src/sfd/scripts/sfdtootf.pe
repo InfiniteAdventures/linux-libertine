@@ -1,5 +1,7 @@
 # convert the Libertine-Font to otf font
 #
+# see http://fontforge.sourceforge.net/scripting.html
+#
 # $1 sfd-file
 # $2 otf-file
 #
@@ -9,14 +11,39 @@
 #
 Open($1,1)
 #
-SetFontOrder(3)
-SelectAll()
-UnlinkReference()
-AddExtrema()
-RemoveOverlap()
-ScaleToEm(1000)
-RoundToInt(100)
+Print( "fontname   : " , $fontname )
+Print( "familyname : " , $familyname )
+Print( "fullname   : " , $fullname )
+Print( "weight     : " , $weight )
 #
+# Sets the font's order. 
+# Order must be either 2 (quadratic) or 3 (cubic). 
+SetFontOrder(3)
+#
+# Alle Zeichen markieren
+SelectAll()
+#
+# Zeichenreferenzen auflösen
+UnlinkReference()
+#
+# Überlagerungen entfernen
+RemoveOverlap()
+#
+# Auf Integer runden mit einer Nachkommastelle
+# (factor * x) / factor
+# 10 -> eine Nachkommstelle
+# 100 -> zwei Nachkommastellen
+RoundToInt(10)
+#
+# Hintergrund löschen
+# Clears the background of all selected glyphs
+ClearBackground()
+#     
+# SFDs kommen inzwischen mit 1000er EM
+ScaleToEm(1000)
+#
+# Generate(filename[,bitmaptype[,fmflags[,res[,mult-sfd-file[,namelist-name]]]]]) 
 Generate($2)
+#
 Close()
 Quit()
