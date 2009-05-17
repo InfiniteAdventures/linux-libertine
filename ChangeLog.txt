@@ -5,6 +5,7 @@ its concept doesnt seem to be sofware-technically reliable and because of lack o
 
 Changes to version 4.5. regular(-) & italic(/) & capitals (C) (20090321)
 
+- corrected s_t-ligature in biolinum bold
 Ingo Preuss points out thatsome glyphs were wrongly named:
 - uni0237 is now called dotlessj (instead of uniF6BE, which was wrongly named 
 this way)
