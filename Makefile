@@ -261,8 +261,8 @@ version:
 
 copysf: all
 	@echo "### copy to sf ...";
-	scp xelibertine.sty mgn,linuxlibertine@web.sourceforge.net:htdocs/latex/
 	scp $(OUTPUT_TEX)/xelibertineDoku.pdf mgn,linuxlibertine@web.sourceforge.net:htdocs/latex/
+	scp $(OUTPUT_TEX)/libertinedoku.pdf mgn,linuxlibertine@web.sourceforge.net:htdocs/latex/
 
 copyfont:
 	@echo "### copy font to ~/.fonts ...";
