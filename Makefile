@@ -274,7 +274,7 @@ help:
 	@grep -v "^#" Makefile.help
 
 readme:
-	@less Readme
+	@less Readme.txt
 
 cleantmp:
 	@echo "### removing tmp files ...";
@@ -285,6 +285,12 @@ cleantmp:
 clean: cleantmp
 	@echo "### cleaning..."
 	-@rm -rf $(TARGET)
+
+al:
+	@acroread target/tex/libertinedoku.pdf &
+	
+ax:
+	@acroread target/tex/xelibertineDoku.pdf &
 
 createdist: version
 	@echo "### create distribution..."  
@@ -326,14 +332,28 @@ createdist: version
 	@cp GPL.txt $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
 	@cp LICENCE.txt $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
 	@cp OFL.txt $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
-	@cp Readme $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
+	@cp Readme.txt $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
 	@echo "p +libertine.map" > $(OUTPUT_DIST)/texmf/dvips/$(FONT)/config.$(FONT)
 	@rm -f $(TARGET)/$(FONT)_*.zip
 	@find $(OUTPUT_DIST) -type d -exec chmod 775 {} \;
 	@find $(OUTPUT_DIST) -type f -exec chmod 664 {} \;
 	@cd $(OUTPUT_DIST)/texmf; zip -r ../../$(FONT)_`date +%Y_%m_%d_%H_%M`.zip *
 
-installtl2008: createdist
+installtllocal:
+	@echo "### copy to $(TL2008)/../texmf-local"
+	@rm -rf $(TL2008)/../texmf-local/doc/fonts/libertine/*
+	@rm -rf $(TL2008)/../texmf-local/tex/latex/libertine/*
+	@rm -rf $(TL2008)/../texmf-local/tex/xelatex/xelibertine/*
+	@rm -rf $(TL2008)/../texmf-local/dvips/libertine/*
+	@rm -rf $(TL2008)/../texmf-local/fonts/vf/public/libertine/*
+	@rm -rf $(TL2008)/../texmf-local/fonts/afm/public/libertine/*
+	@rm -rf $(TL2008)/../texmf-local/fonts/enc/public/libertine/*
+	@rm -rf $(TL2008)/../texmf-local/fonts/tfm/public/libertine/*
+	@rm -rf $(TL2008)/../texmf-local/fonts/type1/public/libertine/*
+	@rm -rf $(TL2008)/../texmf-local/fonts/map/dvips/libertine/*
+	@cp -R $(OUTPUT_DIST)/texmf/* $(TL2008)/../texmf-local
+
+installtl2008: createdist installtllocal
 	@echo "### copy to $(TL2008)"
 	@rm -rf $(TL2008)/doc/fonts/libertine/*
 	@rm -rf $(TL2008)/tex/latex/libertine/*
@@ -349,5 +369,19 @@ installtl2008: createdist
 	@mktexlsr
 	@updmap-sys --enable Map /usr/local/texlive/2008/texmf-dist/fonts/map/dvips/libertine/libertine.map
 
-	
+xxxcopyLaTeX:
+	@echo "### copy to xxx LaTeX"
+	@rm -rf ~/daten/sv/LaTeX/texmf/doc/fonts/libertine/*
+	@rm -rf ~/daten/sv/LaTeX/texmf/tex/latex/libertine/*
+	@rm -rf ~/daten/sv/LaTeX/texmf/tex/xelatex/xelibertine/*
+	@rm -rf ~/daten/sv/LaTeX/texmf/dvips/libertine/*
+	@rm -rf ~/daten/sv/LaTeX/texmf/fonts/vf/public/libertine/*
+	@rm -rf ~/daten/sv/LaTeX/texmf/fonts/afm/public/libertine/*
+	@rm -rf ~/daten/sv/LaTeX/texmf/fonts/enc/public/libertine/*
+	@rm -rf ~/daten/sv/LaTeX/texmf/fonts/tfm/public/libertine/*
+	@rm -rf ~/daten/sv/LaTeX/texmf/fonts/type1/public/libertine/*
+	@rm -rf ~/daten/sv/LaTeX/texmf/fonts/map/dvips/libertine/*
+	@cp -R $(OUTPUT_DIST)/texmf/* ~/daten/sv/LaTeX/texmf
+	@cp $(OUTPUT_OTF)/*.otf ~/daten/sv/LaTeX/fonts
+
 	
