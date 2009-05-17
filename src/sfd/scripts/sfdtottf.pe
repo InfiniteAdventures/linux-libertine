@@ -26,10 +26,6 @@ endif
 if ( $fontname == "LinLibertineO" )
    SetFontNames("LinLibertine", "Linux Libertine", "Linux Libertine")   
 endif
-# wrong name in sfd name
-if ( $fontname == "LinLibertineB" )
-   SetFontNames("LinLibertineB", "Linux Libertine", "Linux Libertine Bold")   
-endif
 if ( $fontname == "LinLibertineOB" )
    SetFontNames("LinLibertineB", "Linux Libertine", "Linux Libertine Bold")   
 endif
@@ -40,7 +36,7 @@ if ( $fontname == "LinLibertineOBI" )
    SetFontNames("LinLibertineBI", "Linux Libertine", "Linux Libertine Bold Italic")   
 endif
 if ( $fontname == "LinLibertineOC" )
-   SetFontNames("LinLibertineC", "Linux Libertine", "Linux Libertine Capitals")   
+   SetFontNames("LinLibertineC", "Linux Libertine C", "Linux Libertine Capitals")   
 endif
 #
 # Sets the font's order. 
