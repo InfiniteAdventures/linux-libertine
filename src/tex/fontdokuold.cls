@@ -26,7 +26,8 @@
 \usepackage[utf8x]{inputenc}
 \usepackage{textcomp,multicol,xcolor,expdlist,framed,calc,ifthen,substr,array,tabularx,pdfpages}
 \newcolumntype{C}{>{\centering\arraybackslash}X}
-\usepackage[polutonikogreek,xlibycus,ngerman]{babel}
+%\usepackage[polutonikogreek,xlibycus,ngerman]{babel}
+\usepackage[ngerman]{babel}
 %
 \usepackage{geometry}
 \geometry{verbose,a4paper,footskip=1cm,

@@ -2,7 +2,7 @@
 % $Id$
 %
 \documentclass{fontdoku}
-\usepackage[debug,noamsmath,biolinum]{xelibertine}
+\usepackage[debug,noamsmath,biolinum]{libertine}
 %
 \lohead{\large\Lglyph{uniE00A}}
 \cfoot{}
@@ -75,10 +75,10 @@ Es wird ausschließlich die OpenType-Version des \emph{Libertine}-Fonts verwende
 
 \lstinputlisting{versionotf}
 
-\begin{description}[\setlabelphantom{xelibertine}]
+\begin{description}[\setlabelphantom{libertine}]
 \item[Font] \url{http://linuxlibertine.svn.sourceforge.net/viewvc/linuxlibertine/trunk/src/otf/}
 \item[\XeTeX] Version: \the\XeTeXversion\XeTeXrevision
-\item[xelibertine] Version: \libertineVersionDate\space-\space\libertineVersion
+\item[libertine] Version: \libertineVersionDate\space-\space\libertineVersion
 \end{description}
 
 \minisec{Installation}
@@ -87,10 +87,10 @@ Die Fontdateien werden über das Betriebssystem geladen. Dies bedeutet, dass die
 
 \section{Aufruf und Angaben}
 
-Das \emph{xelibertine}-Paket wird mit dem \emph{usepackage}-Makro aufgerufen.
+Das \emph{libertine}-Paket wird mit dem \emph{usepackage}-Makro aufgerufen.
 
 \begin{lstlisting}
-\usepackage[<optionen>]{xelibertine}
+\usepackage[<optionen>]{libertine}
 \end{lstlisting}
 
 \subsection{Optionen}
@@ -99,7 +99,7 @@ Folgende Optionen sind dabei möglich:
 \begin{description}[\setlabelphantom{dejavusansmono}\compact]
 \item [debug] Alle Aufrufparameter werden auf der Konsole ausgegeben.
 \item [noamsmath] Das Laden des \emph{amsmath}-Paket wird nicht durchgeführt.\\
-      Achtung: Alle Mathematik-Fonts müssen vor dem \emph{xelibertine}-Paket
+      Achtung: Alle Mathematik-Fonts müssen vor dem \emph{libertine}-Paket
       geladen werden!
 \item [lucida] Es wird das Lucida-Font-Paket%
       \footnote{\texttt{\textbackslash usepackage[expert]\{lucidabr\}}}
@@ -598,7 +598,7 @@ automatische Ersetzung der normalen durch die gestrichene Null
 \newpage
 \subsection{Source}
 
-\lstinputlisting{xelibertine.sty}
+\lstinputlisting{libertine.sty}
 
 \newpage
 \newindex[Glyphenverzeichnis Libertine]{Lglyph}

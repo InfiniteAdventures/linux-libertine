@@ -6,4 +6,4 @@ export INFOPATH=/usr/local/texlive/2008/texmf/doc/info:$INFOPATH
 export TOPDIR=`pwd`
 export PATH=${TOPDIR}/bin:$PATH
 export TEXINPUTS=.:images/:$TEXINPUTS
-export TEXMFHOME=~/texmf:$TEXMFHOME
+export TEXMFHOME=texmf:$TEXMFHOME

@@ -1,9 +1,8 @@
-#
 #   $Id$
 #
 TOPDIR:=$(shell pwd)
 FONT=libertine
-XEFONT=xelibertine
+XEFONT=libertine
 
 TARGET=$(TOPDIR)/target
 OUTPUT_TEX=$(TARGET)/tex
@@ -35,8 +34,9 @@ OUTPUT_PFB=$(TARGET)/pfb
 OUTPUT_ENC=$(TARGET)/enc
 OUTPUT_JAVA=$(TARGET)/classes
 OUTPUT_DIST=$(TARGET)/dist
+OUTPUT_DSRC=$(TARGET)/docsrc
 
-TEXFILES=$(wildcard *.tex) $(wildcard $(SOURCE_XELATEX)/*.tex) $(wildcard $(SOURCE_LATEX)/*.tex) $(SOURCE_DOKU)/libertinedoku.tex $(SOURCE_DOKU)/xelibertineDoku.tex
+TEXFILES=$(wildcard *.tex) $(wildcard $(SOURCE_XELATEX)/*.tex) $(wildcard $(SOURCE_LATEX)/*.tex) $(SOURCE_DOKU)/libertinedokulatex.tex $(SOURCE_DOKU)/libertinedokuxelatex.tex
 PDFTEXFILES=$(patsubst %.tex, $(OUTPUT_TEX)/%.pdf ,$(notdir $(TEXFILES)))
 
 
@@ -174,20 +174,20 @@ $(OUTPUT_TTF)/%.ttf : $(OUTPUT_SFD)/%.sfd
 	@echo "### creating ttf font..." $@ ;
 	@nice fontforge -script $(SOURCE_FFSCRIPT)/sfdtottf.pe $< $(OUTPUT_TTF)/$(notdir $@) ;
 
-$(OUTPUT_TEX)/test%.pdf : $(SOURCE_XELATEX)/test%.tex xelibertine.sty
+$(OUTPUT_TEX)/test%.pdf : $(SOURCE_XELATEX)/test%.tex texmf/tex/xelatex/libertine/libertine.sty
 	@echo "### createing test file: " $< 
 	@xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 
-$(OUTPUT_TEX)/latest%.pdf : $(SOURCE_LATEX)/latest%.tex libertine.sty
+$(OUTPUT_TEX)/latest%.pdf : $(SOURCE_LATEX)/latest%.tex texmf/tex/latex/libertine/libertine.sty
 	@echo "### createing test file: " $< 
 	@pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 
-$(OUTPUT_TEX)/xelibertine%.pdf : $(SOURCE_DOKU)/xelibertine%.tex xelibertine.sty
+$(OUTPUT_TEX)/libertinedokuxelatex.pdf : $(SOURCE_DOKU)/libertinedokuxelatex.tex texmf/tex/xelatex/libertine/libertine.sty
 		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 		-test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)).idx && bin/splitindex.pl $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)) -- -g -s $(SOURCE_TEX)/index.ist && xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<		
 		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 
-$(OUTPUT_TEX)/libertine%.pdf : $(SOURCE_DOKU)/libertine%.tex libertine.sty
+$(OUTPUT_TEX)/libertinedokulatex.pdf : $(SOURCE_DOKU)/libertinedokulatex.tex texmf/tex/latex/libertine/libertine.sty
 		pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 		pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 		# -test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)).idx && bin/splitindex.pl $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)) -- -g -s $(SOURCE_TEX)/index.ist && pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<		
@@ -261,8 +261,8 @@ version:
 
 copysf: all
 	@echo "### copy to sf ...";
-	scp $(OUTPUT_TEX)/xelibertineDoku.pdf mgn,linuxlibertine@web.sourceforge.net:htdocs/latex/
-	scp $(OUTPUT_TEX)/libertinedoku.pdf mgn,linuxlibertine@web.sourceforge.net:htdocs/latex/
+	scp $(OUTPUT_TEX)/libertinedokuxelatex.pdf mgn,linuxlibertine@web.sourceforge.net:htdocs/latex/
+	scp $(OUTPUT_TEX)/libertinedokulatex.pdf mgn,linuxlibertine@web.sourceforge.net:htdocs/latex/
 
 copyfont:
 	@echo "### copy font to ~/.fonts ...";
@@ -287,23 +287,27 @@ clean: cleantmp
 	-@rm -rf $(TARGET)
 
 al:
-	@acroread target/tex/libertinedoku.pdf &
+	@acroread target/tex/libertinedokulatex.pdf &
 	
 ax:
-	@acroread target/tex/xelibertineDoku.pdf &
+	@acroread target/tex/libertinedokuxelatex.pdf &
 
-createdist: version
-	@echo "### create distribution..."  
+createdist: initdist cpdsrc copydist
+
+initdist: 
 	@rm -rf $(OUTPUT_DIST)
 	@mkdir -p $(OUTPUT_DIST)
+
+copydist: version
+	@echo "### create distribution..."  
 	@mkdir -p $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
 	@mkdir -p $(OUTPUT_DIST)/texmf/fonts/map/dvips/$(FONT)
 	@mkdir -p $(OUTPUT_DIST)/texmf/fonts/enc/dvips/$(FONT)
 	@mkdir -p $(OUTPUT_DIST)/texmf/fonts/afm/public/$(FONT)
 	@mkdir -p $(OUTPUT_DIST)/texmf/fonts/tfm/public/$(FONT)
 	@mkdir -p $(OUTPUT_DIST)/texmf/fonts/type1/public/$(FONT)
-	@mkdir -p $(OUTPUT_DIST)/texmf/fonts/ttf/public/$(FONT)
-	@mkdir -p $(OUTPUT_DIST)/texmf/fonts/otf/public/$(FONT)
+	@mkdir -p $(OUTPUT_DIST)/texmf/fonts/truetype/public/$(FONT)
+	@mkdir -p $(OUTPUT_DIST)/texmf/fonts/opentype/public/$(FONT)
 	@mkdir -p $(OUTPUT_DIST)/texmf/fonts/vf/public/$(FONT)
 	@mkdir -p $(OUTPUT_DIST)/texmf/dvips/$(FONT)
 	@mkdir -p $(OUTPUT_DIST)/texmf/tex/latex/$(FONT)
@@ -313,11 +317,11 @@ createdist: version
 	@cp $(OUTPUT_TEX)/*.tfm $(OUTPUT_DIST)/texmf/fonts/tfm/public/$(FONT)
 	@cp $(OUTPUT_TEX)/*.vf  $(OUTPUT_DIST)/texmf/fonts/vf/public/$(FONT)
 	@cp $(OUTPUT_PFB)/*.pfb $(OUTPUT_DIST)/texmf/fonts/type1/public/$(FONT)
-	@cp $(OUTPUT_TTF)/*.ttf $(OUTPUT_DIST)/texmf/fonts/ttf/public/$(FONT)
-	@cp $(OUTPUT_OTF)/*.otf $(OUTPUT_DIST)/texmf/fonts/otf/public/$(FONT)
+	@cp $(OUTPUT_TTF)/*.ttf $(OUTPUT_DIST)/texmf/fonts/truetype/public/$(FONT)
+	@cp $(OUTPUT_OTF)/*.otf $(OUTPUT_DIST)/texmf/fonts/opentype/public/$(FONT)
 	@cp $(OUTPUT_TEX)/libertine.map $(OUTPUT_DIST)/texmf/fonts/map/dvips/$(FONT)
-	@cp libertine.sty $(OUTPUT_DIST)/texmf/tex/latex/$(FONT)/
-	@cp xelibertine.sty $(OUTPUT_DIST)/texmf/tex/xelatex/$(XEFONT)/
+	@cp texmf/tex/latex/libertine/libertine.sty $(OUTPUT_DIST)/texmf/tex/latex/$(FONT)/
+	@cp texmf/tex/xelatex/libertine/libertine.sty $(OUTPUT_DIST)/texmf/tex/xelatex/$(XEFONT)/
 	@cp $(OUTPUT_TEX)/*.fd $(OUTPUT_DIST)/texmf/tex/latex/$(FONT)/
 	@cp $(OUTPUT_TEX)/fx*.inc $(OUTPUT_DIST)/texmf/tex/latex/$(FONT)/
 	#@cp $(SOURCE_TEX)/babel/*.tex $(OUTPUT_DIST)/texmf/tex/latex/$(FONT)/babel
@@ -326,8 +330,8 @@ createdist: version
 	#@cp $(SOURCE_TEX)/babel/README $(OUTPUT_DIST)/texmf/tex/latex/$(FONT)/babel
 	@cp $(OUTPUT_ENC)/*.enc $(OUTPUT_DIST)/texmf/fonts/enc/dvips/$(FONT)
 	@rm -f $(OUTPUT_DIST)/texmf/fonts/enc/dvips/$(FONT)/8r.enc
-	-@cp $(OUTPUT_TEX)/libertinedoku.pdf $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
-	-@cp $(OUTPUT_TEX)/xelibertineDoku.pdf $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
+	#-@cp $(OUTPUT_TEX)/libertinedokulatex.pdf $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
+	#-@cp $(OUTPUT_TEX)/libertinedokuxelatex.pdf $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
 	@cp $(OUTPUT_TEX)/version $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
 	@cp GPL.txt $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
 	@cp LICENCE.txt $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
@@ -343,7 +347,7 @@ installtllocal:
 	@echo "### copy to $(TL2008)/../texmf-local"
 	@rm -rf $(TL2008)/../texmf-local/doc/fonts/libertine/*
 	@rm -rf $(TL2008)/../texmf-local/tex/latex/libertine/*
-	@rm -rf $(TL2008)/../texmf-local/tex/xelatex/xelibertine/*
+	@rm -rf $(TL2008)/../texmf-local/tex/xelatex/libertine/*
 	@rm -rf $(TL2008)/../texmf-local/dvips/libertine/*
 	@rm -rf $(TL2008)/../texmf-local/fonts/vf/public/libertine/*
 	@rm -rf $(TL2008)/../texmf-local/fonts/afm/public/libertine/*
@@ -357,7 +361,7 @@ installtl2008: createdist installtllocal
 	@echo "### copy to $(TL2008)"
 	@rm -rf $(TL2008)/doc/fonts/libertine/*
 	@rm -rf $(TL2008)/tex/latex/libertine/*
-	@rm -rf $(TL2008)/tex/xelatex/xelibertine/*
+	@rm -rf $(TL2008)/tex/xelatex/libertine/*
 	@rm -rf $(TL2008)/dvips/libertine/*
 	@rm -rf $(TL2008)/fonts/vf/public/libertine/*
 	@rm -rf $(TL2008)/fonts/afm/public/libertine/*
@@ -373,7 +377,7 @@ xxxcopyLaTeX:
 	@echo "### copy to xxx LaTeX"
 	@rm -rf ~/daten/sv/LaTeX/texmf/doc/fonts/libertine/*
 	@rm -rf ~/daten/sv/LaTeX/texmf/tex/latex/libertine/*
-	@rm -rf ~/daten/sv/LaTeX/texmf/tex/xelatex/xelibertine/*
+	@rm -rf ~/daten/sv/LaTeX/texmf/tex/xelatex/libertine/*
 	@rm -rf ~/daten/sv/LaTeX/texmf/dvips/libertine/*
 	@rm -rf ~/daten/sv/LaTeX/texmf/fonts/vf/public/libertine/*
 	@rm -rf ~/daten/sv/LaTeX/texmf/fonts/afm/public/libertine/*
@@ -384,4 +388,27 @@ xxxcopyLaTeX:
 	@cp -R $(OUTPUT_DIST)/texmf/* ~/daten/sv/LaTeX/texmf
 	@cp $(OUTPUT_OTF)/*.otf ~/daten/sv/LaTeX/fonts
 
+cpdsrc:
+	@echo "### copy doku to $(OUTPUT_DSRC)"
+	@rm -rf $(OUTPUT_DSRC)
+	@mkdir -p $(OUTPUT_DSRC)
+	@cp $(SOURCE_DOKU)/* $(OUTPUT_DSRC)
+	@cp $(SOURCE_TEX)/*.cls $(OUTPUT_DSRC)
+	@cp $(SOURCE_TEX)/lstsample.sty $(OUTPUT_DSRC)
+	@cp $(OUTPUT_TEX)/version* $(OUTPUT_DSRC)
+	@cp $(OUTPUT_TEX)/xlglyphlist.tex $(OUTPUT_DSRC)
+	@cp $(OUTPUT_TEX)/xbglyphlist.tex $(OUTPUT_DSRC)
+	@cp $(OUTPUT_TEX)/fxlgroupglyphs.tex $(OUTPUT_DSRC)
+	@cp $(OUTPUT_TEX)/fxbgroupglyphs.tex $(OUTPUT_DSRC)
+	@cp $(OUTPUT_TEX)/fxlglyphname.tex $(OUTPUT_DSRC)
+	@cp $(OUTPUT_TEX)/fxbglyphname.tex $(OUTPUT_DSRC)
+	@cp $(OUTPUT_TEX)/loadFD.tex $(OUTPUT_DSRC)
+	@cp $(OUTPUT_TEX)/*.inc $(OUTPUT_DSRC)
+	@echo "see http://linuxlibertine.sourceforge.net/latex/" >$(OUTPUT_DSRC)/readme
+	@echo "pdflatex libertinedokulatex.tex" >>$(OUTPUT_DSRC)/readme
+	@echo "xelatex libertinedokuxelatex.tex" >>$(OUTPUT_DSRC)/readme
+	@cd $(OUTPUT_DSRC); zip -r ../docsrc.zip *
+	@mkdir -p $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
+	@cp $(TARGET)/docsrc.zip $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
+	
 	

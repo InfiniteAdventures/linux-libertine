@@ -7,6 +7,7 @@
 %
 % $Id$
 %
+% 4.5.1a  Umbenungung von xelibertine nach libertine
 % 4.5.1   neuer Font
 %         Umstelleung der Fontgenerierung (aus sfd)
 % 4.4.1   Umstellung der Versionsnummer auf LinLibertine_Re
@@ -31,10 +32,10 @@
 % 0.1     erster Start
 %
 % -------------------------------------
-\def\libertineVersion{4.5.1}
-\def\libertineVersionDate{2009/05/17}
+\def\libertineVersion{4.5.1a}
+\def\libertineVersionDate{2009/05/22}
 %
-\ProvidesPackage{xelibertine}[%
+\ProvidesPackage{libertine}[%
    \libertineVersionDate\space-\space\libertineVersion\space-XeTeX:
    Font libertine - (License GPL)
    Michael Niedermair]
@@ -194,7 +195,7 @@
    \DeclareRobustCommand*\numfrac{\OTF{+frac}}
    % -------------------------------------------------------
 \else
-    \PackageWarning{xelibertine}{*** xelibertine.sty works only with xetex! ***^^J}
+    \PackageWarning{libertine}{*** libertine.sty works only with xetex! ***^^J}
 \fi
 %
 \endinput
