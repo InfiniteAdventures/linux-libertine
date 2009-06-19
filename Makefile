@@ -21,10 +21,10 @@ SOURCE_LATEX=src/test/latex
 SOURCE_FONTINST=src/fontinst
 SOURCE_DOKU=src/doku
 SOURCE_JAVA=src/java
-SOURCE_SFD=src/sfd
+SOURCE_SFD=src/phil/sfd
 SOURCE_ENC=src/enc
 SOURCE_SCRIPT=src/scripts
-SOURCE_FFSCRIPT=$(SOURCE_SFD)/scripts
+SOURCE_FFSCRIPT=src/phil/script
 SOURCE_DPKG=src/dpkg
 
 OUTPUT_SFD=$(TARGET)/sfd
