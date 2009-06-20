@@ -388,7 +388,7 @@ xxxcopyLaTeX:
 	@cp -R $(OUTPUT_DIST)/texmf/* ~/daten/sv/LaTeX/texmf
 	@cp $(OUTPUT_OTF)/*.otf ~/daten/sv/LaTeX/fonts
 
-cpdsrc:
+cpdsrc: version
 	@echo "### copy doku to $(OUTPUT_DSRC)"
 	@rm -rf $(OUTPUT_DSRC)
 	@mkdir -p $(OUTPUT_DSRC)
