@@ -92,6 +92,10 @@ $(OUTPUT_TEX)/fxl%-8r.mtx : $(OUTPUT_PFB)/fxl%.afm $(ENCFILES)
 	@java -cp $(CLASSPATH) org.extex.util.font.afm.Afm2Mtx -o $(OUTPUT_TEX) --raw -e $(SOURCE_FONTINST)/fxlmtx.txt $<
 	$(SOURCE_SCRIPT)/mtx2pl.sh $(SOURCE_FONTINST)/fxlmtx.txt $(OUTPUT_PFB) $(OUTPUT_TEX)
 
+#$(OUTPUT_TEX)/fxlro.mtx: $(MTXFILES)
+#	set -e
+#	tex -output-directory=$(OUTPUT_TEX) $(SOURCE_FONTINST)/createslanted.tex
+
 $(OUTPUT_TEX)/fxb%-8r.mtx : $(OUTPUT_PFB)/fxb%.afm $(ENCFILES)
 	@echo "### converting afm to mtx: " $<
 	@java -cp $(CLASSPATH) org.extex.util.font.afm.Afm2Mtx -o $(OUTPUT_TEX) --raw -e $(SOURCE_FONTINST)/fxbmtx.txt $<
@@ -188,8 +192,8 @@ $(OUTPUT_TEX)/libertinedokuxelatex.pdf : $(SOURCE_DOKU)/libertinedokuxelatex.tex
 		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 
 $(OUTPUT_TEX)/libertinedokulatex.pdf : $(SOURCE_DOKU)/libertinedokulatex.tex texmf/tex/latex/libertine/libertine.sty
-		pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
-		pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
+		pdflatex -interaction=nonstopmode $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
+		pdflatex -interaction=nonstopmode $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 		# -test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)).idx && bin/splitindex.pl $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)) -- -g -s $(SOURCE_TEX)/index.ist && pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<		
 
 $(OUTPUT_TEX)/LinLibertineAlias.tex : $(SOURCE_SFD)/LinLibertine.nam
@@ -286,6 +290,10 @@ clean: cleantmp
 	@echo "### cleaning..."
 	-@rm -rf $(TARGET)
 
+cleanhome:
+	rm -rf ~/.texlive2008
+	rm -rf ~/.texmf-var
+
 al:
 	@acroread target/tex/libertinedokulatex.pdf &
 	
@@ -371,7 +379,7 @@ installtl2008: createdist installtllocal
 	@rm -rf $(TL2008)/fonts/map/dvips/libertine/*
 	@cp -R $(OUTPUT_DIST)/texmf/* $(TL2008)/texmf-dist
 	@mktexlsr
-	@updmap-sys --enable Map /usr/local/texlive/2008/texmf-dist/fonts/map/dvips/libertine/libertine.map
+	@grep libertine /usr/local/texlive/2008/texmf-config/web2c/updmap.cfg && updmap-sys || updmap-sys --enable Map libertine.map
 
 xxxcopyLaTeX:
 	@echo "### copy to xxx LaTeX"
