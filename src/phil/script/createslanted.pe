@@ -1,0 +1,27 @@
+# erzeugt eine slanted variante
+#
+# $1 sfd-file
+# $2 output-dir
+# $3 name
+#
+# $Id$
+#
+# Michael Niedermair m.g.n@gmx.de
+#
+Open($1,1)
+#
+Print( "fontname   : " , $fontname )
+#
+# Alle Zeichen markieren
+SelectAll()
+#
+Skew(25)
+#
+# SetFontNames(fontname[,family[,fullname[,weight[,copyright-notice[,fontversion]]]]])
+#SetFontNames($fontname,fontfamilyname,fontfullname,fontweight,cr,$3)
+#
+outname=$2 + "/" + $3 + ".sfd"
+Save(outname)
+#
+Close()
+Quit()

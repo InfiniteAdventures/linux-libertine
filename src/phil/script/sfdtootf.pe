@@ -5,7 +5,7 @@
 # $1 sfd-file
 # $2 otf-file
 #
-# $Id: sfdtootf.pe,v 1.6 2008/01/08 15:53:21 mgn Exp $
+# $Id$
 #
 # Michael Niedermair m.g.n@gmx.de
 #

@@ -3,7 +3,7 @@
 # $1 sfd-file
 # $2 ttf-file
 #
-# $Id: sfdtottf.pe,v 1.8 2008/01/08 15:53:21 mgn Exp $
+# $Id$
 #
 # Michael Niedermair m.g.n@gmx.de
 #
