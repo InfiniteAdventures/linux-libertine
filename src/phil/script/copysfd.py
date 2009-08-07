@@ -37,41 +37,49 @@ if fnt.fontname == "LinLibertineO":
    fnt.familyname = "Linux Libertine O"   
    fnt.fullname = "Linux Libertine O"
    fnt.weight = "Book"
+   fxname="fxlr"
 elif fnt.fontname == "LinLibertineOB":
    filename = "LinLibertine_Bd"
    fnt.familyname = "Linux Libertine O"   
    fnt.fullname = "Linux Libertine O Bold"
    fnt.weight = "Bold"
+   fxname="fxlb"
 elif fnt.fontname == "LinLibertineOI":
    filename = "LinLibertine_It"
    fnt.familyname = "Linux Libertine O"   
    fnt.fullname = "Linux Libertine O Italic"
    fnt.weight = "Book"
+   fxname="fxlri"
 elif fnt.fontname == "LinLibertineOBI":
    filename = "LinLibertine_BI"
    fnt.familyname = "Linux Libertine O"   
    fnt.fullname = "Linux Libertine O Bold Italic"
    fnt.weight = "Book"
+   fxname="fxlbi"
 elif fnt.fontname == 'LinLibertineOC':
    filename = "LinLibertine_C"
    fnt.familyname = "Linux Libertine O C"   
    fnt.fullname = "Linux Libertine O Capitals"
    fnt.weight = "Book"
+   fxname="fxlrc"
 elif fnt.fontname == "LinBiolinumO":
    filename = "LinBiolinum_Re"
    fnt.familyname = "Linux Biolinum O"   
    fnt.fullname = "Linux Biolinum O"
    fnt.weight = "Book"
+   fxname="fxbr"
 elif fnt.fontname == "LinBiolinumOB":
    filename = "LinBiolinum_Bd"
    fnt.familyname = "Linux Biolinum O"   
    fnt.fullname = "Linux Biolinum O Bold"
    fnt.weight = "Bold"
+   fxname="fxbb"
 elif fnt.fontname == "LinBiolinumOKb":
    filename = "LinBiolinum_Kb"
    fnt.familyname = "Linux Biolinum O Kb"   
    fnt.fullname = "Linux Biolinum O Keyboard"
    fnt.weight = "Regular"
+   fxname="fxbkb"
 else: 
     sys.exit("Fontname " + fnt.fntname + " unknown")
     
@@ -92,6 +100,10 @@ outname = sys.argv[2] + "/" + filename + "-" + version + ".sfd"
 fnt.save(outname)
 print "    saved as " + outname
 
+outname = sys.argv[2] + "/" + fxname + ".sfd"
+fnt.save(outname)
+print "    saved as " + outname
+
 # namelist
 if fnt.fontname == "LinLibertineO" or fnt.fontname == "LinBiolinumO":
     outname = sys.argv[2] + "/" + fnt.fontname + ".nam"
@@ -107,30 +119,37 @@ if fnt.fontname == "LinLibertineO":
    fnt.familyname = "Linux Libertine O"   
    fnt.fullname = "Linux Libertine O Slanted"
    fnt.weight = "Book"
+   fxname="fxlro"
 elif fnt.fontname == "LinLibertineOB":
    filename = "LinLibertine_BSl"
    newfontname = "LinLibertineOBSl"
    fnt.familyname = "Linux Libertine O"   
    fnt.fullname = "Linux Libertine O Bold Slanted"
    fnt.weight = "Bold"
+   fxname="fxlbo"
 elif fnt.fontname == "LinBiolinumO":
    filename = "LinBiolinum_Sl"
    newfontname = "LinBiolinumOSl"
    fnt.familyname = "Linux Biolinum O"   
    fnt.fullname = "Linux Biolinum O Slanted"
    fnt.weight = "Book"
+   fxname="fxbro"
 elif fnt.fontname == "LinBiolinumOB":
    filename = "LinBiolinum_BSl"
    newfontname = "LinBiolinumOBSl"
    fnt.familyname = "Linux Biolinum O"   
    fnt.fullname = "Linux Biolinum O Bold Slanted"
    fnt.weight = "Bold"
+   fxname="fxbbo"
 
 if newfontname != "XXX":
     fnt.fontname = newfontname
     fnt.selection.all()
     fnt.transform(angle)
     outname = sys.argv[2] + "/" + filename + "-" + version + ".sfd"
+    fnt.save(outname)
+    print "    saved as " + outname
+    outname = sys.argv[2] + "/" + fxname + ".sfd"
     fnt.save(outname)
     print "    saved as " + outname
 
