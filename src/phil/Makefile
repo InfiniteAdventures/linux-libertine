@@ -4,6 +4,7 @@ TOPDIR:=$(shell pwd)
 
 TARGET=$(TOPDIR)/target
 SOURCE_SFDORG=org
+SOURCE_SFDSVN=sfd
 SOURCE_FFSCRIPT=script
 SOURCE_DOK=dok
 
@@ -29,12 +30,19 @@ $(OUTPUT_SFD)/%.sfd : $(SOURCE_SFDORG)/%.sfd
 	@$(SOURCE_FFSCRIPT)/copysfd.py $< $(OUTPUT_SFD) 
 
 copysfd: init $(SFDOUTFILES)
+	@cat $(OUTPUT_SFD)/version | sort | uniq > $(OUTPUT_SFD)/version.tmp
+	@mv $(OUTPUT_SFD)/version.tmp $(OUTPUT_SFD)/version
 
 otf: init $(OTFFILES) 
 
 ttf: init $(TTFFILES) 
 
 pfb: init $(PFBFILES) 
+
+copysvn: copysfd
+	@cp -u $(OUTPUT_SFD)/*.sfd $(SOURCE_SFDSVN)
+	@cp -u $(OUTPUT_SFD)/*.nam $(SOURCE_SFDSVN)
+	@cp -u $(OUTPUT_SFD)/version $(SOURCE_SFDSVN)
 
 createtar: ttf otf
 	@echo "### creating tar files..."
