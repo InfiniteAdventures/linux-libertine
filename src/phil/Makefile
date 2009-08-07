@@ -26,8 +26,7 @@ PFBFILES=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_PFB)/%,  $(patsubst %.sfd, %.pfb ,
 all: init 
 
 $(OUTPUT_SFD)/%.sfd : $(SOURCE_SFDORG)/%.sfd
-	fontforge -script $(SOURCE_FFSCRIPT)/copysfd.pe $< $(OUTPUT_SFD) \
-			`basename $< | sed -e 's/\(.*\)_\(.*\)-\([0-9\.]*\).sfd/\3/g'` 
+	@$(SOURCE_FFSCRIPT)/copysfd.py $< $(OUTPUT_SFD) 
 
 copysfd: init $(SFDOUTFILES)
 
@@ -58,16 +57,14 @@ createtar: ttf otf
 
 
 $(OUTPUT_OTF)/%.otf : $(OUTPUT_SFD)/%.sfd
-	@echo "### creating otf font..." $@ ;
-	@nice fontforge -script $(SOURCE_FFSCRIPT)/sfdtootf.pe $< $(OUTPUT_OTF)/$(notdir $@) ;
+	@nice $(SOURCE_FFSCRIPT)/sfd2otf.py $< $(OUTPUT_OTF)
 
 $(OUTPUT_TTF)/%.ttf : $(OUTPUT_SFD)/%.sfd
-	@echo "### creating ttf font..." $@ ;
-	@nice fontforge -script $(SOURCE_FFSCRIPT)/sfdtottf.pe $< $(OUTPUT_TTF)/$(notdir $@) ;
+	@nice $(SOURCE_FFSCRIPT)/sfd2ttf.py $< $(OUTPUT_TTF)
 
 $(OUTPUT_PFB)/%.pfb : $(OUTPUT_SFD)/%.sfd
 	@echo "### creating pfb font..." $@ ;
-	@nice fontforge -script $(SOURCE_FFSCRIPT)/sfdtopfb.pe $< $(OUTPUT_PFB)/$(notdir $@) ;
+	@nice $(SOURCE_FFSCRIPT)/sfd2pfb.py $< $(OUTPUT_PFB)
 
 
 init:
