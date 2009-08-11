@@ -30,8 +30,12 @@ $(OUTPUT_SFD)/%.sfd : $(SOURCE_SFDORG)/%.sfd
 	@$(SOURCE_FFSCRIPT)/copysfd.py $< $(OUTPUT_SFD) 
 
 copysfd: init $(SFDOUTFILES)
-	@cat $(OUTPUT_SFD)/version | sort | uniq > $(OUTPUT_SFD)/version.tmp
-	@mv $(OUTPUT_SFD)/version.tmp $(OUTPUT_SFD)/version
+
+createShadow:
+	@find $(OUTPUT_SFD) -name '*.sfd' -exec fontforge -script $(SOURCE_FFSCRIPT)/createShadow.pe {} $(OUTPUT_SFD) \; 
+
+createOutline:
+	@find $(OUTPUT_SFD) -name '*.sfd' -exec fontforge -script $(SOURCE_FFSCRIPT)/createOutline.pe {} $(OUTPUT_SFD) \; 
 
 otf: init $(OTFFILES) 
 
@@ -42,7 +46,6 @@ pfb: init $(PFBFILES)
 copysvn: copysfd
 	@cp -u $(OUTPUT_SFD)/*.sfd $(SOURCE_SFDSVN)
 	@cp -u $(OUTPUT_SFD)/*.nam $(SOURCE_SFDSVN)
-	@cp -u $(OUTPUT_SFD)/version $(SOURCE_SFDSVN)
 
 createtar: ttf otf
 	@echo "### creating tar files..."

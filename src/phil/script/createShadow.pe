@@ -1,0 +1,68 @@
+# Erzeugt einen Schatten
+#
+# $1 sfd-file
+# $2 out-dir
+#
+# $Id$
+#
+# Michael Niedermair m.g.n@gmx.de
+#
+Print("###"+  $1)
+Open($1,1)
+SelectAll()
+
+filename="XXX"
+
+if ( $fontname == "LinBiolinumO" )
+   filename="LinBiolinumShadow_Re"
+   SetFontNames("LinBiolinumShadowO", "Linux Biolinum Shadow O", "Linux Biolinum Shadow O")   
+endif
+if ( $fontname == "LinBiolinumOSl" )
+   filename="LinBiolinumShadow_Sl"
+   SetFontNames("LinBiolinumShadowOSl", "Linux Biolinum Shadow O", "Linux Biolinum Shadow O Slanted")   
+endif
+if ( $fontname == "LinBiolinumOB" )
+   filename="LinBiolinumShadow_Bd"
+   SetFontNames("LinBiolinumShadowOB", "Linux Biolinum Shadow O", "Linux Biolinum Shadow O Bold")   
+endif
+if ( $fontname == "LinBiolinumOBSl" )
+   filename="LinBiolinumShadow_BSl"
+   SetFontNames("LinBiolinumShadowOBSl", "Linux Biolinum Shadow O", "Linux Biolinum Shadow O Bold Slanted")   
+endif
+
+
+if ( $fontname == "LinLibertineO" )
+   filename="LinLibertineShadow_Re"
+   SetFontNames("LinLibertineShadowO", "Linux Libertine Shadow O", "Linux Libertine Shadow O")   
+endif
+if ( $fontname == "LinLibertineOSl" )
+   filename="LinLibertineShadow_Sl"
+   SetFontNames("LinLibertineShadowOSl", "Linux Libertine Shadow O", "Linux Libertine Shadow O Slanted")   
+endif
+if ( $fontname == "LinLibertineOB" )
+   filename="LinLibertineShadow_Bd"
+   SetFontNames("LinLibertineShadowOB", "Linux Libertine Shadow O", "Linux Libertine Shadow O Bold")   
+endif
+if ( $fontname == "LinLibertineOBSl" )
+   filename="LinLibertineShadow_BSl"
+   SetFontNames("LinLibertineShadowOBSl", "Linux Libertine Shadow O", "Linux Libertine Shadow O Bold Slanted")   
+endif
+if ( $fontname == "LinLibertineOI" )
+   filename="LinLibertineShadow_It"
+   SetFontNames("LinLibertineShadowOI", "Linux Libertine Shadow O", "Linux Libertine Shadow O Italic")   
+endif
+if ( $fontname == "LinLibertineOBI" )
+   filename="LinLibertineShadow_BI"
+   SetFontNames("LinLibertineShadowOBI", "Linux Libertine Shadow O", "Linux Libertine Shadow O Bold Italic")   
+endif
+#
+# Shadow(angle,outline-width,shadow-width) 
+Shadow(-45,10,100)
+#
+if ( $filename != "XXX" )
+   Print("save " + $2 + "/" + filename + "-" + $fontversion + ".sfd")
+   Save($2 + "/" + filename + ".sfd")
+endif
+#
+Close()
+Quit()
