@@ -70,6 +70,11 @@ elif fnt.fontname == "LinBiolinumO":
    fnt.familyname = "Linux Biolinum"   
    fnt.fullname = "Linux Biolinum"
    fnt.weight = "Book"
+elif fnt.fontname == "LinBiolinumOI":
+   newfontname = "LinBiolinumI"
+   fnt.familyname = "Linux Biolinum"   
+   fnt.fullname = "Linux Biolinum Italic"
+   fnt.weight = "Book"
 elif fnt.fontname == "LinBiolinumOSl":
    newfontname = "LinBiolinumSl"
    fnt.familyname = "Linux Biolinum"   
@@ -91,7 +96,7 @@ elif fnt.fontname == "LinBiolinumOKb":
    fnt.fullname = "Linux Biolinum Keyboard"
    fnt.weight = "Regular"
 else: 
-    sys.exit("Fontname " + fnt.fntname + " unknown")
+    sys.exit("Fontname " + fnt.fontname + " unknown")
 
 fnt.fontname = newfontname;
 
