@@ -105,10 +105,8 @@ for layer in fnt.layers:
     fnt.layers[layer].is_quadratic = True
     fnt.layers[layer].is_background = False
     
-fnt.unlinkReferences()
-fnt.removeOverlap()
-fnt.round(10)
 fnt.em = 2048
+fnt.round(1)
 fnt.autoInstr()
 
 
