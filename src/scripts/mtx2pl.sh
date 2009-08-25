@@ -11,9 +11,9 @@ do
 		if [ -f $3/$name.mtx ] ; then
 			echo "### create $3/$name"
 			tex -output-directory=$3 "\input fontinst.sty \mtxtopl{$name}{$name} \bye"
-			echo "### create slanted $3/$namesl"
-            tex -output-directory=$3 "\input fontinst.sty \transformfont {$namesl}{\slantfont{250}{\frommtx{$name}}} \bye"
-            tex -output-directory=$3 "\input fontinst.sty \mtxtopl{$namesl}{$namesl} \bye"
+			#echo "### create slanted $3/$namesl"
+            #tex -output-directory=$3 "\input fontinst.sty \transformfont {$namesl}{\slantfont{250}{\frommtx{$name}}} \bye"
+            #tex -output-directory=$3 "\input fontinst.sty \mtxtopl{$namesl}{$namesl} \bye"
 		fi
 	done
 done < $1

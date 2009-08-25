@@ -62,7 +62,7 @@ TEXINPUTS:=.:$(OUTPUT_TEX):$(SOURCE_FONTINST):$(SOURCE_TEX):$(SOURCE_XELATEX):$(
 CLASSPATH:=$(TARGET)/classes:lib/fontwareone.jar:$(CLASSPATH)
 
 
-all: init version $(CLASSFILES) $(PDFTEXFILES) doku
+all: init $(CLASSFILES) $(PDFTEXFILES) doku
 
 pfb: init $(PFBFILES) $(OUTPUT_ENC)/xl-00.enc $(OUTPUT_ENC)/xb-00.enc $(OUTPUT_TEX)/fxl.inc $(OUTPUT_TEX)/fxb.inc $(OUTPUT_TEX)/fxlglyphname.tex $(OUTPUT_TEX)/fxbglyphname.tex
 
@@ -107,76 +107,76 @@ $(OUTPUT_TEX)/%.etx : $(OUTPUT_ENC)/%.enc
 	@tex -output-directory=$(OUTPUT_TEX) "\input finstmsc.sty \enctoetx{`basename $< .enc`}{`basename $< .enc`}\bye"
 
 # create the enc-vector for the unicode range block
-$(OUTPUT_ENC)/xb-00.enc : $(SOURCE_SFD)/LinBiolinum.nam
+$(OUTPUT_ENC)/xb-00.enc : $(SOURCE_SFD)/LinBiolinumO.nam
 	@echo "### creating xb encoding vector..." 
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 00 xb00Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-00.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 01 xb01Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-01.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 02 xb02Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-02.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 03 xb03Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-03.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 04 xb04Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-04.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 05 xb05Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-05.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 06 xb06Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-06.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 07 xb07Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-07.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 09 xb09Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-09.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 1E xb1EEncoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-1e.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 1F xb1FEncoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-1f.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 20 xb20Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-20.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 21 xb21Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-21.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 22 xb22Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-22.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 23 xb23Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-23.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 24 xb24Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-24.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 25 xb25Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-25.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 26 xb26Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-26.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 27 xb27Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-27.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 2C xb2CEncoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-2c.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector A7 xbA7Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-a7.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector E0 xbE0Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-e0.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector E1 xbE1Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-e1.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector F6 xbF6Encoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-f6.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector FB xbFBEncoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-fb.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector FF xbFFEncoding $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_ENC)/xb-ff.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 00 xb00Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-00.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 01 xb01Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-01.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 02 xb02Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-02.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 03 xb03Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-03.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 04 xb04Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-04.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 05 xb05Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-05.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 06 xb06Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-06.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 07 xb07Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-07.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 09 xb09Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-09.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 1E xb1EEncoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-1e.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 1F xb1FEncoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-1f.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 20 xb20Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-20.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 21 xb21Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-21.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 22 xb22Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-22.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 23 xb23Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-23.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 24 xb24Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-24.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 25 xb25Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-25.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 26 xb26Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-26.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 27 xb27Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-27.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 2C xb2CEncoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-2c.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector A7 xbA7Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-a7.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector E0 xbE0Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-e0.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector E1 xbE1Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-e1.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector F6 xbF6Encoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-f6.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector FB xbFBEncoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-fb.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector FF xbFFEncoding $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_ENC)/xb-ff.enc
 
 # create the enc-vector for the unicode range block
-$(OUTPUT_ENC)/xl-00.enc : $(SOURCE_SFD)/LinLibertine.nam
+$(OUTPUT_ENC)/xl-00.enc : $(SOURCE_SFD)/LinLibertineO.nam
 	@echo "### creating xl encoding vector..." 
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 00 xl00Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-00.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 01 xl01Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-01.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 02 xl02Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-02.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 03 xl03Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-03.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 04 xl04Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-04.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 05 xl05Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-05.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 06 xl06Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-06.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 07 xl07Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-07.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 09 xl09Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-09.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 1E xl1EEncoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-1e.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 1F xl1FEncoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-1f.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 20 xl20Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-20.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 21 xl21Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-21.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 22 xl22Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-22.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 23 xl23Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-23.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 24 xl24Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-24.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 25 xl25Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-25.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 26 xl26Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-26.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 27 xl27Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-27.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 2C xl2CEncoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-2c.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector A7 xlA7Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-a7.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector E0 xlE0Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-e0.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector E1 xlE1Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-e1.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector F6 xlF6Encoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-f6.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector FB xlFBEncoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-fb.enc
-	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector FF xlFFEncoding $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_ENC)/xl-ff.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 00 xl00Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-00.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 01 xl01Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-01.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 02 xl02Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-02.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 03 xl03Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-03.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 04 xl04Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-04.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 05 xl05Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-05.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 06 xl06Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-06.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 07 xl07Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-07.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 09 xl09Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-09.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 1E xl1EEncoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-1e.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 1F xl1FEncoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-1f.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 20 xl20Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-20.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 21 xl21Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-21.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 22 xl22Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-22.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 23 xl23Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-23.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 24 xl24Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-24.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 25 xl25Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-25.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 26 xl26Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-26.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 27 xl27Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-27.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector 2C xl2CEncoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-2c.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector A7 xlA7Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-a7.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector E0 xlE0Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-e0.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector E1 xlE1Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-e1.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector F6 xlF6Encoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-f6.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector FB xlFBEncoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-fb.enc
+	@java -cp $(CLASSPATH) CreateUnicodeEncodingVector FF xlFFEncoding $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_ENC)/xl-ff.enc
 
 $(OUTPUT_PFB)/%.pfb : $(OUTPUT_SFD)/%.sfd
 	@echo "### creating pfb font..." $@ ;
-	@nice fontforge -script $(SOURCE_FFSCRIPT)/sfdtopfb.pe $< $(OUTPUT_PFB)/$(notdir $@) ;
+	@nice $(SOURCE_FFSCRIPT)/sfd2pfb.py $< $(OUTPUT_PFB) ;
 
 $(OUTPUT_OTF)/%.otf : $(OUTPUT_SFD)/%.sfd
 	@echo "### creating otf font..." $@ ;
-	@nice fontforge -script $(SOURCE_FFSCRIPT)/sfdtootf.pe $< $(OUTPUT_OTF)/$(notdir $@) ;
+	@nice $(SOURCE_FFSCRIPT)/sfd2otf.py $< $(OUTPUT_OTF) ;
 
 $(OUTPUT_TTF)/%.ttf : $(OUTPUT_SFD)/%.sfd
 	@echo "### creating ttf font..." $@ ;
-	@nice fontforge -script $(SOURCE_FFSCRIPT)/sfdtottf.pe $< $(OUTPUT_TTF)/$(notdir $@) ;
+	@nice $(SOURCE_FFSCRIPT)/sfd2ttf.py $< $(OUTPUT_TTF) ;
 
 $(OUTPUT_TEX)/test%.pdf : $(SOURCE_XELATEX)/test%.tex texmf/tex/xelatex/libertine/libertine.sty
 	@echo "### createing test file: " $< 
@@ -196,23 +196,23 @@ $(OUTPUT_TEX)/libertinedokulatex.pdf : $(SOURCE_DOKU)/libertinedokulatex.tex tex
 		pdflatex -interaction=nonstopmode $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 		# -test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)).idx && bin/splitindex.pl $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)) -- -g -s $(SOURCE_TEX)/index.ist && pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<		
 
-$(OUTPUT_TEX)/LinLibertineAlias.tex : $(SOURCE_SFD)/LinLibertine.nam
+$(OUTPUT_TEX)/LinLibertineAlias.tex : $(SOURCE_SFD)/LinLibertineO.nam
 	@echo "### creating alias file..."
-	@sh $(SOURCE_SCRIPT)/nam2alias $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_TEX)/LinLibertineAlias.tex
+	@sh $(SOURCE_SCRIPT)/nam2alias $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_TEX)/LinLibertineAlias.tex
 
 $(OUTPUT_JAVA)/%.class : $(SOURCE_JAVA)/%.java
 	@echo "### compiling java file " $<;
 	@javac -cp $(CLASSPATH) -d $(OUTPUT_JAVA) $<
 
-$(OUTPUT_TEX)/fxlglyphname.tex : $(SOURCE_SFD)/LinLibertine.nam
+$(OUTPUT_TEX)/fxlglyphname.tex : $(SOURCE_SFD)/LinLibertineO.nam
 	@grep "^C " $(OUTPUT_PFB)/fxlr.afm | sed -e 's/\(.*\) N \(.*\) ; \(.*\)/\2/g' | sed -e 's/\([:alnum]*\) .*/\1/g' | sort > $(OUTPUT_TEX)/fxlglyphname.txt
 	@cat $(OUTPUT_TEX)/fxlglyphname.txt | sed -e 's/\(^.*\)/\\GYLPHNAME{\1}/g' > $(OUTPUT_TEX)/fxlglyphname.tex
-	@java -cp $(CLASSPATH) GroupGlyphs $(OUTPUT_TEX)/fxlglyphname.txt $(SOURCE_SFD)/LinLibertine.nam $(OUTPUT_TEX)/fxlgroupglyphs.tex
+	@java -cp $(CLASSPATH) GroupGlyphs $(OUTPUT_TEX)/fxlglyphname.txt $(SOURCE_SFD)/LinLibertineO.nam $(OUTPUT_TEX)/fxlgroupglyphs.tex
 
-$(OUTPUT_TEX)/fxbglyphname.tex : $(SOURCE_SFD)/LinBiolinum.nam
+$(OUTPUT_TEX)/fxbglyphname.tex : $(SOURCE_SFD)/LinBiolinumO.nam
 	@grep "^C " $(OUTPUT_PFB)/fxbr.afm | sed -e 's/\(.*\) N \(.*\) ; \(.*\)/\2/g' | sed -e 's/\([:alnum]*\) .*/\1/g' | sort > $(OUTPUT_TEX)/fxbglyphname.txt
 	@cat $(OUTPUT_TEX)/fxbglyphname.txt | sed -e 's/\(^.*\)/\\GYLPHNAME{\1}/g' > $(OUTPUT_TEX)/fxbglyphname.tex
-	@java -cp $(CLASSPATH) GroupGlyphs $(OUTPUT_TEX)/fxbglyphname.txt $(SOURCE_SFD)/LinBiolinum.nam $(OUTPUT_TEX)/fxbgroupglyphs.tex
+	@java -cp $(CLASSPATH) GroupGlyphs $(OUTPUT_TEX)/fxbglyphname.txt $(SOURCE_SFD)/LinBiolinumO.nam $(OUTPUT_TEX)/fxbgroupglyphs.tex
 
 createpl:
 	@echo "### create pl files..."
@@ -248,20 +248,25 @@ inittarget:
 init: inittarget $(CLASSFILES)
 	@echo "### copy enc and font files..."  
 	@cp -u $(SOURCE_ENC)/*.enc $(OUTPUT_ENC)/
-	@sh $(SOURCE_SCRIPT)/fontName2LaTeX $(SOURCE_SFD) $(OUTPUT_SFD) sfd
-	@sed 's/0x\(.*\) \(.*\)/\\alias{uni\1}{\2}/g' $(SOURCE_SFD)/LinLibertine.nam > $(OUTPUT_TEX)/LinLibertineName.mtx
-	@sed 's/0x\(.*\) \(.*\)/\\alias{uni\1}{\2}/g' $(SOURCE_SFD)/LinBiolinum.nam > $(OUTPUT_TEX)/LinBiolinumName.mtx
+	@cp -u $(SOURCE_SFD)/LinBiolinum_Re*.sfd $(OUTPUT_SFD)/fxbr.sfd
+	@cp -u $(SOURCE_SFD)/LinBiolinum_It*.sfd $(OUTPUT_SFD)/fxbri.sfd
+	@cp -u $(SOURCE_SFD)/LinBiolinum_Bd*.sfd $(OUTPUT_SFD)/fxbb.sfd
+	@cp -u $(SOURCE_SFD)/LinBiolinum_Sl*.sfd $(OUTPUT_SFD)/fxbro.sfd
+	@cp -u $(SOURCE_SFD)/LinBiolinum_BSl*.sfd $(OUTPUT_SFD)/fxbbo.sfd
+	@cp -u $(SOURCE_SFD)/LinBiolinum_Kb*.sfd $(OUTPUT_SFD)/fxbkb.sfd
+	@cp -u $(SOURCE_SFD)/LinLibertine_Re*.sfd $(OUTPUT_SFD)/fxlr.sfd
+	@cp -u $(SOURCE_SFD)/LinLibertine_Bd*.sfd $(OUTPUT_SFD)/fxlb.sfd
+	@cp -u $(SOURCE_SFD)/LinLibertine_Sl*.sfd $(OUTPUT_SFD)/fxlro.sfd
+	@cp -u $(SOURCE_SFD)/LinLibertine_It*.sfd $(OUTPUT_SFD)/fxlri.sfd
+	@cp -u $(SOURCE_SFD)/LinLibertine_BSl*.sfd $(OUTPUT_SFD)/fxlbo.sfd
+	@cp -u $(SOURCE_SFD)/LinLibertine_BI*.sfd $(OUTPUT_SFD)/fxlbi.sfd
+	@rm -f $(OUTPUT_TEX)/version $(OUTPUT_TEX)/version.tmp
+	@find src/phil/sfd/ -name '*.sfd' -exec basename {} .sfd \; >> $(OUTPUT_TEX)/version.tmp
+	@sort $(OUTPUT_TEX)/version.tmp | uniq > $(OUTPUT_TEX)/version
+	@rm -f $(OUTPUT_TEX)/version.tmp
+	@sed 's/0x\(.*\) \(.*\)/\\alias{uni\1}{\2}/g' $(SOURCE_SFD)/LinLibertineO.nam > $(OUTPUT_TEX)/LinLibertineName.mtx
+	@sed 's/0x\(.*\) \(.*\)/\\alias{uni\1}{\2}/g' $(SOURCE_SFD)/LinBiolinumO.nam > $(OUTPUT_TEX)/LinBiolinumName.mtx
 	
-
-version:
-	@echo "### creating version file ...";
-	@rm -f $(OUTPUT_TEX)/version*
-	@touch $(OUTPUT_TEX)/version.tmp
-	@find $(OUTPUT_SFD)/ -name '*.sfd' -exec fontforge -script $(SOURCE_FFSCRIPT)/sfdversion.pe {} >>$(OUTPUT_TEX)/version.tmp 2>/dev/null \;
-	@cat $(OUTPUT_TEX)/version.tmp | sort >$(OUTPUT_TEX)/version
-	@touch $(OUTPUT_TEX)/versionotf.tmp
-	@find $(OUTPUT_OTF)/ -name '*.otf' -exec fontforge -script $(SOURCE_FFSCRIPT)/fontversion.pe {} >>$(OUTPUT_TEX)/versionotf.tmp 2>/dev/null \;
-	@cat $(OUTPUT_TEX)/versionotf.tmp | sort >$(OUTPUT_TEX)/versionotf
 
 copysf: all
 	@echo "### copy to sf ...";
@@ -306,7 +311,7 @@ initdist:
 	@rm -rf $(OUTPUT_DIST)
 	@mkdir -p $(OUTPUT_DIST)
 
-copydist: version
+copydist: 
 	@echo "### create distribution..."  
 	@mkdir -p $(OUTPUT_DIST)/texmf/doc/fonts/$(FONT)
 	@mkdir -p $(OUTPUT_DIST)/texmf/fonts/map/dvips/$(FONT)
@@ -396,7 +401,7 @@ xxxcopyLaTeX:
 	@cp -R $(OUTPUT_DIST)/texmf/* ~/daten/sv/LaTeX/texmf
 	@cp $(OUTPUT_OTF)/*.otf ~/daten/sv/LaTeX/fonts
 
-cpdsrc: version
+cpdsrc: 
 	@echo "### copy doku to $(OUTPUT_DSRC)"
 	@rm -rf $(OUTPUT_DSRC)
 	@mkdir -p $(OUTPUT_DSRC)
