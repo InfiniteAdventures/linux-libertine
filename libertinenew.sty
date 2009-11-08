@@ -6,8 +6,8 @@
 %
 % (License GPL)
 %
-\def\libertineVersion{4.5.6}%
-\def\libertineVersionDate{2009/08/25}
+\def\libertineVersion{4.6.2}%
+\def\libertineVersionDate{2009/11/08}
 %
 \ProvidesPackage{libertinenew}[%
    \libertineVersionDate\space-\space\libertineVersion:
@@ -15,6 +15,9 @@
 
 \newif\iffxl@otf
 \fxl@otftrue
+% load the other fonts ?
+\newif\iffxl@nofl
+\fxl@noflfalse
 
 \RequirePackage{keyval,ifxetex}
 
@@ -28,6 +31,7 @@
 \define@key{fxl}{osfss}[true]{\def\fxl@default{3}}
 \define@key{fxl}{nf}[true]{\def\fxl@default{0}}
 \define@key{fxl}{nootf}[false]{\@nameuse{fxl@otf#1}}
+\define@key{fxl}{nofl}[true]{\@nameuse{fxl@nofl#1}}
 
 \def\ProcessOptionsWithKV#1{%
   \let\@tempc\relax
@@ -62,12 +66,28 @@
   \fi
 \fi%
 
+\def\libertine@param{}
+\def\biolinum@param{}
 %
 \iffxl@otf
 % xetex
 
 \RequirePackage{xltxtra}
-
+%
+% #1 slant=0.2
+% #2 m, b,
+% #3 fontname
+\newcommand\generateslanted[3][]{%
+  \DeclareFontShape{EU1}{\zf@family}{#2}{sl}%
+    {<->"#3:\ifcsname zf@pre@ff\endcsname\zf@pre@ff\fi\csname zf@ff\endcsname,#1"}%
+    {}%
+}
+% \generateslanted     % only directly after \newfontfamily or \setmainfont or whatever
+%   []        % N.B. 'raw' XeTeX font features!
+%   {m}
+%   {Linux Biolinum Slanted O} % whatever slanted font you want
+%
+%
 % Font
 \def\libertine@param{Mapping=tex-text,RawFeature=+liga}
 \def\biolinum@param{Mapping=tex-text,RawFeature=+liga}
@@ -75,19 +95,31 @@
   \def\libertine@param{Mapping=tex-text,RawFeature=+liga}
   \def\biolinum@param{Mapping=tex-text,RawFeature=+liga}
 \or% osf
-  \def\libertine@param{Mapping=tex-text,RawFeature=+liga}
-  \def\biolinum@param{Mapping=tex-text,RawFeature=+liga}
+  \def\libertine@param{Mapping=tex-text,RawFeature=+liga;+onum}
+  \def\biolinum@param{Mapping=tex-text,RawFeature=+liga;+onum}
 \or% ss
-  \def\libertine@param{Mapping=tex-text,RawFeature=+liga}
-  \def\biolinum@param{Mapping=tex-text,RawFeature=+liga}
+  \def\libertine@param{Mapping=tex-text,RawFeature=+liga;+ss03}
+  \def\biolinum@param{Mapping=tex-text,RawFeature=+liga;+ss03}
 \or% osfss
-  \def\libertine@param{Mapping=tex-text,RawFeature=+liga}
-  \def\biolinum@param{Mapping=tex-text,RawFeature=+liga}
+  \def\libertine@param{Mapping=tex-text,RawFeature=+liga;+onum;+ss03}
+  \def\biolinum@param{Mapping=tex-text,RawFeature=+liga;+onum;+ss03}
 \fi
 \setromanfont[\libertine@param]{Linux Libertine O}
 \setsansfont[\biolinum@param]{Linux Biolinum O}
 \newfontfamily\biolinum[\libertine@param]{Linux Biolinum O}
+\iffxl@nofl\else
+  \generateslanted{m}{Linux Biolinum Slanted O}%
+\fi
 \newfontfamily\libertine[\biolinum@param]{Linux Libertine O}
+\iffxl@nofl\else
+  \generateslanted{m}{Linux Libertine Slanted O}%
+\fi
+\iffxl@nofl\else
+  \newfontfamily\biolinumB[\biolinum@param]{Linux Biolinum O Bold}
+  \generateslanted{\bfdefault}{Linux Biolinum Slanted O Bold}%
+  \newfontfamily\libertineB[\libertine@param]{Linux Libertine O Bold}
+  \generateslanted{\bfdefault}{Linux Libertine Slanted O Bold}%
+\fi
 %
 \ProvideTextCommand{\glqq}{EU1}{\textormath{\quotedblbase}{\mbox{\quotedblbase}}}
 \ProvideTextCommand{\grqq}{EU1}{\textormath{\textquotedblleft}{\mbox{\textquotedblleft}}}
@@ -107,26 +139,33 @@
    \fi
 }}
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
 \else
 % latex
+%
+\def\libertine@param{}
+\def\biolinum@param{}
 % ------------------------------------------------
 % default
 \ifcase\fxl@default% nf
-   \renewcommand\rmdefault{fxl}%
-   \renewcommand\sfdefault{fxb}%
+  \def\libertine@param{fxl}
+  \def\biolinum@param{fxb}
 \or% osf
-   \renewcommand\rmdefault{fxlj}%
-   \renewcommand\sfdefault{fxbj}%
+  \def\libertine@param{fxlj}
+  \def\biolinum@param{fxbj}
 \or% ss
-   \renewcommand\rmdefault{fxlo}%
-   \renewcommand\sfdefault{fxbo}%
+  \def\libertine@param{fxlo}
+  \def\biolinum@param{fxbo}
 \or% osfss
-   \renewcommand\rmdefault{fxljo}%
-   \renewcommand\sfdefault{fxbjo}%
+  \def\libertine@param{fxljo}
+  \def\biolinum@param{fxbjo}
 \fi
-
+\renewcommand\rmdefault{\libertine@param}%
+\renewcommand\sfdefault{\biolinum@param}%
+%
 % ---------------------------------------------------------
 \newcommand*\DeclareTextGlyphX[5]{%
 	% \DeclareTextGlyphX{fxl}{U}{fxla7}{uniA7F1}{241}
@@ -138,9 +177,16 @@
 \input{fxl.inc}
 \input{fxb.inc}
 %
+\def\libertine{\fontfamily{\libertine@param}\selectfont}
+\def\biolinum{\fontfamily{\biolinum@param}\selectfont}
+\iffxl@nofl\else
+  \def\biolinumB{\fontfamily{\biolinum@param}\fontseries{b}\selectfont}
+  \def\libertineB{\fontfamily{\libertine@param}\fontseries{b}\selectfont}
+\fi
+%
 %
 \fi
 %
-\DeclareTextCommandDefault{\texteuro}{\libertineGlyph{Euro}}
+\DeclareTextCommandDefault{\texteuro}{{\libertineGlyph{Euro}}}
 %
 \endinput

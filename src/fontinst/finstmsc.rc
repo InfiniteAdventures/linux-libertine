@@ -1,7 +1,11 @@
+% aus finstmsc.sty
+%
 \def\make_mydvips{
    \downloads_list={}
    \let\postscript_code\empty_command
-   \let\download\append_download
+   \def\download{\append_download\download}
+   \def\fulldownload{\append_download\fulldownload}
+   \def\encodingdownload{\append_download\encodingdownload}
    \ifx \reencode_etx\empty_command \else
       \if_undefined{pse-\reencode_etx}\then
          \etxtoenc{\reencode_etx}{\reencode_etx}
@@ -39,12 +43,15 @@
    \fi\fi
    \if_a_
       \ifx \PS_font_file\unknown_str \get_PS_font_file \fi
-      \append_download{\PS_font_file}
+      \append_download\download{\PS_font_file}
       \ifx \PS_font_file\clueless_str
          \includewarning\warn_undecided_data
       \fi
    \fi
    \def\download##1{~<##1}
+   \def\fulldownload##1{~<<##1}
+   \def\encodingdownload##1{~<[##1}
+   % xxx
    \pout_line\output_mydvips{
       \TeX_font_name\space\PS_font_name
       \expandafter\empty_command %\the\downloads_list

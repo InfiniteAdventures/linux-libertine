@@ -1,3 +1,8 @@
+% xldriver
+%
+\def\addDriver#1{\adddriver{mydvips}{libertine_#1.map}}%
+%
+%
 \declarepsencoding{T1}{TeXBase1Encoding}{\download{8r.enc}}
 \declarepsencoding{xl-8x}{xlExpertEncoding}{\download{xl-8x.enc}}
 \declarepsencoding{xl-t1}{xlT1Encoding}{\download{xl-t1.enc}}

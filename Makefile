@@ -37,7 +37,7 @@ OUTPUT_JAVA=$(TARGET)/classes
 OUTPUT_DIST=$(TARGET)/dist
 OUTPUT_DSRC=$(TARGET)/docsrc
 
-TEXFILES=$(wildcard *.tex) $(wildcard $(SOURCE_XELATEX)/*.tex) $(wildcard $(SOURCE_LATEX)/*.tex) $(SOURCE_DOKU)/libertinedokulatex.tex $(SOURCE_DOKU)/libertinedokuxelatex.tex
+TEXFILES=$(wildcard *.tex) $(wildcard $(SOURCE_XELATEX)/*.tex) $(wildcard $(SOURCE_LATEX)/*.tex) $(SOURCE_DOKU)/libertinedokulatex.tex
 PDFTEXFILES=$(patsubst %.tex, $(OUTPUT_TEX)/%.pdf ,$(notdir $(TEXFILES)))
 
 BSP_LATEX_FILES=$(wildcard $(SOURCE_BSP_LATEX)/bsp*.tex)
@@ -205,12 +205,12 @@ $(OUTPUT_TEX)/xbsp%.pdf : $(SOURCE_BSP_LATEX)/bsp%.tex libertinenew.sty
 	@pdfcrop --clip $@ $(OUTPUT_TEX)/tmp.pdf
 	@mv $(OUTPUT_TEX)/tmp.pdf $@
 
-$(OUTPUT_TEX)/libertinedokuxelatex.pdf : $(SOURCE_DOKU)/libertinedokuxelatex.tex texmf/tex/xelatex/libertine/libertine.sty
-		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
-		-test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)).idx && bin/splitindex.pl $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)) -- -g -s $(SOURCE_TEX)/index.ist && xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<		
-		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
+#$(OUTPUT_TEX)/libertinedokuxelatex.pdf : $(SOURCE_DOKU)/libertinedokuxelatex.tex texmf/tex/xelatex/libertine/libertine.sty
+#		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
+#		-test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)).idx && bin/splitindex.pl $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)) -- -g -s $(SOURCE_TEX)/index.ist && xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<		
+#		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 
-$(OUTPUT_TEX)/libertinedokulatex.pdf : $(SOURCE_DOKU)/libertinedokulatex.tex texmf/tex/latex/libertine/libertine.sty
+$(OUTPUT_TEX)/libertinedokulatex.pdf : $(SOURCE_DOKU)/libertinedokulatex.tex libertinenew.sty
 		pdflatex -interaction=nonstopmode $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 		pdflatex -interaction=nonstopmode $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 		# -test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)).idx && bin/splitindex.pl $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)) -- -g -s $(SOURCE_TEX)/index.ist && pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<		

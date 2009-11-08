@@ -35,9 +35,9 @@ if fnt.fontname == "LinLibertineO":
    fnt.familyname = "Linux Libertine"   
    fnt.fullname = "Linux Libertine"
    fnt.weight = "Book"
-elif fnt.fontname == "LinLibertineOSl":
-   newfontname = "LinLibertineSl"
-   fnt.familyname = "Linux Libertine"   
+elif fnt.fontname == "LinLibertineSlantedO":
+   newfontname = "LinLibertineSlanted"
+   fnt.familyname = "Linux Libertine Slanted"   
    fnt.fullname = "Linux Libertine Slanted"
    fnt.weight = "Book"
 elif fnt.fontname == "LinLibertineOB":
@@ -45,10 +45,10 @@ elif fnt.fontname == "LinLibertineOB":
    fnt.familyname = "Linux Libertine"   
    fnt.fullname = "Linux Libertine Bold"
    fnt.weight = "Bold"
-elif fnt.fontname == "LinLibertineOBSl":
-   newfontname = "LinLibertineBSl"
-   fnt.familyname = "Linux Libertine"   
-   fnt.fullname = "Linux Libertine Bold Slanted"
+elif fnt.fontname == "LinLibertineSlantedOB":
+   newfontname = "LinLibertineSlantedB"
+   fnt.familyname = "Linux Libertine Slanted"   
+   fnt.fullname = "Linux Libertine Slanted Bold"
    fnt.weight = "Bold"
 elif fnt.fontname == "LinLibertineOI":
    newfontname = "LinLibertineI"
@@ -75,9 +75,9 @@ elif fnt.fontname == "LinBiolinumOI":
    fnt.familyname = "Linux Biolinum"   
    fnt.fullname = "Linux Biolinum Italic"
    fnt.weight = "Book"
-elif fnt.fontname == "LinBiolinumOSl":
-   newfontname = "LinBiolinumSl"
-   fnt.familyname = "Linux Biolinum"   
+elif fnt.fontname == "LinBiolinumSlantedO":
+   newfontname = "LinBiolinumSlanted"
+   fnt.familyname = "Linux Biolinum Slanted"   
    fnt.fullname = "Linux Biolinum Slanted"
    fnt.weight = "Book"
 elif fnt.fontname == "LinBiolinumOB":
@@ -85,10 +85,10 @@ elif fnt.fontname == "LinBiolinumOB":
    fnt.familyname = "Linux Biolinum"   
    fnt.fullname = "Linux Biolinum Bold"
    fnt.weight = "Bold"
-elif fnt.fontname == "LinBiolinumOBSl":
-   newfontname = "LinBiolinumBSl"
-   fnt.familyname = "Linux Biolinum"   
-   fnt.fullname = "Linux Biolinum Bold Slanted"
+elif fnt.fontname == "LinBiolinumSlantedOB":
+   newfontname = "LinBiolinumSlantedB"
+   fnt.familyname = "Linux Biolinum Slanted"   
+   fnt.fullname = "Linux Biolinum Slanted Bold"
    fnt.weight = "Bold"
 elif fnt.fontname == "LinBiolinumOKb":
    newfontname = "LinBiolinumKb"

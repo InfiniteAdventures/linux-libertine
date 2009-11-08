@@ -1,3 +1,8 @@
+% xbdriver
+%
+\def\addDriver#1{\adddriver{mydvips}{biolinum_#1.map}}%
+%
+%
 \declarepsencoding{T1}{TeXBase1Encoding}{\download{8r.enc}}
 \declarepsencoding{xb-8x}{xbExpertEncoding}{\download{xb-8x.enc}}
 \declarepsencoding{xb-t1}{xbT1Encoding}{\download{xb-t1.enc}}
