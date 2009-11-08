@@ -1,0 +1,40 @@
+\documentclass[ngerman,a4paper,10pt]{article}
+
+\usepackage{ifxetex}
+\ifxetex
+    %
+  \else
+    \usepackage[utf8x]{inputenc}
+  \fi
+\usepackage[TS1,T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{graphicx}
+\usepackage{libertinenew}
+
+\usepackage[left=1cm,right=1cm,top=2cm,bottom=2cm]{geometry}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\newcommand*\bsp[1]{%
+\begin{minipage}{\linewidth}
+\begin{minipage}{.46\linewidth}\centering\textbf{Type1}\end{minipage}\hfill
+\begin{minipage}{.46\linewidth}\centering\textbf{OTF}\end{minipage}\par
+\includegraphics[width=.49\linewidth]{#1}\hfill\includegraphics[width=.49\linewidth]{x#1}
+\end{minipage}}
+
+\begin{document}
+
+\section{ohne Parameter}
+\subsection{Libertine: normal}\bsp{bsp01}
+\subsection{Biolinum: normal}\bsp{bsp02}
+
+
+\section{Glyphen (Name)}
+\subsection{Libertine: A}\bsp{bspg03}
+
+\subsection{Libertine: Euro}\bsp{bspg01}
+
+
+
+\end{document}

@@ -1,0 +1,24 @@
+\documentclass[ngerman,a4paper,10pt]{article}
+
+\usepackage{ifxetex}
+\ifxetex
+    %
+  \else
+    \usepackage[utf8x]{inputenc}
+  \fi
+\usepackage[TS1,T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage{libertinenew}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\def\BSP{%
+Dies ist ein Beispieltext mit Zahlen 1234567890!\newline%
+öäüß ÖÄÜ\quad ff fi fl ffi ffl\quad Hamburg\newline%
+Am 30.4.1987 saß ich im \glqq{}Caf\'e Hamburg\grqq{} und\newline schlürfte Kaffee für 2,65\,€!}
+
+\begin{document}
+\sffamily\BSP
+\end{document}

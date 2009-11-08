@@ -6,5 +6,5 @@ make init && \
    make pfb && \
    make tfm && \
    make copyfont && \
-   make installtl2008 && \
+   make installtl2009 && \
    make

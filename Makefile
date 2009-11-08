@@ -12,7 +12,7 @@ PDFLATEXPARAM=
 
 TEXMF_MAIN:=$(shell kpsewhich -expand-var='$$TEXMFLOCAL')
 MYTEXMF_LOCAL=/usr/local/share/texmf
-TL2008:=/usr/local/texlive/2008
+TEXLIVE:=/usr/local/texlive/2009
 TLX:=/usr/local/share/texmf-x
 
 SOURCE_TEX=src/tex
@@ -26,6 +26,7 @@ SOURCE_ENC=src/enc
 SOURCE_SCRIPT=src/scripts
 SOURCE_FFSCRIPT=src/phil/script
 SOURCE_DPKG=src/dpkg
+SOURCE_BSP_LATEX=src/beispiele
 
 OUTPUT_SFD=$(TARGET)/sfd
 OUTPUT_TTF=$(TARGET)/ttf
@@ -39,6 +40,9 @@ OUTPUT_DSRC=$(TARGET)/docsrc
 TEXFILES=$(wildcard *.tex) $(wildcard $(SOURCE_XELATEX)/*.tex) $(wildcard $(SOURCE_LATEX)/*.tex) $(SOURCE_DOKU)/libertinedokulatex.tex $(SOURCE_DOKU)/libertinedokuxelatex.tex
 PDFTEXFILES=$(patsubst %.tex, $(OUTPUT_TEX)/%.pdf ,$(notdir $(TEXFILES)))
 
+BSP_LATEX_FILES=$(wildcard $(SOURCE_BSP_LATEX)/bsp*.tex)
+PDF_BSP_LATEX_FILES=$(patsubst %.tex, $(OUTPUT_TEX)/%.pdf ,$(notdir $(BSP_LATEX_FILES)))
+PDF_BSP_XELATEX_FILES=$(patsubst %.tex, $(OUTPUT_TEX)/x%.pdf ,$(notdir $(BSP_LATEX_FILES)))
 
 SFDFILES=$(wildcard $(OUTPUT_SFD)/*.sfd)
 TTFFILES=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_TTF)/%,  $(patsubst %.sfd, %.ttf ,$(SFDFILES)))
@@ -58,7 +62,7 @@ XCREATEFILES=$(patsubst $(SOURCE_FONTINST)/%, $(OUTPUT_TEX)/%,  $(patsubst %.tex
 JAVAFILES=$(wildcard $(SOURCE_JAVA)/*.java)
 CLASSFILES=$(patsubst $(SOURCE_JAVA)/%, $(OUTPUT_JAVA)/%,  $(patsubst %.java, %.class ,$(JAVAFILES)))
 
-TEXINPUTS:=.:$(OUTPUT_TEX):$(SOURCE_FONTINST):$(SOURCE_TEX):$(SOURCE_XELATEX):$(OUTPUT_ENC):$(OUTPUT_PFB):$(SOURCE_TEX)/babel:$(SOURCE_DOKU):$(TEXINPUTS)
+TEXINPUTS:=.:$(OUTPUT_TEX):$(SOURCE_FONTINST):$(SOURCE_TEX):$(SOURCE_XELATEX):$(OUTPUT_ENC):$(OUTPUT_PFB):$(SOURCE_TEX)/babel:$(SOURCE_DOKU):$(SOURCE_BSP_LATEX):$(TEXINPUTS)
 CLASSPATH:=$(TARGET)/classes:lib/fontwareone.jar:$(CLASSPATH)
 
 
@@ -71,6 +75,9 @@ otf: init $(OTFFILES)
 ttf: init $(TTFFILES) 
 
 tfm: pfb $(ETXFILES) $(MTXFILES) $(XCREATEFILES) createpl catmap dokuinit 
+
+bsp: $(PDF_BSP_LATEX_FILES) $(PDF_BSP_XELATEX_FILES)
+	pdflatex -output-directory=$(OUTPUT_TEX) $(SOURCE_BSP_LATEX)/beispiel.tex
 
 $(OUTPUT_TEX)/fxl.inc : $(OUTPUT_PFB)/fxlr.afm
 	@echo "### creating fxl.inc file..."
@@ -186,6 +193,18 @@ $(OUTPUT_TEX)/latest%.pdf : $(SOURCE_LATEX)/latest%.tex texmf/tex/latex/libertin
 	@echo "### createing test file: " $< 
 	@pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 
+$(OUTPUT_TEX)/bsp%.pdf : $(SOURCE_BSP_LATEX)/bsp%.tex libertinenew.sty
+	@echo "### createing bsp file: " $< 
+	@pdflatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
+	@pdfcrop --clip $@ $(OUTPUT_TEX)/tmp.pdf
+	@mv $(OUTPUT_TEX)/tmp.pdf $@
+
+$(OUTPUT_TEX)/xbsp%.pdf : $(SOURCE_BSP_LATEX)/bsp%.tex libertinenew.sty
+	@echo "### createing bsp file: " $< 
+	@xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX)  -jobname=$(patsubst %.pdf,%,$(notdir $@)) $<
+	@pdfcrop --clip $@ $(OUTPUT_TEX)/tmp.pdf
+	@mv $(OUTPUT_TEX)/tmp.pdf $@
+
 $(OUTPUT_TEX)/libertinedokuxelatex.pdf : $(SOURCE_DOKU)/libertinedokuxelatex.tex texmf/tex/xelatex/libertine/libertine.sty
 		xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<
 		-test -f $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)).idx && bin/splitindex.pl $(OUTPUT_TEX)/$(patsubst %.tex,%,$(notdir $<)) -- -g -s $(SOURCE_TEX)/index.ist && xelatex $(PDFLATEXPARAM) -output-directory=$(OUTPUT_TEX) $<		
@@ -296,7 +315,7 @@ clean: cleantmp
 	-@rm -rf $(TARGET)
 
 cleanhome:
-	rm -rf ~/.texlive2008
+	rm -rf ~/.texlive2009
 	rm -rf ~/.texmf-var
 
 al:
@@ -357,34 +376,34 @@ copydist:
 	@cd $(OUTPUT_DIST)/texmf; zip -r ../../$(FONT)_`date +%Y_%m_%d_%H_%M`.zip *
 
 installtllocal:
-	@echo "### copy to $(TL2008)/../texmf-local"
-	@rm -rf $(TL2008)/../texmf-local/doc/fonts/libertine/*
-	@rm -rf $(TL2008)/../texmf-local/tex/latex/libertine/*
-	@rm -rf $(TL2008)/../texmf-local/tex/xelatex/libertine/*
-	@rm -rf $(TL2008)/../texmf-local/dvips/libertine/*
-	@rm -rf $(TL2008)/../texmf-local/fonts/vf/public/libertine/*
-	@rm -rf $(TL2008)/../texmf-local/fonts/afm/public/libertine/*
-	@rm -rf $(TL2008)/../texmf-local/fonts/enc/public/libertine/*
-	@rm -rf $(TL2008)/../texmf-local/fonts/tfm/public/libertine/*
-	@rm -rf $(TL2008)/../texmf-local/fonts/type1/public/libertine/*
-	@rm -rf $(TL2008)/../texmf-local/fonts/map/dvips/libertine/*
-	@cp -R $(OUTPUT_DIST)/texmf/* $(TL2008)/../texmf-local
+	@echo "### copy to $(TEXLIVE)/../texmf-local"
+	@rm -rf $(TEXLIVE)/../texmf-local/doc/fonts/libertine/*
+	@rm -rf $(TEXLIVE)/../texmf-local/tex/latex/libertine/*
+	@rm -rf $(TEXLIVE)/../texmf-local/tex/xelatex/libertine/*
+	@rm -rf $(TEXLIVE)/../texmf-local/dvips/libertine/*
+	@rm -rf $(TEXLIVE)/../texmf-local/fonts/vf/public/libertine/*
+	@rm -rf $(TEXLIVE)/../texmf-local/fonts/afm/public/libertine/*
+	@rm -rf $(TEXLIVE)/../texmf-local/fonts/enc/public/libertine/*
+	@rm -rf $(TEXLIVE)/../texmf-local/fonts/tfm/public/libertine/*
+	@rm -rf $(TEXLIVE)/../texmf-local/fonts/type1/public/libertine/*
+	@rm -rf $(TEXLIVE)/../texmf-local/fonts/map/dvips/libertine/*
+	@cp -R $(OUTPUT_DIST)/texmf/* $(TEXLIVE)/../texmf-local
 
-installtl2008: createdist installtllocal
-	@echo "### copy to $(TL2008)"
-	@rm -rf $(TL2008)/doc/fonts/libertine/*
-	@rm -rf $(TL2008)/tex/latex/libertine/*
-	@rm -rf $(TL2008)/tex/xelatex/libertine/*
-	@rm -rf $(TL2008)/dvips/libertine/*
-	@rm -rf $(TL2008)/fonts/vf/public/libertine/*
-	@rm -rf $(TL2008)/fonts/afm/public/libertine/*
-	@rm -rf $(TL2008)/fonts/enc/public/libertine/*
-	@rm -rf $(TL2008)/fonts/tfm/public/libertine/*
-	@rm -rf $(TL2008)/fonts/type1/public/libertine/*
-	@rm -rf $(TL2008)/fonts/map/dvips/libertine/*
-	@cp -R $(OUTPUT_DIST)/texmf/* $(TL2008)/texmf-dist
+installtl2009: createdist installtllocal
+	@echo "### copy to $(TEXLIVE)"
+	@rm -rf $(TEXLIVE)/doc/fonts/libertine/*
+	@rm -rf $(TEXLIVE)/tex/latex/libertine/*
+	@rm -rf $(TEXLIVE)/tex/xelatex/libertine/*
+	@rm -rf $(TEXLIVE)/dvips/libertine/*
+	@rm -rf $(TEXLIVE)/fonts/vf/public/libertine/*
+	@rm -rf $(TEXLIVE)/fonts/afm/public/libertine/*
+	@rm -rf $(TEXLIVE)/fonts/enc/public/libertine/*
+	@rm -rf $(TEXLIVE)/fonts/tfm/public/libertine/*
+	@rm -rf $(TEXLIVE)/fonts/type1/public/libertine/*
+	@rm -rf $(TEXLIVE)/fonts/map/dvips/libertine/*
+	@cp -R $(OUTPUT_DIST)/texmf/* $(TEXLIVE)/texmf-dist
 	@mktexlsr
-	@grep libertine /usr/local/texlive/2008/texmf-config/web2c/updmap.cfg && updmap-sys || updmap-sys --enable Map libertine.map
+	@grep libertine $(TEXLIVE)/texmf-config/web2c/updmap.cfg && updmap-sys || updmap-sys --enable Map libertine.map
 
 xxxcopyLaTeX:
 	@echo "### copy to xxx LaTeX"
