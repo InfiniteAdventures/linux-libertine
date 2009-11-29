@@ -85,7 +85,11 @@ fnt.version = version
 fnt.selection.all()
 for layer in fnt.layers:
     fnt.layers[layer].is_quadratic = False
-    fnt.layers[layer].is_background = False
+
+# removeBackground()
+fnt.activeLayer="Back";
+fnt.clear();
+fnt.activeLayer="Fore";
 
 fnt.unlinkReferences()
 fnt.removeOverlap()
