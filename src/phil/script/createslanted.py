@@ -1,7 +1,7 @@
 #!/usr/bin/env fontforge
 # -*- coding: utf-8 -*-
 #
-# wandelt sfd in ttf um
+# erstellt die slanted Version des Libertine-Font
 #
 # $1 sfd-file
 # $2 output-dir
@@ -24,7 +24,6 @@ if not os.path.isdir(sys.argv[2]):
     sys.exit(sys.argv[2] + ' is not a valid dir!')
 if not os.path.isfile(sys.argv[1]):
     sys.exit(sys.argv[1] + ' is not a valid file!')
-    
 
 fnt = fontforge.open(sys.argv[1])
 
@@ -36,25 +35,22 @@ if libertine.fonts.has_key(fnt.fontname) == False:
 
 fontnames = libertine.fonts[fnt.fontname];
 
-if fontnames.has_key("ttffamilyname") == False:
-   print "### Fontname " + fnt.fontname + " no ttf version";
+angle = psMat.skew(math.radians(12))
+
+if fontnames.has_key("slfilename") == False:
+   print "### Fontname " + fnt.fontname + " not slanted";
    sys.exit(0);
 
-fnt.fontname = fontnames["ttffontname"];
-fnt.familyname = fontnames["ttffamilyname"];
-fnt.fullname = fontnames["ttffullname"];
-fnt.weight = fontnames["ttfweight"];
+filename = fontnames["slfilename"];
+fnt.fontname = fontnames["slfontname"];
+fnt.familyname = fontnames["slfamilyname"];
+fnt.fullname = fontnames["slfullname"];
+fnt.weight = fontnames["slweight"];
 
 fnt.selection.all()
-for layer in fnt.layers:
-    fnt.layers[layer].is_quadratic = True
-    
-fnt.em = 2048
-fnt.round(1)
-fnt.autoInstr()
+fnt.transform(angle)
 
-basename = os.path.basename(sys.argv[1])
-filename = re.sub('(?P<name>.*)\.sfd', '\g<name>', basename)
-outname = sys.argv[2] + "/" + filename + ".ttf"
-print "###    generate " + outname
-fnt.generate(outname)
+outname = sys.argv[2] + "/" + filename + "-" + fnt.version + ".sfd"
+fnt.save(outname)
+print "###    saved as " + outname
+

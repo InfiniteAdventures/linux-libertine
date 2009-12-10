@@ -1,6 +1,2 @@
 #!/bin/bash
-echo "### running make ..."
-make init && \
-   make copysfd && \
-   make createShadow && \
-   make createOutline
+make init && make copysfd && make createslanted && make createcapitals && make copysvn
