@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env fontforge
 # -*- coding: utf-8 -*-
 #
 # erstellt die slanted Version des Libertine-Font

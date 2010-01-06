@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env fontforge
 # -*- coding: utf-8 -*-
 #
 # kopiert den sfd Libertine-Font
