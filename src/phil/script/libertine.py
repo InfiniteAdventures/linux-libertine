@@ -1,4 +1,4 @@
-#!/usr/bin/env fontforge
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
 # Namen für den Libertine Font.
@@ -239,13 +239,26 @@ fonts["LinBiolinumCapitalsOB"] = biolinumBdSc;
 # BIOLINUM
 biolinumKb = {};
 biolinumKb["filename"] = "LinBiolinum_Kb"
-biolinumKb["familyname"] = "Linux Biolinum Kb O"
+biolinumKb["familyname"] = "Linux Biolinum Keyboard O"
 biolinumKb["fullname"] = "Linux Biolinum Keyboard O"
 biolinumKb["weight"] = "Regular"
 biolinumKb["ttffontname"] = "LinBiolinumKb"
-biolinumKb["ttffamilyname"] = "Linux Biolinum"
+biolinumKb["ttffamilyname"] = "Linux Biolinum Keyboard"
 biolinumKb["ttffullname"] = "Linux Biolinum Keyboard"
 biolinumKb["ttfweight"] = "Regular"
 biolinumKb["texfilename"] = "fxbk"
 fonts["LinBiolinumOKb"] = biolinumKb;
+
+# BIOLINUM Outline
+biolinumOT = {};
+biolinumOT["filename"] = "LinBiolinum_OT"
+biolinumOT["familyname"] = "Linux Biolinum Outline O"
+biolinumOT["fullname"] = "Linux Biolinum Outline O"
+biolinumOT["weight"] = "Regular"
+biolinumOT["ttffontname"] = "LinBiolinumOT"
+biolinumOT["ttffamilyname"] = "Linux Biolinum Outline"
+biolinumOT["ttffullname"] = "Linux Biolinum Outline"
+biolinumOT["ttfweight"] = "Regular"
+biolinumOT["texfilename"] = "fxbo"
+fonts["LinBiolinumOOT"] = biolinumOT;
 

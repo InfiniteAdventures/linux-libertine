@@ -1,4 +1,4 @@
-#!/usr/bin/env fontforge
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
 # kopiert den sfd Libertine-Font
@@ -37,7 +37,7 @@ if libertine.fonts.has_key(fnt.fontname) == False:
 
 fontnames = libertine.fonts[fnt.fontname];
 
-fnt.copyright = "Linux Libertine by Philipp H. Poll,\nOpen Font under Terms of following Free Software Licenses:\nGPL (General Public License) with font-exception and OFL (Open Font License).\nCreated with FontForge (http://fontforge.sf.net)\nSept 2003, 2004, 2005, 2006, 2007, 2008, 2009";
+fnt.copyright = "Linux Libertine by Philipp H. Poll,\nOpen Font under Terms of following Free Software Licenses:\nGPL (General Public License) with font-exception and OFL (Open Font License).\nCreated with FontForge (http://fontforge.sf.net)\nSept 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010";
 fnt.version = version;
 filename = fontnames["filename"];
 fnt.familyname = fontnames["familyname"];
@@ -49,9 +49,9 @@ for layer in fnt.layers:
     fnt.layers[layer].is_quadratic = False
 
 # removeBackground()
-fnt.activeLayer="Back";
+fnt.activeLayer = "Back";
 fnt.clear();
-fnt.activeLayer="Fore";
+fnt.activeLayer = "Fore";
 
 fnt.unlinkReferences()
 fnt.removeOverlap()

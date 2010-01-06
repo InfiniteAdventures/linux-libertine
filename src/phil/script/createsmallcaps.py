@@ -1,4 +1,4 @@
-#!/usr/bin/env fontforge
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
 # erstellt die small caps Version des Libertine-Font
@@ -49,8 +49,8 @@ for g in fnt.glyphs():
    if g.glyphname.endswith('.sc'):
       fnt.selection.select(g.glyphname);
       fnt.copy();
-      ng = g.glyphname.replace('.sc','');
-      slot=fnt.findEncodingSlot(ng);
+      ng = g.glyphname.replace('.sc', '');
+      slot = fnt.findEncodingSlot(ng);
       if slot >= 0:
          fnt.selection.select(ng);
          fnt.paste();

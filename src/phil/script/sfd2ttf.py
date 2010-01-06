@@ -1,4 +1,4 @@
-#!/usr/bin/env fontforge
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
 # wandelt sfd in ttf um
@@ -24,7 +24,7 @@ if not os.path.isdir(sys.argv[2]):
     sys.exit(sys.argv[2] + ' is not a valid dir!')
 if not os.path.isfile(sys.argv[1]):
     sys.exit(sys.argv[1] + ' is not a valid file!')
-    
+
 
 fnt = fontforge.open(sys.argv[1])
 
@@ -48,7 +48,7 @@ fnt.weight = fontnames["ttfweight"];
 fnt.selection.all()
 for layer in fnt.layers:
     fnt.layers[layer].is_quadratic = True
-    
+
 fnt.em = 2048
 fnt.round(1)
 fnt.autoInstr()
