@@ -1,0 +1,23 @@
+# Erzeugt einen Schatten
+#
+# $1 sfd-file
+# $2 out-dir
+#
+# $Id$
+#
+# Michael Niedermair m.g.n@gmx.de
+#
+Print("###"+  $1)
+Open($1,1)
+SelectAll()
+
+filename="Shadow"
+#
+# Shadow(angle,outline-width,shadow-width) 
+Shadow(-45,10,100)
+#
+Print("save " + $2 + "/" + filename + ".sfd")
+Save($2 + "/" + filename + ".sfd")
+#
+Close()
+Quit()

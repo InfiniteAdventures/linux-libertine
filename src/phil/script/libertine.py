@@ -275,3 +275,29 @@ biolinumOTSl["ttfweight"] = "Regular"
 biolinumOTSl["texfilename"] = "fxboo"
 fonts["LinBiolinumSlantedOTO"] = biolinumOTSl;
 
+# BIOLINUM Shadow
+biolinumSH = {};
+biolinumSH["filename"] = "LinBiolinum_SH"
+biolinumSH["familyname"] = "Linux Biolinum Shadow O"
+biolinumSH["fullname"] = "Linux Biolinum Shadow O"
+biolinumSH["weight"] = "Regular"
+biolinumSH["slfilename"] = "LinBiolinum_SHSl"
+biolinumSH["slfontname"] = "LinBiolinumSlantedSHO"
+biolinumSH["slfamilyname"] = "Linux Biolinum Shadow Slanted O"
+biolinumSH["slfullname"] = "Linux Biolinum Shadow Slanted O"
+biolinumSH["slweight"] = "Regular"
+biolinumSH["ttffontname"] = "LinBiolinumSH"
+biolinumSH["ttffamilyname"] = "Linux Biolinum Shadow"
+biolinumSH["ttffullname"] = "Linux Biolinum Shadow"
+biolinumSH["ttfweight"] = "Regular"
+biolinumSH["texfilename"] = "fxbs"
+fonts["LinBiolinumSHO"] = biolinumSH;
+
+biolinumSHSl = {};
+biolinumSHSl["ttffontname"] = "LinLibertineSlantedSH"
+biolinumSHSl["ttffamilyname"] = "Linux Biolinum Shadow Slanted"
+biolinumSHSl["ttffullname"] = "Linux Biolinum Shadow Slanted"
+biolinumSHSl["ttfweight"] = "Regular"
+biolinumSHSl["texfilename"] = "fxbso"
+fonts["LinBiolinumSlantedSHO"] = biolinumSHSl;
+
