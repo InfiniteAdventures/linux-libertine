@@ -255,10 +255,23 @@ biolinumOT["filename"] = "LinBiolinum_OT"
 biolinumOT["familyname"] = "Linux Biolinum Outline O"
 biolinumOT["fullname"] = "Linux Biolinum Outline O"
 biolinumOT["weight"] = "Regular"
+biolinumOT["slfilename"] = "LinBiolinum_OTSl"
+biolinumOT["slfontname"] = "LinBiolinumSlantedOTO"
+biolinumOT["slfamilyname"] = "Linux Biolinum Outline Slanted O"
+biolinumOT["slfullname"] = "Linux Biolinum Outline Slanted O"
+biolinumOT["slweight"] = "Regular"
 biolinumOT["ttffontname"] = "LinBiolinumOT"
 biolinumOT["ttffamilyname"] = "Linux Biolinum Outline"
 biolinumOT["ttffullname"] = "Linux Biolinum Outline"
 biolinumOT["ttfweight"] = "Regular"
 biolinumOT["texfilename"] = "fxbo"
-fonts["LinBiolinumOOT"] = biolinumOT;
+fonts["LinBiolinumOTO"] = biolinumOT;
+
+biolinumOTSl = {};
+biolinumOTSl["ttffontname"] = "LinLibertineSlantedOT"
+biolinumOTSl["ttffamilyname"] = "Linux Biolinum Outline Slanted"
+biolinumOTSl["ttffullname"] = "Linux Biolinum Outline Slanted"
+biolinumOTSl["ttfweight"] = "Regular"
+biolinumOTSl["texfilename"] = "fxboo"
+fonts["LinBiolinumSlantedOTO"] = biolinumOTSl;
 
