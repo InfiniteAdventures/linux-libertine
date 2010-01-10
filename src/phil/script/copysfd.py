@@ -63,8 +63,8 @@ fnt.save(outname)
 print "###    saved as " + outname
 
 # namelist
-if fnt.fontname == "LinLibertineO" or fnt.fontname == "LinBiolinumO":
-    outname = sys.argv[2] + "/" + fnt.fontname + ".nam"
-    print "###    create " + outname
-    fnt.saveNamelist(outname)
+#if fnt.fontname == "LinLibertineO" or fnt.fontname == "LinBiolinumO":
+#    outname = sys.argv[2] + "/" + fnt.fontname + ".nam"
+#    print "###    create " + outname
+#    fnt.saveNamelist(outname)
 
