@@ -11,6 +11,8 @@ SOURCE_DOK=dok
 OUTPUT_SFD=$(TARGET)/sfd
 OUTPUT_SFD_SL=$(TARGET)/sfd/sl
 OUTPUT_SFD_SC=$(TARGET)/sfd/sc
+OUTPUT_SFD_OT=$(TARGET)/sfd/ot
+OUTPUT_SFD_SH=$(TARGET)/sfd/sh
 OUTPUT_TTF=$(TARGET)/ttf
 OUTPUT_OTF=$(TARGET)/otf
 OUTPUT_TAR=$(TARGET)/tar
@@ -22,6 +24,8 @@ SFDSVNFILES=$(wildcard $(SOURCE_SFDSVN)/*.sfd)
 TARGETSFDFILES=$(wildcard $(OUTPUT_SFD)/*.sfd)
 TARGETSFDFILESSL=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_SFD_SL)/%,  $(TARGETSFDFILES))
 TARGETSFDFILESSC=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_SFD_SC)/%,  $(TARGETSFDFILES))
+TARGETSFDFILESOT=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_SFD_OT)/%,  $(TARGETSFDFILES))
+TARGETSFDFILESSH=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_SFD_SH)/%,  $(TARGETSFDFILES))
 
 TTFFILES=$(patsubst $(SOURCE_SFDSVN)/%, $(OUTPUT_TTF)/%,  $(patsubst %.sfd, %.ttf ,$(SFDSVNFILES)))
 OTFFILES=$(patsubst $(SOURCE_SFDSVN)/%, $(OUTPUT_OTF)/%,  $(patsubst %.sfd, %.otf ,$(SFDSVNFILES)))
@@ -38,11 +42,21 @@ $(OUTPUT_SFD_SL)/%.sfd : $(OUTPUT_SFD)/%.sfd
 $(OUTPUT_SFD_SC)/%.sfd : $(OUTPUT_SFD)/%.sfd
 	@$(SOURCE_FFSCRIPT)/createsmallcaps.py $< $(OUTPUT_SFD_SC) 
 
+$(OUTPUT_SFD_OT)/%.sfd : $(OUTPUT_SFD)/%.sfd
+	@$(SOURCE_FFSCRIPT)/createoutline.py $< $(OUTPUT_SFD_OT) 
+
+$(OUTPUT_SFD_SH)/%.sfd : $(OUTPUT_SFD)/%.sfd
+	@$(SOURCE_FFSCRIPT)/createshadow.py $< $(OUTPUT_SFD_SH) 
+
 copysfd: init $(SFDOUTFILES)
 
 createslanted: init $(TARGETSFDFILESSL)
 
 createcapitals: init $(TARGETSFDFILESSC)
+
+createoutline: init $(TARGETSFDFILESOT)
+
+createshadow: init $(TARGETSFDFILESSH)
 
 otf: init $(OTFFILES) 
 
@@ -53,14 +67,16 @@ copysvn: copysfd
 	@#cp -u $(OUTPUT_SFD)/*.nam $(SOURCE_SFDSVN)
 	@cp -u $(OUTPUT_SFD_SL)/*.sfd $(SOURCE_SFDSVN)
 	@cp -u $(OUTPUT_SFD_SC)/*.sfd $(SOURCE_SFDSVN)
+	@cp -u $(OUTPUT_SFD_OT)/*.sfd $(SOURCE_SFDSVN)
+	@cp -u $(OUTPUT_SFD_SH)/*.sfd $(SOURCE_SFDSVN)
 
 copysfdorg: init
 	@cp -u $(SOURCE_SFDSVN)/LinBiolinum_Re-*.sfd $(SOURCE_SFDORG)
 	@cp -u $(SOURCE_SFDSVN)/LinBiolinum_Bd-*.sfd $(SOURCE_SFDORG)
 	@cp -u $(SOURCE_SFDSVN)/LinBiolinum_It-*.sfd $(SOURCE_SFDORG)
 	@cp -u $(SOURCE_SFDSVN)/LinBiolinum_Kb-*.sfd $(SOURCE_SFDORG)
-	@cp -u $(SOURCE_SFDSVN)/LinBiolinum_OT-*.sfd $(SOURCE_SFDORG)
-	@cp -u $(SOURCE_SFDSVN)/LinBiolinum_SH-*.sfd $(SOURCE_SFDORG)
+	@#cp -u $(SOURCE_SFDSVN)/LinBiolinum_OT-*.sfd $(SOURCE_SFDORG)
+	@#cp -u $(SOURCE_SFDSVN)/LinBiolinum_SH-*.sfd $(SOURCE_SFDORG)
 	@cp -u $(SOURCE_SFDSVN)/LinLibertine_Re-*.sfd $(SOURCE_SFDORG)
 	@cp -u $(SOURCE_SFDSVN)/LinLibertine_Bd-*.sfd $(SOURCE_SFDORG)
 	@cp -u $(SOURCE_SFDSVN)/LinLibertine_BI-*.sfd $(SOURCE_SFDORG)
@@ -101,6 +117,8 @@ init:
 	@mkdir -p $(OUTPUT_TTF)
 	@mkdir -p $(OUTPUT_OTF)
 	@mkdir -p $(OUTPUT_TAR)
+	@mkdir -p $(OUTPUT_SFD_OT)
+	@mkdir -p $(OUTPUT_SFD_SH)
 
 
 cleantmp:

@@ -1,4 +1,4 @@
-# Shadow-Font
+# Outline-Font
 #
 # $1 sfd-file
 # $2 out-dir
@@ -22,12 +22,11 @@ SelectAll()
 UnlinkReference()
 RemoveOverlap()
 #
-# Shadow(angle,outline-width,shadow-width) 
-Shadow(-45,10,60)
+# Outline(width) 
+Outline(10)
 #
 Print("### save " + $2 + "/" + $3 + "-" + $8 + ".sfd")
 Save($2 + "/" + $3 + "-" + $8 + ".sfd")
 #
 Close()
 Quit()
-

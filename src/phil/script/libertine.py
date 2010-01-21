@@ -135,6 +135,8 @@ libertineBiSc["ttffullname"] = "Linux Libertine Capitals Bold Italic"
 libertineBiSc["ttfweight"] = "Bold"
 fonts["LinLibertineCapitalsOBI"] = libertineBiSc;
 
+#####################################################################
+#####################################################################
 # BIOLINUM
 biolinumRe = {};
 biolinumRe["filename"] = "LinBiolinum_Re"
@@ -156,7 +158,33 @@ biolinumRe["ttffamilyname"] = "Linux Biolinum"
 biolinumRe["ttffullname"] = "Linux Biolinum"
 biolinumRe["ttfweight"] = "Book"
 biolinumRe["texfilename"] = "fxbr"
+biolinumRe["outfilename"] = "LinBiolinum_OT"
+biolinumRe["outfontname"] = "LinBiolinumOTO"
+biolinumRe["outfamilyname"] = "Linux Biolinum Outline O"
+biolinumRe["outfullname"] = "Linux Biolinum Outline O"
+biolinumRe["outweight"] = "Book"
+biolinumRe["shfilename"] = "LinBiolinum_SH"
+biolinumRe["shfontname"] = "LinBiolinumSHO"
+biolinumRe["shfamilyname"] = "Linux Biolinum Shadow O"
+biolinumRe["shfullname"] = "Linux Biolinum Shadow O"
+biolinumRe["shweight"] = "Book"
 fonts["LinBiolinumO"] = biolinumRe;
+
+biolinumReSh = {};
+biolinumReSh["ttffontname"] = "LinBiolinumSH"
+biolinumReSh["ttffamilyname"] = "Linux Biolinum Shadow"
+biolinumReSh["ttffullname"] = "Linux Biolinum Shadow"
+biolinumReSh["ttfweight"] = "Book"
+biolinumReSh["texfilename"] = "fxbs"
+fonts["LinBiolinumSHO"] = biolinumReSh;
+
+biolinumReOut = {};
+biolinumReOut["ttffontname"] = "LinBiolinumOT"
+biolinumReOut["ttffamilyname"] = "Linux Biolinum Outline"
+biolinumReOut["ttffullname"] = "Linux Biolinum Outline"
+biolinumReOut["ttfweight"] = "Book"
+biolinumReOut["texfilename"] = "fxbo"
+fonts["LinBiolinumOTO"] = biolinumReOut;
 
 biolinumReSl = {};
 biolinumReSl["ttffontname"] = "LinBiolinumSlanted"
@@ -189,7 +217,33 @@ biolinumIt["ttffamilyname"] = "Linux Biolinum"
 biolinumIt["ttffullname"] = "Linux Biolinum Italic"
 biolinumIt["ttfweight"] = "Book"
 biolinumIt["texfilename"] = "fxbri"
+biolinumIt["outfilename"] = "LinBiolinum_OTIt"
+biolinumIt["outfontname"] = "LinBiolinumOTOI"
+biolinumIt["outfamilyname"] = "Linux Biolinum Outline O"
+biolinumIt["outfullname"] = "Linux Biolinum Outline O Italic"
+biolinumIt["outweight"] = "Book"
+biolinumIt["shfilename"] = "LinBiolinum_SHIt"
+biolinumIt["shfontname"] = "LinBiolinumSHOI"
+biolinumIt["shfamilyname"] = "Linux Biolinum Shadow O"
+biolinumIt["shfullname"] = "Linux Biolinum Shadow O Italic"
+biolinumIt["shweight"] = "Book"
 fonts["LinBiolinumOI"] = biolinumIt;
+
+biolinumItSh = {};
+biolinumItSh["ttffontname"] = "LinBiolinumSHI"
+biolinumItSh["ttffamilyname"] = "Linux Biolinum Shadow"
+biolinumItSh["ttffullname"] = "Linux Biolinum Shadow Italic"
+biolinumItSh["ttfweight"] = "Book"
+biolinumItSh["texfilename"] = "fxbsi"
+fonts["LinBiolinumSHOI"] = biolinumItSh;
+
+biolinumItOut = {};
+biolinumItOut["ttffontname"] = "LinBiolinumOTI"
+biolinumItOut["ttffamilyname"] = "Linux Biolinum Outline"
+biolinumItOut["ttffullname"] = "Linux Biolinum Outline Italic"
+biolinumItOut["ttfweight"] = "Book"
+biolinumItOut["texfilename"] = "fxboi"
+fonts["LinBiolinumOTO"] = biolinumItOut;
 
 biolinumItSc = {};
 biolinumItSc["ttffontname"] = "LinBiolinumCapitalsI"
@@ -219,7 +273,33 @@ biolinumBd["ttffamilyname"] = "Linux Biolinum"
 biolinumBd["ttffullname"] = "Linux Biolinum Bold"
 biolinumBd["ttfweight"] = "Bold"
 biolinumBd["texfilename"] = "fxbb"
+biolinumBd["outfilename"] = "LinBiolinum_OTBd"
+biolinumBd["outfontname"] = "LinBiolinumOTOB"
+biolinumBd["outfamilyname"] = "Linux Biolinum Outline O"
+biolinumBd["outfullname"] = "Linux Biolinum Outline O Bold"
+biolinumBd["outweight"] = "Bold"
+biolinumBd["shfilename"] = "LinBiolinum_SHBd"
+biolinumBd["shfontname"] = "LinBiolinumSHOB"
+biolinumBd["shfamilyname"] = "Linux Biolinum Shadow O"
+biolinumBd["shfullname"] = "Linux Biolinum Shadow O Bold"
+biolinumBd["shweight"] = "Boold"
 fonts["LinBiolinumOB"] = biolinumBd;
+
+biolinumBdSh = {};
+biolinumBdSh["ttffontname"] = "LinBiolinumShadowB"
+biolinumBdSh["ttffamilyname"] = "Linux Biolinum Shadow"
+biolinumBdSh["ttffullname"] = "Linux Biolinum Shadow Bold"
+biolinumBdSh["ttfweight"] = "Bold"
+biolinumBdSh["texfilename"] = "fxbsb"
+fonts["LinBiolinumSHOB"] = biolinumBdSh;
+
+biolinumBdOut = {};
+biolinumBdOut["ttffontname"] = "LinBiolinumSlantedB"
+biolinumBdOut["ttffamilyname"] = "Linux Biolinum Slanted"
+biolinumBdOut["ttffullname"] = "Linux Biolinum Slanted Bold"
+biolinumBdOut["ttfweight"] = "Bold"
+biolinumBdOut["texfilename"] = "fxbob"
+fonts["LinBiolinumOTOB"] = biolinumBdOut;
 
 biolinumBdSl = {};
 biolinumBdSl["ttffontname"] = "LinBiolinumSlantedB"
