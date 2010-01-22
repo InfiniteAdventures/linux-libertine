@@ -1,2 +1,7 @@
 #!/bin/bash
-make init && make copysfd && make createslanted && make createcapitals && make createoutline && make createshadow && make copysvn
+make init && \
+   make copysfd && \
+   make createslanted && \
+   make createcapitals && \
+   make createoutline && \
+   make createshadow 

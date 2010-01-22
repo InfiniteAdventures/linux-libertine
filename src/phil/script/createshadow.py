@@ -63,6 +63,6 @@ cmd = 'fontforge -script script/createShadow.pe ' \
 	+ '"' + familyname + '" ' \
 	+ '"' + fullname + '" ' \
 	+ '"' + weight + '" ' \
-	+ '"' + version + '"'
+	+ '"' + version + '" &'
 print "### system: " + cmd
 os.system(cmd)
