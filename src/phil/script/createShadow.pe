@@ -23,7 +23,7 @@ UnlinkReference()
 RemoveOverlap()
 #
 # Shadow(angle,outline-width,shadow-width)
-Shadow(-30,10,40)
+Shadow(-45,10,80)
 #
 Print("### save " + $2 + "/" + $3 + "-" + $8 + ".sfd")
 Save($2 + "/" + $3 + "-" + $8 + ".sfd")
