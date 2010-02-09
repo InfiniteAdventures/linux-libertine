@@ -9,7 +9,7 @@
 #
 fonts = {};
 # --------------------------------------------------------------
-# LIBERTINE 
+# LIBERTINE
 libertineRe = {};
 libertineRe["filename"] = "LinLibertine_Re"
 libertineRe["familyname"] = "Linux Libertine O"
@@ -243,7 +243,7 @@ biolinumItOut["ttffamilyname"] = "Linux Biolinum Outline"
 biolinumItOut["ttffullname"] = "Linux Biolinum Outline Italic"
 biolinumItOut["ttfweight"] = "Book"
 biolinumItOut["texfilename"] = "fxboi"
-fonts["LinBiolinumOTO"] = biolinumItOut;
+fonts["LinBiolinumOTOI"] = biolinumItOut;
 
 biolinumItSc = {};
 biolinumItSc["ttffontname"] = "LinBiolinumCapitalsI"
