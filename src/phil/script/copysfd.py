@@ -58,7 +58,7 @@ fnt.removeOverlap()
 fnt.round(10)
 fnt.em = 1000
 
-outname = sys.argv[2] + "/" + filename + "-" + version + ".sfd"
+outname = sys.argv[2] + "/" + filename + ".sfd"
 fnt.save(outname)
 print "###    saved as " + outname
 

@@ -11,24 +11,24 @@ fonts = {};
 # --------------------------------------------------------------
 # LIBERTINE
 libertineRe = {};
-libertineRe["filename"] = "LinLibertine_Re"
+libertineRe["filename"] = "LinLibertine_R"
 libertineRe["familyname"] = "Linux Libertine O"
 libertineRe["fullname"] = "Linux Libertine O"
-libertineRe["weight"] = "Book"
+libertineRe["weight"] = "Regular"
 libertineRe["slfilename"] = "LinLibertine_Sl"
 libertineRe["slfontname"] = "LinLibertineSlantedO"
 libertineRe["slfamilyname"] = "Linux Libertine Slanted O"
 libertineRe["slfullname"] = "Linux Libertine Slanted O"
-libertineRe["slweight"] = "Book"
+libertineRe["slweight"] = "Regular"
 libertineRe["scfilename"] = "LinLibertine_Sc"
 libertineRe["scfontname"] = "LinLibertineCapitalsO"
 libertineRe["scfamilyname"] = "Linux Libertine Capitals O"
 libertineRe["scfullname"] = "Linux Libertine Capitals O"
-libertineRe["scweight"] = "Book"
+libertineRe["scweight"] = "Regular"
 libertineRe["ttffontname"] = "LinLibertine"
 libertineRe["ttffamilyname"] = "Linux Libertine"
 libertineRe["ttffullname"] = "Linux Libertine"
-libertineRe["ttfweight"] = "Book"
+libertineRe["ttfweight"] = "Regular"
 libertineRe["texfilename"] = "fxlr"
 fonts["LinLibertineO"] = libertineRe;
 
@@ -49,7 +49,7 @@ fonts["LinLibertineCapitalsO"] = libertineReSc;
 
 # LIBERTINE Bold
 libertineBd = {};
-libertineBd["filename"] = "LinLibertine_Bd"
+libertineBd["filename"] = "LinLibertine_RB"
 libertineBd["familyname"] = "Linux Libertine O"
 libertineBd["fullname"] = "Linux Libertine O Bold"
 libertineBd["weight"] = "Bold"
@@ -87,19 +87,19 @@ fonts["LinLibertineCapitalsOB"] = libertineBdSc;
 
 # LIBERTINE Italic
 libertineIt = {};
-libertineIt["filename"] = "LinLibertine_It"
+libertineIt["filename"] = "LinLibertine_RI"
 libertineIt["familyname"] = "Linux Libertine O"
 libertineIt["fullname"] = "Linux Libertine O Italic"
-libertineIt["weight"] = "Book"
+libertineIt["weight"] = "Italic"
 libertineIt["scfilename"] = "LinLibertine_ISc"
 libertineIt["scfontname"] = "LinLibertineCapitalsOI"
 libertineIt["scfamilyname"] = "Linux Libertine Capitals O"
 libertineIt["scfullname"] = "Linux Libertine Capitals O Italic"
-libertineIt["scweight"] = "Book"
+libertineIt["scweight"] = "Italic"
 libertineIt["ttffontname"] = "LinLibertineI"
 libertineIt["ttffamilyname"] = "Linux Libertine"
 libertineIt["ttffullname"] = "Linux Libertine Italic"
-libertineIt["ttfweight"] = "Book"
+libertineIt["ttfweight"] = "Italic"
 libertineIt["texfilename"] = "fxlri"
 fonts["LinLibertineOI"] = libertineIt;
 
@@ -112,19 +112,19 @@ fonts["LinLibertineCapitalsOI"] = libertineItSc;
 
 # LIBERTINE Bold Italic
 libertineBi = {};
-libertineBi["filename"] = "LinLibertine_BI"
+libertineBi["filename"] = "LinLibertine_RBI"
 libertineBi["familyname"] = "Linux Libertine O"
 libertineBi["fullname"] = "Linux Libertine O Bold Italic"
-libertineBi["weight"] = "Bold"
+libertineBi["weight"] = "Bold Italic"
 libertineBi["scfilename"] = "LinLibertine_BiSc"
 libertineBi["scfontname"] = "LinLibertineCapitalsOBI"
 libertineBi["scfamilyname"] = "Linux Libertine Capitals O"
 libertineBi["scfullname"] = "Linux Libertine Capitals O Bold Italic"
-libertineBi["scweight"] = "Bold"
+libertineBi["scweight"] = "Bold Italic"
 libertineBi["ttffontname"] = "LinLibertineBI"
 libertineBi["ttffamilyname"] = "Linux Libertine"
 libertineBi["ttffullname"] = "Linux Libertine Bold Italic"
-libertineBi["ttfweight"] = "Bold"
+libertineBi["ttfweight"] = "Bold Italic"
 libertineBi["texfilename"] = "fxlbi"
 fonts["LinLibertineOBI"] = libertineBi;
 
@@ -139,7 +139,7 @@ fonts["LinLibertineCapitalsOBI"] = libertineBiSc;
 #####################################################################
 # BIOLINUM
 biolinumRe = {};
-biolinumRe["filename"] = "LinBiolinum_Re"
+biolinumRe["filename"] = "LinBiolinum_R"
 biolinumRe["familyname"] = "Linux Biolinum O"
 biolinumRe["fullname"] = "Linux Biolinum O"
 biolinumRe["weight"] = "Book"
@@ -203,7 +203,7 @@ fonts["LinBiolinumCapitalsO"] = biolinumReSc;
 
 # BIOLINUM Italic
 biolinumIt = {};
-biolinumIt["filename"] = "LinBiolinum_It"
+biolinumIt["filename"] = "LinBiolinum_RI"
 biolinumIt["familyname"] = "Linux Biolinum O"
 biolinumIt["fullname"] = "Linux Biolinum O Italic"
 biolinumIt["weight"] = "Book"
@@ -254,7 +254,7 @@ fonts["LinBiolinumCapitalsOI"] = biolinumReSc;
 
 # BIOLINUM Bold
 biolinumBd = {};
-biolinumBd["filename"] = "LinBiolinum_Bd"
+biolinumBd["filename"] = "LinBiolinum_RB"
 biolinumBd["familyname"] = "Linux Biolinum O"
 biolinumBd["fullname"] = "Linux Biolinum O Bold"
 biolinumBd["weight"] = "Bold"
@@ -318,7 +318,7 @@ fonts["LinBiolinumCapitalsOB"] = biolinumBdSc;
 
 # BIOLINUM
 biolinumKb = {};
-biolinumKb["filename"] = "LinBiolinum_Kb"
+biolinumKb["filename"] = "LinBiolinum_K"
 biolinumKb["familyname"] = "Linux Biolinum Keyboard O"
 biolinumKb["fullname"] = "Linux Biolinum Keyboard O"
 biolinumKb["weight"] = "Regular"
