@@ -44,6 +44,8 @@ fnt.fontname = fontnames["scfontname"];
 fnt.familyname = fontnames["scfamilyname"];
 fnt.fullname = fontnames["scfullname"];
 fnt.weight = fontnames["scweight"];
+style = fontnames["scstyle"];
+fnt.appendSFNTName("English (US)", "SubFamily", style)
 
 for g in fnt.glyphs():
    if g.glyphname.endswith('.sc'):
@@ -58,7 +60,7 @@ for g in fnt.glyphs():
          print "###   " + g.glyphname + " (" + str(g.unicode) + ")";
          print "###   ---> " + ng + ": no slot found!";
 
-outname = sys.argv[2] + "/" + filename + "-" + fnt.version + ".sfd"
+outname = sys.argv[2] + "/" + filename + ".sfd"
 fnt.save(outname)
 print "###    saved as " + outname
 

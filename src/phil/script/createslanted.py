@@ -46,11 +46,13 @@ fnt.fontname = fontnames["slfontname"];
 fnt.familyname = fontnames["slfamilyname"];
 fnt.fullname = fontnames["slfullname"];
 fnt.weight = fontnames["slweight"];
+style = fontnames["slstyle"];
+fnt.appendSFNTName("English (US)", "SubFamily", style)
 
 fnt.selection.all()
 fnt.transform(angle)
 
-outname = sys.argv[2] + "/" + filename + "-" + fnt.version + ".sfd"
+outname = sys.argv[2] + "/" + filename + ".sfd"
 fnt.save(outname)
 print "###    saved as " + outname
 

@@ -43,6 +43,8 @@ filename = fontnames["filename"];
 fnt.familyname = fontnames["familyname"];
 fnt.fullname = fontnames["fullname"];
 fnt.weight = fontnames["weight"];
+style = fontnames["style"];
+fnt.appendSFNTName("English (US)", "SubFamily", style)
 
 fnt.selection.all()
 for layer in fnt.layers:

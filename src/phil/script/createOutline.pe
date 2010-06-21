@@ -22,11 +22,11 @@ SelectAll()
 UnlinkReference()
 RemoveOverlap()
 #
-# Outline(width) 
+# Outline(width)
 Outline(10)
 #
-Print("### save " + $2 + "/" + $3 + "-" + $8 + ".sfd")
-Save($2 + "/" + $3 + "-" + $8 + ".sfd")
+Print("### save " + $2 + "/" + $3 +  ".sfd")
+Save($2 + "/" + $3 +  ".sfd")
 #
 Close()
 Quit()

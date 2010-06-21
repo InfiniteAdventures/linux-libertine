@@ -47,6 +47,8 @@ fontname = fontnames["shfontname"];
 familyname = fontnames["shfamilyname"];
 fullname = fontnames["shfullname"];
 weight = fontnames["shweight"];
+style = fontnames["shstyle"];
+# fnt.appendSFNTName("English (US)", "SubFamily", style)
 
 # $1 sfd-file
 # $2 out-dir
