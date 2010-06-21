@@ -21,7 +21,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 0
 CreationTime: 1156455862
-ModificationTime: 1276441849
+ModificationTime: 1277123710
 PfmFamily: 33
 TTFWeight: 700
 TTFWidth: 5
@@ -390,7 +390,7 @@ ShortTable: cvt  28
   75
   92
 EndShort
-LangName: 1033 "" "" "" "" "" "" "" "" "Philipp H. Poll" "Philipp H. Poll" "" "http://linuxlibertine.sf.net" "http://linuxlibertine.sf.net" "GPL- General Public License AND OFL-Open Font License" "http://www.fsf.org/licenses/gpl.html AND http://scripts.sil.org/OFL" 
+LangName: 1033 "" "" "Regular" "" "" "" "" "" "Philipp H. Poll" "Philipp H. Poll" "" "http://linuxlibertine.sf.net" "http://linuxlibertine.sf.net" "GPL- General Public License AND OFL-Open Font License" "http://www.fsf.org/licenses/gpl.html AND http://scripts.sil.org/OFL" 
 GaspTable: 3 8 2 17 1 65535 3
 Encoding: UnicodeBmp
 UnicodeInterp: none
