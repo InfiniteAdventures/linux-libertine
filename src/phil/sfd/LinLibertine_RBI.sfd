@@ -21,7 +21,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 0
 CreationTime: 1162161130
-ModificationTime: 1277123725
+ModificationTime: 1277186828
 PfmFamily: 17
 TTFWeight: 700
 TTFWidth: 5
@@ -67,7 +67,7 @@ Lookup: 257 0 0 "'lfbd' Left Bounds in Latin lookup 2"  {"'lfbd' Left Bounds in 
 Lookup: 257 0 0 "'rtbd' Rechte R+AOQA-nder in Latin lookup 3"  {"'rtbd' Rechte R+AOQA-nder in Latin lookup 3"  } ['rtbd' ('latn' <'dflt' > ) ]
 MarkAttachClasses: 1
 DEI: 91125
-LangName: 1033 "" "" "Italic" "" "" "" "" "" "Philipp H. Poll" "Philipp H. Poll" "" "http://linuxlibertine.sf.net" "http://linuxlibertine.sf.net" "GPL - General Public License AND OFL - Open Font License" "http://www.fsf.org/licenses/gpl.html AND http://scripts.sil.org/OFL" 
+LangName: 1033 "" "" "Bold Italic" "" "" "" "" "" "Philipp H. Poll" "Philipp H. Poll" "" "http://linuxlibertine.sf.net" "http://linuxlibertine.sf.net" "GPL - General Public License AND OFL - Open Font License" "http://www.fsf.org/licenses/gpl.html AND http://scripts.sil.org/OFL" 
 Encoding: UnicodeBmp
 UnicodeInterp: none
 NameList: Adobe Glyph List
