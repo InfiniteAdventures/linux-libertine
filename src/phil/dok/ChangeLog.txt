@@ -1,10 +1,60 @@
-LOFP -- http://linuxlibertine.sf.net
+Libertine Open Fonts Project -- http://www.linuxlibertine.org
 
-Please note: The underlined variant is recently not being maintained because 
-its concept doesnt seem to be sofware-technically reliable and because of lack of interest. 
+Changes to version 4.8.0 regular(-) & italic(/) & capitals (C) (20100430)
+20100630 Libertine regular:
+- k is now wider (as wide as the n)
+- s right border increased from 32 -> 40
+- c right border increased from 25 -> 30
+- y left border decreased from 20 -> 16
+- z more organic shape an better grey value
+- n,m,h,u 6 EM wider
+- Bug #3019031: emacron with wrong accent (mark instead of base)
+- Bug #3014435: y.alt adapted to new glyph form and added to opentype substitution tables "salt" and "alt"
+- Hebrew letters improved
+- Bug #3004241: opentype substitution -> f.short and dotlessi will now be substituted by the relating small capital forms
+- Bug #3012358: Line spacing problem on windows photoshop. Try: Use Linespacing-field 0-> 180 (at first only in Libertine Regular for testing)
 
-Changes to version 4.5. regular(-) & italic(/) & capitals (C) (20090321)
+Changes to version 4.7.0 regular(-) & italic(/) & capitals (C) (20100430)
 
+- All styles: Reported bugs fixed.
+
+- Libertine regular:
+	- added missing anchors for i, idieresis, ccaron, scaron
+	- added missing characters accent uni0364 and glyph uni1D15
+	- completed combining accented chars block 0300-036F
+	-ij-Ligature more space between the glyphs, dot of j is slightly higher
+	-i,j,... more distinctive dotaccent and higher position
+	-r,f,j,y changes in the drop, which became more distinctive 
+	- h slightl wider
+	- e slightly wider
+	- moved [a-z].superior from PUA to dedicated Unicode positions
+	- crossed form of W for new Wikipedia-logo
+
+- Biolinum Bold: numerous improvements in following glyphs:
+	- a
+	- i, j, ä, ö, ü...
+	- w, v
+	- e
+	- f, ß
+	- c
+	- m, n
+	- b, d
+	- s
+	- kerning faults corrected
+	- numbers 0 - 9
+	- komma , hyphen -, numbersign #
+	- f
+	- A-Z slightly thinner verticals
+	- R, P better bows
+
+
+- added small cyrillic m (uni043C) to Biolinum and some other missing cyrillics (not yet all done...)
+- Inverted Interrobang (uni2E18) added
+- Add Substitution/Transposition brackets 2E02-0A
+- macroncmb (uni0304) had a wrong positioned mark anchor and was thus flying much to high
+- Problems with Fractions (ID 2665656): without a contextual chaining substitution fractions like 1/7 or 1/10, that don't have a concrete Unicode-posistion, were unavailible. Now solved via contextual chaining substitution.
+- bold: ck, ch-ligature's part characters were a bit close. Now some more space between them
+- diacritic U+031A was wrongly placed. Is now being positioned above-right. New anchor is called top_rechts
 - corrected s_t-ligature in biolinum bold
 Ingo Preuss points out thatsome glyphs were wrongly named:
 - uni0237 is now called dotlessj (instead of uniF6BE, which was wrongly named 
