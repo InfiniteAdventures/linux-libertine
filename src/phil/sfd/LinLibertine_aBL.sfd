@@ -21,7 +21,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 0
 CreationTime: 1156455862
-ModificationTime: 1277182105
+ModificationTime: 1278176201
 PfmFamily: 17
 TTFWeight: 700
 TTFWidth: 5
@@ -69,6 +69,7 @@ Lookup: 1 0 0 "'case' Versalformen"  {"LinLibertine-'case' Versalformen 1"  } ['
 Lookup: 257 0 0 "'cpsp' Versalabstaende"  {"'cpsp' Versalabstaende 1"  } ['cpsp' ('DFLT' <'dflt' > 'cyrl' <'dflt' > 'grek' <'dflt' > 'latn' <'AZE ' 'CRT ' 'DEU ' 'MOL ' 'ROM ' 'TRK ' 'dflt' > ) ]
 Lookup: 260 0 0 "'mark' Markenpositionierung"  {"'mark' Mark Positioning in Hebrew lookup 0"  "'mark' Mark Positioning lookup 1"  "'mark' Mark Positioning lookup 2"  "'mark' Mark Positioning lookup 3"  "'mark' Mark Positioning lookup 4"  "'mark' Mark Positioning lookup 5"  } ['mark' ('DFLT' <'dflt' > 'cyrl' <'dflt' > 'grek' <'dflt' > 'latn' <'AZE ' 'CRT ' 'DEU ' 'MOL ' 'ROM ' 'TRK ' 'dflt' > ) ]
 Lookup: 258 0 0 "'kern' Kerning"  {"'kern' Kerning 1"  } ['kern' ('DFLT' <'dflt' > 'cyrl' <'dflt' > 'grek' <'dflt' > 'latn' <'AZE ' 'CRT ' 'DEU ' 'MOL ' 'ROM ' 'TRK ' 'dflt' > ) ]
+MarkAttachClasses: 1
 DEI: 91125
 KernClass2: 22 20 "'kern' Kerning 1" 
  19 f longs uni1E1F f_f
@@ -577,7 +578,7 @@ ShortTable: cvt  27
 EndShort
 LangName: 1033 "" "" "Bold Slanted" "" "" "" "" "" "Philipp H. Poll" "Philipp H. Poll" "" "http://linuxlibertine.sf.net" "http://linuxlibertine.sf.net" "GPL- General Public License AND OFL-Open Font License" "http://www.fsf.org/licenses/gpl.html AND http://scripts.sil.org/OFL" 
 GaspTable: 3 8 2 17 1 65535 3
-Encoding: Custom
+Encoding: UnicodeBmp
 UnicodeInterp: none
 NameList: Adobe Glyph List
 DisplaySize: -96
