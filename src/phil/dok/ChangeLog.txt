@@ -13,6 +13,12 @@ Changes to version 4.8.0 regular(-) & italic(/) & capitals (C) (20100430)
 - Hebrew letters improved
 - Bug #3004241: opentype substitution -> f.short and dotlessi will now be substituted by the relating small capital forms
 - Bug #3012358: Line spacing problem on windows photoshop. Try: Use Linespacing-field 0-> 180 (at first only in Libertine Regular for testing)
+- T, Z changes to the serifs and more organic shape
+- Added A.alt as a test of a more organic A
+- improved Hebrew glyphs and mark to base positioning
+- numbers scaled up by 5% because many complanied they were to small
+- new Indian Rupee symbol uni20A8
+- improvements in the Biolinum bold
 
 Changes to version 4.7.0 regular(-) & italic(/) & capitals (C) (20100430)
 
