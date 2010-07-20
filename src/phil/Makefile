@@ -31,22 +31,22 @@ TTFFILES=$(patsubst $(SOURCE_SFDSVN)/%, $(OUTPUT_TTF)/%,  $(patsubst %.sfd, %.tt
 OTFFILES=$(patsubst $(SOURCE_SFDSVN)/%, $(OUTPUT_OTF)/%,  $(patsubst %.sfd, %.otf ,$(SFDSVNFILES)))
 
 
-all: init 
+all: init
 
 $(OUTPUT_SFD)/%.sfd : $(SOURCE_SFDORG)/%.sfd
-	@$(SOURCE_FFSCRIPT)/copysfd.py $< $(OUTPUT_SFD) 
+	@$(SOURCE_FFSCRIPT)/copysfd.py $< $(OUTPUT_SFD)
 
 $(OUTPUT_SFD_SL)/%.sfd : $(OUTPUT_SFD)/%.sfd
-	@$(SOURCE_FFSCRIPT)/createslanted.py $< $(OUTPUT_SFD_SL) 
+	@$(SOURCE_FFSCRIPT)/createslanted.py $< $(OUTPUT_SFD_SL)
 
 $(OUTPUT_SFD_SC)/%.sfd : $(OUTPUT_SFD)/%.sfd
-	@$(SOURCE_FFSCRIPT)/createsmallcaps.py $< $(OUTPUT_SFD_SC) 
+	@$(SOURCE_FFSCRIPT)/createsmallcaps.py $< $(OUTPUT_SFD_SC)
 
 $(OUTPUT_SFD_OT)/%.sfd : $(OUTPUT_SFD)/%.sfd
-	@$(SOURCE_FFSCRIPT)/createoutline.py $< $(OUTPUT_SFD_OT) 
+	@$(SOURCE_FFSCRIPT)/createoutline.py $< $(OUTPUT_SFD_OT)
 
 $(OUTPUT_SFD_SH)/%.sfd : $(OUTPUT_SFD)/%.sfd
-	@$(SOURCE_FFSCRIPT)/createshadow.py $< $(OUTPUT_SFD_SH) 
+	@$(SOURCE_FFSCRIPT)/createshadow.py $< $(OUTPUT_SFD_SH)
 
 copysfd: init $(SFDOUTFILES)
 
@@ -58,30 +58,21 @@ createoutline: init $(TARGETSFDFILESOT)
 
 createshadow: init $(TARGETSFDFILESSH)
 
-otf: init $(OTFFILES) 
+otf: init $(OTFFILES)
 
-ttf: init $(TTFFILES) 
+ttf: init $(TTFFILES)
 
-copysvn: copysfd
-	@cp -u $(OUTPUT_SFD)/*.sfd $(SOURCE_SFDSVN)
-	@#cp -u $(OUTPUT_SFD)/*.nam $(SOURCE_SFDSVN)
+copysvn:
+	@# cp -u $(OUTPUT_SFD)/*.sfd $(SOURCE_SFDSVN)
 	@cp -u $(OUTPUT_SFD_SL)/*.sfd $(SOURCE_SFDSVN)
 	@cp -u $(OUTPUT_SFD_SC)/*.sfd $(SOURCE_SFDSVN)
 	@cp -u $(OUTPUT_SFD_OT)/*.sfd $(SOURCE_SFDSVN)
 	@cp -u $(OUTPUT_SFD_SH)/*.sfd $(SOURCE_SFDSVN)
 
 copysfdorg: init
-	@cp -u $(SOURCE_SFDSVN)/LinBiolinum_Re-*.sfd $(SOURCE_SFDORG)
-	@cp -u $(SOURCE_SFDSVN)/LinBiolinum_Bd-*.sfd $(SOURCE_SFDORG)
-	@cp -u $(SOURCE_SFDSVN)/LinBiolinum_It-*.sfd $(SOURCE_SFDORG)
-	@cp -u $(SOURCE_SFDSVN)/LinBiolinum_Kb-*.sfd $(SOURCE_SFDORG)
-	@#cp -u $(SOURCE_SFDSVN)/LinBiolinum_OT-*.sfd $(SOURCE_SFDORG)
-	@#cp -u $(SOURCE_SFDSVN)/LinBiolinum_SH-*.sfd $(SOURCE_SFDORG)
-	@cp -u $(SOURCE_SFDSVN)/LinLibertine_Re-*.sfd $(SOURCE_SFDORG)
-	@cp -u $(SOURCE_SFDSVN)/LinLibertine_Bd-*.sfd $(SOURCE_SFDORG)
-	@cp -u $(SOURCE_SFDSVN)/LinLibertine_BI-*.sfd $(SOURCE_SFDORG)
-	@cp -u $(SOURCE_SFDSVN)/LinLibertine_It-*.sfd $(SOURCE_SFDORG)
-	
+	@cp -u $(SOURCE_SFDSVN)/LinBiolinum_[^a]*.sfd $(OUTPUT_SFD)
+	@cp -u $(SOURCE_SFDSVN)/LinLibertine_[^a]*.sfd $(OUTPUT_SFD)
+
 createtar: ttf otf
 	@echo "### creating tar files..."
 	@mkdir -p $(OUTPUT_TAR)/sfd
@@ -131,4 +122,3 @@ clean: cleantmp
 	@echo "### cleaning..."
 	-@rm -rf $(TARGET)
 
-	
