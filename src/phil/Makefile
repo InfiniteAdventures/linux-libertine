@@ -62,6 +62,9 @@ otf: init $(OTFFILES)
 
 ttf: init $(TTFFILES)
 
+copysvnbasic:
+	@cp -u $(OUTPUT_SFD)/*.sfd $(SOURCE_SFDSVN)
+
 copysvn:
 	@# cp -u $(OUTPUT_SFD)/*.sfd $(SOURCE_SFDSVN)
 	@cp -u $(OUTPUT_SFD_SL)/*.sfd $(SOURCE_SFDSVN)
