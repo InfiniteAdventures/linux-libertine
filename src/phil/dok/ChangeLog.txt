@@ -21,6 +21,9 @@ Changes to version 4.8.0 regular(-) & italic(/) & capitals (C) (20100430)
 - improvements in the Biolinum bold
 - moved styleset 04 > 06
 - new style set 04: versal eszett and small capital eszett is substituted by double S (SS) resp. double smal caps ss (ss).
+-q_u.sc Xavier points out, that a small caps qu-ligature is missing. Added to codepoint uniE094. Added Qu.sc to Libertine Bold
+-uni2124 etc. for bold, bolditalic...
+
 
 Changes to version 4.7.0 regular(-) & italic(/) & capitals (C) (20100430)
 
