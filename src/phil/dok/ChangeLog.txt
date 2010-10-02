@@ -1,6 +1,19 @@
 Libertine Open Fonts Project -- http://www.linuxlibertine.org
 
 Changes to version 4.8.0 regular(-) & italic(/) & capitals (C) (20100430)
+201009 complete redesign of Libertine Bold
+all common letters are now further embolded. The former Bold style is now
+regarded as Semi-Bold.
+
+
+- Libertine Bold -> Libertine Semibold
+- new Libertine Bold
+- A-Z and accented gylphs
+- a-7 and accented glyphs
+- 0-9 and derivates
+Libertine stemwidth put into perspective: Regular (80) - Semibold (110) - Bold
+(130)
+
 20100630 Libertine regular:
 - k is now wider (as wide as the n)
 - s right border increased from 32 -> 40
@@ -9,10 +22,13 @@ Changes to version 4.8.0 regular(-) & italic(/) & capitals (C) (20100430)
 - z more organic shape an better grey value
 - n,m,h,u 6 EM wider
 - Bug #3019031: emacron with wrong accent (mark instead of base)
-- Bug #3014435: y.alt adapted to new glyph form and added to opentype substitution tables "salt" and "alt"
+- Bug #3014435: y.alt adapted to new glyph form and added to opentype
+substitution tables "salt" and "alt"
 - Hebrew letters improved
-- Bug #3004241: opentype substitution -> f.short and dotlessi will now be substituted by the relating small capital forms
-- Bug #3012358: Line spacing problem on windows photoshop. Try: Use Linespacing-field 0-> 180 (at first only in Libertine Regular for testing)
+- Bug #3004241: opentype substitution -> f.short and dotlessi will now be
+substituted by the relating small capital forms
+- Bug #3012358: Line spacing problem on windows photoshop. Try: Use
+Linespacing-field 0-> 180 (at first only in Libertine Regular for testing)
 - T, Z changes to the serifs and more organic shape
 - Added A.alt as a test of a more organic A
 - improved Hebrew glyphs and mark to base positioning
@@ -20,8 +36,10 @@ Changes to version 4.8.0 regular(-) & italic(/) & capitals (C) (20100430)
 - new Indian Rupee symbol uni20A8
 - improvements in the Biolinum bold
 - moved styleset 04 > 06
-- new style set 04: versal eszett and small capital eszett is substituted by double S (SS) resp. double smal caps ss (ss).
--q_u.sc Xavier points out, that a small caps qu-ligature is missing. Added to codepoint uniE094. Added Qu.sc to Libertine Bold
+- new style set 04: versal eszett and small capital eszett is substituted by
+double S (SS) resp. double smal caps ss (ss).
+-q_u.sc Xavier points out, that a small caps qu-ligature is missing. Added to
+codepoint uniE094. Added Qu.sc to Libertine Bold
 -uni2124 etc. for bold, bolditalic...
 
 
@@ -42,7 +60,8 @@ Changes to version 4.7.0 regular(-) & italic(/) & capitals (C) (20100430)
 	- crossed form of W for new Wikipedia-logo
 	- new capital Eng
 	- New extended latin characters
-        -issue 3025163fixed: placed the anchor now below the g-bowl. Same for q, p, and j.
+        -issue 3025163fixed: placed the anchor now below the g-bowl. Same for q,
+p, and j.
 	-180° degree symmetry for the o and O
 
 - Biolinum Bold: numerous improvements in following glyphs:
@@ -63,13 +82,20 @@ Changes to version 4.7.0 regular(-) & italic(/) & capitals (C) (20100430)
 	- R, P better bows
 
 
-- added small cyrillic m (uni043C) to Biolinum and some other missing cyrillics (not yet all done...)
+- added small cyrillic m (uni043C) to Biolinum and some other missing cyrillics
+(not yet all done...)
 - Inverted Interrobang (uni2E18) added
 - Add Substitution/Transposition brackets 2E02-0A
-- macroncmb (uni0304) had a wrong positioned mark anchor and was thus flying much to high
-- Problems with Fractions (ID 2665656): without a contextual chaining substitution fractions like 1/7 or 1/10, that don't have a concrete Unicode-posistion, were unavailible. Now solved via contextual chaining substitution.
-- bold: ck, ch-ligature's part characters were a bit close. Now some more space between them
-- diacritic U+031A was wrongly placed. Is now being positioned above-right. New anchor is called top_rechts
+- macroncmb (uni0304) had a wrong positioned mark anchor and was thus flying
+much to high
+- Problems with Fractions (ID 2665656): without a contextual chaining
+substitution fractions like 1/7 or 1/10, that don't have a concrete
+Unicode-posistion, were unavailible. Now solved via contextual chaining
+substitution.
+- bold: ck, ch-ligature's part characters were a bit close. Now some more space
+between them
+- diacritic U+031A was wrongly placed. Is now being positioned above-right. New
+anchor is called top_rechts
 - corrected s_t-ligature in biolinum bold
 Ingo Preuss points out thatsome glyphs were wrongly named:
 - uni0237 is now called dotlessj (instead of uniF6BE, which was wrongly named 
@@ -81,10 +107,13 @@ In the following cases names were corrected, unicode points stayed unchanged
 - Tcommaaccent (uni0162) is now called Tcedilla
 - uni021B is now called tcommaaccent 
 - uni021A is now called Tcommaaccent 
-- the locl-OpenType-substitution for Romanian wasn't changed, because it already worked correctly
+- the locl-OpenType-substitution for Romanian wasn't changed, because it already
+worked correctly
 - orthogonal is now called uni221F
 - sun is now called uni263C 
-- I had to move that .cap-variants of the accents to the PUA, because they covered space where Unicode in between defined new characters. So I systematically moved the .cap-Accents to:
+- I had to move that .cap-variants of the accents to the PUA, because they
+covered space where Unicode in between defined new characters. So I
+systematically moved the .cap-Accents to:
      grave.cap uni0358 -> uniE358 
      acute.cap uni0359 -> uniE359
      circumflex.cap and so forth
@@ -104,10 +133,14 @@ In the following cases names were corrected, unicode points stayed unchanged
 - improved support for POJ (Taiwan transcription)
 - now kerning for kernclasspair p.sc + a.sc 
 - first use of contextual chaining substitution:
-   - when a combining accent follows an i, the dotlessi is used to prevent an accent crash
-   - when one of the accented or leftwarding glyphs such as (ä, V) follow an f, a short neck version of f (f.alt) is being used for optical reasons
+   - when a combining accent follows an i, the dotlessi is used to prevent an
+accent crash
+   - when one of the accented or leftwarding glyphs such as (ä, V) follow an f,
+a short neck version of f (f.alt) is being used for optical reasons
 - Added U+033B COMBINING SQUARE BELOW
-- there was the "space" in a left kern class (together with dot, etc.). This resulted in too few visible room when a "space" should seperate a word from the now beginning quotation. 
+- there was the "space" in a left kern class (together with dot, etc.). This
+resulted in too few visible room when a "space" should seperate a word from the
+now beginning quotation. 
 Italic: Correction of schwa
 
 
@@ -122,31 +155,37 @@ Changes to version 4.4.1 regular(-) & italic(/) & capitals (C) (20090321)
 - new dotaccent.cap-glyph (slightly bigger than dotaccent) for capital glyphs 
 - j slightly improved upper serif (now similar to i)
 - improvements in row of IPA-signs (recent serifs etc)
-- Asterisk has now f-height (a bit lower than before) and lost bearing left and right
+- Asterisk has now f-height (a bit lower than before) and lost bearing left and
+right
 - 0, 2, 3, 4, 5, 6, 7, 8, 9 slight improvements
 - tilde, slight improvements
 - cedilla improved (now somewhat thicker)
 - ae improved
-- C, c, e, t new finely bulged runner (or however you might call the thin end of these letters)
+- C, c, e, t new finely bulged runner (or however you might call the thin end of
+these letters)
 - brought some ligatures up to recent baseglyph form
 - florin improved
 - dansk ring accent improved -> aring
-- comma accent improved, in characters with this accent the latter have now the same vertical position
+- comma accent improved, in characters with this accent the latter have now the
+same vertical position
 - roman numbers improved
 - and many smaller things I forgot to note
 - as well as hopefully all that I marked as "solved" in the bug tracker
-- same height for underbar in unicode positions as well in combined chars with uni0331 (same with italic)
+- same height for underbar in unicode positions as well in combined chars with
+uni0331 (same with italic)
 - frac-table: wrong entry "three fraction eight -> fiveeights" corrected
 - Glyph-naming synchronized for
 Biolinum Re, Biolinum Bd, 
 - uni0361 (ligature symbol) and 035C (ligature aubsymbol)added
 - uni033B (quadratic subaccent) added
-- vertical position of combining-accent-macron and true macron-unicode-glyphs equalized
+- vertical position of combining-accent-macron and true macron-unicode-glyphs
+equalized
 
 
 Changes to version 4.1.8 regular(-) & italic(/) & capitals (C) (20081103)
 - finer and more organic serifs for nearly all glyphs
-- basic EM-background proportion changed to 726 (above base line) and 472 (below the baseline) 
+- basic EM-background proportion changed to 726 (above base line) and 472 (below
+the baseline) 
 - Fonts bounds/linespacing in TTF and OTF adjusted
 - E, F: a bit thinner now
 - A,V,W,v,w design improvements in diagonals
@@ -164,21 +203,32 @@ Changes to version 4.1.8 regular(-) & italic(/) & capitals (C) (20081103)
 
 
 
-Changes to version 2.9 (unreleased) regular(-) & italic(/) & capitals (C) (20080619)
-- There was a compiling-problem with the LinLibertine_Re-2.8.14.otf that caused a unusable GSUB-table. Though outline-information seemed to be unaffected MacOSX didn’t want to intall it. This version should be without this bug, the reason for the old bug could not be discovered.
-- Change in the OpenType-Substitution table (different order of interpretation: sups and sinf should be substituted even if oldstyle flag is also set.
+Changes to version 2.9 (unreleased) regular(-) & italic(/) & capitals (C)
+(20080619)
+- There was a compiling-problem with the LinLibertine_Re-2.8.14.otf that caused
+a unusable GSUB-table. Though outline-information seemed to be unaffected MacOSX
+didn’t want to intall it. This version should be without this bug, the reason
+for the old bug could not be discovered.
+- Change in the OpenType-Substitution table (different order of interpretation:
+sups and sinf should be substituted even if oldstyle flag is also set.
 / True Cyrrillic italics for the italic variant
 / new “a” for the italic, also thinner p, n, m and e
 / Some stylistic improvements for italic numbers
 / new @ for the italic
 - further kerning
 / improved accented characters in the italic variant 
-- Q’s tail is now more harmonic and looks as drawn out of the O and not as just clipped to the bottom
+- Q’s tail is now more harmonic and looks as drawn out of the O and not as just
+clipped to the bottom
 - Qu (Q_u) has been improved and is now standard ligature
 - new form for s_t- and c_t-ligature, Thanks to Nathan!
-- OpenType-GSUB-table has been improved. New functionality for Romanian and Moldavian (comma-accent instead of cedilla), for Turky (idotaccent.sc is chosen when Tyrkish is default language, otherwiese i.sc is the small capital form used; f_i_()-ligatures are set off in Turkish because it hinders the differenciation of f-i and f-dotlessi in that language.
+- OpenType-GSUB-table has been improved. New functionality for Romanian and
+Moldavian (comma-accent instead of cedilla), for Turky (idotaccent.sc is chosen
+when Tyrkish is default language, otherwiese i.sc is the small capital form
+used; f_i_()-ligatures are set off in Turkish because it hinders the
+differenciation of f-i and f-dotlessi in that language.
 / Italic variant now uses the same perfect OpenType-GSUB as the regular.
-/ new a.sc for the italic. Adding missing sc-glyphs, bring others to the latest design.
+/ new a.sc for the italic. Adding missing sc-glyphs, bring others to the latest
+design.
 
 
 
@@ -191,7 +241,8 @@ Changes to version 2.8.14 regular(|) & italic(/) & capitals (20080619)
 - some small corrections as usual
 - slavonic church signs added
 - Added cartouches for numbers between 0 and 99 at uniE128 till uniE12A
-- Change punctuationspace to width of fullstop (.) It is now 450 of width and not 350.
+- Change punctuationspace to width of fullstop (.) It is now 450 of width and
+not 350.
 
 
 Changes to version 2.7.9 regular(|) & italic(/) & capitals (20071228)
@@ -260,7 +311,8 @@ All above corrected
 >the fonts in the family use. (E.g. it would actually be easier if the
 >ligatures were named ff, fi, fl etc. but since only a few are named in that
 >way, I assume f_f, f_i, f_l etc. are the intended names.)
-These are actually the names Adobe defined for ligatures in OpenTypes always a_b_c...
+These are actually the names Adobe defined for ligatures in OpenTypes always
+a_b_c...
 
 >The inconsistent naming of glyphs and the use of names for blank glyphs
 >make installing for use with pdftex significantly more complex and much
@@ -269,7 +321,8 @@ Yes, this is true. That was of course a bug.
 
 >I don't know how it affects other uses
 >of the fonts, however.
-Wrong PS-Names affect just OpenType-capable programs. Normal office use is not affected.
+Wrong PS-Names affect just OpenType-capable programs. Normal office use is not
+affected.
  
 >The examples I've given are those which were most
 >important to me when preparing metric files and virtual fonts for use with
@@ -285,47 +338,65 @@ Wrong PS-Names affect just OpenType-capable programs. Normal office use is not a
 
 
 Changes to version 2.7.9 regular(|) & italic(/) & capitals (20071228)
-- new Hinting! Now it is possible to use Libertine with Word on Windows properly. The shape on screen should be clearer now on every system!
+- new Hinting! Now it is possible to use Libertine with Word on Windows
+properly. The shape on screen should be clearer now on every system!
 - new kern pairs for better typography
 - some wrong contour directions corrected
 - many small corrections
 - OT "fina" has been removed from wordend-sigma
 - countless small improvements
 - kerning for Caps variant
-- the conflict (that came up lately with a library update) between underlined and regular is diminished
+- the conflict (that came up lately with a library update) between underlined
+and regular is diminished
 
 
 Changes to version 2.6.9 regular(|) & italic(/) & capitals (20070423)
 
 Gernerally: 
 	- Symbols for „page“, „graph“, „picture“ and „table“ added
-	- Oldstyle numbers (minuscle numbers) were just contained as proportionals. Somebody wanted them also as table numbers. Ladder became standard oldstyles now. Some of these glyphs look somewhat thinner to fit them on the fixed width.
-	-bold italic variant had a wrong style entry which seemed to confuse Mac's fonthandling, also other style confusions should be fixed now
-	-bold italic also had wrong metrics which resulted in a cutoff of glyph parts and wrong line spacing.
+	- Oldstyle numbers (minuscle numbers) were just contained as
+proportionals. Somebody wanted them also as table numbers. Ladder became
+standard oldstyles now. Some of these glyphs look somewhat thinner to fit them
+on the fixed width.
+	-bold italic variant had a wrong style entry which seemed to confuse
+Mac's fonthandling, also other style confusions should be fixed now
+	-bold italic also had wrong metrics which resulted in a cutoff of glyph
+parts and wrong line spacing.
 
 German interests:
 	-großes Eszett hinzugefügt (uni1E9E) entsprechend Kapitälchen-Eszett
-	-kleines Eszett so verändert, dass es zum großen passt (ſz statt  ſs), das vorige Eszett ist als germandbls.alt weiterenthalten
-	-Im Stilsatz ss03 kann für Schweizer nun automatisch von Eszetts auf ss umgestellt werden.
-	-die dt. ÄÖÜ sind nun von der Alternativposition an die rechte Stelle gerückt. Für die nichtdeutschsprachige Nutzung empfehlen sich jetzt die (vormals standart, jetzt aber auf die Alternativposition gewechselten Akzentuierten)
+	-kleines Eszett so verändert, dass es zum großen passt (ſz statt  ſs),
+das vorige Eszett ist als germandbls.alt weiterenthalten
+	-Im Stilsatz ss03 kann für Schweizer nun automatisch von Eszetts auf ss
+umgestellt werden.
+	-die dt. ÄÖÜ sind nun von der Alternativposition an die rechte Stelle
+gerückt. Für die nichtdeutschsprachige Nutzung empfehlen sich jetzt die (vormals
+standart, jetzt aber auf die Alternativposition gewechselten Akzentuierten)
 
 Cyrillic:
-	Due to A. Panovs help hopefully a lot of design impriovements for the cyrrilic alphabet. 
-	Mainly: Є Љ Њ Б З Ф Ш Щ Ъ Ы Ь Э Ю Ө (and its small letter derivates) For details:
+	Due to A. Panovs help hopefully a lot of design impriovements for the
+cyrrilic alphabet. 
+	Mainly: Є Љ Њ Б З Ф Ш Щ Ъ Ы Ь Э Ю Ө (and its small letter derivates) For
+details:
 		("Ь" in regular typeface has extra contour at left bottom.)
 		--corrected--
 
-		Lower part of "Ь" and "Ъ" (and for lowercase letters "ь", "ы", "ъ",
-		"ѣ") differ. I think the letter "Ь" (or "ь" for lowercase) should be
+		Lower part of "Ь" and "Ъ" (and for lowercase letters "ь", "ы",
+"ъ",
+		"ѣ") differ. I think the letter "Ь" (or "ь" for lowercase)
+should be
 		used as base for others.
 
-		("Ф" is still slightly asymmetric with respect to vertical axis. It may produce artefacts with rendering.)
+		("Ф" is still slightly asymmetric with respect to vertical axis.
+It may produce artefacts with rendering.)
 		--corrected--
 
-		(Middle vertical stems in "Ш", "Щ" have not rounded lower edges.)
+		(Middle vertical stems in "Ш", "Щ" have not rounded lower
+edges.)
 		--corrected--
 
-		("Ш", "ш" are not quite symmetric agains middle vertical axis (all
+		("Ш", "ш" are not quite symmetric agains middle vertical axis
+(all
 		typefaces). "Щ", "щ" must be updated accordingly.)
 		--corrected--
 
@@ -333,13 +404,17 @@ Cyrillic:
 		tilde-like. )
 		OK, then tilde-like.
 
-		(The designer decides which version should be selected. Some other letters should follow this decision: U+0472, U+04E8, U+0404, etc.)
+		(The designer decides which version should be selected. Some
+other letters should follow this decision: U+0472, U+04E8, U+0404, etc.)
 		--corrected--
 
-		(The capital letters U+0472 and U+04E8 usually are identical, excepting the case of archaic (before ca. XVIII century) form of U+0472.) 
+		(The capital letters U+0472 and U+04E8 usually are identical,
+excepting the case of archaic (before ca. XVIII century) form of U+0472.) 
 		--corrected--
 
-		(The U+0473 frequently is narrower than "o" and U+04E9. In case of a tilde-tongue in "Э" a tongue in U+0404 is not flipped, i.e. it has the same diriction as in "Э".)
+		(The U+0473 frequently is narrower than "o" and U+04E9. In case
+of a tilde-tongue in "Э" a tongue in U+0404 is not flipped, i.e. it has the same
+diriction as in "Э".)
 		--corrected--
 
 Small Caps:
@@ -347,26 +422,36 @@ Small Caps:
 	- FO-overlap (due to wrong kerning entry) removed
 
 Bolded:
-	- Complete revision of the bold version. Should result in a clearer shape and better thin-width-contrast
+	- Complete revision of the bold version. Should result in a clearer
+shape and better thin-width-contrast
 
 OpenType: 
-	- Due to better support in the FontForge editor the OpenType-tables have been completely redefined.
+	- Due to better support in the FontForge editor the OpenType-tables have
+been completely redefined.
 
 
 
 Changes to version 2.5.9 regular(|) & italic(/) & capitals (20070423)
 - countless improvements as usual
 - some unicode standard optimizations (NUL-glyph, .notdef, ...)
-- U+0180 group of charakters were sometimes not the way the latest unicode wants them so we changed them. This refers mainly to the differentiation of capital and small letters
-- Vietnamese horned vokals have been changed the way, that the horn is now always at the same hight. All accented vietnamese glyphs were revised
+- U+0180 group of charakters were sometimes not the way the latest unicode wants
+them so we changed them. This refers mainly to the differentiation of capital
+and small letters
+- Vietnamese horned vokals have been changed the way, that the horn is now
+always at the same hight. All accented vietnamese glyphs were revised
 - some optic improvements in placement of accents
-- added a capital variant of hookabove and changed all the capital letters to this new hookabove form. It is wider and lower for better line-holding
-- kerning was greatly improved, i.e.: Kombinations like "f)", "f?", "(j"... shouldn't overlap anymore. Capital letter words should now be better spaced.
+- added a capital variant of hookabove and changed all the capital letters to
+this new hookabove form. It is wider and lower for better line-holding
+- kerning was greatly improved, i.e.: Kombinations like "f)", "f?", "(j"...
+shouldn't overlap anymore. Capital letter words should now be better spaced.
 - There was one wrong cyrrilic letter Lje (U+0409). 
-And there were some correct objections to the handling of the downgoing serif in Dzhe/dzhe, De/de, Tse/tse, Shcha/shcha. These now have the same depth and similar form
+And there were some correct objections to the handling of the downgoing serif in
+Dzhe/dzhe, De/de, Tse/tse, Shcha/shcha. These now have the same depth and
+similar form
 - Some small changes in cyrrilics most complex letter Zhe 
 but also in Ef 
-in the hardening and softening signs (should not look like a reversed P but like the bud of the B), 
+in the hardening and softening signs (should not look like a reversed P but like
+the bud of the B), 
 Ya shouldn't look like a flipped R, 
 be had a too right tail, 
 breve.cyr didn't look cyrrillic enough, 
@@ -375,21 +460,31 @@ dje/she have now x-hight-bars
 - due to a bug U+1fc7 (an accented eta) was missing
 - some eagled-eyed person had seen that the U+721 was not at its place
 - perthousandzero added at U+E00E for full LaTex-support
-- some accented smallcaps added to basic font table for LaTex-support (This doesn't affect the Caps-version of Libertine, which already had all these glyphs)
-- removed a cyrrilic opentype entry that substituted N-o with the numberligature because a stupid GNOME environment read out this table entry on a Spanish system and messed up typography...
+- some accented smallcaps added to basic font table for LaTex-support (This
+doesn't affect the Caps-version of Libertine, which already had all these
+glyphs)
+- removed a cyrrilic opentype entry that substituted N-o with the numberligature
+because a stupid GNOME environment read out this table entry on a Spanish system
+and messed up typography...
 
 
 Changes to version 2.4.9 regular(|) & italic(/) & capitals (20070309)
 - many countless improvements
 - some letters are slimer now: a, k, c, r
-this is especially useful for languages with longs words. German in the first place...
+this is especially useful for languages with longs words. German in the first
+place...
 - on screen letters with round parts should now look more equal on screen
--C, D, G, S have now better (shorter) serifs which are more useful for the standart printing size of 12-10pt
-- the thinnest line should now have a width of at least 50 (improvements for 12-10pt printing)
+-C, D, G, S have now better (shorter) serifs which are more useful for the
+standart printing size of 12-10pt
+- the thinnest line should now have a width of at least 50 (improvements for
+12-10pt printing)
 - the whole range from U+180 -> U+01BF has been reworked
 -small improvements in the IPA-Extensions
--for better acception of the old greek we changed the inverted breve to a tilde which is more widely used..., accents also have received some improvements
--The cyrillic alphabeth has had again great changes due to unsatisfied users. We now have more equal cyrillic serifs, some letters are thinner some wider, spacing has been renewed
+-for better acception of the old greek we changed the inverted breve to a tilde
+which is more widely used..., accents also have received some improvements
+-The cyrillic alphabeth has had again great changes due to unsatisfied users. We
+now have more equal cyrillic serifs, some letters are thinner some wider,
+spacing has been renewed
 -p,i have now horizontal serifs in the cyrillic
 -the bold regular is greatly improved. It's now fatter, looks more elegant
 - the curive has also improvements:
@@ -404,11 +499,14 @@ Countless improvements...
 -new: hebrew alphabeth
 -numbers
 -accents brought to one hight (some dotted chars weren't)
--Same hight for capitals (already one point difference can the letter look higher on screen. For print this doesn't play any role...
+-Same hight for capitals (already one point difference can the letter look
+higher on screen. For print this doesn't play any role...
 -superior/inferior numbers improved
--ae looks now different: mor organic. If you don't like this. Theres also an old variant at the end of the font
+-ae looks now different: mor organic. If you don't like this. Theres also an old
+variant at the end of the font
 -ij ligature isn't connected anymore 
--greek accented chars improved (accents should now be optically at the same position), kappa improved
+-greek accented chars improved (accents should now be optically at the same
+position), kappa improved
 -planet signs added
 -Sternkreiszeichen hinzugefügt
 -male, female,... improved
@@ -470,9 +568,11 @@ Changes to version 2.1.5 regular(|) & italic(/) & capitals (200608024)
 - Serifen großteils überarbeitet
 - Russischer Akzent jetzt im russischen Stil
 - uni041A jetzt wie uni416
-- Männlich / Weiblich-Zeichen ist jetzt besser an die Grenzen des Fonts angepasst
+- Männlich / Weiblich-Zeichen ist jetzt besser an die Grenzen des Fonts
+angepasst
 - viele weitere Änderungen
-- Fette Variante heißt jetzt auch wieder Fett -> Problem bei manchen Betriebsystemen behoben
+- Fette Variante heißt jetzt auch wieder Fett -> Problem bei manchen
+Betriebsystemen behoben
 - Leerzeichen ist nun 512 EM breit, so wie's praktisch Standart ist
 !!- Namensproblem bei der Fetten behoben
 
@@ -493,7 +593,8 @@ Changes to version 2.1.2 regular(|) & italic(/) & capitals (20060806)
 - Rückführung der griechischen Akzente auf U+002...
 - Macron verbessert, U+02C9 nun positiv
 - Abstände der griechischen Buchstaben verbessert u.a.: iota LBearing +40
-- eta, sigma, rho, tau, psi und weitere griechische Gemeine verbessert -> Pinselstilhaftigkeit erhöht
+- eta, sigma, rho, tau, psi und weitere griechische Gemeine verbessert ->
+Pinselstilhaftigkeit erhöht
 
 -----------Fertig-nach Tobias Vorschlägen----------------------------
 02C4 (MODIFIER LETTER UP ARRORHEAD), * raised articulation (-> 005E ^
@@ -578,7 +679,9 @@ Changes to version 2.1.0rc regular(|) & italic(/) & capitals (20060729)
 - fractures are greatly improved and some new are added
 - We now have proportional numbers and mediävale as some people asked for them
 - Kerning for roman Numbers
-- Ligatures should now be seen as a combination of different letters in OpenType-Compliant programs (unfortunately aren't there any compliant programs, or are there?)
+- Ligatures should now be seen as a combination of different letters in
+OpenType-Compliant programs (unfortunately aren't there any compliant programs,
+or are there?)
 - added lots of greek special charakters
 - korrected lots of greek special charakters
 - some small extensions in mathematical symbols
@@ -594,18 +697,26 @@ U now also a bold variant of the underlined
 * bolded versions for all updated
 
 Changes to version 2.0.9 regular(|) & italic(/) & capitals (20060401)
-- small changes, used new converter (fontforge-20060408) -> may result in slightly better contours (who knows...)
+- small changes, used new converter (fontforge-20060408) -> may result in
+slightly better contours (who knows...)
 - first underlined variant
 - Bold variant has now better bearings (were to small) now it is what we want!
 
 Changes to version 2.0.8 regular(|) & italic(/) & capitals (20060401)
 - completely new bold version! 
 - first bold-italic variant!
-=> the family has therefore now finally all faces it classically needs, juhu! ;-)
+=> the family has therefore now finally all faces it classically needs, juhu!
+;-)
 -further small corrections in all faces
-- I created TrueTypeInstructed variants of LinuxLibertine named "LinuxLibertine T" they can be therefore installed paralelly to the unhinted variants. 
-Note 1: I recommend all users of OpenOffice 2.0.x on Linux to use the unhinted variants. On my linux-systems the unhinted variant is automaticly hinted and better looking than the hinted! On Windows-Systems -- nevertheless -- the unhinted variant is ugly on screen. Here you should take the instructed/hinted variant. 
-Note 2: Hints (in the meaning of TrueTypeInstructions) do not have any effect on printing.
+- I created TrueTypeInstructed variants of LinuxLibertine named "LinuxLibertine
+T" they can be therefore installed paralelly to the unhinted variants. 
+Note 1: I recommend all users of OpenOffice 2.0.x on Linux to use the unhinted
+variants. On my linux-systems the unhinted variant is automaticly hinted and
+better looking than the hinted! On Windows-Systems -- nevertheless -- the
+unhinted variant is ugly on screen. Here you should take the instructed/hinted
+variant. 
+Note 2: Hints (in the meaning of TrueTypeInstructions) do not have any effect on
+printing.
 
 Changes to version 2.0.7 regular(|) & italic(/) & capitals (20060227)
 Line spacing was again greately improved (I hope)
@@ -639,12 +750,14 @@ Changes to version 2.0.0 regular(|) & italic(/) & capitals (20060120)
 | some new symbols and ornaments
 | ligatures optimized
 | lots of stuff I forgot to write down...
-| Oh, yes, the problem with in stalling all variants paralelly on windows is fixed
+| Oh, yes, the problem with in stalling all variants paralelly on windows is
+fixed
 
 Changes to version 1.1.9 regular(|) & italic(/) & capitals (20060120)
 | numerous changes!
 | e.g. LineGap is smaler now -> similar to Times
-| some nice decoratives added (oriental leaf, left and right; fleuron, art deco paragraph end symbol, Tux penguin)
+| some nice decoratives added (oriental leaf, left and right; fleuron, art deco
+paragraph end symbol, Tux penguin)
 | many new characters for special languages
 / italic updated as well
 | bold variant also updated
@@ -697,8 +810,12 @@ Changes to version 1.0.1-10pt regular(|) & italic(/) & capitals (20050323)
 | 030C (umgedrehtes ^): positive Breite
 | 0327 (cedille): positive Breite
 | 0323 combining dot below: vielleicht noch ein bißchen nach links?
-Anmerkung: Wenn man jetzt noch die Diacritical Marks verschiebt, dann verändern sie sich in allen anderen Akzentuierten Zeichen mit, wo sie durch Referenzen eingebunden sind. Daher habe ich die Verschiebungen ersteinmal nicht vorgenommen.
-|Beim kleinen psi [03C8] kann ich mich nicht recht an den schrägen Mittelstrich     
+Anmerkung: Wenn man jetzt noch die Diacritical Marks verschiebt, dann verändern
+sie sich in allen anderen Akzentuierten Zeichen mit, wo sie durch Referenzen
+eingebunden sind. Daher habe ich die Verschiebungen ersteinmal nicht
+vorgenommen.
+|Beim kleinen psi [03C8] kann ich mich nicht recht an den schrägen Mittelstrich 
+   
   gewöhnen.)
 | 1E48: Das _ beim N sollte wohl etwas länger sein oder etwas nach links
   verschoben werden
@@ -723,14 +840,16 @@ Changes to version 1.0.0-10pt regular(|) & italic(/) & capitals (20050323)
 | quotes (simple and doubles) are moved down slightly 
 
 Changes to version 0.9.8-10pt regular(|) & italic(/) & capitals (20041208)
-| all normal latin chars are now some points wider (we want to have a 10pt font! :->)
+| all normal latin chars are now some points wider (we want to have a 10pt font!
+:->)
 | some special chars bolded as well about stroke 10
 | all greek letters and special chars in between are also expanded
 | cyrilliy A has now a more popular form
 | some other small changes
 
 Changes to version 0.9.6-10ptL regular(|) & italic(/) & capitals(20041201)
-- bigger serifs for l,i,j,f,a,b,c,d,e,m,n,p,r,h,k,q,s,u,v,w,x,y,z,ß and many more
+- bigger serifs for l,i,j,f,a,b,c,d,e,m,n,p,r,h,k,q,s,u,v,w,x,y,z,ß and many
+more
 
 Changes to version 0.9.5 regular(|) & italic(/) & capitals (#)(20041008)
 -r rBearing 49 => 55
@@ -776,7 +895,8 @@ Changes to version 0.9.2 regular(|) & italic(/) & capitals (#)(20040802)
 winAscent=1900
 winDescent=500
 linegap=0
-these are quite useful values. We'll see whether it may be better to reduce winAscent. 
+these are quite useful values. We'll see whether it may be better to reduce
+winAscent. 
 
 Changes to version 0.9.0 regular(|) & italic(/) & capitals (#)(20040727)
 | another try in line gap setting
@@ -961,7 +1081,8 @@ Changes to version 0.7.1 regular(|) & italic(/) (20040525)
 | k small corrections
 | worked over accented charakters
 | many accented chars and special chars added
-| Cyrillic charakters added (that was quite a horror of     work and it's not yet finished... spacing leaves to be    done
+| Cyrillic charakters added (that was quite a horror of     work and it's not
+yet finished... spacing leaves to be    done
 | B overworked
 | C overworked
 | G overworked
@@ -1697,10 +1818,12 @@ Changes to version 0.3.2 (20031018)
 - X got the last missing serif of the whole font (!) ;-)
 
 Changes to version 0.3.1 (20031016)
-- r's ear has now a lower connection to vStem and looks hopefully better in small points,
+- r's ear has now a lower connection to vStem and looks hopefully better in
+small points,
   rightBearing increased
 - g is now slightly smaller and generally smarter
-- dieresis (namely the two dots that belong onto the german umlauts are smaller (85%)
+- dieresis (namely the two dots that belong onto the german umlauts are smaller
+(85%)
 - K: its leg is now doing a step forward
 - J has lost its old serif at the ground-line and has other majot changes
 - H hStem is not as thick anymore
@@ -1725,7 +1848,8 @@ Changes to version 0.3.1 (20031016)
 - y has been newly formed out of v
 
 Changes to version 0.3.0 (20031011)
-- big change: All letters became bigger to reduce the lost space above the latters that no
+- big change: All letters became bigger to reduce the lost space above the
+latters that no
   PC-Font seems to have normally...
 - A has now more right bearing
 - r got back the 15 points rightBearing it lost while extending its ear in 0.2.8
@@ -1778,19 +1902,27 @@ Changes to version 0.2.7 (20031002)
 - . (dot) has now greater right bearing (55 -> 65)
 - , (comma) has now greater right bearing (55 -> 65)
 - t got bigger right bearing (45 -> 50)
-- z: for aesthetical reasons the above horizontal stem seems to must be thinner than the one at the
+- z: for aesthetical reasons the above horizontal stem seems to must be thinner
+than the one at the
 base line, so 9points off
 
 Changes to version 0.2.6 (20030930)
-- I overworked all serifs! The results are not visible in printing small sizes in TrueType
-but since AutoHinting recognizes the serifs now we should have better printing results at
+- I overworked all serifs! The results are not visible in printing small sizes
+in TrueType
+but since AutoHinting recognizes the serifs now we should have better printing
+results at
 good postscript printers in PostScript-Fonts.
-- Kerning table has been greately expanded even for pairs like ke, ka... Very sad that nearly all
-Linux-TrueType programs don't care about the kerning table at all! This must change in future!
-- g has been overworked and seems to become pretty at least. Especially the ear had a good change.
+- Kerning table has been greately expanded even for pairs like ke, ka... Very
+sad that nearly all
+Linux-TrueType programs don't care about the kerning table at all! This must
+change in future!
+- g has been overworked and seems to become pretty at least. Especially the ear
+had a good change.
 - C had major changes and satisfies me now.
-- all numbers had some changes and got for the first all the same bearings left and right
+- all numbers had some changes and got for the first all the same bearings left
+and right
 - fi-ligature had complete redo, looks better but doesn't satisfies me, yet
-- r got a little thicker nipple at the right end of its arm that leads to better printing an
+- r got a little thicker nipple at the right end of its arm that leads to better
+printing an
 recognition results at small points
 - t has a slighly thinner round in its neck now
