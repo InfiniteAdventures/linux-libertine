@@ -64,6 +64,45 @@ libertineReSc["ttfweight"] = "Book"
 libertineReSc["ttfstyle"] = "Small Caps"
 fonts["LinLibertineCapitalsO"] = libertineReSc;
 
+
+# LIBERTINE Semibold
+libertineZ = {};
+libertineZ["filename"] = "LinLibertine_RZ"
+libertineZ["familyname"] = "Linux Libertine O"
+libertineZ["fullname"] = "Linux Libertine O Semibold"
+libertineZ["weight"] = "Semibold"
+libertineZ["style"] = "Semibold"
+libertineZ["slfilename"] = "LinLibertine_aZL"
+libertineZ["slfontname"] = "LinLibertineSlantedOZ"
+libertineZ["slfamilyname"] = "Linux Libertine Slanted O"
+libertineZ["slfullname"] = "Linux Libertine Slanted O Semibold"
+libertineZ["slweight"] = "Semibold"
+libertineZ["slstyle"] = "Semibold Slanted"
+libertineZ["scfilename"] = "LinLibertine_aZS"
+libertineZ["scfontname"] = "LinLibertineCapitalsOZ"
+libertineZ["scfamilyname"] = "Linux Libertine Capitals O"
+libertineZ["scfullname"] = "Linux Libertine Capitals O Semibold"
+libertineZ["scweight"] = "Semibold"
+libertineZ["scstyle"] = "Semibold Small Caps"
+
+libertineZ["ttffontname"] = "LinLibertineZ"
+libertineZ["ttffamilyname"] = "Linux Libertine"
+libertineZ["ttffullname"] = "Linux Libertine Semibold"
+libertineZ["ttfweight"] = "Semibold"
+libertineZ["ttfstyle"] = "Semibold"
+libertineZ["texfilename"] = "fxlb"
+fonts["LinLibertineOZ"] = libertineZ;
+
+libertineZSl = {};
+libertineZSl["ttffontname"] = "LinLibertineSlantedZ"
+libertineZSl["ttffamilyname"] = "Linux Libertine Slanted"
+libertineZSl["ttffullname"] = "Linux Libertine Slanted Semibold"
+libertineZSl["ttfweight"] = "Semibold"
+libertineZSl["ttfstyle"] = "Semibold Slanted"
+libertineZSl["texfilename"] = "fxlbo"
+fonts["LinLibertineSlantedOZ"] = libertineZSl;
+
+
 # LIBERTINE Bold
 libertineBd = {};
 libertineBd["filename"] = "LinLibertine_RB"
