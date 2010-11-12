@@ -121,7 +121,7 @@ libertineZi["ttffamilyname"] = "Linux Libertine"
 libertineZi["ttffullname"] = "Linux Libertine Semibold Italic"
 libertineZi["ttfweight"] = "Semibold"
 libertineZi["ttfstyle"] = "Semibold Italic"
-libertineZi["texfilename"] = "fxlbi"
+libertineZi["texfilename"] = "fxlzi"
 fonts["LinLibertineOZI"] = libertineZi;
 
 libertineZiSc = {};
@@ -130,7 +130,10 @@ libertineZiSc["ttffamilyname"] = "Linux Libertine Capitals"
 libertineZiSc["ttffullname"] = "Linux Libertine Capitals Semibold Italic"
 libertineZiSc["ttfweight"] = "Semibold"
 libertineZiSc["ttfstyle"] = "Semibold Italic Small Caps"
-fonts["LinLibertineCapitalsOZI"] = libertineZiSc;
+fonts["LinLibertineCapitalsOSZI"] = libertineZiSc;
+
+
+
 
 
 # LIBERTINE Bold
