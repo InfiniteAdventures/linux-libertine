@@ -5,7 +5,7 @@ FamilyName: Linux Biolinum Keyboard O
 Weight: Book
 Copyright: Linux Libertine by Philipp H. Poll,\nOpen Font under Terms of following Free Software Licenses:\nGPL (General Public License) with font-exception and OFL (Open Font License).\nCreated with FontForge (http://fontforge.sf.net)\nSept 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
 UComments: "2003-08-29: Created.+AAoA-2004-07-25: v(1.0) release candidate+AAoA-2005-12-28: v(1.1.0) stable+AAoA-2006-01-01: v(2.0.0) stable+AAoA-2006-09-05: v(2.2.0) stable+AAoA-2006-12-04: v(2.3.0) stable+AAoA-2007-03-11: v(2.4.0) stable+AAoA-2007-12-00: v(2.7.0) stable+AAoA-2008-06-00: v(2.8.14) stable+AAoA" 
-Version: 0.5.8
+Version: 0.5.9
 ItalicAngle: 0
 UnderlinePosition: -98
 UnderlineWidth: 40
@@ -22,7 +22,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 0
 CreationTime: 1156455862
-ModificationTime: 1289977538
+ModificationTime: 1290107884
 PfmFamily: 33
 TTFWeight: 700
 TTFWidth: 5
@@ -400,7 +400,7 @@ NameList: Adobe Glyph List
 DisplaySize: -96
 AntiAlias: 1
 FitToEm: 1
-WinInfo: 57640 8 5
+WinInfo: 10072 8 5
 BeginPrivate: 9
 BlueValues 47 [29 41 361 374 460 474 568 578 524 537 555 568]
 OtherBlues 11 [-238 -227]
@@ -463,7 +463,7 @@ Grid
 EndSplineSet
 TeXData: 1 0 0 262144 133120 88746 450561 -1048576 88746 783286 444596 497025 792723 393216 433062 380633 303038 157286 324010 404750 52429 2506097 1059062 262144
 AnchorClass2: "acute"  "'mark' Mark Positioning lookup 5" "top_akzent"  "'mark' Mark Positioning lookup 4" "top_punkt"  "'mark' Mark Positioning lookup 4" "unten_punkt"  "'mark' Mark Positioning lookup 3" "unten_anhang"  "'mark' Mark Positioning lookup 2" "ogonek"  "'mark' Mark Positioning lookup 1" "mittelpunkt"  "'mark' Mark Positioning in Hebrew lookup 0" 
-BeginChars: 65537 1979
+BeginChars: 65537 1981
 
 StartChar: exclam
 Encoding: 33 33 0
@@ -39574,8 +39574,88 @@ SplineSet
 EndSplineSet
 EndChar
 
+StartChar: uniE104
+Encoding: 57604 57604 1830
+Width: 611
+VWidth: 999
+Flags: HMW
+LayerCount: 3
+Fore
+SplineSet
+506 348 m 1
+ 506 619 l 1
+ 264 619 l 1
+ 105 619 l 1
+ 105 473 l 1
+ 105 15 l 1
+ 506 15 l 1
+ 506 211.5 l 1
+ 538 121 l 1
+ 538 -12 l 1
+ 73 -12 l 1
+ 73 486 l 1
+ 73 646 l 1
+ 538 646 l 1
+ 538 337 l 1
+ 506 348 l 1
+142 131 m 1
+ 463 131 l 1
+ 463 104 l 1
+ 142 104 l 1
+ 142 131 l 1
+142 238 m 1
+ 463 238 l 1
+ 463 211 l 1
+ 142 211 l 1
+ 142 238 l 1
+142 345 m 1
+ 142 318 l 1
+ 452 318 l 1
+ 444 345 l 1
+ 142 345 l 1
+142 462 m 1
+ 463 462 l 1
+ 463 435 l 1
+ 142 435 l 1
+ 142 462 l 1
+781 -19.8 m 1
+ 622.6 138.6 l 1
+ 571 82.7 l 1
+ 486.1 334.5 l 1
+ 738.6 250.3 l 1
+ 682 198 l 1
+ 840.4 39.6 l 1
+ 781 -19.8 l 1
+49 718 m 2
+ -11 718 -44 685 -44 625 c 2
+ -44 -53 l 2
+ -44 -113 -11 -136 49 -136 c 2
+ 991 -136 l 2
+ 1051 -136 1074 -113 1074 -53 c 2
+ 1074 625 l 2
+ 1074 685 1051 718 991 718 c 2
+ 49 718 l 2
+1170 -84 m 2
+ 1170 -174 1141 -212 1051 -212 c 2
+ 49 -212 l 2
+ -41 -212 -80 -174 -80 -84 c 2
+ -80 625 l 2
+ -80 708 -32 754 49 754 c 2
+ 1021 754 l 2
+ 1111 754 1170 715 1170 625 c 2
+ 1170 -84 l 2
+109.9 377.7 m 1
+ 495.1 377.7 l 1
+ 495 352.5 l 1
+ 460 362.5 l 1
+ 483.1 285.3 l 1
+ 109.9 285.3 l 1
+ 109.9 377.7 l 1
+EndSplineSet
+EndChar
+
 StartChar: Germandbls.alt
-Encoding: 57422 57422 1830
+Encoding: 57422 57422 1831
 Width: 1000
 VWidth: 999
 Flags: H
@@ -39584,7 +39664,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: uni2380
-Encoding: 9088 9088 1831
+Encoding: 9088 9088 1832
 Width: 1100
 Flags: HW
 HStem: -212 76<179.2 885.174> 331 35<467.484 536.982> 432 33<469.747 551> 511 33<447.948 540.166> 718 36<188.821 875.472>
@@ -39640,7 +39720,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni2423
-Encoding: 9251 9251 1832
+Encoding: 9251 9251 1833
 Width: 250
 VWidth: 999
 Flags: HW
@@ -39662,7 +39742,7 @@ EndSplineSet
 EndChar
 
 StartChar: hyphen.cap
-Encoding: 63162 63162 1833
+Encoding: 63162 63162 1834
 Width: 1000
 VWidth: 999
 Flags: H
@@ -39671,7 +39751,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: uni237D
-Encoding: 9085 9085 1834
+Encoding: 9085 9085 1835
 Width: 1100
 VWidth: 999
 Flags: HW
@@ -39715,7 +39795,7 @@ EndSplineSet
 EndChar
 
 StartChar: b.inferior
-Encoding: 57673 57673 1835
+Encoding: 57673 57673 1836
 Width: 1000
 VWidth: 442
 Flags: H
@@ -39724,7 +39804,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: c.inferior
-Encoding: 57674 57674 1836
+Encoding: 57674 57674 1837
 Width: 1000
 VWidth: 134
 Flags: H
@@ -39733,7 +39813,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: d.inferior
-Encoding: 57675 57675 1837
+Encoding: 57675 57675 1838
 Width: 1000
 VWidth: 442
 Flags: H
@@ -39742,7 +39822,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: f.inferior
-Encoding: 57677 57677 1838
+Encoding: 57677 57677 1839
 Width: 1000
 VWidth: 523
 Flags: H
@@ -39751,7 +39831,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: g.inferior
-Encoding: 57678 57678 1839
+Encoding: 57678 57678 1840
 Width: 1000
 VWidth: 523
 Flags: H
@@ -39760,7 +39840,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: h.inferior
-Encoding: 57679 57679 1840
+Encoding: 57679 57679 1841
 Width: 1000
 VWidth: 442
 Flags: H
@@ -39769,7 +39849,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: i.inferior
-Encoding: 57680 57680 1841
+Encoding: 57680 57680 1842
 Width: 1000
 VWidth: 477
 Flags: H
@@ -39778,7 +39858,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: j.inferior
-Encoding: 57681 57681 1842
+Encoding: 57681 57681 1843
 Width: 1000
 VWidth: 477
 Flags: H
@@ -39787,7 +39867,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: k.inferior
-Encoding: 57682 57682 1843
+Encoding: 57682 57682 1844
 Width: 1000
 VWidth: 442
 Flags: H
@@ -39796,7 +39876,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: l.inferior
-Encoding: 57683 57683 1844
+Encoding: 57683 57683 1845
 Width: 1000
 VWidth: 442
 Flags: H
@@ -39805,7 +39885,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: m.inferior
-Encoding: 57684 57684 1845
+Encoding: 57684 57684 1846
 Width: 1000
 VWidth: 442
 Flags: H
@@ -39814,7 +39894,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: n.inferior
-Encoding: 57685 57685 1846
+Encoding: 57685 57685 1847
 Width: 1000
 VWidth: 442
 Flags: H
@@ -39823,7 +39903,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: p.inferior
-Encoding: 57687 57687 1847
+Encoding: 57687 57687 1848
 Width: 1000
 VWidth: 442
 Flags: H
@@ -39832,7 +39912,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: q.inferior
-Encoding: 57688 57688 1848
+Encoding: 57688 57688 1849
 Width: 1000
 VWidth: 442
 Flags: H
@@ -39841,7 +39921,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: r.inferior
-Encoding: 57689 57689 1849
+Encoding: 57689 57689 1850
 Width: 1000
 VWidth: 477
 Flags: H
@@ -39850,7 +39930,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: s.inferior
-Encoding: 57690 57690 1850
+Encoding: 57690 57690 1851
 Width: 1000
 VWidth: 150
 Flags: H
@@ -39859,7 +39939,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: t.inferior
-Encoding: 57691 57691 1851
+Encoding: 57691 57691 1852
 Width: 1000
 VWidth: 523
 Flags: H
@@ -39868,7 +39948,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: u.inferior
-Encoding: 57692 57692 1852
+Encoding: 57692 57692 1853
 Width: 1000
 VWidth: 442
 Flags: H
@@ -39877,7 +39957,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: v.inferior
-Encoding: 57693 57693 1853
+Encoding: 57693 57693 1854
 Width: 1000
 VWidth: 157
 Flags: H
@@ -39886,7 +39966,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: w.inferior
-Encoding: 57694 57694 1854
+Encoding: 57694 57694 1855
 Width: 1000
 VWidth: 157
 Flags: H
@@ -39895,7 +39975,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: y.inferior
-Encoding: 57696 57696 1855
+Encoding: 57696 57696 1856
 Width: 1000
 VWidth: 141
 Flags: H
@@ -39904,7 +39984,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: z.inferior
-Encoding: 57697 57697 1856
+Encoding: 57697 57697 1857
 Width: 1000
 VWidth: 523
 Flags: H
@@ -39913,7 +39993,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: uni0464
-Encoding: 1124 1124 1857
+Encoding: 1124 1124 1858
 Width: 1000
 VWidth: 999
 Flags: H
@@ -39922,7 +40002,7 @@ Colour: ff80cc
 EndChar
 
 StartChar: uni0465
-Encoding: 1125 1125 1858
+Encoding: 1125 1125 1859
 Width: 1000
 VWidth: 999
 Flags: H
@@ -39931,7 +40011,7 @@ Colour: ff80cc
 EndChar
 
 StartChar: uni0468
-Encoding: 1128 1128 1859
+Encoding: 1128 1128 1860
 Width: 1000
 VWidth: 999
 Flags: H
@@ -39940,7 +40020,7 @@ Colour: ff80cc
 EndChar
 
 StartChar: uni0469
-Encoding: 1129 1129 1860
+Encoding: 1129 1129 1861
 Width: 1000
 VWidth: 999
 Flags: H
@@ -39949,7 +40029,7 @@ Colour: ff80cc
 EndChar
 
 StartChar: uni048E
-Encoding: 1166 1166 1861
+Encoding: 1166 1166 1862
 Width: 1000
 VWidth: 999
 Flags: H
@@ -39958,7 +40038,7 @@ Colour: ff80cc
 EndChar
 
 StartChar: uni048F
-Encoding: 1167 1167 1862
+Encoding: 1167 1167 1863
 Width: 1000
 VWidth: 999
 Flags: H
@@ -39967,7 +40047,7 @@ Colour: ff80cc
 EndChar
 
 StartChar: uni046C
-Encoding: 1132 1132 1863
+Encoding: 1132 1132 1864
 Width: 1000
 VWidth: 999
 Flags: H
@@ -39976,7 +40056,7 @@ Colour: ff80cc
 EndChar
 
 StartChar: uni046D
-Encoding: 1133 1133 1864
+Encoding: 1133 1133 1865
 Width: 1000
 VWidth: 999
 Flags: H
@@ -39985,7 +40065,7 @@ Colour: ff80cc
 EndChar
 
 StartChar: uni046E
-Encoding: 1134 1134 1865
+Encoding: 1134 1134 1866
 Width: 1000
 VWidth: 999
 Flags: H
@@ -39994,7 +40074,7 @@ Colour: ff80cc
 EndChar
 
 StartChar: uni046F
-Encoding: 1135 1135 1866
+Encoding: 1135 1135 1867
 Width: 1000
 VWidth: 999
 Flags: H
@@ -40003,7 +40083,7 @@ Colour: ff80cc
 EndChar
 
 StartChar: uni047C
-Encoding: 1148 1148 1867
+Encoding: 1148 1148 1868
 Width: 1000
 VWidth: 999
 Flags: H
@@ -40012,7 +40092,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: uni047D
-Encoding: 1149 1149 1868
+Encoding: 1149 1149 1869
 Width: 1000
 VWidth: 488
 Flags: H
@@ -40021,7 +40101,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: uni047E
-Encoding: 1150 1150 1869
+Encoding: 1150 1150 1870
 Width: 1000
 VWidth: 732
 Flags: H
@@ -40030,7 +40110,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: uni047F
-Encoding: 1151 1151 1870
+Encoding: 1151 1151 1871
 Width: 1000
 VWidth: 488
 Flags: H
@@ -40039,7 +40119,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: longs_i
-Encoding: 57406 57406 1871
+Encoding: 57406 57406 1872
 Width: 1000
 VWidth: 0
 Flags: H
@@ -40049,7 +40129,7 @@ Colour: ff80cc
 EndChar
 
 StartChar: longs_longs_i
-Encoding: 57412 57412 1872
+Encoding: 57412 57412 1873
 Width: 1000
 VWidth: 0
 Flags: HM
@@ -40059,7 +40139,7 @@ Colour: ff80cc
 EndChar
 
 StartChar: openbullet
-Encoding: 9702 9702 1873
+Encoding: 9702 9702 1874
 Width: 351
 VWidth: 487
 Flags: HW
@@ -40082,7 +40162,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni22EE
-Encoding: 8942 8942 1874
+Encoding: 8942 8942 1875
 Width: 1000
 VWidth: 487
 Flags: H
@@ -40091,7 +40171,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: uni0357
-Encoding: 855 855 1875
+Encoding: 855 855 1876
 Width: 243
 VWidth: 999
 Flags: HW
@@ -40116,7 +40196,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni0351
-Encoding: 849 849 1876
+Encoding: 849 849 1877
 Width: 243
 VWidth: 999
 Flags: HW
@@ -40141,7 +40221,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE128
-Encoding: 57640 57640 1877
+Encoding: 57640 57640 1878
 Width: 180
 VWidth: 0
 Flags: HW
@@ -40164,7 +40244,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE129
-Encoding: 57641 57641 1878
+Encoding: 57641 57641 1879
 Width: 180
 VWidth: 0
 Flags: HW
@@ -40191,7 +40271,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE12A
-Encoding: 57642 57642 1879
+Encoding: 57642 57642 1880
 Width: 180
 VWidth: 0
 Flags: HW
@@ -40222,7 +40302,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni1E9C
-Encoding: 7836 7836 1880
+Encoding: 7836 7836 1881
 Width: 1000
 VWidth: 999
 Flags: H
@@ -40231,7 +40311,7 @@ Colour: ff80cc
 EndChar
 
 StartChar: uni1E9D
-Encoding: 7837 7837 1881
+Encoding: 7837 7837 1882
 Width: 1000
 VWidth: 999
 Flags: H
@@ -40240,7 +40320,7 @@ Colour: ff80cc
 EndChar
 
 StartChar: uni1EFB
-Encoding: 7931 7931 1882
+Encoding: 7931 7931 1883
 Width: 1000
 VWidth: 999
 Flags: H
@@ -40249,7 +40329,7 @@ Colour: ff80cc
 EndChar
 
 StartChar: tcommaaccent.sc
-Encoding: 57524 57524 1883
+Encoding: 57524 57524 1884
 Width: 1000
 VWidth: 714
 Flags: H
@@ -40258,7 +40338,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: scommaaccent.sc
-Encoding: 57525 57525 1884
+Encoding: 57525 57525 1885
 Width: 1000
 VWidth: 999
 Flags: H
@@ -40267,7 +40347,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: idotaccent.sc
-Encoding: 57526 57526 1885
+Encoding: 57526 57526 1886
 Width: 1000
 VWidth: 714
 Flags: H
@@ -40276,7 +40356,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: uniE130
-Encoding: 57648 57648 1886
+Encoding: 57648 57648 1887
 Width: 1036
 Flags: HW
 HStem: -240 35<508.486 746.958> -226.5 35<860.498 932.5> -206.5 35<756.264 910.944> -132 46<448 506> 711 40<229.807 720.533>
@@ -40284,46 +40364,45 @@ VStem: 101 40<1.9751 618.784> 457 35<-196.915 -169.5> 806 40<2.45026 623.588>
 LayerCount: 3
 Fore
 SplineSet
-298 711 m 2
- 211 711 141 626 141 547 c 2
- 141 77 l 2
- 141 -79.5 314.8 -86 477 -86 c 0
- 632.7 -86 806 -71.1 806 77 c 2
- 806 547 l 2
- 806 634 739 711 645 711 c 2
- 298 711 l 2
-300 751 m 2
- 657 751 l 2
- 763 751 846 676 846 577 c 2
- 846 32 l 2
- 846 -59 760.8 -144 657 -152 c 1
- 543 -162 l 1
- 506 -132 l 1
- 448 -132 l 1
- 411.5 -162 l 1
- 300 -152 l 1
- 196.3 -143.8 101 -68 101 23 c 2
- 101 577 l 2
- 101 668 196 751 300 751 c 2
-457 -169.5 m 1
- 492 -169.5 l 1
- 492 -179.9 498.7 -190.1 508.2 -197.2 c 0
- 514.7 -201.6 564.6 -205 603.5 -205 c 2
- 676.5 -205 l 2
- 703.1 -205 786.7 -171.5 830 -171.5 c 0
- 873.7 -171.5 918.5 -191.5 932.5 -191.5 c 1
- 932.5 -226.5 l 1
- 903.8 -226.5 862.7 -206.5 830 -206.5 c 0
- 798.5 -206.5 718.5 -240 676.5 -240 c 2
- 603.5 -240 l 2
- 565.3 -240 512.7 -243.8 487.7 -225.7 c 0
- 471.5 -213.9 457 -194.5 457 -169.5 c 1
+314.5 617 m 2
+ 227.5 617 157.5 532 157.5 453 c 2
+ 157.5 3 l 2
+ 157.5 -153.5 331.3 -170 493.5 -170 c 0
+ 649.2 -170 822.5 -145.1 822.5 3 c 2
+ 822.5 453 l 2
+ 822.5 540 755.5 617 661.5 617 c 2
+ 314.5 617 l 2
+493.5 -240 m 0
+ 304.6 -240 128 -222 117.5 -36 c 1
+ 117.5 479 l 2
+ 117.5 570 202.4 663 306.5 663 c 2
+ 445.5 663 l 1
+ 467.5 643 l 1
+ 505.5 643 l 1
+ 527 663 l 1
+ 663.5 663 l 2
+ 767.5 663 862.5 579 862.5 488 c 2
+ 862.5 -36 l 1
+ 852.5 -206 675.2 -240 493.5 -240 c 0
+469.5 680.5 m 1
+ 504.5 680.5 l 1
+ 504.5 690.9 511.2 701.1 520.7 708.2 c 0
+ 527.2 712.6 577.1 716 616 716 c 2
+ 689 716 l 2
+ 715.6 716 799.2 682.5 842.5 682.5 c 0
+ 886.2 682.5 931 702.5 945 702.5 c 1
+ 945 737.5 l 1
+ 916.3 737.5 875.2 717.5 842.5 717.5 c 0
+ 811 717.5 731 751 689 751 c 2
+ 616 751 l 2
+ 577.8 751 525.2 754.8 500.2 736.7 c 0
+ 484 724.9 469.5 705.5 469.5 680.5 c 1
 EndSplineSet
 Colour: ff00ff
 EndChar
 
 StartChar: uni26AD
-Encoding: 9901 9901 1887
+Encoding: 9901 9901 1888
 Width: 758
 VWidth: 999
 Flags: HW
@@ -40364,7 +40443,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni22A4
-Encoding: 8868 8868 1888
+Encoding: 8868 8868 1889
 Width: 1000
 Flags: H
 LayerCount: 3
@@ -40372,7 +40451,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: uni22A3
-Encoding: 8867 8867 1889
+Encoding: 8867 8867 1890
 Width: 1000
 Flags: H
 LayerCount: 3
@@ -40380,7 +40459,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: uni27C2
-Encoding: 10178 10178 1890
+Encoding: 10178 10178 1891
 Width: 1000
 Flags: H
 LayerCount: 3
@@ -40388,7 +40467,7 @@ Colour: ff00ff
 EndChar
 
 StartChar: grave.cap
-Encoding: 58200 58200 1891
+Encoding: 58200 58200 1892
 Width: 0
 VWidth: 999
 Flags: HW
@@ -40410,7 +40489,7 @@ EndSplineSet
 EndChar
 
 StartChar: acute.cap
-Encoding: 58201 58201 1892
+Encoding: 58201 58201 1893
 Width: 0
 VWidth: 999
 Flags: HW
@@ -40432,7 +40511,7 @@ EndSplineSet
 EndChar
 
 StartChar: circumflex.cap
-Encoding: 58202 58202 1893
+Encoding: 58202 58202 1894
 Width: 0
 VWidth: 999
 Flags: HW
@@ -40454,7 +40533,7 @@ EndSplineSet
 EndChar
 
 StartChar: caron.cap
-Encoding: 58203 58203 1894
+Encoding: 58203 58203 1895
 Width: 0
 VWidth: 999
 Flags: HW
@@ -40476,7 +40555,7 @@ EndSplineSet
 EndChar
 
 StartChar: breve.cap
-Encoding: 58204 58204 1895
+Encoding: 58204 58204 1896
 Width: 0
 VWidth: 487
 Flags: HW
@@ -40497,7 +40576,7 @@ EndSplineSet
 EndChar
 
 StartChar: hungarumlaut.cap
-Encoding: 58205 58205 1896
+Encoding: 58205 58205 1897
 Width: 0
 VWidth: 999
 Flags: HW
@@ -40532,7 +40611,7 @@ EndSplineSet
 EndChar
 
 StartChar: space_uni030F.cap
-Encoding: 58206 58206 1897
+Encoding: 58206 58206 1898
 Width: 0
 VWidth: 999
 Flags: HW
@@ -40567,7 +40646,7 @@ EndSplineSet
 EndChar
 
 StartChar: breveinvertedcmb.cap
-Encoding: 58207 58207 1898
+Encoding: 58207 58207 1899
 Width: 0
 VWidth: 487
 Flags: HW
@@ -40588,7 +40667,7 @@ EndSplineSet
 EndChar
 
 StartChar: breve.cyrcap
-Encoding: 58208 58208 1899
+Encoding: 58208 58208 1900
 Width: 0
 VWidth: 999
 Flags: HW
@@ -40613,7 +40692,7 @@ EndSplineSet
 EndChar
 
 StartChar: breve.cyr
-Encoding: 58209 58209 1900
+Encoding: 58209 58209 1901
 Width: 0
 VWidth: 999
 Flags: HW
@@ -40639,7 +40718,7 @@ EndSplineSet
 EndChar
 
 StartChar: dieresis.cap
-Encoding: 58210 58210 1901
+Encoding: 58210 58210 1902
 Width: 0
 VWidth: 999
 Flags: HW
@@ -40663,7 +40742,7 @@ EndSplineSet
 EndChar
 
 StartChar: hookabovecomb.cap
-Encoding: 58211 58211 1902
+Encoding: 58211 58211 1903
 Width: 0
 VWidth: 999
 Flags: HW
@@ -40691,7 +40770,7 @@ EndSplineSet
 EndChar
 
 StartChar: S_t_r_g
-Encoding: 57712 57712 1903
+Encoding: 57712 57712 1904
 Width: 1950
 Flags: HW
 HStem: -212 76<179.2 1735.17> -108 31<1357.44 1469.87> 54 51<792.573 889.428> 54 38<382.859 519.244> 58 60<1347.18 1365.82 1367.03 1506.5> 64 330<998.481 1084.84> 176 32<1369.92 1446.26> 325 69<1127.48 1198.94> 343 40<681.543 737 825 912> 346 20G<1493 1512.5> 367 33<1365.7 1444.01> 518 36<414.704 529.723> 718 36<188.821 1725.47>
@@ -40827,7 +40906,7 @@ Ligature2: "'liga' Standardligaturen 1" S t r g
 EndChar
 
 StartChar: A_l_t
-Encoding: 57713 57713 1904
+Encoding: 57713 57713 1905
 Width: 1600
 Flags: HW
 HStem: -212 76<159.2 1385.17> 36 51<1072.57 1169.43> 207 39<391.391 568> 325 40<961.543 1017 1105 1192> 514 20G<433 556.5> 544 20G<864.5 876.5> 718 36<168.821 1375.47>
@@ -40914,7 +40993,7 @@ Ligature2: "'liga' Standardligaturen 1" A l t
 EndChar
 
 StartChar: A_l_t_G_r
-Encoding: 57714 57714 1905
+Encoding: 57714 57714 1906
 Width: 2425
 Flags: HW
 HStem: -212 76<159.2 2210.17> 34 41<1459.51 1628.71> 36 51<1053 1159.43> 46 330<1861.48 1947.84> 207 39<381.391 558> 307 69<1990.48 2061.94> 325 40<951.543 1007 1095 1182> 493 41<1452.71 1611.46> 544 20G<854.5 866.5> 718 36<168.821 2200.47>
@@ -41044,7 +41123,7 @@ Ligature2: "'liga' Standardligaturen 1" A l t G r
 EndChar
 
 StartChar: F_1
-Encoding: 57720 57720 1906
+Encoding: 57720 57720 1907
 Width: 1340
 VWidth: 999
 Flags: HW
@@ -41119,7 +41198,7 @@ Ligature2: "'liga' Standardligaturen 1" F one
 EndChar
 
 StartChar: F_2
-Encoding: 57721 57721 1907
+Encoding: 57721 57721 1908
 Width: 1340
 VWidth: 999
 Flags: HW
@@ -41200,7 +41279,7 @@ Ligature2: "'liga' Standardligaturen 1" F two
 EndChar
 
 StartChar: F_3
-Encoding: 57722 57722 1908
+Encoding: 57722 57722 1909
 Width: 1340
 VWidth: 999
 Flags: HW
@@ -41282,7 +41361,7 @@ Ligature2: "'liga' Standardligaturen 1" F three
 EndChar
 
 StartChar: F_4
-Encoding: 57723 57723 1909
+Encoding: 57723 57723 1910
 Width: 1340
 VWidth: 999
 Flags: HW
@@ -41367,7 +41446,7 @@ Ligature2: "'liga' Standardligaturen 1" F four
 EndChar
 
 StartChar: F_5
-Encoding: 57724 57724 1910
+Encoding: 57724 57724 1911
 Width: 1340
 VWidth: 999
 Flags: HW
@@ -41448,7 +41527,7 @@ Ligature2: "'liga' Standardligaturen 1" F five
 EndChar
 
 StartChar: F_6
-Encoding: 57725 57725 1911
+Encoding: 57725 57725 1912
 Width: 1340
 VWidth: 999
 Flags: HW
@@ -41523,7 +41602,7 @@ Ligature2: "'liga' Standardligaturen 1" F six
 EndChar
 
 StartChar: F_7
-Encoding: 57726 57726 1912
+Encoding: 57726 57726 1913
 Width: 1340
 VWidth: 999
 Flags: HW
@@ -41594,7 +41673,7 @@ Ligature2: "'liga' Standardligaturen 1" F seven
 EndChar
 
 StartChar: F_8
-Encoding: 57727 57727 1913
+Encoding: 57727 57727 1914
 Width: 1340
 VWidth: 999
 Flags: HW
@@ -41678,7 +41757,7 @@ Ligature2: "'liga' Standardligaturen 1" F eight
 EndChar
 
 StartChar: F_9
-Encoding: 57728 57728 1914
+Encoding: 57728 57728 1915
 Width: 1340
 VWidth: 999
 Flags: HW
@@ -41753,7 +41832,7 @@ Ligature2: "'liga' Standardligaturen 1" F nine
 EndChar
 
 StartChar: F_1_0
-Encoding: 57729 57729 1915
+Encoding: 57729 57729 1916
 Width: 1600
 VWidth: 999
 Flags: HW
@@ -41838,7 +41917,7 @@ Ligature2: "'liga' Standardligaturen 1" F one zero
 EndChar
 
 StartChar: F_1_1
-Encoding: 57730 57730 1916
+Encoding: 57730 57730 1917
 Width: 1600
 VWidth: 999
 Flags: HW
@@ -41928,7 +42007,7 @@ Ligature2: "'liga' Standardligaturen 1" F one one
 EndChar
 
 StartChar: F_1_2
-Encoding: 57731 57731 1917
+Encoding: 57731 57731 1918
 Width: 1600
 VWidth: 999
 Flags: HW
@@ -42024,7 +42103,7 @@ Ligature2: "'liga' Standardligaturen 1" F one two
 EndChar
 
 StartChar: F_1_3
-Encoding: 57732 57732 1918
+Encoding: 57732 57732 1919
 Width: 1600
 VWidth: 999
 Flags: HW
@@ -42121,7 +42200,7 @@ Ligature2: "'liga' Standardligaturen 1" F one three
 EndChar
 
 StartChar: F_1_4
-Encoding: 57733 57733 1919
+Encoding: 57733 57733 1920
 Width: 1600
 VWidth: 999
 Flags: HW
@@ -42221,7 +42300,7 @@ Ligature2: "'liga' Standardligaturen 1" F one four
 EndChar
 
 StartChar: F_1_5
-Encoding: 57734 57734 1920
+Encoding: 57734 57734 1921
 Width: 1600
 VWidth: 999
 Flags: HW
@@ -42317,7 +42396,7 @@ Ligature2: "'liga' Standardligaturen 1" F one five
 EndChar
 
 StartChar: F_1_6
-Encoding: 57735 57735 1921
+Encoding: 57735 57735 1922
 Width: 1600
 VWidth: 999
 Flags: HW
@@ -42407,7 +42486,7 @@ Ligature2: "'liga' Standardligaturen 1" F one six
 EndChar
 
 StartChar: C_t_r_l
-Encoding: 57715 57715 1922
+Encoding: 57715 57715 1923
 Width: 2400
 Flags: HW
 HStem: -212 76<179.2 2185.17> 34 54<477.019 637.148 903 1009.43> 41 333<1158.48 1244.84> 305 69<1287.48 1358.94> 323 40<801.543 857 945 1032> 454 20G<933 944.5> 490 44<473.213 628.354> 548 20G<1544.5 1556.5> 548 20G<1544.5 1556.5> 718 36<188.821 2175.47>
@@ -42512,7 +42591,7 @@ Ligature2: "'liga' Standardligaturen 1" C t r l
 EndChar
 
 StartChar: S_h_i_f_t
-Encoding: 57716 57716 1923
+Encoding: 57716 57716 1924
 Width: 1470
 VWidth: 0
 Flags: HW
@@ -42562,7 +42641,7 @@ Ligature2: "'liga' Standardligaturen 1" S h i f t
 EndChar
 
 StartChar: T_a_b
-Encoding: 57717 57717 1924
+Encoding: 57717 57717 1925
 Width: 1470
 VWidth: 0
 Flags: HW
@@ -42621,7 +42700,7 @@ Ligature2: "'liga' Standardligaturen 1" T a b
 EndChar
 
 StartChar: E_n_t_e_r
-Encoding: 57718 57718 1925
+Encoding: 57718 57718 1926
 Width: 1470
 VWidth: 0
 Flags: HW
@@ -42672,7 +42751,7 @@ Ligature2: "'liga' Standardligaturen 1" E n t e r
 EndChar
 
 StartChar: G_N_U
-Encoding: 57744 57744 1926
+Encoding: 57744 57744 1927
 Width: 1470
 VWidth: 0
 Flags: HMW
@@ -43329,7 +43408,7 @@ Ligature2: "'liga' Standardligaturen 1" G N U
 EndChar
 
 StartChar: P_o_s_1
-Encoding: 57745 57745 1927
+Encoding: 57745 57745 1928
 Width: 1970
 VWidth: 0
 Flags: HW
@@ -43427,7 +43506,7 @@ Ligature2: "'liga' Standardligaturen 1" P o s one
 EndChar
 
 StartChar: E_n_t_f
-Encoding: 57746 57746 1928
+Encoding: 57746 57746 1929
 Width: 1970
 VWidth: 0
 Flags: HW
@@ -43572,7 +43651,7 @@ Ligature2: "'liga' Standardligaturen 1" E n t f
 EndChar
 
 StartChar: E_i_n_f
-Encoding: 57747 57747 1929
+Encoding: 57747 57747 1930
 Width: 1970
 VWidth: 0
 Flags: HW
@@ -43712,7 +43791,7 @@ Ligature2: "'liga' Standardligaturen 1" E i n f
 EndChar
 
 StartChar: L_e_e_r
-Encoding: 57748 57748 1930
+Encoding: 57748 57748 1931
 Width: 3080
 VWidth: 0
 Flags: HW
@@ -43848,7 +43927,7 @@ Ligature2: "'liga' Standardligaturen 1" L e e r
 EndChar
 
 StartChar: E_s_c
-Encoding: 57749 57749 1931
+Encoding: 57749 57749 1932
 Width: 1650
 VWidth: 0
 Flags: HW
@@ -43945,7 +44024,7 @@ Ligature2: "'liga' Standardligaturen 1" E s c
 EndChar
 
 StartChar: E_n_d_e
-Encoding: 57750 57750 1932
+Encoding: 57750 57750 1933
 Width: 2110
 VWidth: 0
 Flags: HW
@@ -44076,7 +44155,7 @@ Ligature2: "'liga' Standardligaturen 1" E n d e
 EndChar
 
 StartChar: C_a_p_s_l_o_c_k
-Encoding: 57719 57719 1933
+Encoding: 57719 57719 1934
 Width: 1820
 VWidth: 0
 Flags: HW
@@ -44126,7 +44205,7 @@ Ligature2: "'liga' Standardligaturen 1" C a p s l o c k
 EndChar
 
 StartChar: B_a_c_k
-Encoding: 57710 57710 1934
+Encoding: 57710 57710 1935
 Width: 1920
 VWidth: 0
 Flags: HW
@@ -44167,7 +44246,7 @@ Ligature2: "'liga' Standardligaturen 1" B a c k
 EndChar
 
 StartChar: uni21A5
-Encoding: 8613 8613 1935
+Encoding: 8613 8613 1936
 Width: 1330
 Flags: HW
 HStem: -212 76<179.2 1115.76> 368 21G<387 412.5 760.5 781> 439 20G<551 617.5> 718 36<188.821 1105.47>
@@ -44224,7 +44303,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni21A7
-Encoding: 8615 8615 1936
+Encoding: 8615 8615 1937
 Width: 1330
 Flags: HW
 HStem: -212 76<179.2 1115.17> 340 20G<387 407.5 755.5 781> 718 36<188.821 1105.47>
@@ -44281,7 +44360,7 @@ EndSplineSet
 EndChar
 
 StartChar: H_o_m_e
-Encoding: 57737 57737 1937
+Encoding: 57737 57737 1938
 Width: 2460
 VWidth: 0
 Flags: HW
@@ -44412,7 +44491,7 @@ Ligature2: "'liga' Standardligaturen 1" H o m e
 EndChar
 
 StartChar: D_e_l
-Encoding: 57738 57738 1938
+Encoding: 57738 57738 1939
 Width: 1730
 VWidth: 0
 Flags: HW
@@ -44491,7 +44570,7 @@ Ligature2: "'liga' Standardligaturen 1" D e l
 EndChar
 
 StartChar: I_n_s
-Encoding: 57739 57739 1939
+Encoding: 57739 57739 1940
 Width: 1490
 VWidth: 0
 Flags: HW
@@ -44584,7 +44663,7 @@ Ligature2: "'liga' Standardligaturen 1" I n s
 EndChar
 
 StartChar: E_n_d
-Encoding: 57742 57742 1940
+Encoding: 57742 57742 1941
 Width: 1800
 VWidth: 0
 Flags: HW
@@ -44700,7 +44779,7 @@ Ligature2: "'liga' Standardligaturen 1" E n d
 EndChar
 
 StartChar: uni2318
-Encoding: 8984 8984 1941
+Encoding: 8984 8984 1942
 Width: 1100
 VWidth: 2048
 Flags: HW
@@ -44785,7 +44864,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni2325
-Encoding: 8997 8997 1942
+Encoding: 8997 8997 1943
 Width: 1320
 VWidth: 2048
 Flags: HW
@@ -44831,7 +44910,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni232B
-Encoding: 9003 9003 1943
+Encoding: 9003 9003 1944
 Width: 1400
 VWidth: 999
 Flags: HW
@@ -44891,7 +44970,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni2327
-Encoding: 8999 8999 1944
+Encoding: 8999 8999 1945
 Width: 1160
 VWidth: 999
 Flags: HW
@@ -44948,7 +45027,7 @@ EndSplineSet
 EndChar
 
 StartChar: uni2326
-Encoding: 8998 8998 1945
+Encoding: 8998 8998 1946
 Width: 1400
 VWidth: 999
 Flags: HW
@@ -45007,7 +45086,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE18C
-Encoding: 57740 57740 1946
+Encoding: 57740 57740 1947
 Width: 3840
 VWidth: 999
 Flags: HW
@@ -45038,7 +45117,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE1A0
-Encoding: 57760 57760 1947
+Encoding: 57760 57760 1948
 Width: 1950
 Flags: HW
 HStem: -212 76 -108 31 54 38 54 51 58 60 64 330 176 32 325 69 343 40 367 33 518 36 718 36
@@ -45153,7 +45232,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE1A1
-Encoding: 57761 57761 1948
+Encoding: 57761 57761 1949
 Width: 1950
 Flags: HW
 HStem: -212 76 -108 31 54 38 54 51 58 60 64 330 176 32 325 69 343 40 367 33 518 36 718 36
@@ -45273,7 +45352,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE1A2
-Encoding: 57762 57762 1949
+Encoding: 57762 57762 1950
 Width: 1950
 Flags: HW
 HStem: -212 76 -108 31 54 38 54 51 58 60 64 330 176 32 325 69 343 40 367 33 518 36 718 36
@@ -45399,7 +45478,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE1A3
-Encoding: 57763 57763 1950
+Encoding: 57763 57763 1951
 Width: 1950
 Flags: HW
 HStem: -212 76 -108 31 54 38 54 51 58 60 64 330 176 32 325 69 343 40 367 33 518 36 718 36
@@ -45526,7 +45605,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE1A4
-Encoding: 57764 57764 1951
+Encoding: 57764 57764 1952
 Width: 1950
 Flags: HW
 HStem: -212 76 -108 31 54 38 54 51 58 60 64 330 176 32 325 69 343 40 367 33 518 36 718 36
@@ -45656,7 +45735,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE1A5
-Encoding: 57765 57765 1952
+Encoding: 57765 57765 1953
 Width: 1950
 Flags: HW
 HStem: -212 76 -108 31 54 38 54 51 58 60 64 330 176 32 325 69 343 40 367 33 518 36 718 36
@@ -45782,7 +45861,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE1A6
-Encoding: 57766 57766 1953
+Encoding: 57766 57766 1954
 Width: 1950
 Flags: HW
 HStem: -212 76<179.2 1735.17> 47 33<1416.17 1491.91> 66.1 38.9<567.305 655.455 728.635 789.028 920.358 1010.29> 257.3 27.7<325.445 425.007> 288 35<1395.11 1492.48> 318.7 34.6<583.166 673.21 926.366 1017.76> 469.2 27.7<306.482 427.688> 482 27<1525.42 1587> 718 36<188.821 1725.47>
@@ -45902,7 +45981,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE1A7
-Encoding: 57767 57767 1954
+Encoding: 57767 57767 1955
 Width: 1950
 Flags: HW
 HStem: -212 76 -108 31 54 38 54 51 58 60 64 330 176 32 325 69 343 40 367 33 518 36 718 36
@@ -46018,7 +46097,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE1A8
-Encoding: 57768 57768 1955
+Encoding: 57768 57768 1956
 Width: 1950
 Flags: HW
 HStem: -212 76<179.2 1735.17> 52 29<1412.55 1503.15> 66.1 38.9<567.305 655.455 728.635 789.028 920.358 1010.29> 257.3 27.7<325.445 425.007> 318.7 34.6<583.166 673.21 926.366 1017.76> 469.2 27.7<306.482 427.688> 485 29<1418.19 1493.83> 718 36<188.821 1725.47>
@@ -46147,7 +46226,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE1A9
-Encoding: 57769 57769 1956
+Encoding: 57769 57769 1957
 Width: 1950
 Flags: HW
 HStem: -212 76<179.2 1735.17> 53 27<1328 1389.58> 66.1 38.9<567.305 655.455 728.635 789.028 920.358 1010.29> 239 35<1422.52 1519.89> 257.3 27.7<325.445 425.007> 318.7 34.6<583.166 673.21 926.366 1017.76> 469.2 27.7<306.482 427.688> 482 33<1423.09 1498.83> 718 36<188.821 1725.47>
@@ -46267,7 +46346,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE1AA
-Encoding: 57770 57770 1957
+Encoding: 57770 57770 1958
 Width: 1950
 Flags: HW
 HStem: -212 76<179.2 1735.17> 66 39<567.272 655.332 728.622 789.321 920.506 1009.95> 86 130<1412.18 1489.55> 257 72<1271.5 1635.32> 257 28<325 424.929> 319 34<584.873 673.209 927.322 1017.28> 370 129<1413.25 1489.9> 469 28<306.129 428.291> 718 36<188.821 1725.47>
@@ -46397,7 +46476,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE1AB
-Encoding: 57771 57771 1958
+Encoding: 57771 57771 1959
 Width: 1950
 Flags: HW
 HStem: -212 76<179.2 1735.17> 66.1 38.9<567.305 655.455 728.635 789.028 920.358 1010.29> 257.3 27.7<325.445 425.007> 260.7 74.1<1243.12 1412.58 1486.72 1656.17> 318.7 34.6<583.166 673.21 926.366 1017.76> 469.2 27.7<306.482 427.688> 718 36<188.821 1725.47>
@@ -46515,7 +46594,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE1AC
-Encoding: 57772 57772 1959
+Encoding: 57772 57772 1960
 Width: 1950
 Flags: HW
 HStem: -212 76 -108 31 54 38 54 51 58 60 64 330 176 32 325 69 343 40 367 33 518 36 718 36
@@ -46627,7 +46706,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE1AD
-Encoding: 57773 57773 1960
+Encoding: 57773 57773 1961
 Width: 1950
 Flags: HW
 HStem: -212 76<179.2 1735.17> 66.1 38.9<567.305 655.455 728.635 789.028 920.358 1010.29> 257.3 27.7<325.445 425.007> 318.7 34.6<583.166 673.21 926.366 1017.76> 469.2 27.7<306.482 427.688> 718 36<188.821 1725.47>
@@ -46745,7 +46824,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE188
-Encoding: 57736 57736 1961
+Encoding: 57736 57736 1962
 Width: 1340
 Flags: HW
 HStem: -212 76<204 1061 249 1061 1061 1091 249 1121> 38 21G<341 341 450 450> 278 38<444 462> 422 66<913 935> 472 21G<644 644> 481 43<450 500> 718 36<219 1091 249 1061>
@@ -46829,7 +46908,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE131
-Encoding: 57649 57649 1962
+Encoding: 57649 57649 1963
 Width: 964
 Flags: HW
 HStem: -240 35<508.486 746.958> -226.5 35<860.498 932.5> -206.5 35<756.264 910.944> -132 46<448 506> 326 38<214 341 417 531 608 735> 635 35<265.15 341 417 531 608 682.932> 711 40<229.807 720.533>
@@ -46837,79 +46916,78 @@ VStem: 101 40<1.9751 618.784> 181 33<364 578.43> 341 28<364 635> 389 28<364 635>
 LayerCount: 3
 Fore
 SplineSet
-318 670 m 2
- 369 670 l 1
- 369 326 l 1
- 181 326 l 1
- 181 518 l 2
- 181 597 228 670 318 670 c 2
-634 670 m 1
- 716 668 768 600 768 521 c 2
- 768 327 l 1
- 580 327 l 1
- 579 670 l 1
- 634 670 l 1
-389 670 m 1
- 559 670 l 1
- 559 327 l 1
- 389 327 l 1
- 389 670 l 1
-417 635 m 1
- 417 364 l 1
- 531 364 l 1
- 531 635 l 1
- 417 635 l 1
-332 635 m 2
- 254 635 214 589.1 214 501 c 2
- 214 364 l 1
- 341 364 l 1
- 341 635 l 1
- 332 635 l 2
-619 635 m 2
- 608 635 l 1
- 608 364 l 1
- 735 364 l 1
- 735 495 l 2
- 735 583.1 697 635 619 635 c 2
-298 711 m 2
- 211 711 141 626 141 547 c 2
- 141 77 l 2
- 141 -79.5 314.8 -86 477 -86 c 0
- 632.7 -86 806 -71.1 806 77 c 2
- 806 547 l 2
- 806 634 739 711 645 711 c 2
- 298 711 l 2
-300 751 m 2
- 657 751 l 2
- 763 751 846 676 846 577 c 2
- 846 32 l 2
- 846 -59 760.8 -144 657 -152 c 1
- 543 -162 l 1
- 506 -132 l 1
- 448 -132 l 1
- 411.5 -162 l 1
- 300 -152 l 1
- 196.3 -143.8 101 -68 101 23 c 2
- 101 577 l 2
- 101 668 196 751 300 751 c 2
-457 -169.5 m 1
- 492 -169.5 l 1
- 492 -179.9 498.7 -190.1 508.2 -197.2 c 0
- 514.7 -201.6 564.6 -205 603.5 -205 c 2
- 676.5 -205 l 2
- 703.1 -205 786.7 -171.5 830 -171.5 c 0
- 873.7 -171.5 918.5 -191.5 932.5 -191.5 c 1
- 932.5 -226.5 l 1
- 903.8 -226.5 862.7 -206.5 830 -206.5 c 0
- 798.5 -206.5 718.5 -240 676.5 -240 c 2
- 603.5 -240 l 2
- 565.3 -240 512.7 -243.8 487.7 -225.7 c 0
- 471.5 -213.9 457 -194.5 457 -169.5 c 1
+333 570 m 2
+ 384 570 l 1
+ 384 226 l 1
+ 196 226 l 1
+ 196 418 l 2
+ 196 497 243 570 333 570 c 2
+649 570 m 1
+ 731 568 783 500 783 421 c 2
+ 783 227 l 1
+ 595 227 l 1
+ 594 570 l 1
+ 649 570 l 1
+404 570 m 1
+ 574 570 l 1
+ 574 227 l 1
+ 404 227 l 1
+ 404 570 l 1
+432 535 m 1
+ 432 264 l 1
+ 546 264 l 1
+ 546 535 l 1
+ 432 535 l 1
+347 535 m 2
+ 269 535 229 489.1 229 401 c 2
+ 229 264 l 1
+ 356 264 l 1
+ 356 535 l 1
+ 347 535 l 2
+634 535 m 2
+ 623 535 l 1
+ 623 264 l 1
+ 750 264 l 1
+ 750 395 l 2
+ 750 483.1 712 535 634 535 c 2
+314.5 617 m 2
+ 227.5 617 157.5 532 157.5 453 c 2
+ 157.5 3 l 2
+ 157.5 -153.5 331.3 -170 493.5 -170 c 0
+ 649.2 -170 822.5 -145.1 822.5 3 c 2
+ 822.5 453 l 2
+ 822.5 540 755.5 617 661.5 617 c 2
+ 314.5 617 l 2
+493.5 -240 m 0
+ 304.6 -240 128 -222 117.5 -36 c 1
+ 117.5 479 l 2
+ 117.5 570 202.4 663 306.5 663 c 2
+ 445.5 663 l 1
+ 467.5 643 l 1
+ 505.5 643 l 1
+ 527 663 l 1
+ 663.5 663 l 2
+ 767.5 663 862.5 579 862.5 488 c 2
+ 862.5 -36 l 1
+ 852.5 -206 675.2 -240 493.5 -240 c 0
+469.5 680.5 m 1
+ 504.5 680.5 l 1
+ 504.5 690.9 511.2 701.1 520.7 708.2 c 0
+ 527.2 712.6 577.1 716 616 716 c 2
+ 689 716 l 2
+ 715.6 716 799.2 682.5 842.5 682.5 c 0
+ 886.2 682.5 931 702.5 945 702.5 c 1
+ 945 737.5 l 1
+ 916.3 737.5 875.2 717.5 842.5 717.5 c 0
+ 811 717.5 731 751 689 751 c 2
+ 616 751 l 2
+ 577.8 751 525.2 754.8 500.2 736.7 c 0
+ 484 724.9 469.5 705.5 469.5 680.5 c 1
 EndSplineSet
 EndChar
 
 StartChar: uniE132
-Encoding: 57650 57650 1963
+Encoding: 57650 57650 1964
 Width: 964
 Flags: HW
 HStem: -240 35<508.486 746.958> -226.5 35<860.498 932.5> -206.5 35<756.264 910.944> -132 46<448 506> 327 37<417 531 608 735> 635 35<417 531 608 682.932> 711 40<229.807 720.533>
@@ -46917,73 +46995,72 @@ VStem: 101 40<1.9751 618.784> 181 188<326 603.841> 389 28<364 635> 457 35<-196.9
 LayerCount: 3
 Fore
 SplineSet
-318 670 m 2
- 369 670 l 1
- 369 326 l 1
- 181 326 l 1
- 181 518 l 2
- 181 597 228 670 318 670 c 2
-634 670 m 1
- 716 668 768 600 768 521 c 2
- 768 327 l 1
- 580 327 l 1
- 579 670 l 1
- 634 670 l 1
-389 670 m 1
- 559 670 l 1
- 559 327 l 1
- 389 327 l 1
- 389 670 l 1
-417 635 m 1
- 417 364 l 1
- 531 364 l 1
- 531 635 l 1
- 417 635 l 1
-619 635 m 2
- 608 635 l 1
- 608 364 l 1
- 735 364 l 1
- 735 495 l 2
- 735 583.1 697 635 619 635 c 2
-298 711 m 2
- 211 711 141 626 141 547 c 2
- 141 77 l 2
- 141 -79.5 314.8 -86 477 -86 c 0
- 632.7 -86 806 -71.1 806 77 c 2
- 806 547 l 2
- 806 634 739 711 645 711 c 2
- 298 711 l 2
-300 751 m 2
- 657 751 l 2
- 763 751 846 676 846 577 c 2
- 846 32 l 2
- 846 -59 760.8 -144 657 -152 c 1
- 543 -162 l 1
- 506 -132 l 1
- 448 -132 l 1
- 411.5 -162 l 1
- 300 -152 l 1
- 196.3 -143.8 101 -68 101 23 c 2
- 101 577 l 2
- 101 668 196 751 300 751 c 2
-457 -169.5 m 1
- 492 -169.5 l 1
- 492 -179.9 498.7 -190.1 508.2 -197.2 c 0
- 514.7 -201.6 564.6 -205 603.5 -205 c 2
- 676.5 -205 l 2
- 703.1 -205 786.7 -171.5 830 -171.5 c 0
- 873.7 -171.5 918.5 -191.5 932.5 -191.5 c 1
- 932.5 -226.5 l 1
- 903.8 -226.5 862.7 -206.5 830 -206.5 c 0
- 798.5 -206.5 718.5 -240 676.5 -240 c 2
- 603.5 -240 l 2
- 565.3 -240 512.7 -243.8 487.7 -225.7 c 0
- 471.5 -213.9 457 -194.5 457 -169.5 c 1
+333 570 m 2
+ 384 570 l 1
+ 384 226 l 1
+ 196 226 l 1
+ 196 418 l 2
+ 196 497 243 570 333 570 c 2
+649 570 m 1
+ 731 568 783 500 783 421 c 2
+ 783 227 l 1
+ 595 227 l 1
+ 594 570 l 1
+ 649 570 l 1
+404 570 m 1
+ 574 570 l 1
+ 574 227 l 1
+ 404 227 l 1
+ 404 570 l 1
+432 535 m 1
+ 432 264 l 1
+ 546 264 l 1
+ 546 535 l 1
+ 432 535 l 1
+634 535 m 2
+ 623 535 l 1
+ 623 264 l 1
+ 750 264 l 1
+ 750 395 l 2
+ 750 483.1 712 535 634 535 c 2
+314.5 617 m 2
+ 227.5 617 157.5 532 157.5 453 c 2
+ 157.5 3 l 2
+ 157.5 -153.5 331.3 -170 493.5 -170 c 0
+ 649.2 -170 822.5 -145.1 822.5 3 c 2
+ 822.5 453 l 2
+ 822.5 540 755.5 617 661.5 617 c 2
+ 314.5 617 l 2
+493.5 -240 m 0
+ 304.6 -240 128 -222 117.5 -36 c 1
+ 117.5 479 l 2
+ 117.5 570 202.4 663 306.5 663 c 2
+ 445.5 663 l 1
+ 467.5 643 l 1
+ 505.5 643 l 1
+ 527 663 l 1
+ 663.5 663 l 2
+ 767.5 663 862.5 579 862.5 488 c 2
+ 862.5 -36 l 1
+ 852.5 -206 675.2 -240 493.5 -240 c 0
+469.5 680.5 m 1
+ 504.5 680.5 l 1
+ 504.5 690.9 511.2 701.1 520.7 708.2 c 0
+ 527.2 712.6 577.1 716 616 716 c 2
+ 689 716 l 2
+ 715.6 716 799.2 682.5 842.5 682.5 c 0
+ 886.2 682.5 931 702.5 945 702.5 c 1
+ 945 737.5 l 1
+ 916.3 737.5 875.2 717.5 842.5 717.5 c 0
+ 811 717.5 731 751 689 751 c 2
+ 616 751 l 2
+ 577.8 751 525.2 754.8 500.2 736.7 c 0
+ 484 724.9 469.5 705.5 469.5 680.5 c 1
 EndSplineSet
 EndChar
 
 StartChar: uniE133
-Encoding: 57651 57651 1964
+Encoding: 57651 57651 1965
 Width: 964
 Flags: HW
 HStem: -240 35<508.486 746.958> -226.5 35<860.498 932.5> -206.5 35<756.264 910.944> -132 46<448 506> 326 38<214 341 608 735> 635 35<265.15 341 608 682.932> 711 40<229.807 720.533>
@@ -46991,74 +47068,73 @@ VStem: 101 40<1.9751 618.784> 181 33<364 578.43> 341 28<364 635> 389 170<327 670
 LayerCount: 3
 Fore
 SplineSet
-318 670 m 2
- 369 670 l 1
- 369 326 l 1
- 181 326 l 1
- 181 518 l 2
- 181 597 228 670 318 670 c 2
-634 670 m 1
- 716 668 768 600 768 521 c 2
- 768 327 l 1
- 580 327 l 1
- 579 670 l 1
- 634 670 l 1
-389 670 m 1
- 559 670 l 1
- 559 327 l 1
- 389 327 l 1
- 389 670 l 1
-332 635 m 2
- 254 635 214 589.1 214 501 c 2
- 214 364 l 1
- 341 364 l 1
- 341 635 l 1
- 332 635 l 2
-619 635 m 2
- 608 635 l 1
- 608 364 l 1
- 735 364 l 1
- 735 495 l 2
- 735 583.1 697 635 619 635 c 2
-298 711 m 2
- 211 711 141 626 141 547 c 2
- 141 77 l 2
- 141 -79.5 314.8 -86 477 -86 c 0
- 632.7 -86 806 -71.1 806 77 c 2
- 806 547 l 2
- 806 634 739 711 645 711 c 2
- 298 711 l 2
-300 751 m 2
- 657 751 l 2
- 763 751 846 676 846 577 c 2
- 846 32 l 2
- 846 -59 760.8 -144 657 -152 c 1
- 543 -162 l 1
- 506 -132 l 1
- 448 -132 l 1
- 411.5 -162 l 1
- 300 -152 l 1
- 196.3 -143.8 101 -68 101 23 c 2
- 101 577 l 2
- 101 668 196 751 300 751 c 2
-457 -169.5 m 1
- 492 -169.5 l 1
- 492 -179.9 498.7 -190.1 508.2 -197.2 c 0
- 514.7 -201.6 564.6 -205 603.5 -205 c 2
- 676.5 -205 l 2
- 703.1 -205 786.7 -171.5 830 -171.5 c 0
- 873.7 -171.5 918.5 -191.5 932.5 -191.5 c 1
- 932.5 -226.5 l 1
- 903.8 -226.5 862.7 -206.5 830 -206.5 c 0
- 798.5 -206.5 718.5 -240 676.5 -240 c 2
- 603.5 -240 l 2
- 565.3 -240 512.7 -243.8 487.7 -225.7 c 0
- 471.5 -213.9 457 -194.5 457 -169.5 c 1
+333 570 m 2
+ 384 570 l 1
+ 384 226 l 1
+ 196 226 l 1
+ 196 418 l 2
+ 196 497 243 570 333 570 c 2
+649 570 m 1
+ 731 568 783 500 783 421 c 2
+ 783 227 l 1
+ 595 227 l 1
+ 594 570 l 1
+ 649 570 l 1
+404 570 m 1
+ 574 570 l 1
+ 574 227 l 1
+ 404 227 l 1
+ 404 570 l 1
+347 535 m 2
+ 269 535 229 489.1 229 401 c 2
+ 229 264 l 1
+ 356 264 l 1
+ 356 535 l 1
+ 347 535 l 2
+634 535 m 2
+ 623 535 l 1
+ 623 264 l 1
+ 750 264 l 1
+ 750 395 l 2
+ 750 483.1 712 535 634 535 c 2
+314.5 617 m 2
+ 227.5 617 157.5 532 157.5 453 c 2
+ 157.5 3 l 2
+ 157.5 -153.5 331.3 -170 493.5 -170 c 0
+ 649.2 -170 822.5 -145.1 822.5 3 c 2
+ 822.5 453 l 2
+ 822.5 540 755.5 617 661.5 617 c 2
+ 314.5 617 l 2
+493.5 -240 m 0
+ 304.6 -240 128 -222 117.5 -36 c 1
+ 117.5 479 l 2
+ 117.5 570 202.4 663 306.5 663 c 2
+ 445.5 663 l 1
+ 467.5 643 l 1
+ 505.5 643 l 1
+ 527 663 l 1
+ 663.5 663 l 2
+ 767.5 663 862.5 579 862.5 488 c 2
+ 862.5 -36 l 1
+ 852.5 -206 675.2 -240 493.5 -240 c 0
+469.5 680.5 m 1
+ 504.5 680.5 l 1
+ 504.5 690.9 511.2 701.1 520.7 708.2 c 0
+ 527.2 712.6 577.1 716 616 716 c 2
+ 689 716 l 2
+ 715.6 716 799.2 682.5 842.5 682.5 c 0
+ 886.2 682.5 931 702.5 945 702.5 c 1
+ 945 737.5 l 1
+ 916.3 737.5 875.2 717.5 842.5 717.5 c 0
+ 811 717.5 731 751 689 751 c 2
+ 616 751 l 2
+ 577.8 751 525.2 754.8 500.2 736.7 c 0
+ 484 724.9 469.5 705.5 469.5 680.5 c 1
 EndSplineSet
 EndChar
 
 StartChar: uniE134
-Encoding: 57652 57652 1965
+Encoding: 57652 57652 1966
 Width: 964
 Flags: HW
 HStem: -240 35<508.486 746.958> -226.5 35<860.498 932.5> -206.5 35<756.264 910.944> -132 46<448 506> 327 37<214 341 417 531> 635 35<265.15 341 417 531> 711 40<229.807 720.533>
@@ -47066,73 +47142,72 @@ VStem: 101 40<1.9751 618.784> 181 33<364 578.43> 341 28<364 635> 389 28<364 635>
 LayerCount: 3
 Fore
 SplineSet
-318 670 m 2
- 369 670 l 1
- 369 326 l 1
- 181 326 l 1
- 181 518 l 2
- 181 597 228 670 318 670 c 2
-634 670 m 1
- 716 668 768 600 768 521 c 2
- 768 327 l 1
- 580 327 l 1
- 579 670 l 1
- 634 670 l 1
-389 670 m 1
- 559 670 l 1
- 559 327 l 1
- 389 327 l 1
- 389 670 l 1
-417 635 m 1
- 417 364 l 1
- 531 364 l 1
- 531 635 l 1
- 417 635 l 1
-332 635 m 2
- 254 635 214 589.1 214 501 c 2
- 214 364 l 1
- 341 364 l 1
- 341 635 l 1
- 332 635 l 2
-298 711 m 2
- 211 711 141 626 141 547 c 2
- 141 77 l 2
- 141 -79.5 314.8 -86 477 -86 c 0
- 632.7 -86 806 -71.1 806 77 c 2
- 806 547 l 2
- 806 634 739 711 645 711 c 2
- 298 711 l 2
-300 751 m 2
- 657 751 l 2
- 763 751 846 676 846 577 c 2
- 846 32 l 2
- 846 -59 760.8 -144 657 -152 c 1
- 543 -162 l 1
- 506 -132 l 1
- 448 -132 l 1
- 411.5 -162 l 1
- 300 -152 l 1
- 196.3 -143.8 101 -68 101 23 c 2
- 101 577 l 2
- 101 668 196 751 300 751 c 2
-457 -169.5 m 1
- 492 -169.5 l 1
- 492 -179.9 498.7 -190.1 508.2 -197.2 c 0
- 514.7 -201.6 564.6 -205 603.5 -205 c 2
- 676.5 -205 l 2
- 703.1 -205 786.7 -171.5 830 -171.5 c 0
- 873.7 -171.5 918.5 -191.5 932.5 -191.5 c 1
- 932.5 -226.5 l 1
- 903.8 -226.5 862.7 -206.5 830 -206.5 c 0
- 798.5 -206.5 718.5 -240 676.5 -240 c 2
- 603.5 -240 l 2
- 565.3 -240 512.7 -243.8 487.7 -225.7 c 0
- 471.5 -213.9 457 -194.5 457 -169.5 c 1
+333 570 m 2
+ 384 570 l 1
+ 384 226 l 1
+ 196 226 l 1
+ 196 418 l 2
+ 196 497 243 570 333 570 c 2
+649 570 m 1
+ 731 568 783 500 783 421 c 2
+ 783 227 l 1
+ 595 227 l 1
+ 594 570 l 1
+ 649 570 l 1
+404 570 m 1
+ 574 570 l 1
+ 574 227 l 1
+ 404 227 l 1
+ 404 570 l 1
+432 535 m 1
+ 432 264 l 1
+ 546 264 l 1
+ 546 535 l 1
+ 432 535 l 1
+347 535 m 2
+ 269 535 229 489.1 229 401 c 2
+ 229 264 l 1
+ 356 264 l 1
+ 356 535 l 1
+ 347 535 l 2
+314.5 617 m 2
+ 227.5 617 157.5 532 157.5 453 c 2
+ 157.5 3 l 2
+ 157.5 -153.5 331.3 -170 493.5 -170 c 0
+ 649.2 -170 822.5 -145.1 822.5 3 c 2
+ 822.5 453 l 2
+ 822.5 540 755.5 617 661.5 617 c 2
+ 314.5 617 l 2
+493.5 -240 m 0
+ 304.6 -240 128 -222 117.5 -36 c 1
+ 117.5 479 l 2
+ 117.5 570 202.4 663 306.5 663 c 2
+ 445.5 663 l 1
+ 467.5 643 l 1
+ 505.5 643 l 1
+ 527 663 l 1
+ 663.5 663 l 2
+ 767.5 663 862.5 579 862.5 488 c 2
+ 862.5 -36 l 1
+ 852.5 -206 675.2 -240 493.5 -240 c 0
+469.5 680.5 m 1
+ 504.5 680.5 l 1
+ 504.5 690.9 511.2 701.1 520.7 708.2 c 0
+ 527.2 712.6 577.1 716 616 716 c 2
+ 689 716 l 2
+ 715.6 716 799.2 682.5 842.5 682.5 c 0
+ 886.2 682.5 931 702.5 945 702.5 c 1
+ 945 737.5 l 1
+ 916.3 737.5 875.2 717.5 842.5 717.5 c 0
+ 811 717.5 731 751 689 751 c 2
+ 616 751 l 2
+ 577.8 751 525.2 754.8 500.2 736.7 c 0
+ 484 724.9 469.5 705.5 469.5 680.5 c 1
 EndSplineSet
 EndChar
 
 StartChar: uniE135
-Encoding: 57653 57653 1966
+Encoding: 57653 57653 1967
 Width: 964
 Flags: HW
 HStem: -240 35<508.486 746.958> -226.5 35<860.498 932.5> -206.5 35<756.264 910.944> -132 46<448 506> 327 37<417 531> 635 35<417 531> 711 40<229.807 720.533>
@@ -47140,67 +47215,66 @@ VStem: 101 40<1.9751 618.784> 181 188<326 603.841> 389 28<364 635> 457 35<-196.9
 LayerCount: 3
 Fore
 SplineSet
-318 670 m 2
- 369 670 l 1
- 369 326 l 1
- 181 326 l 1
- 181 518 l 2
- 181 597 228 670 318 670 c 2
-634 670 m 1
- 716 668 768 600 768 521 c 2
- 768 327 l 1
- 580 327 l 1
- 579 670 l 1
- 634 670 l 1
-389 670 m 1
- 559 670 l 1
- 559 327 l 1
- 389 327 l 1
- 389 670 l 1
-417 635 m 1
- 417 364 l 1
- 531 364 l 1
- 531 635 l 1
- 417 635 l 1
-298 711 m 2
- 211 711 141 626 141 547 c 2
- 141 77 l 2
- 141 -79.5 314.8 -86 477 -86 c 0
- 632.7 -86 806 -71.1 806 77 c 2
- 806 547 l 2
- 806 634 739 711 645 711 c 2
- 298 711 l 2
-300 751 m 2
- 657 751 l 2
- 763 751 846 676 846 577 c 2
- 846 32 l 2
- 846 -59 760.8 -144 657 -152 c 1
- 543 -162 l 1
- 506 -132 l 1
- 448 -132 l 1
- 411.5 -162 l 1
- 300 -152 l 1
- 196.3 -143.8 101 -68 101 23 c 2
- 101 577 l 2
- 101 668 196 751 300 751 c 2
-457 -169.5 m 1
- 492 -169.5 l 1
- 492 -179.9 498.7 -190.1 508.2 -197.2 c 0
- 514.7 -201.6 564.6 -205 603.5 -205 c 2
- 676.5 -205 l 2
- 703.1 -205 786.7 -171.5 830 -171.5 c 0
- 873.7 -171.5 918.5 -191.5 932.5 -191.5 c 1
- 932.5 -226.5 l 1
- 903.8 -226.5 862.7 -206.5 830 -206.5 c 0
- 798.5 -206.5 718.5 -240 676.5 -240 c 2
- 603.5 -240 l 2
- 565.3 -240 512.7 -243.8 487.7 -225.7 c 0
- 471.5 -213.9 457 -194.5 457 -169.5 c 1
+333 570 m 2
+ 384 570 l 1
+ 384 226 l 1
+ 196 226 l 1
+ 196 418 l 2
+ 196 497 243 570 333 570 c 2
+649 570 m 1
+ 731 568 783 500 783 421 c 2
+ 783 227 l 1
+ 595 227 l 1
+ 594 570 l 1
+ 649 570 l 1
+404 570 m 1
+ 574 570 l 1
+ 574 227 l 1
+ 404 227 l 1
+ 404 570 l 1
+432 535 m 1
+ 432 264 l 1
+ 546 264 l 1
+ 546 535 l 1
+ 432 535 l 1
+314.5 617 m 2
+ 227.5 617 157.5 532 157.5 453 c 2
+ 157.5 3 l 2
+ 157.5 -153.5 331.3 -170 493.5 -170 c 0
+ 649.2 -170 822.5 -145.1 822.5 3 c 2
+ 822.5 453 l 2
+ 822.5 540 755.5 617 661.5 617 c 2
+ 314.5 617 l 2
+493.5 -240 m 0
+ 304.6 -240 128 -222 117.5 -36 c 1
+ 117.5 479 l 2
+ 117.5 570 202.4 663 306.5 663 c 2
+ 445.5 663 l 1
+ 467.5 643 l 1
+ 505.5 643 l 1
+ 527 663 l 1
+ 663.5 663 l 2
+ 767.5 663 862.5 579 862.5 488 c 2
+ 862.5 -36 l 1
+ 852.5 -206 675.2 -240 493.5 -240 c 0
+469.5 680.5 m 1
+ 504.5 680.5 l 1
+ 504.5 690.9 511.2 701.1 520.7 708.2 c 0
+ 527.2 712.6 577.1 716 616 716 c 2
+ 689 716 l 2
+ 715.6 716 799.2 682.5 842.5 682.5 c 0
+ 886.2 682.5 931 702.5 945 702.5 c 1
+ 945 737.5 l 1
+ 916.3 737.5 875.2 717.5 842.5 717.5 c 0
+ 811 717.5 731 751 689 751 c 2
+ 616 751 l 2
+ 577.8 751 525.2 754.8 500.2 736.7 c 0
+ 484 724.9 469.5 705.5 469.5 680.5 c 1
 EndSplineSet
 EndChar
 
 StartChar: uniE1B0
-Encoding: 57776 57776 1967
+Encoding: 57776 57776 1968
 Width: 550
 VWidth: 999
 Flags: HW
@@ -47230,7 +47304,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE1B1
-Encoding: 57777 57777 1968
+Encoding: 57777 57777 1969
 Width: 568
 Flags: HW
 HStem: 206 54<172.995 396.68>
@@ -47249,7 +47323,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE1AE
-Encoding: 57774 57774 1969
+Encoding: 57774 57774 1970
 Width: 1950
 Flags: HW
 HStem: -212 76<179.2 1735.17> 66.1 38.9<567.305 655.455 728.635 789.028 920.358 1010.29> 174 44<1432 1615> 257.3 27.7<325.445 425.007> 318.7 34.6<583.166 673.21 926.366 1017.76> 469.2 27.7<306.482 427.688> 718 36<188.821 1725.47>
@@ -47364,7 +47438,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE198
-Encoding: 57752 57752 1970
+Encoding: 57752 57752 1971
 Width: 2170
 VWidth: 0
 Flags: HW
@@ -47487,7 +47561,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE199
-Encoding: 57753 57753 1971
+Encoding: 57753 57753 1972
 Width: 2170
 VWidth: 0
 Flags: HW
@@ -47610,7 +47684,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE19A
-Encoding: 57754 57754 1972
+Encoding: 57754 57754 1973
 Width: 2380
 VWidth: 0
 Flags: HW
@@ -47753,7 +47827,7 @@ EndSplineSet
 EndChar
 
 StartChar: uniE19B
-Encoding: 57755 57755 1973
+Encoding: 57755 57755 1974
 Width: 2380
 VWidth: 0
 Flags: HW
@@ -47896,53 +47970,51 @@ EndSplineSet
 EndChar
 
 StartChar: uniE138
-Encoding: 57656 57656 1974
+Encoding: 57656 57656 1975
 Width: 1036
 Flags: HW
-HStem: -240 35<508.486 746.958> -226.5 35<860.498 932.5> -206.5 35<756.264 910.944> -132 46<448 506> 711 40<229.807 720.533>
-VStem: 101 40<1.9751 618.784> 457 35<-196.915 -169.5> 806 40<2.45026 623.588>
+HStem: -243 80<283.589 586.804> 237 37<485 617> 545 35<485 564.932> 627 28<317.606 392.5 403.5 461.5 473 569.177> 682.5 35<716.264 870.945> 702.5 35<820.498 892.5> 716 35<468.486 563.5 636.5 706.958>
+VStem: 143.5 40<-95.278 538.581> 223 193<236 513.841> 417 35<680.5 707.915> 457 28<274 545> 617 33<274 487.612> 688.5 40<-76.2366 546.013>
 LayerCount: 3
 Fore
 SplineSet
-378 711 m 2
- 291 711 221 626 221 547 c 2
- 221 77 l 2
- 221 -79.5 314.8 -86 477 -86 c 0
- 632.7 -86 726 -71.1 726 77 c 2
- 726 547 l 2
- 726 634 659 711 565 711 c 2
- 378 711 l 2
-380 751 m 2
- 577 751 l 2
- 683 751 766 676 766 577 c 2
- 766 32 l 2
- 766 -59 683.7 -153.7 577 -160 c 2
- 543 -162 l 1
- 506 -132 l 1
- 448 -132 l 1
- 411.5 -162 l 1
- 380 -160 l 2
- 283.4 -153.9 181 -68 181 23 c 2
- 181 577 l 2
- 181 668 276 751 380 751 c 2
-457 -169.5 m 1
- 492 -169.5 l 1
- 492 -179.9 498.7 -190.1 508.2 -197.2 c 0
- 514.7 -201.6 564.6 -205 603.5 -205 c 2
- 676.5 -205 l 2
- 703.1 -205 786.7 -171.5 830 -171.5 c 0
- 873.7 -171.5 918.5 -191.5 932.5 -191.5 c 1
- 932.5 -226.5 l 1
- 903.8 -226.5 862.7 -206.5 830 -206.5 c 0
- 798.5 -206.5 718.5 -240 676.5 -240 c 2
- 603.5 -240 l 2
- 565.3 -240 512.7 -243.8 487.7 -225.7 c 0
- 471.5 -213.9 457 -194.5 457 -169.5 c 1
+728 -1 m 2
+ 728 464 l 2
+ 728 593 634 627 472 627 c 0
+ 331 627 224 581 224 464 c 2
+ 224 -1 l 2
+ 224 -145 318 -163 480 -163 c 0
+ 636 -163 728 -142 728 -1 c 2
+184 -44 m 1
+ 184 479 l 1
+ 189 583 277 655.8 372 659 c 2
+ 432 661 l 1
+ 444 655 l 1
+ 502 655 l 1
+ 513 661 l 1
+ 570 659 l 2
+ 722 653.7 763 592 768 488 c 1
+ 768 -35 l 1
+ 763 -174 645 -243 482 -243 c 0
+ 319 -243 189 -179 184 -44 c 1
+457 680 m 1
+ 492 680 l 1
+ 492 690 499 701 508 708 c 0
+ 514 712 565 716 604 716 c 2
+ 676 716 l 2
+ 703 716 787 682 830 682 c 0
+ 874 682 918 702 932 702 c 1
+ 932 738 l 1
+ 903 738 863 718 830 718 c 0
+ 799 718 718 751 676 751 c 2
+ 604 751 l 2
+ 566 751 513 755 488 737 c 0
+ 472 725 457 705 457 680 c 1
 EndSplineSet
 EndChar
 
 StartChar: uniE139
-Encoding: 57657 57657 1975
+Encoding: 57657 57657 1976
 Width: 866
 Flags: HW
 HStem: -240 35<508.486 746.958> -226.5 35<860.498 932.5> -206.5 35<756.264 910.944> -132 46<448 506> 326 38<214 341 417 531 608 735> 635 35<265.15 341 417 531 608 682.932> 711 40<229.807 720.533>
@@ -47950,69 +48022,67 @@ VStem: 101 40<1.9751 618.784> 181 33<364 578.43> 341 28<364 635> 389 28<364 635>
 LayerCount: 3
 Fore
 SplineSet
-318 670 m 2
- 374 670 l 1
- 374 326 l 1
- 181 326 l 1
- 181 518 l 2
- 181 597 228 670 318 670 c 2
-474 670 m 2
- 556 670 608 600 608 521 c 2
- 608 327 l 1
- 415 327 l 1
- 414 670 l 1
- 474 670 l 2
-332 635 m 2
- 254 635 214 589.1 214 501 c 2
- 214 364 l 1
- 346 364 l 1
- 346 635 l 1
- 332 635 l 2
-459 635 m 2
- 443 635 l 1
- 443 364 l 1
- 575 364 l 1
- 575 495 l 2
- 575 583.1 537 635 459 635 c 2
-298 711 m 2
- 211 711 141 626 141 547 c 2
- 141 77 l 2
- 141 -79.5 234.8 -86 397 -86 c 0
- 552.7 -86 646 -71.1 646 77 c 2
- 646 547 l 2
- 646 634 579 711 485 711 c 2
- 298 711 l 2
-300 751 m 2
- 497 751 l 2
- 603 751 686 676 686 577 c 2
- 686 32 l 2
- 686 -59 603.7 -153.7 497 -160 c 2
- 463 -162 l 1
- 426 -132 l 1
- 368 -132 l 1
- 331.5 -162 l 1
- 300 -160 l 2
- 203.4 -153.9 101 -68 101 23 c 2
- 101 577 l 2
- 101 668 196 751 300 751 c 2
-377 -169.5 m 1
- 412 -169.5 l 1
- 412 -179.9 418.7 -190.1 428.2 -197.2 c 0
- 434.7 -201.6 484.6 -205 523.5 -205 c 2
- 596.5 -205 l 2
- 623.1 -205 706.7 -171.5 750 -171.5 c 0
- 793.7 -171.5 838.5 -191.5 852.5 -191.5 c 1
- 852.5 -226.5 l 1
- 823.8 -226.5 782.7 -206.5 750 -206.5 c 0
- 718.5 -206.5 638.5 -240 596.5 -240 c 2
- 523.5 -240 l 2
- 485.3 -240 432.7 -243.8 407.7 -225.7 c 0
- 391.5 -213.9 377 -194.5 377 -169.5 c 1
+318 575 m 2
+ 374 575 l 1
+ 374 231 l 1
+ 181 231 l 1
+ 181 423 l 2
+ 181 502 228 575 318 575 c 2
+474 575 m 2
+ 556 575 608 505 608 426 c 2
+ 608 232 l 1
+ 415 232 l 1
+ 414 575 l 1
+ 474 575 l 2
+332 540 m 2
+ 254 540 214 494.1 214 406 c 2
+ 214 269 l 1
+ 346 269 l 1
+ 346 540 l 1
+ 332 540 l 2
+459 540 m 2
+ 443 540 l 1
+ 443 269 l 1
+ 575 269 l 1
+ 575 400 l 2
+ 575 488.1 537 540 459 540 c 2
+648 -1 m 2
+ 648 464 l 2
+ 648 593 554 627 392 627 c 0
+ 251 627 144 581 144 464 c 2
+ 144 -1 l 2
+ 144 -145 238 -163 400 -163 c 0
+ 556 -163 648 -142 648 -1 c 2
+104 -44 m 1
+ 104 479 l 1
+ 109 583 197 655.8 292 659 c 2
+ 352 661 l 1
+ 364 655 l 1
+ 422 655 l 1
+ 433 661 l 1
+ 490 659 l 2
+ 642 653.7 683 592 688 488 c 1
+ 688 -35 l 1
+ 683 -174 565 -243 402 -243 c 0
+ 239 -243 109 -179 104 -44 c 1
+377 680 m 1
+ 412 680 l 1
+ 412 690 419 701 428 708 c 0
+ 434 712 485 716 524 716 c 2
+ 596 716 l 2
+ 623 716 707 682 750 682 c 0
+ 794 682 838 702 852 702 c 1
+ 852 738 l 1
+ 823 738 783 718 750 718 c 0
+ 719 718 638 751 596 751 c 2
+ 524 751 l 2
+ 486 751 433 755 408 737 c 0
+ 392 725 377 705 377 680 c 1
 EndSplineSet
 EndChar
 
 StartChar: uniE13A
-Encoding: 57658 57658 1976
+Encoding: 57658 57658 1977
 Width: 866
 Flags: HW
 HStem: -240 35<508.486 746.958> -226.5 35<860.498 932.5> -206.5 35<756.264 910.944> -132 46<448 506> 326 38<214 341 417 531 608 735> 635 35<265.15 341 417 531 608 682.932> 711 40<229.807 720.533>
@@ -48020,63 +48090,61 @@ VStem: 101 40<1.9751 618.784> 181 33<364 578.43> 341 28<364 635> 389 28<364 635>
 LayerCount: 3
 Fore
 SplineSet
-318 670 m 2
- 374 670 l 1
- 374 326 l 1
- 181 326 l 1
- 181 518 l 2
- 181 597 228 670 318 670 c 2
-474 670 m 2
- 556 670 608 600 608 521 c 2
- 608 327 l 1
- 415 327 l 1
- 414 670 l 1
- 474 670 l 2
-459 635 m 2
- 443 635 l 1
- 443 364 l 1
- 575 364 l 1
- 575 495 l 2
- 575 583.1 537 635 459 635 c 2
-298 711 m 2
- 211 711 141 626 141 547 c 2
- 141 77 l 2
- 141 -79.5 234.8 -86 397 -86 c 0
- 552.7 -86 646 -71.1 646 77 c 2
- 646 547 l 2
- 646 634 579 711 485 711 c 2
- 298 711 l 2
-300 751 m 2
- 497 751 l 2
- 603 751 686 676 686 577 c 2
- 686 32 l 2
- 686 -59 603.7 -153.7 497 -160 c 2
- 463 -162 l 1
- 426 -132 l 1
- 368 -132 l 1
- 331.5 -162 l 1
- 300 -160 l 2
- 203.4 -153.9 101 -68 101 23 c 2
- 101 577 l 2
- 101 668 196 751 300 751 c 2
-377 -169.5 m 1
- 412 -169.5 l 1
- 412 -179.9 418.7 -190.1 428.2 -197.2 c 0
- 434.7 -201.6 484.6 -205 523.5 -205 c 2
- 596.5 -205 l 2
- 623.1 -205 706.7 -171.5 750 -171.5 c 0
- 793.7 -171.5 838.5 -191.5 852.5 -191.5 c 1
- 852.5 -226.5 l 1
- 823.8 -226.5 782.7 -206.5 750 -206.5 c 0
- 718.5 -206.5 638.5 -240 596.5 -240 c 2
- 523.5 -240 l 2
- 485.3 -240 432.7 -243.8 407.7 -225.7 c 0
- 391.5 -213.9 377 -194.5 377 -169.5 c 1
+318 575 m 2
+ 374 575 l 1
+ 374 231 l 1
+ 181 231 l 1
+ 181 423 l 2
+ 181 502 228 575 318 575 c 2
+474 575 m 2
+ 556 575 608 505 608 426 c 2
+ 608 232 l 1
+ 415 232 l 1
+ 414 575 l 1
+ 474 575 l 2
+459 540 m 2
+ 443 540 l 1
+ 443 269 l 1
+ 575 269 l 1
+ 575 400 l 2
+ 575 488.1 537 540 459 540 c 2
+648 -1 m 2
+ 648 464 l 2
+ 648 593 554 627 392 627 c 0
+ 251 627 144 581 144 464 c 2
+ 144 -1 l 2
+ 144 -145 238 -163 400 -163 c 0
+ 556 -163 648 -142 648 -1 c 2
+104 -44 m 1
+ 104 479 l 1
+ 109 583 197 655.8 292 659 c 2
+ 352 661 l 1
+ 364 655 l 1
+ 422 655 l 1
+ 433 661 l 1
+ 490 659 l 2
+ 642 653.7 683 592 688 488 c 1
+ 688 -35 l 1
+ 683 -174 565 -243 402 -243 c 0
+ 239 -243 109 -179 104 -44 c 1
+377 680 m 1
+ 412 680 l 1
+ 412 690 419 701 428 708 c 0
+ 434 712 485 716 524 716 c 2
+ 596 716 l 2
+ 623 716 707 682 750 682 c 0
+ 794 682 838 702 852 702 c 1
+ 852 738 l 1
+ 823 738 783 718 750 718 c 0
+ 719 718 638 751 596 751 c 2
+ 524 751 l 2
+ 486 751 433 755 408 737 c 0
+ 392 725 377 705 377 680 c 1
 EndSplineSet
 EndChar
 
 StartChar: uniE13C
-Encoding: 57660 57660 1977
+Encoding: 57660 57660 1978
 Width: 866
 Flags: HW
 HStem: -240 35<508.486 746.958> -226.5 35<860.498 932.5> -206.5 35<756.264 910.944> -132 46<448 506> 326 38<214 341 417 531 608 735> 635 35<265.15 341 417 531 608 682.932> 711 40<229.807 720.533>
@@ -48084,63 +48152,61 @@ VStem: 101 40<1.9751 618.784> 181 33<364 578.43> 341 28<364 635> 389 28<364 635>
 LayerCount: 3
 Fore
 SplineSet
-318 670 m 2
- 374 670 l 1
- 374 326 l 1
- 181 326 l 1
- 181 518 l 2
- 181 597 228 670 318 670 c 2
-474 670 m 2
- 556 670 608 600 608 521 c 2
- 608 327 l 1
- 415 327 l 1
- 414 670 l 1
- 474 670 l 2
-332 635 m 2
- 254 635 214 589.1 214 501 c 2
- 214 364 l 1
- 346 364 l 1
- 346 635 l 1
- 332 635 l 2
-298 711 m 2
- 211 711 141 626 141 547 c 2
- 141 77 l 2
- 141 -79.5 234.8 -86 397 -86 c 0
- 552.7 -86 646 -71.1 646 77 c 2
- 646 547 l 2
- 646 634 579 711 485 711 c 2
- 298 711 l 2
-300 751 m 2
- 497 751 l 2
- 603 751 686 676 686 577 c 2
- 686 32 l 2
- 686 -59 603.7 -153.7 497 -160 c 2
- 463 -162 l 1
- 426 -132 l 1
- 368 -132 l 1
- 331.5 -162 l 1
- 300 -160 l 2
- 203.4 -153.9 101 -68 101 23 c 2
- 101 577 l 2
- 101 668 196 751 300 751 c 2
-377 -169.5 m 1
- 412 -169.5 l 1
- 412 -179.9 418.7 -190.1 428.2 -197.2 c 0
- 434.7 -201.6 484.6 -205 523.5 -205 c 2
- 596.5 -205 l 2
- 623.1 -205 706.7 -171.5 750 -171.5 c 0
- 793.7 -171.5 838.5 -191.5 852.5 -191.5 c 1
- 852.5 -226.5 l 1
- 823.8 -226.5 782.7 -206.5 750 -206.5 c 0
- 718.5 -206.5 638.5 -240 596.5 -240 c 2
- 523.5 -240 l 2
- 485.3 -240 432.7 -243.8 407.7 -225.7 c 0
- 391.5 -213.9 377 -194.5 377 -169.5 c 1
+318 575 m 2
+ 374 575 l 1
+ 374 231 l 1
+ 181 231 l 1
+ 181 423 l 2
+ 181 502 228 575 318 575 c 2
+474 575 m 2
+ 556 575 608 505 608 426 c 2
+ 608 232 l 1
+ 415 232 l 1
+ 414 575 l 1
+ 474 575 l 2
+332 540 m 2
+ 254 540 214 494.1 214 406 c 2
+ 214 269 l 1
+ 346 269 l 1
+ 346 540 l 1
+ 332 540 l 2
+648 -1 m 2
+ 648 464 l 2
+ 648 593 554 627 392 627 c 0
+ 251 627 144 581 144 464 c 2
+ 144 -1 l 2
+ 144 -145 238 -163 400 -163 c 0
+ 556 -163 648 -142 648 -1 c 2
+104 -44 m 1
+ 104 479 l 1
+ 109 583 197 655.8 292 659 c 2
+ 352 661 l 1
+ 364 655 l 1
+ 422 655 l 1
+ 433 661 l 1
+ 490 659 l 2
+ 642 653.7 683 592 688 488 c 1
+ 688 -35 l 1
+ 683 -174 565 -243 402 -243 c 0
+ 239 -243 109 -179 104 -44 c 1
+377 680 m 1
+ 412 680 l 1
+ 412 690 419 701 428 708 c 0
+ 434 712 485 716 524 716 c 2
+ 596 716 l 2
+ 623 716 707 682 750 682 c 0
+ 794 682 838 702 852 702 c 1
+ 852 738 l 1
+ 823 738 783 718 750 718 c 0
+ 719 718 638 751 596 751 c 2
+ 524 751 l 2
+ 486 751 433 755 408 737 c 0
+ 392 725 377 705 377 680 c 1
 EndSplineSet
 EndChar
 
 StartChar: uniE13D
-Encoding: 57661 57661 1978
+Encoding: 57661 57661 1979
 Width: 866
 Flags: HW
 HStem: -240 35<508.486 746.958> -226.5 35<860.498 932.5> -206.5 35<756.264 910.944> -132 46<448 506> 326 38<214 341 417 531 608 735> 635 35<265.15 341 417 531 608 682.932> 711 40<229.807 720.533>
@@ -48148,52 +48214,101 @@ VStem: 101 40<1.9751 618.784> 181 33<364 578.43> 341 28<364 635> 389 28<364 635>
 LayerCount: 3
 Fore
 SplineSet
-318 670 m 2
- 374 670 l 1
- 374 326 l 1
- 181 326 l 1
- 181 518 l 2
- 181 597 228 670 318 670 c 2
-474 670 m 2
- 556 670 608 600 608 521 c 2
- 608 327 l 1
- 415 327 l 1
- 414 670 l 1
- 474 670 l 2
-298 711 m 2
- 211 711 141 626 141 547 c 2
- 141 77 l 2
- 141 -79.5 234.8 -86 397 -86 c 0
- 552.7 -86 646 -71.1 646 77 c 2
- 646 547 l 2
- 646 634 579 711 485 711 c 2
- 298 711 l 2
-300 751 m 2
- 497 751 l 2
- 603 751 686 676 686 577 c 2
- 686 32 l 2
- 686 -59 603.7 -153.7 497 -160 c 2
- 463 -162 l 1
- 426 -132 l 1
- 368 -132 l 1
- 331.5 -162 l 1
- 300 -160 l 2
- 203.4 -153.9 101 -68 101 23 c 2
- 101 577 l 2
- 101 668 196 751 300 751 c 2
-377 -169.5 m 1
- 412 -169.5 l 1
- 412 -179.9 418.7 -190.1 428.2 -197.2 c 0
- 434.7 -201.6 484.6 -205 523.5 -205 c 2
- 596.5 -205 l 2
- 623.1 -205 706.7 -171.5 750 -171.5 c 0
- 793.7 -171.5 838.5 -191.5 852.5 -191.5 c 1
- 852.5 -226.5 l 1
- 823.8 -226.5 782.7 -206.5 750 -206.5 c 0
- 718.5 -206.5 638.5 -240 596.5 -240 c 2
- 523.5 -240 l 2
- 485.3 -240 432.7 -243.8 407.7 -225.7 c 0
- 391.5 -213.9 377 -194.5 377 -169.5 c 1
+318 575 m 2
+ 374 575 l 1
+ 374 231 l 1
+ 181 231 l 1
+ 181 423 l 2
+ 181 502 228 575 318 575 c 2
+474 575 m 2
+ 556 575 608 505 608 426 c 2
+ 608 232 l 1
+ 415 232 l 1
+ 414 575 l 1
+ 474 575 l 2
+648 -1 m 2
+ 648 464 l 2
+ 648 593 554 627 392 627 c 0
+ 251 627 144 581 144 464 c 2
+ 144 -1 l 2
+ 144 -145 238 -163 400 -163 c 0
+ 556 -163 648 -142 648 -1 c 2
+104 -44 m 1
+ 104 479 l 1
+ 109 583 197 655.8 292 659 c 2
+ 352 661 l 1
+ 364 655 l 1
+ 422 655 l 1
+ 433 661 l 1
+ 490 659 l 2
+ 642 653.7 683 592 688 488 c 1
+ 688 -35 l 1
+ 683 -174 565 -243 402 -243 c 0
+ 239 -243 109 -179 104 -44 c 1
+377 680 m 1
+ 412 680 l 1
+ 412 690 419 701 428 708 c 0
+ 434 712 485 716 524 716 c 2
+ 596 716 l 2
+ 623 716 707 682 750 682 c 0
+ 794 682 838 702 852 702 c 1
+ 852 738 l 1
+ 823 738 783 718 750 718 c 0
+ 719 718 638 751 596 751 c 2
+ 524 751 l 2
+ 486 751 433 755 408 737 c 0
+ 392 725 377 705 377 680 c 1
+EndSplineSet
+EndChar
+
+StartChar: uniE168
+Encoding: 57704 57704 1980
+Width: 1470
+VWidth: 0
+Flags: HW
+HStem: -212 76<179.2 1255.17> 508.4 20G<498.588 633.7> 718 36<188.821 1245.47>
+VStem: 120 36<-107.953 686.051> 1274 96<-118.923 694.8>
+LayerCount: 3
+Fore
+SplineSet
+249 718 m 2
+ 189 718 156 685 156 625 c 2
+ 156 -53 l 2
+ 156 -113 189 -136 249 -136 c 2
+ 1191 -136 l 2
+ 1251 -136 1274 -113 1274 -53 c 2
+ 1274 625 l 2
+ 1274 685 1251 718 1191 718 c 2
+ 249 718 l 2
+1370 -84 m 2
+ 1370 -174 1341 -212 1251 -212 c 2
+ 249 -212 l 2
+ 159 -212 120 -174 120 -84 c 2
+ 120 625 l 2
+ 120 708 168 754 249 754 c 2
+ 1221 754 l 2
+ 1311 754 1370 715 1370 625 c 2
+ 1370 -84 l 2
+473.1 290.5 m 1
+ 688.6 257.4 l 1
+ 644.4 88.6 l 1
+ 425.3 122.6 l 1
+ 473.1 290.5 l 1
+941.2 217.5 m 1
+ 893.5 50.4 l 1
+ 680.4 83.4 l 1
+ 725.4 253.1 l 1
+ 941.2 217.5 l 1
+950.7 254.7 m 1
+ 734.1 288.7 l 1
+ 775.9 450.6 l 1
+ 994.7 417.4 l 1
+ 950.7 254.7 l 1
+738 457 m 1
+ 696.8 293.6 l 1
+ 481.5 327.5 l 1
+ 526.5 489.6 l 1
+ 738 457 l 1
 EndSplineSet
 EndChar
 EndChars
