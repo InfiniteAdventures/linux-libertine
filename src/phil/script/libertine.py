@@ -212,33 +212,33 @@ libertineItSc["ttfstyle"] = "Small Caps"
 fonts["LinLibertineCapitalsOI"] = libertineItSc;
 
 # LIBERTINE Bold Italic
-#libertineBi = {};
-#libertineBi["filename"] = "LinLibertine_RBI"
-#libertineBi["familyname"] = "Linux Libertine O"
-#libertineBi["fullname"] = "Linux Libertine O Bold Italic"
-#libertineBi["weight"] = "Bold"
-#libertineBi["style"] = "Bold Italic"
-#libertineBi["scfilename"] = "LinLibertine_aSBI"
-#libertineBi["scfontname"] = "LinLibertineCapitalsOSBI"
-#libertineBi["scfamilyname"] = "Linux Libertine Capitals O"
-#libertineBi["scfullname"] = "Linux Libertine Capitals O Bold Italic"
-#libertineBi["scweight"] = "Bold"
-#libertineBi["scstyle"] = "Bold Italic Samll Caps"
-#libertineBi["ttffontname"] = "LinLibertineBI"
-#libertineBi["ttffamilyname"] = "Linux Libertine"
-#libertineBi["ttffullname"] = "Linux Libertine Bold Italic"
-#libertineBi["ttfweight"] = "Bold"
-#libertineBi["ttfstyle"] = "Bold Italic"
-#libertineBi["texfilename"] = "fxlbi"
-#fonts["LinLibertineOBI"] = libertineBi;
+libertineBi = {};
+libertineBi["filename"] = "LinLibertine_RBI"
+libertineBi["familyname"] = "Linux Libertine O"
+libertineBi["fullname"] = "Linux Libertine O Bold Italic"
+libertineBi["weight"] = "Bold"
+libertineBi["style"] = "Bold Italic"
+libertineBi["scfilename"] = "LinLibertine_aSBI"
+libertineBi["scfontname"] = "LinLibertineCapitalsOSBI"
+libertineBi["scfamilyname"] = "Linux Libertine Capitals O"
+libertineBi["scfullname"] = "Linux Libertine Capitals O Bold Italic"
+libertineBi["scweight"] = "Bold"
+libertineBi["scstyle"] = "Bold Italic Samll Caps"
+libertineBi["ttffontname"] = "LinLibertineBI"
+libertineBi["ttffamilyname"] = "Linux Libertine"
+libertineBi["ttffullname"] = "Linux Libertine Bold Italic"
+libertineBi["ttfweight"] = "Bold"
+libertineBi["ttfstyle"] = "Bold Italic"
+libertineBi["texfilename"] = "fxlbi"
+fonts["LinLibertineOBI"] = libertineBi;
 
-#libertineBiSc = {};
-#libertineBiSc["ttffontname"] = "LinLibertineCapitalsBI"
-#libertineBiSc["ttffamilyname"] = "Linux Libertine Capitals"
-#libertineBiSc["ttffullname"] = "Linux Libertine Capitals Bold Italic"
-#libertineBiSc["ttfweight"] = "Bold"
-#libertineBiSc["ttfstyle"] = "Bold Italic Small Caps"
-#fonts["LinLibertineCapitalsOBI"] = libertineBiSc;
+libertineBiSc = {};
+libertineBiSc["ttffontname"] = "LinLibertineCapitalsBI"
+libertineBiSc["ttffamilyname"] = "Linux Libertine Capitals"
+libertineBiSc["ttffullname"] = "Linux Libertine Capitals Bold Italic"
+libertineBiSc["ttfweight"] = "Bold"
+libertineBiSc["ttfstyle"] = "Bold Italic Small Caps"
+fonts["LinLibertineCapitalsOBI"] = libertineBiSc;
 
 
 
@@ -310,6 +310,30 @@ fonts["LinLibertineDisplayCapitalsO"] = libertineDRSc;
 
 
 
+
+#####################################################################
+#####################################################################
+# LIBERTINE
+# Initials
+libertineIn = {};
+libertineIn["filename"] = "LinLibertine_I"
+libertineIn["familyname"] = "Linux Libertine Initials O"
+libertineIn["fullname"] = "Linux Libertine Initials O"
+libertineIn["weight"] = "Book"
+libertineIn["style"] = "Initials"
+
+# (TrueType)
+libertineIn["ttffontname"] = "LinLibertineI"
+libertineIn["ttffamilyname"] = "Linux Libertine Initials"
+libertineIn["ttffullname"] = "Linux Libertine Initials"
+libertineIn["ttfweight"] = "Book"
+libertineIn["ttfstyle"] = "Initials"
+
+# Name der TEX-Datei
+libertineIn["texfilename"] = "fxli"
+
+# Füge Einträge der Liste hinzu
+fonts["LinLibertineIO"] = libertineIn;
 
 
 
