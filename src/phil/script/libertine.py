@@ -240,6 +240,82 @@ fonts["LinLibertineCapitalsOI"] = libertineItSc;
 #libertineBiSc["ttfstyle"] = "Bold Italic Small Caps"
 #fonts["LinLibertineCapitalsOBI"] = libertineBiSc;
 
+
+
+
+
+
+
+
+
+
+
+#####################################################################
+#####################################################################
+# LIBERTINE DISPLAY
+libertineDR = {};
+libertineDR["filename"] = "LinLibertine_DR"
+libertineDR["familyname"] = "Linux Libertine Display O"
+libertineDR["fullname"] = "Linux Libertine Display O"
+libertineDR["weight"] = "Book"
+libertineDR["style"] = "Regular"
+
+# Slanted
+libertineDR["slfilename"] = "LinLibertine_aDRL"
+libertineDR["slfontname"] = "LinLibertineDisplaySlantedO"
+libertineDR["slfamilyname"] = "Linux Libertine Display Slanted O"
+libertineDR["slfullname"] = "Linux Libertine Display Slanted O"
+libertineDR["slweight"] = "Book"
+libertineDR["slstyle"] = "Slanted"
+
+# Small Caps
+libertineDR["scfilename"] = "LinLibertine_aDRS"
+libertineDR["scfontname"] = "LinLibertineDisplayCapitalsO"
+libertineDR["scfamilyname"] = "Linux Libertine Display Capitals O"
+libertineDR["scfullname"] = "Linux Libertine Display Capitals O"
+libertineDR["scweight"] = "Book"
+libertineDR["scstyle"] = "Small Caps"
+
+# (TrueType)
+libertineDR["ttffontname"] = "LinLibertineDisplay"
+libertineDR["ttffamilyname"] = "Linux Libertine Display"
+libertineDR["ttffullname"] = "Linux Libertine Display"
+libertineDR["ttfweight"] = "Book"
+libertineDR["ttfstyle"] = "Regular"
+
+# Name der TEX-Datei
+libertineDR["texfilename"] = "fxldr"
+
+# Füge Einträge der Liste hinzu
+fonts["LinLibertineDisplayO"] = libertineDR;
+
+libertineDRSl = {};
+libertineDRSl["ttffontname"] = "LinLibertineDisplaySlanted"
+libertineDRSl["ttffamilyname"] = "Linux Libertine Display Slanted"
+libertineDRSl["ttffullname"] = "Linux Libertine Display Slanted"
+libertineDRSl["ttfweight"] = "Book"
+libertineDRSl["ttfstyle"] = "Slanted"
+libertineDRSl["texfilename"] = "fxldro"
+fonts["LinLibertineDisplaySlantedO"] = libertineDRSl;
+
+libertineDRSc = {};
+libertineDRSc["ttffontname"] = "LinLibertineDisplayCapitals"
+libertineDRSc["ttffamilyname"] = "Linux Libertine Display Capitals"
+libertineDRSc["ttffullname"] = "Linux Libertine Display Capitals"
+libertineDRSc["ttfweight"] = "Book"
+libertineDRSc["ttfstyle"] = "Small Caps"
+fonts["LinLibertineDisplayCapitalsO"] = libertineDRSc;
+
+
+
+
+
+
+
+
+
+
+
 #####################################################################
 #####################################################################
 # BIOLINUM
