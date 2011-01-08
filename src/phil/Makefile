@@ -12,6 +12,7 @@ OUTPUT_SFD=$(TARGET)/sfd
 OUTPUT_SFD_SL=$(TARGET)/sfd/sl
 OUTPUT_SFD_SC=$(TARGET)/sfd/sc
 OUTPUT_SFD_OT=$(TARGET)/sfd/ot
+OUTPUT_SFD_WF=$(TARGET)/sfd/wf
 OUTPUT_SFD_SH=$(TARGET)/sfd/sh
 OUTPUT_TTF=$(TARGET)/ttf
 OUTPUT_OTF=$(TARGET)/otf
@@ -26,6 +27,7 @@ TARGETSFDFILESSL=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_SFD_SL)/%,  $(TARGETSFDFIL
 TARGETSFDFILESSC=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_SFD_SC)/%,  $(TARGETSFDFILES))
 TARGETSFDFILESOT=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_SFD_OT)/%,  $(TARGETSFDFILES))
 TARGETSFDFILESSH=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_SFD_SH)/%,  $(TARGETSFDFILES))
+TARGETSFDFILESWF=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_SFD_WF)/%,  $(TARGETSFDFILES))
 
 TTFFILES=$(patsubst $(SOURCE_SFDSVN)/%, $(OUTPUT_TTF)/%,  $(patsubst %.sfd, %.ttf ,$(SFDSVNFILES)))
 OTFFILES=$(patsubst $(SOURCE_SFDSVN)/%, $(OUTPUT_OTF)/%,  $(patsubst %.sfd, %.otf ,$(SFDSVNFILES)))
@@ -45,6 +47,9 @@ $(OUTPUT_SFD_SC)/%.sfd : $(OUTPUT_SFD)/%.sfd
 $(OUTPUT_SFD_OT)/%.sfd : $(OUTPUT_SFD)/%.sfd
 	@$(SOURCE_FFSCRIPT)/createoutline.py $< $(OUTPUT_SFD_OT)
 
+$(OUTPUT_SFD_WF)/%.sfd : $(OUTPUT_SFD)/%.sfd
+	@$(SOURCE_FFSCRIPT)/createwireframe.py $< $(OUTPUT_SFD_WF)
+
 $(OUTPUT_SFD_SH)/%.sfd : $(OUTPUT_SFD)/%.sfd
 	@$(SOURCE_FFSCRIPT)/createshadow.py $< $(OUTPUT_SFD_SH)
 
@@ -55,6 +60,8 @@ createslanted: init $(TARGETSFDFILESSL)
 createcapitals: init $(TARGETSFDFILESSC)
 
 createoutline: init $(TARGETSFDFILESOT)
+
+createwireframe: init $(TARGETSFDFILESWF)
 
 createshadow: init $(TARGETSFDFILESSH)
 
@@ -112,6 +119,7 @@ init:
 	@mkdir -p $(OUTPUT_OTF)
 	@mkdir -p $(OUTPUT_TAR)
 	@mkdir -p $(OUTPUT_SFD_OT)
+	@mkdir -p $(OUTPUT_SFD_WF)
 	@mkdir -p $(OUTPUT_SFD_SH)
 
 
