@@ -3,7 +3,7 @@ FontName: LinLibertineOZ
 FullName: Linux Libertine O Semibold
 FamilyName: Linux Libertine O
 Weight: Semibold
-Copyright: Linux Libertine by Philipp H. Poll,\nOpen Font under Terms of following Free Software Licenses:\nGPL (General Public License) with font-exception and OFL (Open Font License).\nCreated with FontForge (http://fontforge.sf.net)\nSept 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010
+Copyright: Linux Libertine by Philipp H. Poll,\nOpen Font under Terms of following Free Software Licenses:\nGPL (General Public License) with font-exception and OFL (Open Font License).\nCreated with FontForge (http://fontforge.sf.net)\nSept 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011
 UComments: "2003-08-29: Created.+AAoA-2004-07-25: v(1.0) release candidate+AAoA-2005-12-28: v(1.1.0) stable+AAoA-2006-01-01: v(2.0.0) stable+AAoA-2006-09-05: v(2.2.0) stable+AAoA-2006-12-04: v(2.3.0) stable+AAoA-2007-03-11: v(2.4.0) stable+AAoA-2007-06-11: v(2.6.0) stable+AAoA-2007-12-00: v(2.7.0) stable+AAoA-2008-06-00: v(2.8.14) stable+AAoA" 
 Version: 4.2.0
 ItalicAngle: 0
@@ -21,7 +21,7 @@ OS2Version: 0
 OS2_WeightWidthSlopeOnly: 0
 OS2_UseTypoMetrics: 0
 CreationTime: 1156455862
-ModificationTime: 1292578067
+ModificationTime: 1304017689
 PfmFamily: 17
 TTFWeight: 700
 TTFWidth: 5
@@ -584,7 +584,7 @@ NameList: Adobe Glyph List
 DisplaySize: -96
 AntiAlias: 1
 FitToEm: 1
-WinInfo: 57376 8 2
+WinInfo: 96 8 2
 BeginPrivate: 6
 BlueValues 39 [-12 1 433 447 563 580 645 662 690 698]
 OtherBlues 11 [-238 -212]
@@ -3480,7 +3480,7 @@ SplineSet
 172 -225 m 0
  119 -225 79 -194 79 -140 c 0
  79 -92.1 119.7 -33.3 180.8 -0.1 c 1
- 172.7 -1.49012e-09 165.6 0 160 0 c 0
+ 172.7 0 165.6 0 160 0 c 0
  121 0 24 -2 24 -2 c 1
  22 0 l 1
  22 23 l 2
@@ -14656,6 +14656,9 @@ Width: 508
 Flags: HMW
 HStem: -238 42<178.622 331.027> -12 68<200.45 373.262> 135 37<205.129 289.171> 409 35<196.474 280.87> 424 43<370.607 460>
 VStem: 38 94<-154.282 -55.8943> 62 106<210.3 365.373> 71 84<55.4643 131.752> 316 108<211.187 370.331> 406 91<-121.914 -39.1241>
+AnchorPoint: "mittelpunkt" 227 285 basechar 0
+AnchorPoint: "unten_punkt" 229 -319 basechar 0
+AnchorPoint: "top_akzent" 231 645 basechar 0
 LayerCount: 2
 Fore
 SplineSet
@@ -87029,7 +87032,7 @@ SplineSet
  358.1 428.5 323.4 442 281 442 c 0
 551 235 m 0
  551 92 440 -12 292 -12 c 0
- 243.5 -12 197 -3.8147e-07 157.2 21.9 c 1
+ 243.5 -12 197 0 157.2 21.9 c 1
  109 -46 l 1
  80 -27 l 1
  128 40.7 l 1

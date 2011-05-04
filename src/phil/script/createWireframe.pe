@@ -1,0 +1,32 @@
+# Wireframe-Font
+#
+# $1 sfd-file
+# $2 out-dir
+# $3 filename
+# $4 fontname
+# $5 familyname
+# $6 fullname
+# $7 weight
+# $8 version
+#
+# $Id$
+#
+# Michael Niedermair m.g.n@gmx.de
+#
+Open($1,1)
+#
+SetFontNames($4,$5,$6,$7)
+#
+SelectAll()
+#
+UnlinkReference()
+RemoveOverlap()
+#
+#Wireframe(angle,outline-width,shadow-width) 
+Wireframe(-45,10,100)
+#
+Print("### save " + $2 + "/" + $3 +  ".sfd")
+Save($2 + "/" + $3 +  ".sfd")
+#
+Close()
+Quit()
