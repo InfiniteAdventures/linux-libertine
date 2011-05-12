@@ -91,24 +91,34 @@ copysfdorg: init
 	@cp -u $(SOURCE_SFDSVN)/LinBiolinum_[^a]*.sfd $(OUTPUT_SFD)
 	@cp -u $(SOURCE_SFDSVN)/LinLibertine_[^a]*.sfd $(OUTPUT_SFD)
 
-createtar: ttf otf
+createtar: ttf otf svg woff
 	@echo "### creating tar files..."
 	@mkdir -p $(OUTPUT_TAR)/sfd
 	@mkdir -p $(OUTPUT_TAR)/ttf
 	@mkdir -p $(OUTPUT_TAR)/otf
+	@mkdir -p $(OUTPUT_TAR)/svg
+	@mkdir -p $(OUTPUT_TAR)/woff
 	@rm -f $(TARGET)/LinLibertine*.tgz
 	@cp $(SOURCE_DOK)/* $(OUTPUT_TAR)/sfd
 	@cp $(SOURCE_DOK)/* $(OUTPUT_TAR)/ttf
 	@cp $(SOURCE_DOK)/* $(OUTPUT_TAR)/otf
+	@cp $(SOURCE_DOK)/* $(OUTPUT_TAR)/svg
+	@cp $(SOURCE_DOK)/* $(OUTPUT_TAR)/woff
 	@cp $(SOURCE_SFDSVN)/*.sfd $(OUTPUT_TAR)/sfd
 	@cp $(OUTPUT_TTF)/*.ttf $(OUTPUT_TAR)/ttf
 	@cp $(OUTPUT_OTF)/*.otf $(OUTPUT_TAR)/otf
+	@cp $(OUTPUT_SVG)/*.svg $(OUTPUT_TAR)/svg
+	@cp $(OUTPUT_WOFF)/*.woff $(OUTPUT_TAR)/woff
 	@echo "### creating LinLibertineSRC files..."
 	@cd $(OUTPUT_TAR)/sfd ; tar cfz $(TARGET)/LinLibertineSRC_`date +%Y_%m_%d`.tgz *
 	@echo "### creating LinLibertineTTF files..."
 	@cd $(OUTPUT_TAR)/ttf ; tar cfz $(TARGET)/LinLibertineTTF_`date +%Y_%m_%d`.tgz *
 	@echo "### creating LinLibertineOTF files..."
 	@cd $(OUTPUT_TAR)/otf ; tar cfz $(TARGET)/LinLibertineOTF_`date +%Y_%m_%d`.tgz *
+	@echo "### creating LinLibertineSVG files..."
+	@cd $(OUTPUT_TAR)/svg ; tar cfz $(TARGET)/LinLibertineSVG_`date +%Y_%m_%d`.tgz *
+	@echo "### creating LinLibertineWOFF files..."
+	@cd $(OUTPUT_TAR)/woff ; tar cfz $(TARGET)/LinLibertineWOFF_`date +%Y_%m_%d`.tgz *
 
 
 $(OUTPUT_OTF)/%.otf : $(SOURCE_SFDSVN)/%.sfd
