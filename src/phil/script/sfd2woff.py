@@ -42,4 +42,5 @@ basename = os.path.basename(sys.argv[1])
 filename = re.sub('(?P<name>.*)\.sfd', '\g<name>', basename)
 outname = sys.argv[2] + "/" + filename + ".woff"
 print "    generate " + outname
-fnt.generate(outname, flags="old-kern")
+#fnt.generate(outname, flags="old-kern")
+fnt.generate(outname)
