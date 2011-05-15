@@ -2,6 +2,5 @@
 make clean && \
 make init && \
 make copysfdorg && \
-make createslanted createcapitals createoutline createshadow && \
-make ttf otf svg woff
+make createslanted createcapitals createoutline createshadow
 

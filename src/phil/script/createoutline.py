@@ -65,7 +65,7 @@ cmd = 'fontforge -script script/createOutline.pe ' \
 	+ '"' + familyname + '" ' \
 	+ '"' + fullname + '" ' \
 	+ '"' + weight + '" ' \
-	+ '"' + version + '" &'
+	+ '"' + version + '"'
 
 print "### system: " + cmd
 os.system(cmd)
