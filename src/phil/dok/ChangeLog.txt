@@ -1,5 +1,70 @@
 Libertine Open Fonts Project -- http://www.linuxlibertine.org
 
+Changes to version 5.0.0 (2011-05-20)
+
+Again a lot of improvements, just mentioning the most obvious:
+
+- Improved Libertine Italic
+- New Libertine Bold Italic. Former style => Semibold Italic
+- m, n, p, r => improvements in upper left serif. It is now more dynamically moving in the vertical stem. 
+- New style of the Libertine Regular for high grades (16pt upwards): Libertine Regular Display
+- Additional output formats: 
+  - WOFF (Web Open Font Format) => you will always find a recent copy to link with your websites at: 
+    http://linuxlibertine.sourceforge.net/fonts/
+    Thanks to Zoltan you may eventually find them on www.google.com/webfonts, too.
+  - SVG Fonts
+- Libertine I and BI: fractions improved
+- Additions to the Biolinum Keyboard: Mouse-Symbols (two and three button mice with emphasized one and two finger-click)
+- Initials created (Display Glyphs with fine external contour) in range A-Z + some accented glyphs from latin1 encoding
+
+
+Changes to (unpublished) version 4.8.0 (2010-04-30)
+201009 complete redesign of Libertine Bold
+all common letters are now further embolded. The former Bold style is now
+regarded as Semi-Bold.
+
+
+- Libertine Bold -> Libertine Semibold
+- new Libertine Bold
+- A-Z and accented gylphs
+- a-z and accented glyphs
+- 0-9 and derivates
+Libertine stemwidth put into perspective: Regular (80) - Semibold (110) - Bold
+(130)
+- public domain and creative commons sign added 
+
+
+20100630 Libertine regular:
+- k is now wider (as wide as the n)
+- s right border increased from 32 -> 40
+- c right border increased from 25 -> 30
+- y left border decreased from 20 -> 16
+- z more organic shape an better grey value
+- n,m,h,u 6 EM wider
+- Bug #3019031: emacron with wrong accent (mark instead of base)
+- Bug #3014435: y.alt adapted to new glyph form and added to opentype
+substitution tables "salt" and "alt"
+- Hebrew letters improved
+- Bug #3004241: opentype substitution -> f.short and dotlessi will now be
+substituted by the relating small capital forms
+- Bug #3012358: Line spacing problem on windows photoshop. Try: Use
+Linespacing-field 0-> 180 (at first only in Libertine Regular for testing)
+- T, Z changes to the serifs and more organic shape
+- Added A.alt as a test of a more organic A
+- improved Hebrew glyphs and mark to base positioning
+- numbers scaled up by 5% because many complanied they were to small
+- new Indian Rupee symbol uni20A8
+- improvements in the Biolinum bold
+- moved styleset 04 > 06
+- new style set 04: versal eszett and small capital eszett is substituted by
+double S (SS) resp. double smal caps ss (ss).
+-q_u.sc Xavier points out, that a small caps qu-ligature is missing. Added to
+codepoint uniE094. Added Qu.sc to Libertine Bold
+-uni2124 etc. for bold, bolditalic...
+- Xi was slightly unsymmetric: corrected
+
+
+
 Changes to version 4.8.0 regular(-) & italic(/) & capitals (C) (20100430)
 201009 complete redesign of Libertine Bold
 all common letters are now further embolded. The former Bold style is now
