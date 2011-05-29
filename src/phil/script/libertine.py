@@ -503,7 +503,7 @@ biolinumItSc["ttffamilyname"] = "Linux Biolinum Capitals"
 biolinumItSc["ttffullname"] = "Linux Biolinum Capitals Italic"
 biolinumItSc["ttfweight"] = "Book"
 biolinumItSc["ttfstyle"] = "Italic Small Caps"
-fonts["LinBiolinumCapitalsOI"] = biolinumReSc;
+fonts["LinBiolinumCapitalsOI"] = biolinumItSc;
 
 # BIOLINUM Bold
 biolinumBd = {};
