@@ -15,9 +15,7 @@ OUTPUT_SFD_OT=$(TARGET)/sfd/ot
 OUTPUT_SFD_WF=$(TARGET)/sfd/wf
 OUTPUT_SFD_SH=$(TARGET)/sfd/sh
 OUTPUT_TTF=$(TARGET)/ttf
-OUTPUT_WOFF=$(TARGET)/woff
 OUTPUT_OTF=$(TARGET)/otf
-OUTPUT_SVG=$(TARGET)/svg
 OUTPUT_TAR=$(TARGET)/tar
 
 SFDFILES=$(wildcard $(SOURCE_SFDORG)/*.sfd)
@@ -32,9 +30,7 @@ TARGETSFDFILESSH=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_SFD_SH)/%,  $(TARGETSFDFIL
 TARGETSFDFILESWF=$(patsubst $(OUTPUT_SFD)/%, $(OUTPUT_SFD_WF)/%,  $(TARGETSFDFILES))
 
 TTFFILES=$(patsubst $(SOURCE_SFDSVN)/%, $(OUTPUT_TTF)/%,  $(patsubst %.sfd, %.ttf ,$(SFDSVNFILES)))
-WOFFFILES=$(patsubst $(SOURCE_SFDSVN)/%, $(OUTPUT_WOFF)/%,  $(patsubst %.sfd, %.woff ,$(SFDSVNFILES)))
 OTFFILES=$(patsubst $(SOURCE_SFDSVN)/%, $(OUTPUT_OTF)/%,  $(patsubst %.sfd, %.otf ,$(SFDSVNFILES)))
-SVGFILES=$(patsubst $(SOURCE_SFDSVN)/%, $(OUTPUT_SVG)/%,  $(patsubst %.sfd, %.svg ,$(SFDSVNFILES)))
 
 
 all: init
@@ -71,11 +67,7 @@ createshadow: init $(TARGETSFDFILESSH)
 
 otf: init $(OTFFILES)
 
-svg: init $(SVGFILES)
-
 ttf: init $(TTFFILES)
-
-woff: init $(WOFFFILES)
 
 copysvnbasic:
 	@cp -u $(OUTPUT_SFD)/*.sfd $(SOURCE_SFDSVN)
@@ -91,7 +83,12 @@ copysfdorg: init
 	@cp -u $(SOURCE_SFDSVN)/LinBiolinum_[^a]*.sfd $(OUTPUT_SFD)
 	@cp -u $(SOURCE_SFDSVN)/LinLibertine_[^a]*.sfd $(OUTPUT_SFD)
 
-createtar: ttf otf svg woff
+copyhome: 
+	@rm -f ~/.fonts/Lin*.ttf ~/.fonts/Lin*.otf 
+	@cp -u $(OUTPUT_TTF)/*.ttf ~/.fonts/
+	@cp -u $(OUTPUT_OTF)/*.otf ~/.fonts/
+
+createtar: ttf otf
 	@echo "### creating tar files..."
 	@mkdir -p $(OUTPUT_TAR)/sfd
 	@mkdir -p $(OUTPUT_TAR)/ttf
@@ -107,8 +104,8 @@ createtar: ttf otf svg woff
 	@cp $(SOURCE_SFDSVN)/*.sfd $(OUTPUT_TAR)/sfd
 	@cp $(OUTPUT_TTF)/*.ttf $(OUTPUT_TAR)/ttf
 	@cp $(OUTPUT_OTF)/*.otf $(OUTPUT_TAR)/otf
-	@cp $(OUTPUT_SVG)/*.svg $(OUTPUT_TAR)/svg
-	@cp $(OUTPUT_WOFF)/*.woff $(OUTPUT_TAR)/woff
+	@cp $(OUTPUT_TTF)/*.woff $(OUTPUT_TAR)/woff
+	@cp $(OUTPUT_OTF)/*.svg $(OUTPUT_TAR)/svg
 	@echo "### creating LinLibertineSRC files..."
 	@cd $(OUTPUT_TAR)/sfd ; tar cfz $(TARGET)/LinLibertineSRC_`date +%Y_%m_%d`.tgz *
 	@echo "### creating LinLibertineTTF files..."
@@ -124,14 +121,8 @@ createtar: ttf otf svg woff
 $(OUTPUT_OTF)/%.otf : $(SOURCE_SFDSVN)/%.sfd
 	@nice $(SOURCE_FFSCRIPT)/sfd2otf.py $< $(OUTPUT_OTF)
 
-$(OUTPUT_SVG)/%.svg : $(SOURCE_SFDSVN)/%.sfd
-	@nice $(SOURCE_FFSCRIPT)/sfd2svg.py $< $(OUTPUT_SVG)
-
 $(OUTPUT_TTF)/%.ttf : $(SOURCE_SFDSVN)/%.sfd
 	@nice $(SOURCE_FFSCRIPT)/sfd2ttf.py $< $(OUTPUT_TTF)
-
-$(OUTPUT_WOFF)/%.woff : $(SOURCE_SFDSVN)/%.sfd
-	@nice $(SOURCE_FFSCRIPT)/sfd2woff.py $< $(OUTPUT_WOFF)
 
 init:
 	@echo "### creating target..."
@@ -140,9 +131,7 @@ init:
 	@mkdir -p $(OUTPUT_SFD_SL)
 	@mkdir -p $(OUTPUT_SFD_SC)
 	@mkdir -p $(OUTPUT_TTF)
-	@mkdir -p $(OUTPUT_WOFF)
 	@mkdir -p $(OUTPUT_OTF)
-	@mkdir -p $(OUTPUT_SVG)
 	@mkdir -p $(OUTPUT_TAR)
 	@mkdir -p $(OUTPUT_SFD_OT)
 	@mkdir -p $(OUTPUT_SFD_WF)

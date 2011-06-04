@@ -1,4 +1,4 @@
-#Sat May 28 15:37:41 CEST 2011
+#Sat Jun 04 16:00:14 CEST 2011
 eclipse.preferences.version=1
 encoding//src/phil/script/copysfd.py=utf-8
 encoding//src/phil/script/createenc.py=utf-8
@@ -9,6 +9,4 @@ encoding//src/phil/script/createsmallcaps.py=utf-8
 encoding//src/phil/script/createwireframe.py=utf-8
 encoding//src/phil/script/libertine.py=utf-8
 encoding//src/phil/script/sfd2otf.py=utf-8
-encoding//src/phil/script/sfd2svg.py=utf-8
 encoding//src/phil/script/sfd2ttf.py=utf-8
-encoding//src/phil/script/sfd2woff.py=utf-8
