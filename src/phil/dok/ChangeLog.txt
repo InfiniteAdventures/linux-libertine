@@ -1,5 +1,9 @@
 Libertine Open Fonts Project -- http://www.linuxlibertine.org
 
+Changes to version 5.1.2 (2011-06-06)
+
+- fixing probelm with OS2 table.
+
 Changes to version 5.0.0 (2011-05-20)
 
 Again a lot of improvements, just mentioning the most obvious:
@@ -129,15 +133,15 @@ Changes to version 4.7.0 regular(-) & italic(/) & capitals (C) (20100430)
 	- New extended latin characters
         -issue 3025163fixed: placed the anchor now below the g-bowl. Same for q,
 p, and j.
-	-180° degree symmetry for the o and O
+	-180Â° degree symmetry for the o and O
 	- public domain and creative commons sign added 
 
 - Biolinum Bold: numerous improvements in following glyphs:
 	- a
-	- i, j, ä, ö, ü...
+	- i, j, Ã¤, Ã¶, Ã¼...
 	- w, v
 	- e
-	- f, ß
+	- f, Ã
 	- c
 	- m, n
 	- b, d
@@ -203,7 +207,7 @@ systematically moved the .cap-Accents to:
 - first use of contextual chaining substitution:
    - when a combining accent follows an i, the dotlessi is used to prevent an
 accent crash
-   - when one of the accented or leftwarding glyphs such as (ä, V) follow an f,
+   - when one of the accented or leftwarding glyphs such as (Ã¤, V) follow an f,
 a short neck version of f (f.alt) is being used for optical reasons
 - Added U+033B COMBINING SQUARE BELOW
 - there was the "space" in a left kern class (together with dot, etc.). This
@@ -275,17 +279,17 @@ Changes to version 2.9 (unreleased) regular(-) & italic(/) & capitals (C)
 (20080619)
 - There was a compiling-problem with the LinLibertine_Re-2.8.14.otf that caused
 a unusable GSUB-table. Though outline-information seemed to be unaffected MacOSX
-didn’t want to intall it. This version should be without this bug, the reason
+didnât want to intall it. This version should be without this bug, the reason
 for the old bug could not be discovered.
 - Change in the OpenType-Substitution table (different order of interpretation:
 sups and sinf should be substituted even if oldstyle flag is also set.
 / True Cyrrillic italics for the italic variant
-/ new “a” for the italic, also thinner p, n, m and e
+/ new âaâ for the italic, also thinner p, n, m and e
 / Some stylistic improvements for italic numbers
 / new @ for the italic
 - further kerning
 / improved accented characters in the italic variant 
-- Q’s tail is now more harmonic and looks as drawn out of the O and not as just
+- Qâs tail is now more harmonic and looks as drawn out of the O and not as just
 clipped to the bottom
 - Qu (Q_u) has been improved and is now standard ligature
 - new form for s_t- and c_t-ligature, Thanks to Nathan!
@@ -421,7 +425,7 @@ and regular is diminished
 Changes to version 2.6.9 regular(|) & italic(/) & capitals (20070423)
 
 Gernerally: 
-	- Symbols for „page“, „graph“, „picture“ and „table“ added
+	- Symbols for âpageâ, âgraphâ, âpictureâ and âtableâ added
 	- Oldstyle numbers (minuscle numbers) were just contained as
 proportionals. Somebody wanted them also as table numbers. Ladder became
 standard oldstyles now. Some of these glyphs look somewhat thinner to fit them
@@ -432,43 +436,43 @@ Mac's fonthandling, also other style confusions should be fixed now
 parts and wrong line spacing.
 
 German interests:
-	-großes Eszett hinzugefügt (uni1E9E) entsprechend Kapitälchen-Eszett
-	-kleines Eszett so verändert, dass es zum großen passt (ſz statt  ſs),
+	-groÃes Eszett hinzugefÃ¼gt (uni1E9E) entsprechend KapitÃ¤lchen-Eszett
+	-kleines Eszett so verÃ¤ndert, dass es zum groÃen passt (Å¿z statt  Å¿s),
 das vorige Eszett ist als germandbls.alt weiterenthalten
-	-Im Stilsatz ss03 kann für Schweizer nun automatisch von Eszetts auf ss
+	-Im Stilsatz ss03 kann fÃ¼r Schweizer nun automatisch von Eszetts auf ss
 umgestellt werden.
-	-die dt. ÄÖÜ sind nun von der Alternativposition an die rechte Stelle
-gerückt. Für die nichtdeutschsprachige Nutzung empfehlen sich jetzt die (vormals
+	-die dt. ÃÃÃ sind nun von der Alternativposition an die rechte Stelle
+gerÃ¼ckt. FÃ¼r die nichtdeutschsprachige Nutzung empfehlen sich jetzt die (vormals
 standart, jetzt aber auf die Alternativposition gewechselten Akzentuierten)
 
 Cyrillic:
 	Due to A. Panovs help hopefully a lot of design impriovements for the
 cyrrilic alphabet. 
-	Mainly: Є Љ Њ Б З Ф Ш Щ Ъ Ы Ь Э Ю Ө (and its small letter derivates) For
+	Mainly: Ð Ð Ð Ð Ð Ð¤ Ð¨ Ð© Ðª Ð« Ð¬ Ð­ Ð® Ó¨ (and its small letter derivates) For
 details:
-		("Ь" in regular typeface has extra contour at left bottom.)
+		("Ð¬" in regular typeface has extra contour at left bottom.)
 		--corrected--
 
-		Lower part of "Ь" and "Ъ" (and for lowercase letters "ь", "ы",
-"ъ",
-		"ѣ") differ. I think the letter "Ь" (or "ь" for lowercase)
+		Lower part of "Ð¬" and "Ðª" (and for lowercase letters "Ñ", "Ñ",
+"Ñ",
+		"Ñ£") differ. I think the letter "Ð¬" (or "Ñ" for lowercase)
 should be
 		used as base for others.
 
-		("Ф" is still slightly asymmetric with respect to vertical axis.
+		("Ð¤" is still slightly asymmetric with respect to vertical axis.
 It may produce artefacts with rendering.)
 		--corrected--
 
-		(Middle vertical stems in "Ш", "Щ" have not rounded lower
+		(Middle vertical stems in "Ð¨", "Ð©" have not rounded lower
 edges.)
 		--corrected--
 
-		("Ш", "ш" are not quite symmetric agains middle vertical axis
+		("Ð¨", "Ñ" are not quite symmetric agains middle vertical axis
 (all
-		typefaces). "Щ", "щ" must be updated accordingly.)
+		typefaces). "Ð©", "Ñ" must be updated accordingly.)
 		--corrected--
 
-		(The tongue in "Э" can have two stylistic variants: straight and
+		(The tongue in "Ð­" can have two stylistic variants: straight and
 		tilde-like. )
 		OK, then tilde-like.
 
@@ -481,8 +485,8 @@ excepting the case of archaic (before ca. XVIII century) form of U+0472.)
 		--corrected--
 
 		(The U+0473 frequently is narrower than "o" and U+04E9. In case
-of a tilde-tongue in "Э" a tongue in U+0404 is not flipped, i.e. it has the same
-diriction as in "Э".)
+of a tilde-tongue in "Ð­" a tongue in U+0404 is not flipped, i.e. it has the same
+diriction as in "Ð­".)
 		--corrected--
 
 Small Caps:
@@ -576,7 +580,7 @@ variant at the end of the font
 -greek accented chars improved (accents should now be optically at the same
 position), kappa improved
 -planet signs added
--Sternkreiszeichen hinzugefügt
+-Sternkreiszeichen hinzugefÃ¼gt
 -male, female,... improved
 .
 .
@@ -585,93 +589,93 @@ position), kappa improved
 
 
 Changes to version 2.2.0regular(|) & italic(/) & capitals (20060920)
-- Viele, viele Änderungen!
-- Volle Unterstützung von OpenType:
+- Viele, viele Ãnderungen!
+- Volle UnterstÃ¼tzung von OpenType:
 	Ligaturen
-	Kapitälchen (Small capitals)
-	Ziffern -> Tabulare, Proportionale, Mediävale
+	KapitÃ¤lchen (Small capitals)
+	Ziffern -> Tabulare, Proportionale, MediÃ¤vale
 	Gestrichene Null (slashed Zero)
 
-- Kapitälchen komplett neu entworfen
-- Kerning vollständig neu entworfen (nach Klassen)
+- KapitÃ¤lchen komplett neu entworfen
+- Kerning vollstÃ¤ndig neu entworfen (nach Klassen)
 - neue Ligaturen entworfen: ck, ch, ffb, ffk, fk, fb, fh, ffh, 
-- Ampersand überarbeitet, 
-- Alternatives Ampersand für Kapitälchen
-- E und F überarbeitet
+- Ampersand Ã¼berarbeitet, 
+- Alternatives Ampersand fÃ¼r KapitÃ¤lchen
+- E und F Ã¼berarbeitet
 - W und V	"
-- M und N (letzteres mit verlängerter Diagonale)
-- viele Buchstaben für Type1-Verwendung bereiningt!
+- M und N (letzteres mit verlÃ¤ngerter Diagonale)
+- viele Buchstaben fÃ¼r Type1-Verwendung bereiningt!
 - Nummern in Kreisen
  
 
 Changes to version 2.1.8regular(|) & italic(/) & capitals (20060901)
-Viele Überarbeitungen:
+Viele Ãberarbeitungen:
 - Kyrillisches Alphabet weiter verbessert
 - E, F, L, T, M, B, D, A, C, Z, P, R Serifen verbessert
 - b
-- f Bogen etwas länger und flacher
-- h verändert
+- f Bogen etwas lÃ¤nger und flacher
+- h verÃ¤ndert
 - uni03d0 und theta1 kleiner gemacht
-- Dje verändert (nun nativer)
+- Dje verÃ¤ndert (nun nativer)
 - Macron von 80 auf 90 verdickt
-- kleine römische Ziffern verändert
+- kleine rÃ¶mische Ziffern verÃ¤ndert
 - ij ist nun eine verbundene Ligatur
 - viele, viele kleine Bereinigungen
 
 
 Changes to version 2.1.6 regular(|) & italic(/) & capitals (200608024)
-- Zeilenabstände und Font-Metrik verbessert, Durchschuss nun geringer.
-- becyrillic hat nun angemessene Abstände
+- ZeilenabstÃ¤nde und Font-Metrik verbessert, Durchschuss nun geringer.
+- becyrillic hat nun angemessene AbstÃ¤nde
 - Untere Serifen sind nun 55 dick und breiter -> Gemeine: 436; Versalien: 526
-/ Kursive komplett überarbeitet und auf aktuellen Stand gebracht.
+/ Kursive komplett Ã¼berarbeitet und auf aktuellen Stand gebracht.
 und vieles Kleines mehr...
 
 
 Changes to version 2.1.5 regular(|) & italic(/) & capitals (200608024)
-- Tex-Namen für alle Glyphen
+- Tex-Namen fÃ¼r alle Glyphen
 - i-Punkt und . dicker
-- Sämtliche Akzente überarbeitet
-- Neue, flachere Akzente für Großbuchstaben
-- viele Griechische Buchstaben überarbeitet -> dynamischer
-- Serifen großteils überarbeitet
+- SÃ¤mtliche Akzente Ã¼berarbeitet
+- Neue, flachere Akzente fÃ¼r GroÃbuchstaben
+- viele Griechische Buchstaben Ã¼berarbeitet -> dynamischer
+- Serifen groÃteils Ã¼berarbeitet
 - Russischer Akzent jetzt im russischen Stil
 - uni041A jetzt wie uni416
-- Männlich / Weiblich-Zeichen ist jetzt besser an die Grenzen des Fonts
+- MÃ¤nnlich / Weiblich-Zeichen ist jetzt besser an die Grenzen des Fonts
 angepasst
-- viele weitere Änderungen
-- Fette Variante heißt jetzt auch wieder Fett -> Problem bei manchen
+- viele weitere Ãnderungen
+- Fette Variante heiÃt jetzt auch wieder Fett -> Problem bei manchen
 Betriebsystemen behoben
 - Leerzeichen ist nun 512 EM breit, so wie's praktisch Standart ist
 !!- Namensproblem bei der Fetten behoben
 
 Changes to version 2.1.3 regular(|) & italic(/) & capitals (20060806)
-- 6-Problem gelöst
-- Phi-Problem gelöst
+- 6-Problem gelÃ¶st
+- Phi-Problem gelÃ¶st
 - Lowcomma neu -> Pinselstil
 - epsilon
 - und vieles mehr...
-- <> kleinergleich, größergleich, und Verwandte auf gleiche Größe
-- +, -, = überarbeitet
+- <> kleinergleich, grÃ¶Ãergleich, und Verwandte auf gleiche GrÃ¶Ãe
+- +, -, = Ã¼berarbeitet
 - Unendlichzeichen
 - h und n verbessert (Bogen)
-- Serifen der Gemeinen und der Großbuchstaben verbessert
+- Serifen der Gemeinen und der GroÃbuchstaben verbessert
 
 
 Changes to version 2.1.2 regular(|) & italic(/) & capitals (20060806)
-- Rückführung der griechischen Akzente auf U+002...
+- RÃ¼ckfÃ¼hrung der griechischen Akzente auf U+002...
 - Macron verbessert, U+02C9 nun positiv
-- Abstände der griechischen Buchstaben verbessert u.a.: iota LBearing +40
+- AbstÃ¤nde der griechischen Buchstaben verbessert u.a.: iota LBearing +40
 - eta, sigma, rho, tau, psi und weitere griechische Gemeine verbessert ->
-Pinselstilhaftigkeit erhöht
+Pinselstilhaftigkeit erhÃ¶ht
 
------------Fertig-nach Tobias Vorschlägen----------------------------
+-----------Fertig-nach Tobias VorschlÃ¤gen----------------------------
 02C4 (MODIFIER LETTER UP ARRORHEAD), * raised articulation (-> 005E ^
 circumflex accent, 2303 ^ up arrowhead). Siehe
 http://www.unicode.org/charts/PDF/U02B0.pdf
 Wenn ich in die PDF-Datei schaue, sehen 02C2 (<), 02C3 (>), 02C4 (^) und
-02C4 (v) größer aus als 02C4 (^) und 02C5 (v). Vielleicht sollte man für
+02C4 (v) grÃ¶Ãer aus als 02C4 (^) und 02C5 (v). Vielleicht sollte man fÃ¼r
 02C2 bis 02C3 einfach ein gedrehtes '<' benutzen?
-- Zeichenbreite im Block "SPACE MODIFIER LETTERS (02B0–02FF)"
+- Zeichenbreite im Block "SPACE MODIFIER LETTERS (02B0â02FF)"
 (http://www.unicode.org/charts/PDF/U02B0.pdf) ist zum Teil verkehrt.
 Diese Zeichen sollen alle eine endliche Breite haben (im Gegensatz zu
 den COMBINING DIACRITICAL MARKS (0300-036F), die auf/unter einem Zeichen
@@ -685,10 +689,10 @@ Bei den meisten Zeichen stimmt die Breite/Position, bis auf:
 - 030B COMBING DOUBLE ACUTE ACCENT -> zu weit rechts.
 - 0327 COMBINING CEDILLA -> viel, viel zu weit rechts!
 - 0338 COMBINING LONG SOLIDUS OVERLY
--> Ich würde den Strich entweder etwas nach unten verlängern oder nach
+-> Ich wÃ¼rde den Strich entweder etwas nach unten verlÃ¤ngern oder nach
 etwas nach unten schieben; oder etwas nach links schieben? Jedenfalls
-sieht "o" + U0338 (= ca. ø) komisch aus.
-- Vielleicht ein klein bißchen zu weit rechts: 0323, 0330, 0331, 0342,
+sieht "o" + U0338 (= ca. Ã¸) komisch aus.
+- Vielleicht ein klein biÃchen zu weit rechts: 0323, 0330, 0331, 0342,
 - 0384 GREEK TONOS -> Das Zeichen sollte normal breit sein und kein
 "combining" Akzent.
 - 03F1 GREEK LUNATE SIGMA SYMBOL = GREEK SMALL LETTER LUNATE SIGMA ->
@@ -700,19 +704,19 @@ Strich in der Mitte
 schon sagt ein nicht geschwungenes Epsilon. In der Physik benutzt man
 oftmals beide Epsilons das gerade und das geschwungene.
 (03F6 GREEK REVERSED LUNATE EPSILON = reversed straight epsilon -> bitte
-das gedrehte 03F5 hinzufügen)
+das gedrehte 03F5 hinzufÃ¼gen)
 - 03F9 GREEK CAPITAL LUNATE SIGMA SYMBOL -> sollte anders als Sigma
 aussehen, klassischerweise wie "C" (oft ohne Serifen und spitz zulaufend)
 
 NUMBER FORMS
-- 215F "1/ " -> Man sollte wohl die Breite so ändern, daß "1/" +
+- 215F "1/ " -> Man sollte wohl die Breite so Ã¤ndern, daÃ "1/" +
 tiefgestellte Zahl (2080 bis 2089) gut aussehen.
-> Durch Kerning gelöst
+> Durch Kerning gelÃ¶st
 
 Fehlten:
 - Griechisch-Block: 03DA-03E1 fehlen (Archaische Buchstaben)
 http://www.unicode.org/charts/PDF/U0370.pdf
-(Wieso die in MES-2 sind, weiß ich allerdings nicht)
+(Wieso die in MES-2 sind, weiÃ ich allerdings nicht)
 * 03DA GREEK LETTER STIGMA
 * 03DB GREEK SMALL LETTER STIGMA
 * 03DC GREEK LETTER DIGAMMA
@@ -723,21 +727,21 @@ http://www.unicode.org/charts/PDF/U0370.pdf
 * 03E1 GREEK SMALL LETTER SAMPI
 MATHEMATICAL OPERATORS, http://www.unicode.org/charts/PDF/U2200.pdf
 - 2208 ELEMENT OF, 2209 NOT AN ELEMENT OF und 220A SMALL ELEMENT OF
--> das (Nicht-)Element-von-Symbol finde ich zu groß, es sollte nicht so
-groß wie Versalien/Großbuchstaben sein, sondern so groß oder etwas
+-> das (Nicht-)Element-von-Symbol finde ich zu groÃ, es sollte nicht so
+groÃ wie Versalien/GroÃbuchstaben sein, sondern so groÃ oder etwas
 kleiner als Gemeine/Kleinbuchstaben. Das kleine Element-von-Symbol finde
 ich zu klein.
 
 Changes to version 2.1.1 regular(|) & italic(/) & capitals (20060729)
 - IPA 02D0 Richtung korrigiert
       0258    ''       ''
-- Diacritische Zeichen überarbeitet
+- Diacritische Zeichen Ã¼berarbeitet
 - i/j ist nun dotlessi/j + dotaccent
 - Tux is again @ uniE00E
 - MathSymb 2214 corrected wrong contour
 - d', l', t'
 - OE neu
-- iota überarbeitet
+- iota Ã¼berarbeitet
 - idieresis, edieresis vom Kyrillischen sind nun Verknpf. vom Latein
 
 Changes to version 2.1.0rc regular(|) & italic(/) & capitals (20060729)
@@ -745,7 +749,7 @@ Changes to version 2.1.0rc regular(|) & italic(/) & capitals (20060729)
 - implemented the IPA-extensions
 - Small numbers -> superiors and inferiors are now bolder
 - fractures are greatly improved and some new are added
-- We now have proportional numbers and mediävale as some people asked for them
+- We now have proportional numbers and mediÃ¤vale as some people asked for them
 - Kerning for roman Numbers
 - Ligatures should now be seen as a combination of different letters in
 OpenType-Compliant programs (unfortunately aren't there any compliant programs,
@@ -834,29 +838,29 @@ paragraph end symbol, Tux penguin)
 Changes to version 1.1.1 regular(|) & italic(/) & capitals (20050908)
 | many changes, mamy small changes
 | Zahlen /numbers sind jetzt fertig
-| Korrekturen an Abständen
-| Schmälerung des Leerzeichens
+| Korrekturen an AbstÃ¤nden
+| SchmÃ¤lerung des Leerzeichens
 | t + f haben jetzt schmalere Querstriche
 | r fetter und rechts weniger Abstand
 | y neu und besser
-| () Klammern überarbeitet, waren zu hoch
+| () Klammern Ã¼berarbeitet, waren zu hoch
 | []{} siehe oben
-| µ ist ganz  neu
-| € auf Zahlenhöhe
-| t verändert
+| Âµ ist ganz  neu
+| â¬ auf ZahlenhÃ¶he
+| t verÃ¤ndert
 | M nach unten noch breiter werdend
-| ø und großes O/ pberarbeitet
+| Ã¸ und groÃes O/ pberarbeitet
 | Hoch- und Tiefzahlen /Subscripts
-| Brüche neu
-| Römische Zahlen auf Zahlenhöhe und ganz neu
+| BrÃ¼che neu
+| RÃ¶mische Zahlen auf ZahlenhÃ¶he und ganz neu
 | und noch viel viel mehr!
 
 Changes to version 1.0.4-10pt regular(|) & italic(/) & capitals (20050908)
 | weitere Arbeiten an den Zahlen besonders 2,3,5,6,0
-| Korrekturen an Abständen von K, A, N, V, W, v, w, a, 
+| Korrekturen an AbstÃ¤nden von K, A, N, V, W, v, w, a, 
 | W und X waren nicht so hoch wie andere Versalien
-| Verschmälerung des Leerzeichens von 690 auf 600pt
-| Gesäuberte Buchstaben: i, a, l, longs, ß, r, f,
+| VerschmÃ¤lerung des Leerzeichens von 690 auf 600pt
+| GesÃ¤uberte Buchstaben: i, a, l, longs, Ã, r, f,
 
 Changes to version 1.0.3-10pt regular(|) & italic(/) & capitals (20050908)
 | Tabellarische Zahlen fast fertig
@@ -868,38 +872,38 @@ Changes to version 1.0.2-10pt regular(|) & italic(/) & capitals (20050412)
 Changes to version 1.0.1-10pt regular(|) & italic(/) & capitals (20050323)
 | all Capitals are 60pt less high
 | ? question mark is slightly thinner and less high now
-| uni022C (O mit tilde und Macron): Das Macron (¯) ist etwas zu weit rechts
+| uni022C (O mit tilde und Macron): Das Macron (Â¯) ist etwas zu weit rechts
 | uni022D (o mit Tilde und Macron): dito
 | uni0210 (R mit ") die " sind zuweit links
-  (beim r und u mit " könnten sie noch ein Tick weiter rechts sein)
-| uni0307 (dotaccent) der Punkt könnte etwas höher sein
+  (beim r und u mit " kÃ¶nnten sie noch ein Tick weiter rechts sein)
+| uni0307 (dotaccent) der Punkt kÃ¶nnte etwas hÃ¶her sein
 | uni0308 (dieresis) hat positive Breite
 | 0309 (combininghook) ggf. zu hoch, Breite nicht null
 | 030C (umgedrehtes ^): positive Breite
 | 0327 (cedille): positive Breite
-| 0323 combining dot below: vielleicht noch ein bißchen nach links?
-Anmerkung: Wenn man jetzt noch die Diacritical Marks verschiebt, dann verändern
+| 0323 combining dot below: vielleicht noch ein biÃchen nach links?
+Anmerkung: Wenn man jetzt noch die Diacritical Marks verschiebt, dann verÃ¤ndern
 sie sich in allen anderen Akzentuierten Zeichen mit, wo sie durch Referenzen
 eingebunden sind. Daher habe ich die Verschiebungen ersteinmal nicht
 vorgenommen.
-|Beim kleinen psi [03C8] kann ich mich nicht recht an den schrägen Mittelstrich 
+|Beim kleinen psi [03C8] kann ich mich nicht recht an den schrÃ¤gen Mittelstrich 
    
-  gewöhnen.)
-| 1E48: Das _ beim N sollte wohl etwas länger sein oder etwas nach links
+  gewÃ¶hnen.)
+| 1E48: Das _ beim N sollte wohl etwas lÃ¤nger sein oder etwas nach links
   verschoben werden
 | Bei Greek Extended (1F00 bis 1FFF) ist bei 'E und 'H (allein und mit
   verschiedenen weiteren Akzenten) das ' vor der position 0,  und
-  überschreibt somit das vorherige Zeichen. Das ist wohl nicht Absicht,
+  Ã¼berschreibt somit das vorherige Zeichen. Das ist wohl nicht Absicht,
   oder? Analog bei `I (1FDA).
-| uni2102: Das C (für die Menge komplexe Zahlen) sollte einen
+| uni2102: Das C (fÃ¼r die Menge komplexe Zahlen) sollte einen
   Doppelstrich haben, wie deine H,Q,Z,R
-| 213D bis 2149: das gilt auch für die Zeichen hier (gamma, Gamma, Pi,
+| 213D bis 2149: das gilt auch fÃ¼r die Zeichen hier (gamma, Gamma, Pi,
   Sigma, D, d, e und j)
-| 2153 bis 215A: Die Brüche 1/3, 2/3, 1/5, 2/5, 3/5, 4/5, 1/6, 5/6
-  fehlen; besonders 1/3 und 2/3 wären schön
+| 2153 bis 215A: Die BrÃ¼che 1/3, 2/3, 1/5, 2/5, 3/5, 4/5, 1/6, 5/6
+  fehlen; besonders 1/3 und 2/3 wÃ¤ren schÃ¶n
 | 2217 und 2218 sollten witer unten stehen (genaus so hoch wie das Minus
   und der Punkt 2219) da das Multiplikationsoperatoren sind.
-| 226A und 226B: Das sind vielgrößer/vielkleiner Zeichen. Ich hätte sie
+| 226A und 226B: Das sind vielgrÃ¶Ãer/vielkleiner Zeichen. Ich hÃ¤tte sie
   aber so nicht erkannt. Nimm einfach << und >> und schiebe sie ein wenig
   ineinander.
 
@@ -916,7 +920,7 @@ Changes to version 0.9.8-10pt regular(|) & italic(/) & capitals (20041208)
 | some other small changes
 
 Changes to version 0.9.6-10ptL regular(|) & italic(/) & capitals(20041201)
-- bigger serifs for l,i,j,f,a,b,c,d,e,m,n,p,r,h,k,q,s,u,v,w,x,y,z,ß and many
+- bigger serifs for l,i,j,f,a,b,c,d,e,m,n,p,r,h,k,q,s,u,v,w,x,y,z,Ã and many
 more
 
 Changes to version 0.9.5 regular(|) & italic(/) & capitals (#)(20041008)
@@ -952,7 +956,7 @@ Changes to version 0.9.3 regular(|) & italic(/) & capitals (#)(20040802)
 | ae changed
 | Paragraph sign
 | hinting
-| þ
+| Ã¾
 | M rBearing 60 => 65
 # c
 many other small changes
@@ -979,7 +983,7 @@ Changes to version 0.8.8 regular(|) & italic(/) & capitals (#)(20040723)
 | [] bracket improved
 | + - at one hight
 | ~ improved
-| § improved
+| Â§ improved
 | breve improved
 | c/o and other small things
 # Capitals initiated
@@ -1077,7 +1081,7 @@ Changes to version 0.7.9 regular(|) & italic(/) (20040604)
 | p rBearing 75 => 80
     bow overworked
 | AE overworked
-| þ overworked
+| Ã¾ overworked
 | o overworked
 | oe overworked
 | uni434 overworked
@@ -1108,7 +1112,7 @@ Changes to version 0.7.8 regular(|) & italic(/) (20040604)
 | O, P, Q, R overworked
 | W combined
 | Y wider
-| ß overworked
+| Ã overworked
 
 
 Changes to version 0.7.7 regular(|) & italic(/) (20040604)
@@ -1169,7 +1173,7 @@ Changes to version 0.7.0 regular(|) & italic(/) (20040522)
 and other fixes 
 
 Changes to version 0.6.9 regular(|) & italic(/) (20040519)
-| overworked µ
+| overworked Âµ
 | added 018E
 | added 01B6 - 01B9
 | added 0283
@@ -1255,11 +1259,11 @@ Changes to version 0.6.2 regular(|) & italic(/) (20040315)
 | S rBearing 90 => 95
 | E rBearing 90 => 100
 | z lBearing 95 => 85
-| ä,ö,ü a.s.f have bigger dieresis (points)
+| Ã¤,Ã¶,Ã¼ a.s.f have bigger dieresis (points)
 | k smal changes in the arm
 | x l/rBearing 7=> 12
 | T kern pairs
-| �overworked
+| ï¿½overworked
 | ff overworked
 | fi overworked
 | dotlessi overworked
@@ -1306,13 +1310,13 @@ Changes to version 0.6.0 regular(|) & italic(/) (20040315)
 
 Changes to version 0.5.9 regular(|) & italic(/) (20040315)
 | did the common latin legatures
-| �still working on the bows
+| ï¿½still working on the bows
 | e is a now 2% less wide as before
     had some changes
 | dashes overworked
 
 Changes to version 0.5.8 regular(|) & italic(/) (20040315)
-/ b, �changes
+/ b, ï¿½changes
 / f overwork in the bow
 - some other changes
 
@@ -1328,7 +1332,7 @@ Changes to version 0.5.7 regular(|) & italic(/) (20040315)
 | a,b,c,d,e,f had small overwork
 | g's ear still had another overwork. Whether this will be better
     we'll see...
-| �is now wider
+| ï¿½is now wider
 | ... {Ellipsis} had an overwork
 | j Beraings + 10/15pt
 
@@ -1353,7 +1357,7 @@ Changes to version 0.5.6 regular(|) & italic(/) (20040303)
 - K is now ca 50pt wider
 | a,c,f added extrema
 - S thicker serifs
-- �has gained a lot, though
+- ï¿½has gained a lot, though
     in italic the subpart is still missing
 | # is corrected
 / & corrected
@@ -1371,7 +1375,7 @@ Changes to version 0.5.4 (20040303)
 - ~ (tilde) is now better
 - ff is much better now
 - fi as well
-- � � , � � �better now
+- ï¿½ ï¿½ , ï¿½ ï¿½ ï¿½better now
 - change to v, w
 
 Changes to version -italic-0.5.4 (20040303)
@@ -1385,7 +1389,7 @@ Changes to version 0.5.3 (20040228)
 - n,m became 28pt wider
 - W thin stems became thinner (ca. 4pt)
 - u change in the bow
-- �corrected
+- ï¿½corrected
 - D became wider
 - 1,2,3,4,5,6,7 had a major overwork
 - C,G wider bows
@@ -1425,7 +1429,7 @@ Changes to version 0.5.1 (20040214)
 - Z edge improved
 - ? (Questionmark) new designed
 - ! (Exklamationmark) new designed
-- p,q shortened the Unterl�ge
+- p,q shortened the Unterlï¿½ge
 
 Changes to version 0.5.0 (20040212)
 It showed that most of my critics said that a drop
@@ -1442,7 +1446,7 @@ conservate old forms for a later splitting in two fonts.
 - J,c have now a drop too
 - b changes in the bow
 - y greatly overworked
-- �desiris corrected
+- ï¿½desiris corrected
 - o had some changes in the round
 - P new serifs
 - E overworked upper serif
@@ -1662,8 +1666,8 @@ Greek Symbols will come:
 - te kerning -25 => 0
 - t rBearing 65 => 75
 - c rBearing 60 => 50
-- �rBearing 94 => 70
-- �rBearing 59 => 65
+- ï¿½rBearing 94 => 70
+- ï¿½rBearing 59 => 65
 -  rBearing 62 => 65
 - all round small charakters a,b,c,d,e,g,h,i,j,m,n,o,p,q,r,s
   have grown a bit to get a better text-tape
@@ -1681,7 +1685,7 @@ Changes to version 0.4.1 (20031214)
 - Vi, Wi kerning: -70 => -50
 - Vo, Ve, Va, Wo, We, Wa  kerning -150 => -120
 - t: top is a little lower now
-- � major overwork
+- ï¿½ major overwork
 - S: major overwork
 - r: a step back to the r in 0.3.9
 - P: Bow is better now
@@ -1757,7 +1761,7 @@ Changes to version 0.3.8 (20031102)
 - .;:? Dots got 10% smaller
 - ? complete newdesigned
 - , (Komma) major overwork
-- �(German sz) overworked
+- ï¿½(German sz) overworked
 - t RBearing + 10pt
 - u more contras and finer connection
 - U now wider and more round bow
@@ -1807,7 +1811,7 @@ Changes to version 0.3.5 (20031019)
 - & (ampersand) from efont
 - '," (inch, geometr. minute/second) are now undynamic
 - / smaller
-- numbers: new medi�al (OSF) numbers from efont
+- numbers: new mediï¿½al (OSF) numbers from efont
 - @ has a new a in the middle
 - v, w: finer, make paralell, anti-block-trick
 - V, W: anti-block-trick, make parallel
@@ -1851,11 +1855,11 @@ Changes to version 0.3.3 (20031019)
 - g: light changes
 - e: light changes
 - stem width of small letters are now 140 instead of 145
-- p, q: weniger Unterl�ge
+- p, q: weniger Unterlï¿½ge
 - S: has now more RBearing
 - the lBearing and RBearing of the Gemeinen (small letters) have been extended
   about 5pt.
-- �(sz, german) had a redesign but still needs a lot of work
+- ï¿½(sz, german) had a redesign but still needs a lot of work
 
 Changes to version 0.3.2 (20031018)
 - R has been overworked and is now similar to P again
@@ -1941,7 +1945,7 @@ latters that no
 
 
 Changes to version 0.2.9 (20031008)
-- Added some arrows you need for chemistry-terms (->, <-, <-->, v, �
+- Added some arrows you need for chemistry-terms (->, <-, <-->, v, ï¿½
 
 Changes to version 0.2.8 (20031005)
 - did a little work in kerning of pairs like Vx, Wx, fx, ff
