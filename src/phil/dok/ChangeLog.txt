@@ -1,8 +1,31 @@
 Libertine Open Fonts Project -- http://www.linuxlibertine.org
 
-Changes to version 5.1.2 (2011-06-06)
+Changes to version 5.1.3 (2011-06-13)
 
-- fixing probelm with OS2 table.
+-Added missing ligatures and/or removed ligature information from the liga-gsub list.
+  done for Libertine Bold, BoldItalic, Italic
+-Corrected style information for Libertine and Biolinum styles (bug 3307966).
+		  This bug caused that bold italic was used as italic style on some systems.
+-Semibold style are now recognized as part of the Libertine or Biolinum Family.
+-Libertine Bold Italic:
+    -  missing numeral sets (old style) added
+    -  bold small caps added
+    -  bold greek letters added
+- Libertine Bold 
+    - bold greek letters added
+    - improved ligatures
+
+Changes to version 5.1.0 (2011-05-29)
+
+- Bug ID: 3310598 corrected (unicode placement of inferior glyphs uni2095-uni209c)
+Thanks Kim for the report
+- Libertine R: inferior and superiors: n, r, m, t, u, v, w, p,  improvements and design adaptation 
+
+
+Changes to version 5.0.1 (2011-05-29)
+TrueType Package: Corrected missing style information for LinBiolinum_aS.ttf - LinBiolinum_aSI.ttf
+		  This bug caused that these styles could not be installed or used parallely with each other.
+
 
 Changes to version 5.0.0 (2011-05-20)
 
