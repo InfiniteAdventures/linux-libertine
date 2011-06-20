@@ -1,6 +1,0 @@
-#!/bin/bash
-make clean && \
-make init && \
-make copysfdorg && \
-make createslanted createcapitals createoutline createshadow
-

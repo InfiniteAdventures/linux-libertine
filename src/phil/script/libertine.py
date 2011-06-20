@@ -261,12 +261,12 @@ libertineDR["weight"] = "Book"
 libertineDR["style"] = "Regular"
 
 # Slanted
-libertineDR["slfilename"] = "LinLibertine_aDRL"
-libertineDR["slfontname"] = "LinLibertineDisplaySlantedO"
-libertineDR["slfamilyname"] = "Linux Libertine Display Slanted O"
-libertineDR["slfullname"] = "Linux Libertine Display Slanted O"
-libertineDR["slweight"] = "Book"
-libertineDR["slstyle"] = "Slanted"
+#libertineDR["slfilename"] = "LinLibertine_aDRL"
+#libertineDR["slfontname"] = "LinLibertineDisplaySlantedO"
+#libertineDR["slfamilyname"] = "Linux Libertine Display Slanted O"
+#libertineDR["slfullname"] = "Linux Libertine Display Slanted O"
+#libertineDR["slweight"] = "Book"
+#libertineDR["slstyle"] = "Slanted"
 
 # Small Caps
 libertineDR["scfilename"] = "LinLibertine_aDRS"
@@ -289,14 +289,14 @@ libertineDR["texfilename"] = "fxldr"
 # Füge Einträge der Liste hinzu
 fonts["LinLibertineDisplayO"] = libertineDR;
 
-libertineDRSl = {};
-libertineDRSl["ttffontname"] = "LinLibertineDisplaySlanted"
-libertineDRSl["ttffamilyname"] = "Linux Libertine Display Slanted"
-libertineDRSl["ttffullname"] = "Linux Libertine Display Slanted"
-libertineDRSl["ttfweight"] = "Book"
-libertineDRSl["ttfstyle"] = "Slanted"
-libertineDRSl["texfilename"] = "fxldro"
-fonts["LinLibertineDisplaySlantedO"] = libertineDRSl;
+#libertineDRSl = {};
+#libertineDRSl["ttffontname"] = "LinLibertineDisplaySlanted"
+#libertineDRSl["ttffamilyname"] = "Linux Libertine Display Slanted"
+#libertineDRSl["ttffullname"] = "Linux Libertine Display Slanted"
+#libertineDRSl["ttfweight"] = "Book"
+#libertineDRSl["ttfstyle"] = "Slanted"
+#libertineDRSl["texfilename"] = "fxldro"
+#fonts["LinLibertineDisplaySlantedO"] = libertineDRSl;
 
 libertineDRSc = {};
 libertineDRSc["ttffontname"] = "LinLibertineDisplayCapitals"

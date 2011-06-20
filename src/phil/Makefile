@@ -33,7 +33,27 @@ TTFFILES=$(patsubst $(SOURCE_SFDSVN)/%, $(OUTPUT_TTF)/%,  $(patsubst %.sfd, %.tt
 OTFFILES=$(patsubst $(SOURCE_SFDSVN)/%, $(OUTPUT_OTF)/%,  $(patsubst %.sfd, %.otf ,$(SFDSVNFILES)))
 
 
-all: init
+all: help
+
+help:
+	@echo -e "\n\n"
+	@echo -e "copyfromorg"
+	@echo -e "-----------"
+	@echo -e "erstellt aus allen Fonts im org-Verzeichnis entsprechende SFD-Fonts mit Versionsnummer etc."
+	@echo -e "\ncreateautofonts"
+	@echo -e "---------------"
+	@echo -e "erstellt aus allen Fonts im sfd-Verzeichnis generierte Fonts"
+	@echo -e "\ncreatetar"
+	@echo -e "---------------"
+	@echo -e "erstellt tar-Pakete"
+	@echo -e "\n"
+
+
+createautofonts: init 
+	@make --no-print-directory copyfromsfd 
+	@make --no-print-directory createslanted createcapitals createoutline createshadow 
+	@make --no-print-directory copysvn
+
 
 $(OUTPUT_SFD)/%.sfd : $(SOURCE_SFDORG)/%.sfd
 	@$(SOURCE_FFSCRIPT)/copysfd.py $< $(OUTPUT_SFD)
@@ -53,7 +73,9 @@ $(OUTPUT_SFD_WF)/%.sfd : $(OUTPUT_SFD)/%.sfd
 $(OUTPUT_SFD_SH)/%.sfd : $(OUTPUT_SFD)/%.sfd
 	@$(SOURCE_FFSCRIPT)/createshadow.py $< $(OUTPUT_SFD_SH)
 
-copysfd: init $(SFDOUTFILES)
+copyfromorg: clean init $(SFDOUTFILES)
+	@echo "kopiere SFD-Dateien nach sfd"
+	@cp -uv $(OUTPUT_SFD)/*.sfd $(SOURCE_SFDSVN)
 
 createslanted: init $(TARGETSFDFILESSL)
 
@@ -69,19 +91,17 @@ otf: init $(OTFFILES)
 
 ttf: init $(TTFFILES)
 
-copysvnbasic:
-	@cp -u $(OUTPUT_SFD)/*.sfd $(SOURCE_SFDSVN)
-
 copysvn:
 	@# cp -u $(OUTPUT_SFD)/*.sfd $(SOURCE_SFDSVN)
-	@cp -u $(OUTPUT_SFD_SL)/*.sfd $(SOURCE_SFDSVN)
-	@cp -u $(OUTPUT_SFD_SC)/*.sfd $(SOURCE_SFDSVN)
-	@cp -u $(OUTPUT_SFD_OT)/*.sfd $(SOURCE_SFDSVN)
-	@cp -u $(OUTPUT_SFD_SH)/*.sfd $(SOURCE_SFDSVN)
+	@cp -uv $(OUTPUT_SFD_SL)/*.sfd $(SOURCE_SFDSVN)
+	@cp -uv $(OUTPUT_SFD_SC)/*.sfd $(SOURCE_SFDSVN)
+	@cp -uv $(OUTPUT_SFD_OT)/*.sfd $(SOURCE_SFDSVN)
+	@cp -uv $(OUTPUT_SFD_SH)/*.sfd $(SOURCE_SFDSVN)
 
-copysfdorg: init
-	@cp -u $(SOURCE_SFDSVN)/LinBiolinum_[^a]*.sfd $(OUTPUT_SFD)
-	@cp -u $(SOURCE_SFDSVN)/LinLibertine_[^a]*.sfd $(OUTPUT_SFD)
+copyfromsfd: init
+	@echo "### copy from sfd to target"
+	@cp -uv $(SOURCE_SFDSVN)/LinBiolinum_[^a]*.sfd $(OUTPUT_SFD)
+	@cp -uv $(SOURCE_SFDSVN)/LinLibertine_[^a]*.sfd $(OUTPUT_SFD)
 
 copyhome: 
 	@rm -f ~/.fonts/Lin*.ttf ~/.fonts/Lin*.otf 
@@ -119,9 +139,11 @@ createtar: ttf otf
 
 
 $(OUTPUT_OTF)/%.otf : $(SOURCE_SFDSVN)/%.sfd
+	@echo "### creating otf/svg ..."
 	@nice $(SOURCE_FFSCRIPT)/sfd2otf.py $< $(OUTPUT_OTF)
 
 $(OUTPUT_TTF)/%.ttf : $(SOURCE_SFDSVN)/%.sfd
+	@echo "### creating ttf/woff ..."
 	@nice $(SOURCE_FFSCRIPT)/sfd2ttf.py $< $(OUTPUT_TTF)
 
 init:

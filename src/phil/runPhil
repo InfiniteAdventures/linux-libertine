@@ -1,5 +1,0 @@
-#!/bin/bash
-make init 
-make copysfd
-# make copysvnbasic
-

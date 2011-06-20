@@ -1,6 +1,0 @@
-#!/bin/bash
-make init && \
-   make createslanted && \
-   make createcapitals && \
-   make createoutline && \
-   make createshadow
