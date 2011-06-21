@@ -18,6 +18,9 @@ OUTPUT_TTF=$(TARGET)/ttf
 OUTPUT_OTF=$(TARGET)/otf
 OUTPUT_TAR=$(TARGET)/tar
 
+FONTVERSION=NOTDEF
+-include $(TARGET)/fontversion.mk
+
 SFDFILES=$(wildcard $(SOURCE_SFDORG)/*.sfd)
 SFDOUTFILES=$(patsubst $(SOURCE_SFDORG)/%, $(OUTPUT_SFD)/%,  $(SFDFILES))
 SFDSVNFILES=$(wildcard $(SOURCE_SFDSVN)/*.sfd)
@@ -108,7 +111,7 @@ copyhome:
 	@cp -u $(OUTPUT_TTF)/*.ttf ~/.fonts/
 	@cp -u $(OUTPUT_OTF)/*.otf ~/.fonts/
 
-createtar: ttf otf
+createtar: fontversion ttf otf
 	@echo "### creating tar files..."
 	@mkdir -p $(OUTPUT_TAR)/sfd
 	@mkdir -p $(OUTPUT_TAR)/ttf
@@ -127,15 +130,15 @@ createtar: ttf otf
 	@cp $(OUTPUT_TTF)/*.woff $(OUTPUT_TAR)/woff
 	@cp $(OUTPUT_OTF)/*.svg $(OUTPUT_TAR)/svg
 	@echo "### creating LinLibertineSRC files..."
-	@cd $(OUTPUT_TAR)/sfd ; tar cfz $(TARGET)/LinLibertineSRC_`date +%Y_%m_%d`.tgz *
+	@cd $(OUTPUT_TAR)/sfd ; tar cfz $(TARGET)/LinLibertineSRC_$(FONTVERSION)_`date +%Y_%m_%d`.tgz *
 	@echo "### creating LinLibertineTTF files..."
-	@cd $(OUTPUT_TAR)/ttf ; tar cfz $(TARGET)/LinLibertineTTF_`date +%Y_%m_%d`.tgz *
+	@cd $(OUTPUT_TAR)/ttf ; tar cfz $(TARGET)/LinLibertineTTF_$(FONTVERSION)_`date +%Y_%m_%d`.tgz *
 	@echo "### creating LinLibertineOTF files..."
-	@cd $(OUTPUT_TAR)/otf ; tar cfz $(TARGET)/LinLibertineOTF_`date +%Y_%m_%d`.tgz *
+	@cd $(OUTPUT_TAR)/otf ; tar cfz $(TARGET)/LinLibertineOTF_$(FONTVERSION)_`date +%Y_%m_%d`.tgz *
 	@echo "### creating LinLibertineSVG files..."
-	@cd $(OUTPUT_TAR)/svg ; tar cfz $(TARGET)/LinLibertineSVG_`date +%Y_%m_%d`.tgz *
+	@cd $(OUTPUT_TAR)/svg ; tar cfz $(TARGET)/LinLibertineSVG_$(FONTVERSION)_`date +%Y_%m_%d`.tgz *
 	@echo "### creating LinLibertineWOFF files..."
-	@cd $(OUTPUT_TAR)/woff ; tar cfz $(TARGET)/LinLibertineWOFF_`date +%Y_%m_%d`.tgz *
+	@cd $(OUTPUT_TAR)/woff ; tar cfz $(TARGET)/LinLibertineWOFF_$(FONTVERSION)_`date +%Y_%m_%d`.tgz *
 
 
 $(OUTPUT_OTF)/%.otf : $(SOURCE_SFDSVN)/%.sfd
@@ -145,6 +148,10 @@ $(OUTPUT_OTF)/%.otf : $(SOURCE_SFDSVN)/%.sfd
 $(OUTPUT_TTF)/%.ttf : $(SOURCE_SFDSVN)/%.sfd
 	@echo "### creating ttf/woff ..."
 	@nice $(SOURCE_FFSCRIPT)/sfd2ttf.py $< $(OUTPUT_TTF)
+
+fontversion: init
+	@echo "### fontversion"
+	@$(SOURCE_FFSCRIPT)/fontversion.py sfd/LinLibertine_R.sfd $(TARGET)
 
 init:
 	@echo "### creating target..."
