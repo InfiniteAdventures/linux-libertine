@@ -166,6 +166,8 @@ init:
 	@mkdir -p $(OUTPUT_SFD_WF)
 	@mkdir -p $(OUTPUT_SFD_SH)
 
+printtexname:
+	@$(SOURCE_FFSCRIPT)/printtexname.py sfd
 
 cleantmp:
 	@echo "### removing tmp files ...";
